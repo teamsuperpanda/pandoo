@@ -1,0 +1,7 @@
+{
+  "name": "pandoo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
