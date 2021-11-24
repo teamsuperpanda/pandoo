@@ -5,11 +5,16 @@
         <ion-thumbnail slot="start">
           <img src="/assets/pandoo.png" class="ion-margin-start"/>
         </ion-thumbnail>
-        <ion-title class="ion-margin-start">Pandoo</ion-title>
+        <ion-title>Completed</ion-title>
       </ion-toolbar>
     </ion-header>
+    <ion-content :fullscreen="true">
+      <ion-header collapse="condense">
+        <ion-toolbar>
+          <ion-title size="large">Completed</ion-title>
+        </ion-toolbar>
+      </ion-header>
     
-    <ion-content>
       <ion-list class="panda-list">
           <ion-item v-for="(item, index) in completedList" :key="index">
               <ion-label>{{item.data.title}}</ion-label>
