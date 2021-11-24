@@ -35,6 +35,7 @@
 
 <script>
 import { IonButton, IonCheckbox, IonTitle, IonThumbnail, IonHeader, IonInput, IonToolbar, IonFooter, IonList, IonItem, IonLabel, IonPage, IonContent } from '@ionic/vue';
+import { Keyboard } from '@capacitor/keyboard';
 
 import Localbase from 'localbase'
 let db = new Localbase('db')
@@ -57,6 +58,7 @@ export default  {
           completed: false,
           index: this.todoList.length
         }).then(() => {
+          Keyboard.hide()
           this.todoInput = "";
           this.fetchToDos();
         })
@@ -80,13 +82,10 @@ export default  {
       })
     },
     todoCompleted(index) {
-      // change data.completed
       let completedChange = !this.todoList[index].data.completed
-      // change data.completed in db
       db.collection('todos').doc(this.todoList[index].id).update({
         completed: completedChange
       }).then(() => {
-        // change data.completed in vue
         this.todoList[index].data.completed = completedChange
       })
     }
