@@ -3,17 +3,26 @@ import 'package:hive_flutter/hive_flutter.dart';
 import '../models/list_model.dart';
 
 class StorageService {
-  static final StorageService _instance = StorageService._internal();
+  static StorageService _instance = StorageService._internal();
   factory StorageService() => _instance;
   StorageService._internal();
 
   static const String listsBoxName = 'lists';
   late Box<ListModel> _listsBox;
 
-  Future<void> init() async {
-    await Hive.initFlutter();
-    Hive.registerAdapter(ListModelAdapter());
-    Hive.registerAdapter(TodoItemAdapter());
+  Future<void> init({String? testPath}) async {
+    if (testPath != null) {
+      Hive.init(testPath);
+    } else {
+      await Hive.initFlutter();
+    }
+
+    if (!Hive.isAdapterRegistered(0)) {
+      Hive.registerAdapter(ListModelAdapter());
+    }
+    if (!Hive.isAdapterRegistered(1)) {
+      Hive.registerAdapter(TodoItemAdapter());
+    }
     _listsBox = await Hive.openBox<ListModel>(listsBoxName);
   }
 
@@ -101,6 +110,9 @@ class StorageService {
   }
 
   ValueListenable<Box<ListModel>> getBoxNotifier() {
+    if (!Hive.isBoxOpen(listsBoxName)) {
+      throw StateError('Storage not initialized');
+    }
     return _listsBox.listenable();
   }
 
@@ -145,5 +157,17 @@ class StorageService {
     );
 
     await _listsBox.put(listName, updatedList);
+  }
+
+  Future<void> close() async {
+    if (_listsBox.isOpen) {
+      await _listsBox.close();
+    }
+  }
+
+  @visibleForTesting
+  static void setTestInstance(Box<ListModel> box) {
+    _instance = StorageService._internal();
+    _instance._listsBox = box;
   }
 }
