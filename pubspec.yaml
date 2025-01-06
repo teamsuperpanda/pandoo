@@ -1,0 +1,51 @@
+name: pandoo
+description: "A simple todo list app"
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.6.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  flutter_launcher_icons: ^0.13.1
+  flutter_native_splash: ^2.4.0
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  awesome_snackbar_content: ^0.1.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  build_runner: ^2.4.8
+  hive_generator: ^2.0.1
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/launchscreen/logo.png
+    - assets/images/launchscreen/branding.png
+    - assets/images/icon/icon.png
+
+flutter_native_splash:
+  android_12: 
+    image: assets/images/launchscreen/logo.png
+    branding: assets/images/launchscreen/branding.png
+  color: "#1A1A1A"
+  android: true
+  ios: true
+  # flutter pub run flutter_native_splash:create
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/icon/icon.png"
+  min_sdk_android: 21
+  adaptive_icon_background: "#228B22"
+  adaptive_icon_foreground: "assets/images/icon/icon.png"
+  # flutter pub run flutter_launcher_icons:main
