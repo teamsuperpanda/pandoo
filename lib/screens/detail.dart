@@ -17,78 +17,85 @@ class DetailScreen extends StatelessWidget {
     final storage = StorageService();
 
     return Scaffold(
-      body: Column(
-        children: [
-          Container(
-            height: 60,
-            color: const Color.fromRGBO(26, 26, 26, 1),
-            child: Stack(
-              children: [
-                // Back button
-                Positioned(
-                  left: 4,
-                  top: 0,
-                  bottom: 0,
-                  child: IconButton(
-                    icon: const Icon(
-                      Icons.arrow_back,
-                      color: Colors.white,
-                    ),
-                    onPressed: () => Navigator.pop(context),
-                  ),
-                ),
-                // Centered text
-                Center(
-                  child: Text(
-                    listTitle,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+      backgroundColor: const Color.fromRGBO(26, 26, 26, 1),
+      body: SafeArea(
+        child: Column(
+          children: [
+            Container(
+              height: 60,
+              color: const Color.fromRGBO(26, 26, 26, 1),
+              child: Stack(
+                children: [
+                  // Back button
+                  Positioned(
+                    left: 4,
+                    top: 0,
+                    bottom: 0,
+                    child: IconButton(
+                      icon: const Icon(
+                        Icons.arrow_back,
+                        color: Colors.white,
+                      ),
+                      onPressed: () => Navigator.pop(context),
                     ),
                   ),
-                ),
-                // Cleanup button
-                Positioned(
-                  right: 4,
-                  top: 0,
-                  bottom: 0,
-                  child: ValueListenableBuilder<Box<ListModel>>(
-                    valueListenable: storage.getBoxNotifier(),
-                    builder: (context, box, _) {
-                      final list = box.get(listTitle);
-                      final hasCompletedItems =
-                          list?.items.any((item) => item.isCompleted) ?? false;
+                  // Centered text
+                  Center(
+                    child: Text(
+                      listTitle,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  // Cleanup button
+                  Positioned(
+                    right: 4,
+                    top: 0,
+                    bottom: 0,
+                    child: ValueListenableBuilder<Box<ListModel>>(
+                      valueListenable: storage.getBoxNotifier(),
+                      builder: (context, box, _) {
+                        final list = box.get(listTitle);
+                        final hasCompletedItems =
+                            list?.items.any((item) => item.isCompleted) ??
+                                false;
 
-                      return IconButton(
-                        icon: Icon(
-                          Icons.cleaning_services_rounded,
-                          color: hasCompletedItems
-                              ? Colors.white
-                              : Colors.white.withAlpha(77),
-                        ),
-                        onPressed: hasCompletedItems
-                            ? () => _showCleanupDialog(context, storage)
-                            : null,
-                      );
-                    },
+                        return IconButton(
+                          icon: Icon(
+                            Icons.cleaning_services_rounded,
+                            color: hasCompletedItems
+                                ? Colors.white
+                                : Colors.white.withAlpha(77),
+                          ),
+                          onPressed: hasCompletedItems
+                              ? () => _showCleanupDialog(context, storage)
+                              : null,
+                        );
+                      },
+                    ),
                   ),
+                ],
+              ),
+            ),
+            Expanded(
+              child: Container(
+                color: Theme.of(context).scaffoldBackgroundColor,
+                child: TodoList(
+                  listTitle: listTitle,
+                  storage: storage,
                 ),
-              ],
+              ),
             ),
-          ),
-          Expanded(
-            child: TodoList(
-              listTitle: listTitle,
-              storage: storage,
+            AddItem(
+              onItemAdded: (String text) async {
+                await storage.addItemToList(listTitle, text);
+              },
             ),
-          ),
-          AddItem(
-            onItemAdded: (String text) async {
-              await storage.addItemToList(listTitle, text);
-            },
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

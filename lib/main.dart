@@ -60,59 +60,65 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Container(
-            height: 60,
-            color: Theme.of(context).appBarTheme.backgroundColor,
-            child: Stack(
-              children: [
-                Positioned(
-                  left: 16,
-                  top: 0,
-                  bottom: 0,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 12),
-                    child: Image.asset(
-                      'assets/images/icon/icon.png',
-                      height: 36,
+      backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+      body: SafeArea(
+        child: Column(
+          children: [
+            Container(
+              height: 60,
+              color: Theme.of(context).appBarTheme.backgroundColor,
+              child: Stack(
+                children: [
+                  Positioned(
+                    left: 16,
+                    top: 0,
+                    bottom: 0,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 12),
+                      child: Image.asset(
+                        'assets/images/icon/icon.png',
+                        height: 36,
+                      ),
                     ),
                   ),
-                ),
-                const Center(
-                  child: Text(
-                    'Pandoo',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+                  const Center(
+                    child: Text(
+                      'Pandoo',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
-                ),
-                Positioned(
-                  right: 4,
-                  top: 0,
-                  bottom: 0,
-                  child: IconButton(
-                    icon: const Icon(
-                      Icons.settings,
-                      color: Colors.white,
+                  Positioned(
+                    right: 4,
+                    top: 0,
+                    bottom: 0,
+                    child: IconButton(
+                      icon: const Icon(
+                        Icons.settings,
+                        color: Colors.white,
+                      ),
+                      onPressed: () => _openSettings(context),
                     ),
-                    onPressed: () => _openSettings(context),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-          const Expanded(
-            child: ShowLists(),
-          ),
-          AddList(
-            onListAdded: () {
-              // No need for refresh - ValueListenableBuilder handles updates
-            },
-          ),
-        ],
+            Expanded(
+              child: Container(
+                color: Theme.of(context).scaffoldBackgroundColor,
+                child: const ShowLists(),
+              ),
+            ),
+            AddList(
+              onListAdded: () {
+                // No need for refresh - ValueListenableBuilder handles updates
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
