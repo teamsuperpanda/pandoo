@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../core/constants/colors.dart';
 
 class AddItem extends StatelessWidget {
   final TextEditingController _controller = TextEditingController();
@@ -11,10 +12,12 @@ class AddItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: theme.scaffoldBackgroundColor,
         boxShadow: [
           BoxShadow(
             color: Colors.black.withAlpha(13),
@@ -30,24 +33,21 @@ class AddItem extends StatelessWidget {
               controller: _controller,
               decoration: InputDecoration(
                 hintText: 'Add new item...',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: BorderSide.none,
-                ),
-                filled: true,
-                fillColor: Colors.grey.shade100,
-                contentPadding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 14,
-                ),
+              ).applyDefaults(theme.inputDecorationTheme),
+              style: TextStyle(
+                color: theme.brightness == Brightness.dark
+                    ? AppColors.pandaWhite
+                    : AppColors.pandaBlack,
               ),
             ),
           ),
           const SizedBox(width: 12),
           Container(
             decoration: BoxDecoration(
-              color: Theme.of(context).primaryColor,
-              borderRadius: BorderRadius.circular(8),
+              color: theme.brightness == Brightness.dark
+                  ? AppColors.bamboo
+                  : AppColors.primary,
+              borderRadius: BorderRadius.circular(12),
             ),
             child: IconButton(
               icon: const Icon(Icons.add, color: Colors.white),

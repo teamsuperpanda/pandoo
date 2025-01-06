@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import '../../services/storage_service.dart';
+import '../../core/constants/colors.dart';
 
 class AddList extends StatelessWidget {
   final TextEditingController _controller = TextEditingController();
@@ -14,10 +15,12 @@ class AddList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: theme.scaffoldBackgroundColor,
         boxShadow: [
           BoxShadow(
             color: Colors.black.withAlpha(13),
@@ -33,24 +36,21 @@ class AddList extends StatelessWidget {
               controller: _controller,
               decoration: InputDecoration(
                 hintText: 'Add new list...',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: BorderSide.none,
-                ),
-                filled: true,
-                fillColor: Colors.grey.shade100,
-                contentPadding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 14,
-                ),
+              ).applyDefaults(theme.inputDecorationTheme),
+              style: TextStyle(
+                color: theme.brightness == Brightness.dark
+                    ? AppColors.pandaWhite
+                    : AppColors.pandaBlack,
               ),
             ),
           ),
           const SizedBox(width: 12),
           Container(
             decoration: BoxDecoration(
-              color: Theme.of(context).primaryColor,
-              borderRadius: BorderRadius.circular(8),
+              color: theme.brightness == Brightness.dark
+                  ? AppColors.bamboo
+                  : AppColors.primary,
+              borderRadius: BorderRadius.circular(12),
             ),
             child: IconButton(
               icon: const Icon(Icons.add, color: Colors.white),

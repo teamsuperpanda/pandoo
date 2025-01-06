@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import '../../services/storage_service.dart';
 import '../../models/list_model.dart';
+import '../../core/constants/colors.dart';
 
 class ListCard extends StatelessWidget {
   final String title;
@@ -88,94 +89,115 @@ class ListCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Dismissible(
       key: ValueKey(title),
-      direction: DismissDirection.endToStart, // Only right to left swipe
+      direction: DismissDirection.endToStart,
       confirmDismiss: (_) => _confirmDelete(context),
       background: Container(
         alignment: Alignment.centerRight,
         padding: const EdgeInsets.only(right: 24),
-        color: Colors.red,
-        child: const Icon(
+        decoration: BoxDecoration(
+          color: AppColors.error.withAlpha(26),
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Icon(
           Icons.delete,
-          color: Colors.white,
+          color: AppColors.error,
         ),
       ),
       child: Card(
-        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-        elevation: 0,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(0),
-          side: BorderSide(color: Colors.grey.shade200),
-        ),
-        child: ListTile(
-          contentPadding: const EdgeInsets.only(left: 16),
-          leading: ReorderableDragStartListener(
-            index: index,
-            child: const Icon(
-              Icons.drag_indicator,
-              color: Colors.grey,
-            ),
-          ),
-          title: Row(
-            children: [
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                decoration: BoxDecoration(
-                  color: Theme.of(context).primaryColor.withAlpha(25),
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: ValueListenableBuilder<Box<ListModel>>(
-                  valueListenable: StorageService().getBoxNotifier(),
-                  builder: (context, box, _) {
-                    final list = box.get(title);
-                    final itemCount = list?.items.length ?? 0;
-                    return Text(
-                      '$itemCount',
-                      style: TextStyle(
-                        color: Theme.of(context).primaryColor,
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    );
-                  },
-                ),
-              ),
-              const SizedBox(width: 8),
-              Text(title),
-            ],
-          ),
-          trailing: Padding(
-            padding: const EdgeInsets.only(right: 8),
-            child: PopupMenuButton<String>(
-              icon: const Icon(Icons.more_vert),
-              itemBuilder: (context) => [
-                PopupMenuItem(
-                  value: 'rename',
-                  child: const Text('Rename'),
-                ),
-                const PopupMenuDivider(),
-                PopupMenuItem(
-                  value: 'delete',
-                  child: const Text(
-                    'Delete',
-                    style: TextStyle(color: Colors.red),
+        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: BorderRadius.circular(16),
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Row(
+              children: [
+                ReorderableDragStartListener(
+                  index: index,
+                  child: Icon(
+                    Icons.drag_indicator,
+                    color: Theme.of(context).iconTheme.color?.withAlpha(128),
                   ),
                 ),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        title,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      ValueListenableBuilder<Box<ListModel>>(
+                        valueListenable: StorageService().getBoxNotifier(),
+                        builder: (context, box, _) {
+                          final list = box.get(title);
+                          final itemCount = list?.items.length ?? 0;
+                          return Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 8,
+                              vertical: 4,
+                            ),
+                            decoration: BoxDecoration(
+                              color: AppColors.bambooLight,
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: Text(
+                              '$itemCount items',
+                              style: TextStyle(
+                                color: AppColors.bamboo,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+                PopupMenuButton<String>(
+                  icon: Icon(
+                    Icons.more_vert,
+                    color: Theme.of(context).iconTheme.color?.withAlpha(128),
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  itemBuilder: (context) => [
+                    PopupMenuItem(
+                      value: 'rename',
+                      child: const Text('Rename'),
+                    ),
+                    const PopupMenuDivider(),
+                    PopupMenuItem(
+                      value: 'delete',
+                      child: const Text(
+                        'Delete',
+                        style: TextStyle(color: Colors.red),
+                      ),
+                    ),
+                  ],
+                  onSelected: (value) async {
+                    if (value == 'delete') {
+                      if (await _confirmDelete(context)) {
+                        onDelete();
+                      }
+                    } else if (value == 'rename') {
+                      final newName = await _showRenameDialog(context);
+                      if (newName != null && newName != title) {
+                        onRename(newName);
+                      }
+                    }
+                  },
+                ),
               ],
-              onSelected: (value) async {
-                if (value == 'delete') {
-                  if (await _confirmDelete(context)) {
-                    onDelete();
-                  }
-                } else if (value == 'rename') {
-                  final newName = await _showRenameDialog(context);
-                  if (newName != null && newName != title) {
-                    onRename(newName);
-                  }
-                }
-              },
             ),
           ),
-          onTap: onTap,
         ),
       ),
     );

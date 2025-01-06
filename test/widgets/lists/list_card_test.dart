@@ -56,28 +56,21 @@ void main() {
 
   testWidgets('ListCard Widget calls onTap when tapped',
       (WidgetTester tester) async {
-    var tapped = false;
+    bool wasTapped = false;
 
-    await tester.pumpWidget(
-      MaterialApp(
-        home: Scaffold(
-          body: ListCard(
-            title: 'Test List',
-            index: 0,
-            onTap: () {
-              tapped = true;
-            },
-            onDelete: () {},
-            onRename: (_) {},
-          ),
-        ),
+    await tester.pumpWidget(MaterialApp(
+      home: ListCard(
+        title: 'Test List',
+        onTap: () => wasTapped = true,
+        onDelete: () {},
+        onRename: (_) {},
+        index: 0,
       ),
-    );
-    await tester.pump();
+    ));
 
-    await tester.tap(find.byType(ListTile));
-    await tester.pump();
+    await tester.tap(find.byType(Card));
+    await tester.pumpAndSettle();
 
-    expect(tapped, isTrue);
+    expect(wasTapped, true);
   });
 }
