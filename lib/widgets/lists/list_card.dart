@@ -101,8 +101,9 @@ class ListCard extends StatelessWidget {
       ),
       child: Card(
         margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        color:
-            theme.brightness == Brightness.light ? Colors.white : Colors.black,
+        color: theme.brightness == Brightness.light
+            ? Colors.white
+            : const Color(0xFF1E1E1E),
         child: InkWell(
           onTap: onTap,
           borderRadius: BorderRadius.circular(16),
