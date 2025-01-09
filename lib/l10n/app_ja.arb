@@ -1,0 +1,39 @@
+{
+    "appTitle": "Pandoo",
+    "renameList": "リスト名を変更",
+    "listName": "リスト名",
+    "cancel": "キャンセル",
+    "rename": "名前を変更",
+    "delete": "削除",
+    "deleteList": "リストを削除",
+    "deleteConfirmation": "\"{listTitle}\" を削除してもよろしいですか？",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "完了項目を削除",
+    "cleanConfirmation": "このリストの完了項目をすべて削除しますか？",
+    "clean": "削除",
+    "itemsCount": "{count} 項目",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "設定",
+    "theme": "テーマ",
+    "system": "システム",
+    "light": "ライト",
+    "dark": "ダーク",
+    "close": "閉じる",
+    "listExists": "リストが既に存在します",
+    "listExistsMessage": "\"{name}\" は既に存在します",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "新しいリストを追加...",
+    "addNewItem": "新しい項目を追加..."
+} 

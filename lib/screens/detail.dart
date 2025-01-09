@@ -3,6 +3,9 @@ import 'package:hive_flutter/hive_flutter.dart';
 import '../widgets/detail/add_item.dart';
 import '../services/storage_service.dart';
 import '../models/list_model.dart';
+import '../dialog/cleanup_dialog.dart';
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class DetailScreen extends StatelessWidget {
   final String listTitle;
@@ -17,13 +20,13 @@ class DetailScreen extends StatelessWidget {
     final storage = StorageService();
 
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(26, 26, 26, 1),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SafeArea(
         child: Column(
           children: [
             Container(
               height: 60,
-              color: const Color.fromRGBO(26, 26, 26, 1),
+              color: Theme.of(context).appBarTheme.backgroundColor,
               child: Stack(
                 children: [
                   // Back button
@@ -32,21 +35,20 @@ class DetailScreen extends StatelessWidget {
                     top: 0,
                     bottom: 0,
                     child: IconButton(
-                      icon: const Icon(
+                      icon: Icon(
                         Icons.arrow_back,
-                        color: Colors.white,
+                        color: Theme.of(context).appBarTheme.foregroundColor,
                       ),
                       onPressed: () => Navigator.pop(context),
                     ),
                   ),
-                  // Centered text
+                  // Tappable centered title
                   Center(
-                    child: Text(
-                      listTitle,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
+                    child: GestureDetector(
+                      onTap: () => _showRenameDialog(context),
+                      child: Text(
+                        listTitle,
+                        style: Theme.of(context).appBarTheme.titleTextStyle,
                       ),
                     ),
                   ),
@@ -67,8 +69,11 @@ class DetailScreen extends StatelessWidget {
                           icon: Icon(
                             Icons.cleaning_services_rounded,
                             color: hasCompletedItems
-                                ? Colors.white
-                                : Colors.white.withAlpha(77),
+                                ? Theme.of(context).appBarTheme.foregroundColor
+                                : Theme.of(context)
+                                    .appBarTheme
+                                    .foregroundColor
+                                    ?.withAlpha(77),
                           ),
                           onPressed: hasCompletedItems
                               ? () => _showCleanupDialog(context, storage)
@@ -104,25 +109,94 @@ class DetailScreen extends StatelessWidget {
       BuildContext context, StorageService storage) async {
     final confirmed = await showDialog<bool>(
       context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('Clean Completed Items'),
-        content: const Text('Remove all completed items from this list?'),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context, false),
-            child: const Text('Cancel'),
-          ),
-          TextButton(
-            onPressed: () => Navigator.pop(context, true),
-            style: TextButton.styleFrom(foregroundColor: Colors.red),
-            child: const Text('Remove'),
-          ),
-        ],
-      ),
+      builder: (context) => const CleanupDialog(),
     );
 
     if (confirmed == true) {
       await storage.removeCompletedItems(listTitle);
+    }
+  }
+
+  Future<void> _showRenameDialog(BuildContext context) async {
+    final controller = TextEditingController(text: listTitle);
+    final formKey = GlobalKey<FormState>();
+
+    final newName = await showDialog<String>(
+      context: context,
+      builder: (context) => AlertDialog(
+        backgroundColor: Theme.of(context).brightness == Brightness.dark
+            ? Theme.of(context).colorScheme.surface
+            : Theme.of(context).colorScheme.surface,
+        elevation: 0,
+        title: Text(AppLocalizations.of(context)!.renameList),
+        content: Form(
+          key: formKey,
+          child: TextFormField(
+            controller: controller,
+            autofocus: true,
+            validator: (value) {
+              if (value == null || value.trim().isEmpty) {
+                return 'Name cannot be empty';
+              }
+              return null;
+            },
+            onEditingComplete: () {
+              if (formKey.currentState?.validate() ?? false) {
+                Navigator.pop(context, controller.text.trim());
+              }
+            },
+            decoration: InputDecoration(
+              labelText: AppLocalizations.of(context)!.listName,
+            ).applyDefaults(Theme.of(context).inputDecorationTheme),
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text(AppLocalizations.of(context)!.cancel),
+          ),
+          FilledButton(
+            onPressed: () {
+              if (formKey.currentState?.validate() ?? false) {
+                Navigator.pop(context, controller.text.trim());
+              }
+            },
+            style: FilledButton.styleFrom(
+              backgroundColor: Theme.of(context).colorScheme.primary,
+              foregroundColor: Theme.of(context).colorScheme.onPrimary,
+            ),
+            child: Text(AppLocalizations.of(context)!.rename),
+          ),
+        ],
+        actionsPadding: const EdgeInsets.all(16),
+      ),
+    );
+
+    if (newName != null && newName != listTitle && context.mounted) {
+      final storage = StorageService();
+      final success = await storage.renameList(listTitle, newName);
+      if (!success) {
+        if (context.mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              elevation: 0,
+              behavior: SnackBarBehavior.floating,
+              backgroundColor: Colors.transparent,
+              content: AwesomeSnackbarContent(
+                title: AppLocalizations.of(context)!.listExists,
+                message:
+                    AppLocalizations.of(context)!.listExistsMessage(newName),
+                contentType: ContentType.failure,
+              ),
+            ),
+          );
+        }
+      } else {
+        if (context.mounted) {
+          Navigator.pop(
+              context); // Go back to lists screen after successful rename
+        }
+      }
     }
   }
 }

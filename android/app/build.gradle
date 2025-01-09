@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.pandoo"
+    namespace = "com.teamsuperpanda.pandoo"
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 

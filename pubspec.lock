@@ -58,10 +58,10 @@ packages:
     dependency: "direct main"
     description:
       name: awesome_snackbar_content
-      sha256: a99f229d5e9404c69d172d9a6256961743eb9bc68b0a7905185eacd206b27984
+      sha256: c1c4593eb6c19785ba62f78e36a5adbf52fe6c42039a5eb9e7e2e3b4bb639bb2
       url: "https://pub.dev"
     source: hosted
-    version: "0.1.4"
+    version: "0.1.5"
   boolean_selector:
     dependency: transitive
     description:
@@ -276,7 +276,7 @@ packages:
     source: hosted
     version: "5.0.0"
   flutter_localizations:
-    dependency: transitive
+    dependency: "direct main"
     description: flutter
     source: sdk
     version: "0.0.0"
@@ -395,7 +395,7 @@ packages:
     source: hosted
     version: "4.5.2"
   intl:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: intl
       sha256: d6f56758b7d3014a48af9701c085700aac781a92a87a62b1333b46d8879661cf
@@ -638,10 +638,10 @@ packages:
     dependency: transitive
     description:
       name: pubspec_parse
-      sha256: "81876843eb50dc2e1e5b151792c9a985c5ed2536914115ed04e9c8528f6647b0"
+      sha256: "0560ba233314abbed0a48a2956f7f022cce7c3e1e73df540277da7544cad4082"
       url: "https://pub.dev"
     source: hosted
-    version: "1.4.0"
+    version: "1.5.0"
   shelf:
     dependency: transitive
     description:
@@ -771,10 +771,10 @@ packages:
     dependency: transitive
     description:
       name: vector_graphics_codec
-      sha256: "2430b973a4ca3c4dbc9999b62b8c719a160100dcbae5c819bae0cacce32c9cdb"
+      sha256: "99fd9fbd34d9f9a32efd7b6a6aae14125d8237b10403b422a6a6dfeac2806146"
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.12"
+    version: "1.1.13"
   vector_graphics_compiler:
     dependency: transitive
     description:

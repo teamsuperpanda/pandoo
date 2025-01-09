@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../core/constants/colors.dart';
+import '../../l10n/l10n.dart';
 
 class AddItem extends StatelessWidget {
   final TextEditingController _controller = TextEditingController();
@@ -9,6 +9,18 @@ class AddItem extends StatelessWidget {
     super.key,
     required this.onItemAdded,
   });
+
+  Future<void> _handleSubmit(BuildContext context,
+      {bool keepFocus = false}) async {
+    if (_controller.text.isNotEmpty) {
+      await onItemAdded(_controller.text);
+      _controller.clear();
+      if (keepFocus && context.mounted) {
+        FocusScope.of(context).requestFocus(FocusNode());
+        FocusScope.of(context).unfocus();
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,31 +44,23 @@ class AddItem extends StatelessWidget {
             child: TextField(
               controller: _controller,
               decoration: InputDecoration(
-                hintText: 'Add new item...',
+                hintText: context.l10n.addNewItem,
               ).applyDefaults(theme.inputDecorationTheme),
               style: TextStyle(
-                color: theme.brightness == Brightness.dark
-                    ? AppColors.pandaWhite
-                    : AppColors.pandaBlack,
+                color: theme.colorScheme.onSurface,
               ),
+              onSubmitted: (_) => _handleSubmit(context, keepFocus: true),
             ),
           ),
           const SizedBox(width: 12),
           Container(
             decoration: BoxDecoration(
-              color: theme.brightness == Brightness.dark
-                  ? AppColors.bamboo
-                  : AppColors.primary,
+              color: theme.colorScheme.primary,
               borderRadius: BorderRadius.circular(12),
             ),
             child: IconButton(
-              icon: const Icon(Icons.add, color: Colors.white),
-              onPressed: () {
-                if (_controller.text.isNotEmpty) {
-                  onItemAdded(_controller.text);
-                  _controller.clear();
-                }
-              },
+              icon: Icon(Icons.add, color: theme.colorScheme.onPrimary),
+              onPressed: () => _handleSubmit(context),
             ),
           ),
         ],

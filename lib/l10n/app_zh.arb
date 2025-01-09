@@ -1,0 +1,39 @@
+{
+    "appTitle": "Pandoo",
+    "renameList": "重命名列表",
+    "listName": "列表名称",
+    "cancel": "取消",
+    "rename": "重命名",
+    "delete": "删除",
+    "deleteList": "删除列表",
+    "deleteConfirmation": "确定要删除 \"{listTitle}\" 吗？",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "清除已完成项目",
+    "cleanConfirmation": "是否删除此列表中的所有已完成项目？",
+    "clean": "清除",
+    "itemsCount": "{count} 个项目",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "设置",
+    "theme": "主题",
+    "system": "系统",
+    "light": "浅色",
+    "dark": "深色",
+    "close": "关闭",
+    "listExists": "列表已存在",
+    "listExistsMessage": "\"{name}\" 已存在",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "添加新列表...",
+    "addNewItem": "添加新项目..."
+} 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import '../../services/storage_service.dart';
-import '../../core/constants/colors.dart';
+import '../../l10n/l10n.dart';
 
 class AddList extends StatelessWidget {
   final TextEditingController _controller = TextEditingController();
@@ -12,6 +12,37 @@ class AddList extends StatelessWidget {
     super.key,
     required this.onListAdded,
   });
+
+  Future<void> _handleSubmit(BuildContext context,
+      {bool keepFocus = false}) async {
+    if (_controller.text.isNotEmpty) {
+      final success = await _storage.addList(_controller.text.trim());
+      if (!success) {
+        if (context.mounted) {
+          final snackBar = SnackBar(
+            elevation: 0,
+            behavior: SnackBarBehavior.floating,
+            backgroundColor: Colors.transparent,
+            content: AwesomeSnackbarContent(
+              title: context.l10n.listExists,
+              message: context.l10n.listExistsMessage(_controller.text.trim()),
+              contentType: ContentType.failure,
+            ),
+          );
+          ScaffoldMessenger.of(context)
+            ..hideCurrentSnackBar()
+            ..showSnackBar(snackBar);
+        }
+        return;
+      }
+      _controller.clear();
+      onListAdded();
+      if (keepFocus && context.mounted) {
+        FocusScope.of(context).requestFocus(FocusNode());
+        FocusScope.of(context).unfocus();
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,52 +66,23 @@ class AddList extends StatelessWidget {
             child: TextField(
               controller: _controller,
               decoration: InputDecoration(
-                hintText: 'Add new list...',
+                hintText: context.l10n.addNewList,
               ).applyDefaults(theme.inputDecorationTheme),
               style: TextStyle(
-                color: theme.brightness == Brightness.dark
-                    ? AppColors.pandaWhite
-                    : AppColors.pandaBlack,
+                color: theme.colorScheme.onSurface,
               ),
+              onSubmitted: (_) => _handleSubmit(context, keepFocus: true),
             ),
           ),
           const SizedBox(width: 12),
           Container(
             decoration: BoxDecoration(
-              color: theme.brightness == Brightness.dark
-                  ? AppColors.bamboo
-                  : AppColors.primary,
+              color: theme.colorScheme.primary,
               borderRadius: BorderRadius.circular(12),
             ),
             child: IconButton(
-              icon: const Icon(Icons.add, color: Colors.white),
-              onPressed: () async {
-                if (_controller.text.isNotEmpty) {
-                  final success =
-                      await _storage.addList(_controller.text.trim());
-                  if (!success) {
-                    if (context.mounted) {
-                      final snackBar = SnackBar(
-                        elevation: 0,
-                        behavior: SnackBarBehavior.floating,
-                        backgroundColor: Colors.transparent,
-                        content: AwesomeSnackbarContent(
-                          title: 'List Already Exists',
-                          message:
-                              '"${_controller.text.trim()}" already exists',
-                          contentType: ContentType.failure,
-                        ),
-                      );
-                      ScaffoldMessenger.of(context)
-                        ..hideCurrentSnackBar()
-                        ..showSnackBar(snackBar);
-                    }
-                    return;
-                  }
-                  _controller.clear();
-                  onListAdded();
-                }
-              },
+              icon: Icon(Icons.add, color: theme.colorScheme.onPrimary),
+              onPressed: () => _handleSubmit(context),
             ),
           ),
         ],

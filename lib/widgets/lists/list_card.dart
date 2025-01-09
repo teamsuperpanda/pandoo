@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import '../../services/storage_service.dart';
 import '../../models/list_model.dart';
-import '../../core/constants/colors.dart';
+import '../../dialog/delete_list_dialog.dart';
+import '../../l10n/l10n.dart';
 
 class ListCard extends StatelessWidget {
   final String title;
@@ -23,21 +24,7 @@ class ListCard extends StatelessWidget {
   Future<bool> _confirmDelete(BuildContext context) async {
     return await showDialog(
           context: context,
-          builder: (context) => AlertDialog(
-            title: const Text('Delete List'),
-            content: Text('Are you sure you want to delete "$title"?'),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.pop(context, false),
-                child: const Text('Cancel'),
-              ),
-              TextButton(
-                onPressed: () => Navigator.pop(context, true),
-                style: TextButton.styleFrom(foregroundColor: Colors.red),
-                child: const Text('Delete'),
-              ),
-            ],
-          ),
+          builder: (context) => DeleteListDialog(listTitle: title),
         ) ??
         false;
   }
@@ -45,62 +32,71 @@ class ListCard extends StatelessWidget {
   Future<String?> _showRenameDialog(BuildContext context) async {
     final controller = TextEditingController(text: title);
     final formKey = GlobalKey<FormState>();
+    final theme = Theme.of(context);
 
     return showDialog<String>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Rename List'),
+        title: Text(context.l10n.renameList),
         content: Form(
           key: formKey,
           child: TextFormField(
             controller: controller,
             autofocus: true,
-            decoration: const InputDecoration(
-              labelText: 'List Name',
-              border: OutlineInputBorder(),
-            ),
             validator: (value) {
               if (value == null || value.trim().isEmpty) {
                 return 'Name cannot be empty';
               }
               return null;
             },
+            onEditingComplete: () {
+              if (formKey.currentState?.validate() ?? false) {
+                Navigator.pop(context, controller.text.trim());
+              }
+            },
+            decoration: InputDecoration(
+              labelText: context.l10n.listName,
+            ).applyDefaults(theme.inputDecorationTheme),
           ),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('Cancel'),
+            child: Text(context.l10n.cancel),
           ),
-          TextButton(
+          FilledButton(
             onPressed: () {
               if (formKey.currentState?.validate() ?? false) {
                 Navigator.pop(context, controller.text.trim());
               }
             },
-            child: const Text('Rename'),
+            child: Text(context.l10n.rename),
           ),
         ],
+        actionsPadding: const EdgeInsets.all(16),
       ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Dismissible(
       key: ValueKey(title),
       direction: DismissDirection.endToStart,
       confirmDismiss: (_) => _confirmDelete(context),
+      onDismissed: (_) => onDelete(),
       background: Container(
         alignment: Alignment.centerRight,
         padding: const EdgeInsets.only(right: 24),
         decoration: BoxDecoration(
-          color: AppColors.error.withAlpha(26),
+          color: theme.colorScheme.error.withAlpha(26),
           borderRadius: BorderRadius.circular(16),
         ),
         child: Icon(
           Icons.delete,
-          color: AppColors.error,
+          color: theme.colorScheme.error,
         ),
       ),
       child: Card(
@@ -116,7 +112,7 @@ class ListCard extends StatelessWidget {
                   index: index,
                   child: Icon(
                     Icons.drag_indicator,
-                    color: Theme.of(context).iconTheme.color?.withAlpha(128),
+                    color: theme.iconTheme.color?.withAlpha(128),
                   ),
                 ),
                 const SizedBox(width: 16),
@@ -124,11 +120,14 @@ class ListCard extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        title,
-                        style: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
+                      GestureDetector(
+                        onTap: () => _showRenameDialog(context),
+                        child: Text(
+                          title,
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                       ),
                       const SizedBox(height: 4),
@@ -143,13 +142,13 @@ class ListCard extends StatelessWidget {
                               vertical: 4,
                             ),
                             decoration: BoxDecoration(
-                              color: AppColors.bambooLight,
+                              color: theme.colorScheme.primaryContainer,
                               borderRadius: BorderRadius.circular(12),
                             ),
                             child: Text(
-                              '$itemCount items',
+                              context.l10n.itemsCount(itemCount.toString()),
                               style: TextStyle(
-                                color: AppColors.bamboo,
+                                color: theme.colorScheme.onPrimaryContainer,
                                 fontSize: 12,
                                 fontWeight: FontWeight.w600,
                               ),
@@ -163,22 +162,17 @@ class ListCard extends StatelessWidget {
                 PopupMenuButton<String>(
                   icon: Icon(
                     Icons.more_vert,
-                    color: Theme.of(context).iconTheme.color?.withAlpha(128),
+                    color: theme.iconTheme.color?.withAlpha(128),
                   ),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
                   itemBuilder: (context) => [
                     PopupMenuItem(
-                      value: 'rename',
-                      child: const Text('Rename'),
-                    ),
-                    const PopupMenuDivider(),
-                    PopupMenuItem(
                       value: 'delete',
-                      child: const Text(
+                      child: Text(
                         'Delete',
-                        style: TextStyle(color: Colors.red),
+                        style: TextStyle(color: theme.colorScheme.error),
                       ),
                     ),
                   ],
@@ -186,11 +180,6 @@ class ListCard extends StatelessWidget {
                     if (value == 'delete') {
                       if (await _confirmDelete(context)) {
                         onDelete();
-                      }
-                    } else if (value == 'rename') {
-                      final newName = await _showRenameDialog(context);
-                      if (newName != null && newName != title) {
-                        onRename(newName);
                       }
                     }
                   },

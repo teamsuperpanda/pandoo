@@ -1,72 +1,49 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pandoo/widgets/detail/add_item.dart';
+import '../../helpers/widget_wrapper.dart';
 
 void main() {
   group('AddItem Widget', () {
-    testWidgets('renders text field and add button',
-        (WidgetTester tester) async {
-      await tester.pumpWidget(
-        MaterialApp(
-          home: Scaffold(
-            body: AddItem(
-              onItemAdded: (_) async {},
-            ),
-          ),
-        ),
-      );
+    testWidgets('renders text field and add button', (tester) async {
+      await tester.pumpWidget(wrapWithMaterialApp(
+        AddItem(onItemAdded: (_) async {}),
+      ));
+      await tester.pumpAndSettle();
 
       expect(find.byType(TextField), findsOneWidget);
-      expect(find.byIcon(Icons.add), findsOneWidget);
+      expect(find.byType(IconButton), findsOneWidget);
     });
 
-    testWidgets('calls onItemAdded when add button is pressed',
-        (WidgetTester tester) async {
-      // Arrange
-      var itemAdded = '';
-      await tester.pumpWidget(
-        MaterialApp(
-          home: Scaffold(
-            body: AddItem(
-              onItemAdded: (String text) async {
-                itemAdded = text;
-              },
-            ),
-          ),
-        ),
-      );
+    testWidgets('calls onItemAdded when add button is pressed', (tester) async {
+      String? addedText;
+      await tester.pumpWidget(wrapWithMaterialApp(
+        AddItem(onItemAdded: (text) async {
+          addedText = text;
+        }),
+      ));
+      await tester.pumpAndSettle();
 
-      // Act
-      await tester.enterText(find.byType(TextField), 'New Item');
-      await tester.tap(find.byIcon(Icons.add));
+      await tester.enterText(find.byType(TextField), 'test item');
+      await tester.tap(find.byType(IconButton));
       await tester.pump();
 
-      // Assert
-      expect(itemAdded, 'New Item');
+      expect(addedText, equals('test item'));
     });
 
-    testWidgets('does not call onItemAdded when text is empty',
-        (WidgetTester tester) async {
-      // Arrange
-      var itemAdded = '';
-      await tester.pumpWidget(
-        MaterialApp(
-          home: Scaffold(
-            body: AddItem(
-              onItemAdded: (String text) async {
-                itemAdded = text;
-              },
-            ),
-          ),
-        ),
-      );
+    testWidgets('does not call onItemAdded when text is empty', (tester) async {
+      bool wasCalled = false;
+      await tester.pumpWidget(wrapWithMaterialApp(
+        AddItem(onItemAdded: (_) async {
+          wasCalled = true;
+        }),
+      ));
+      await tester.pumpAndSettle();
 
-      // Act
-      await tester.tap(find.byIcon(Icons.add));
+      await tester.tap(find.byType(IconButton));
       await tester.pump();
 
-      // Assert
-      expect(itemAdded, '');
+      expect(wasCalled, isFalse);
     });
   });
 }

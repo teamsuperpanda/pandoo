@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'services/storage_service.dart';
 import 'core/theme/app_theme.dart';
 import 'dialog/settings.dart';
 import 'widgets/lists/show_lists.dart';
 import 'widgets/lists/add_list.dart';
+import 'l10n/l10n.dart';
+import 'services/settings_service.dart';
 
 void main() async {
   await Hive.initFlutter();
   await StorageService().init();
+  await SettingsService().init();
   runApp(const MyApp());
 }
 
@@ -20,32 +24,70 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  ThemeMode _themeMode = ThemeMode.system;
+  late ThemeMode _themeMode;
+  late Locale? _locale;
+  final _settings = SettingsService();
 
-  void _handleThemeChange(ThemeMode themeMode) {
+  @override
+  void initState() {
+    super.initState();
+    _loadSettings();
+  }
+
+  void _loadSettings() {
+    setState(() {
+      _themeMode = _settings.getThemeMode();
+      _locale = _settings.getLocale();
+    });
+  }
+
+  void _handleThemeChange(ThemeMode themeMode) async {
+    await _settings.setThemeMode(themeMode);
     setState(() {
       _themeMode = themeMode;
+    });
+  }
+
+  void _handleLanguageChange(Locale? locale) async {
+    await _settings.setLocale(locale);
+    setState(() {
+      _locale = locale;
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Pandoo',
       theme: AppTheme.light(),
       darkTheme: AppTheme.dark(),
       themeMode: _themeMode,
-      home: MyHomePage(onThemeChanged: _handleThemeChange),
+      locale: _locale,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: MyHomePage(
+        onThemeChanged: _handleThemeChange,
+        currentThemeMode: _themeMode,
+        onLanguageChanged: _handleLanguageChange,
+        currentLocale: _locale,
+      ),
     );
   }
 }
 
 class MyHomePage extends StatelessWidget {
   final Function(ThemeMode) onThemeChanged;
+  final ThemeMode currentThemeMode;
+  final Function(Locale?) onLanguageChanged;
+  final Locale? currentLocale;
 
   const MyHomePage({
     super.key,
     required this.onThemeChanged,
+    required this.currentThemeMode,
+    required this.onLanguageChanged,
+    required this.currentLocale,
   });
 
   void _openSettings(BuildContext context) {
@@ -53,6 +95,9 @@ class MyHomePage extends StatelessWidget {
       context: context,
       builder: (context) => SettingsDialog(
         onThemeChanged: onThemeChanged,
+        currentThemeMode: currentThemeMode,
+        onLanguageChanged: onLanguageChanged,
+        currentLocale: currentLocale,
       ),
     );
   }
@@ -81,14 +126,10 @@ class MyHomePage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const Center(
+                  Center(
                     child: Text(
-                      'Pandoo',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      context.l10n.appTitle,
+                      style: Theme.of(context).appBarTheme.titleTextStyle,
                     ),
                   ),
                   Positioned(
@@ -96,9 +137,9 @@ class MyHomePage extends StatelessWidget {
                     top: 0,
                     bottom: 0,
                     child: IconButton(
-                      icon: const Icon(
+                      icon: Icon(
                         Icons.settings,
-                        color: Colors.white,
+                        color: Theme.of(context).appBarTheme.foregroundColor,
                       ),
                       onPressed: () => _openSettings(context),
                     ),
