@@ -57,8 +57,9 @@ class _SettingsDialogState extends State<SettingsDialog> {
     final theme = Theme.of(context);
 
     return AlertDialog(
-      backgroundColor:
-          theme.brightness == Brightness.light ? Colors.white : Colors.black,
+      backgroundColor: theme.brightness == Brightness.light
+          ? Colors.white
+          : const Color(0xFF1E1E1E), // Dark grey instead of black
       title: Text(
         context.l10n.settings,
         style: TextStyle(

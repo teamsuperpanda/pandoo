@@ -8,8 +8,9 @@ class CleanupDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return AlertDialog(
-      backgroundColor:
-          theme.brightness == Brightness.light ? Colors.white : Colors.black,
+      backgroundColor: theme.brightness == Brightness.light
+          ? Colors.white
+          : const Color(0xFF1E1E1E),
       title: Text(
         context.l10n.cleanCompleted,
         style: TextStyle(

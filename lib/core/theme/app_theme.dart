@@ -4,6 +4,7 @@ class AppTheme {
   // Update color constants to pure black/white
   static const _pandaBlack = Color(0xFF000000); // Pure black
   static const _pandaWhite = Color(0xFFFFFFFF); // Pure white
+  static const _pandaDarkGrey = Color(0xFF1E1E1E); // Add this line
 // Keep for borders/disabled states
 
   static ThemeData light() {
@@ -93,7 +94,7 @@ class AppTheme {
 
       // Dialog Theme
       dialogTheme: DialogTheme(
-        backgroundColor: _pandaBlack,
+        backgroundColor: _pandaDarkGrey,
         titleTextStyle: const TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.w600,
