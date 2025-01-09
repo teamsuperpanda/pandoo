@@ -1,19 +1,19 @@
 {
     "appTitle": "Pandoo",
-    "renameList": "Renommer la liste",
-    "listName": "Nom de la liste",
+    "renameList": "Renommer la Liste",
+    "listName": "Nom de la Liste",
     "cancel": "Annuler",
     "rename": "Renommer",
     "delete": "Supprimer",
-    "deleteList": "Supprimer la liste",
-    "deleteConfirmation": "Voulez-vous vraiment supprimer \"{listTitle}\" ?",
+    "deleteList": "Supprimer la Liste",
+    "deleteConfirmation": "Êtes-vous sûr de vouloir supprimer \"{listTitle}\"?",
     "@deleteConfirmation": {
         "placeholders": {
             "listTitle": {}
         }
     },
-    "cleanCompleted": "Nettoyer les éléments terminés",
-    "cleanConfirmation": "Supprimer tous les éléments terminés de cette liste ?",
+    "cleanCompleted": "Nettoyer les Éléments Terminés",
+    "cleanConfirmation": "Supprimer tous les éléments terminés de cette liste?",
     "clean": "Nettoyer",
     "itemsCount": "{count} éléments",
     "@itemsCount": {
@@ -27,8 +27,8 @@
     "light": "Clair",
     "dark": "Sombre",
     "close": "Fermer",
-    "listExists": "La liste existe déjà",
-    "listExistsMessage": "\"{name}\" existe déjà",
+    "listExists": "La Liste Existe Déjà",
+    "listExistsMessage": "'{name}' existe déjà",
     "@listExistsMessage": {
         "placeholders": {
             "name": {}

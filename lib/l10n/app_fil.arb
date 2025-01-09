@@ -1,0 +1,40 @@
+{
+    "appTitle": "Pandoo",
+    "renameList": "Palitan ang Pangalan ng Listahan",
+    "listName": "Pangalan ng Listahan",
+    "cancel": "Kanselahin",
+    "rename": "Palitan ang Pangalan",
+    "delete": "Burahin",
+    "deleteList": "Burahin ang Listahan",
+    "deleteConfirmation": "Sigurado ka bang gusto mong burahin ang \"{listTitle}\"?",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "Linisin ang mga Nakumpletong Item",
+    "cleanConfirmation": "Alisin lahat ng nakumpletong item mula sa listahang ito?",
+    "clean": "Linisin",
+    "itemsCount": "{count} na item",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "Mga Setting",
+    "theme": "Tema",
+    "system": "System",
+    "light": "Maliwanag",
+    "dark": "Madilim",
+    "close": "Isara",
+    "listExists": "Mayroon ng Listahan",
+    "listExistsMessage": "Mayroon na ng '{name}'",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "Magdagdag ng bagong listahan...",
+    "addNewItem": "Magdagdag ng bagong item...",
+    "language": "Wika"
+} 

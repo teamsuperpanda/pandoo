@@ -28,7 +28,7 @@
     "dark": "Dark",
     "close": "Close",
     "listExists": "List Already Exists",
-    "listExistsMessage": "A list named '{name}' already exists",
+    "listExistsMessage": "'{name}' already exists",
     "@listExistsMessage": {
         "placeholders": {
             "name": {}
@@ -36,6 +36,5 @@
     },
     "addNewList": "Add new list...",
     "addNewItem": "Add new item...",
-    "language": "Language",
-    "@language": {}
+    "language": "Language"
 } 

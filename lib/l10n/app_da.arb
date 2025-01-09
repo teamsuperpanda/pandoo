@@ -1,0 +1,40 @@
+{
+    "appTitle": "Pandoo",
+    "renameList": "Omdøb Liste",
+    "listName": "Listenavn",
+    "cancel": "Annuller",
+    "rename": "Omdøb",
+    "delete": "Slet",
+    "deleteList": "Slet Liste",
+    "deleteConfirmation": "Er du sikker på, at du vil slette \"{listTitle}\"?",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "Ryd Færdige Elementer",
+    "cleanConfirmation": "Fjern alle færdige elementer fra denne liste?",
+    "clean": "Ryd",
+    "itemsCount": "{count} elementer",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "Indstillinger",
+    "theme": "Tema",
+    "system": "System",
+    "light": "Lys",
+    "dark": "Mørk",
+    "close": "Luk",
+    "listExists": "Listen Findes Allerede",
+    "listExistsMessage": "'{name}' findes allerede",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "Tilføj ny liste...",
+    "addNewItem": "Tilføj nyt element...",
+    "language": "Sprog"
+} 

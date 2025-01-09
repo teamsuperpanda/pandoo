@@ -1,21 +1,21 @@
 {
-    "appTitle": "Pandoo",
+    "appTitle": "潘都",
     "renameList": "重命名列表",
     "listName": "列表名称",
     "cancel": "取消",
     "rename": "重命名",
     "delete": "删除",
     "deleteList": "删除列表",
-    "deleteConfirmation": "确定要删除 \"{listTitle}\" 吗？",
+    "deleteConfirmation": "您确定要删除\"{listTitle}\"吗？",
     "@deleteConfirmation": {
         "placeholders": {
             "listTitle": {}
         }
     },
     "cleanCompleted": "清除已完成项目",
-    "cleanConfirmation": "是否删除此列表中的所有已完成项目？",
+    "cleanConfirmation": "从此列表中删除所有已完成的项目？",
     "clean": "清除",
-    "itemsCount": "{count} 个项目",
+    "itemsCount": "{count}个项目",
     "@itemsCount": {
         "placeholders": {
             "count": {}
@@ -28,7 +28,7 @@
     "dark": "深色",
     "close": "关闭",
     "listExists": "列表已存在",
-    "listExistsMessage": "\"{name}\" 已存在",
+    "listExistsMessage": "\"{name}\"已存在",
     "@listExistsMessage": {
         "placeholders": {
             "name": {}

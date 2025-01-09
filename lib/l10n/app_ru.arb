@@ -1,0 +1,40 @@
+{
+    "appTitle": "Пандо",
+    "renameList": "Переименовать Список",
+    "listName": "Название Списка",
+    "cancel": "Отмена",
+    "rename": "Переименовать",
+    "delete": "Удалить",
+    "deleteList": "Удалить Список",
+    "deleteConfirmation": "Вы уверены, что хотите удалить \"{listTitle}\"?",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "Очистить Завершенные Элементы",
+    "cleanConfirmation": "Удалить все завершенные элементы из этого списка?",
+    "clean": "Очистить",
+    "itemsCount": "{count} элементов",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "Настройки",
+    "theme": "Тема",
+    "system": "Система",
+    "light": "Светлая",
+    "dark": "Темная",
+    "close": "Закрыть",
+    "listExists": "Список Уже Существует",
+    "listExistsMessage": "'{name}' уже существует",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "Добавить новый список...",
+    "addNewItem": "Добавить новый элемент...",
+    "language": "Язык"
+} 

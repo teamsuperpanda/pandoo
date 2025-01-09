@@ -1,0 +1,40 @@
+{
+    "appTitle": "Pandoo",
+    "renameList": "Redenumește Lista",
+    "listName": "Numele Listei",
+    "cancel": "Anulează",
+    "rename": "Redenumește",
+    "delete": "Șterge",
+    "deleteList": "Șterge Lista",
+    "deleteConfirmation": "Sigur doriți să ștergeți \"{listTitle}\"?",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "Curăță Elementele Completate",
+    "cleanConfirmation": "Eliminați toate elementele completate din această listă?",
+    "clean": "Curăță",
+    "itemsCount": "{count} elemente",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "Setări",
+    "theme": "Temă",
+    "system": "Sistem",
+    "light": "Luminos",
+    "dark": "Întunecat",
+    "close": "Închide",
+    "listExists": "Lista Există Deja",
+    "listExistsMessage": "'{name}' există deja",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "Adaugă listă nouă...",
+    "addNewItem": "Adaugă element nou...",
+    "language": "Limbă"
+} 

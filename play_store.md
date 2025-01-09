@@ -1,5 +1,5 @@
 # Short Description
-Pandoo - A delightfully simple todo list app with a panda's touch 🐼
+Pandoo - A delightfully simple todo list app with a panda's touch
 
 # Full Description
 Meet Pandoo, your new favorite task management companion! 

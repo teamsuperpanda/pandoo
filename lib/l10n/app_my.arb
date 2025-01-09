@@ -1,0 +1,40 @@
+{
+    "appTitle": "ပန်ဒူး",
+    "renameList": "စာရင်းအမည်ပြောင်းရန်",
+    "listName": "စာရင်းအမည်",
+    "cancel": "ပယ်ဖျက်ရန်",
+    "rename": "အမည်ပြောင်းရန်",
+    "delete": "ဖျက်ရန်",
+    "deleteList": "စာရင်းဖျက်ရန်",
+    "deleteConfirmation": "\"{listTitle}\" ကို ဖျက်ရန် သေချာပါသလား?",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "ပြီးဆုံးသွားသောအရာများကို ရှင်းလင်းရန်",
+    "cleanConfirmation": "ဤစာရင်းမှ ပြီးဆုံးသွားသောအရာအားလုံးကို ဖယ်ရှားမလား?",
+    "clean": "ရှင်းလင်းရန်",
+    "itemsCount": "အရာ {count} ခု",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "ဆက်တင်များ",
+    "theme": "အပြင်အဆင်",
+    "system": "စနစ်",
+    "light": "အလင်း",
+    "dark": "အမှောင်",
+    "close": "ပိတ်ရန်",
+    "listExists": "စာရင်းရှိပြီးသားဖြစ်သည်",
+    "listExistsMessage": "'{name}' ရှိပြီးသားဖြစ်သည်",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "စာရင်းအသစ်ထည့်ရန်...",
+    "addNewItem": "အရာအသစ်ထည့်ရန်...",
+    "language": "ဘာသာစကား"
+} 

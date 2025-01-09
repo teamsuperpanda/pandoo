@@ -1,0 +1,40 @@
+{
+    "appTitle": "Pandoo",
+    "renameList": "Riemërto Listën",
+    "listName": "Emri i Listës",
+    "cancel": "Anulo",
+    "rename": "Riemërto",
+    "delete": "Fshi",
+    "deleteList": "Fshi Listën",
+    "deleteConfirmation": "A jeni i sigurt që dëshironi të fshini \"{listTitle}\"?",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "Pastro Artikujt e Përfunduar",
+    "cleanConfirmation": "Të hiqen të gjithë artikujt e përfunduar nga kjo listë?",
+    "clean": "Pastro",
+    "itemsCount": "{count} artikuj",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "Cilësimet",
+    "theme": "Tema",
+    "system": "Sistemi",
+    "light": "E Lehtë",
+    "dark": "E Errët",
+    "close": "Mbyll",
+    "listExists": "Lista Ekziston",
+    "listExistsMessage": "'{name}' tashmë ekziston",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "Shto listë të re...",
+    "addNewItem": "Shto artikull të ri...",
+    "language": "Gjuha"
+} 

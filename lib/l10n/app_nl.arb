@@ -1,0 +1,40 @@
+{
+    "appTitle": "Pandoo",
+    "renameList": "Lijst Hernoemen",
+    "listName": "Lijstnaam",
+    "cancel": "Annuleren",
+    "rename": "Hernoemen",
+    "delete": "Verwijderen",
+    "deleteList": "Lijst Verwijderen",
+    "deleteConfirmation": "Weet je zeker dat je \"{listTitle}\" wilt verwijderen?",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "Voltooide Items Opschonen",
+    "cleanConfirmation": "Alle voltooide items uit deze lijst verwijderen?",
+    "clean": "Opschonen",
+    "itemsCount": "{count} items",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "Instellingen",
+    "theme": "Thema",
+    "system": "Systeem",
+    "light": "Licht",
+    "dark": "Donker",
+    "close": "Sluiten",
+    "listExists": "Lijst Bestaat Al",
+    "listExistsMessage": "'{name}' bestaat al",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "Nieuwe lijst toevoegen...",
+    "addNewItem": "Nieuw item toevoegen...",
+    "language": "Taal"
+} 

@@ -1,0 +1,40 @@
+{
+    "appTitle": "Pandoo",
+    "renameList": "Pārdēvēt Sarakstu",
+    "listName": "Saraksta Nosaukums",
+    "cancel": "Atcelt",
+    "rename": "Pārdēvēt",
+    "delete": "Dzēst",
+    "deleteList": "Dzēst Sarakstu",
+    "deleteConfirmation": "Vai tiešām vēlaties dzēst \"{listTitle}\"?",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "Notīrīt Pabeigtos Vienumus",
+    "cleanConfirmation": "Noņemt visus pabeigtos vienumus no šī saraksta?",
+    "clean": "Notīrīt",
+    "itemsCount": "{count} vienumi",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "Iestatījumi",
+    "theme": "Tēma",
+    "system": "Sistēma",
+    "light": "Gaišs",
+    "dark": "Tumšs",
+    "close": "Aizvērt",
+    "listExists": "Saraksts Jau Pastāv",
+    "listExistsMessage": "'{name}' jau pastāv",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "Pievienot jaunu sarakstu...",
+    "addNewItem": "Pievienot jaunu vienumu...",
+    "language": "Valoda"
+} 

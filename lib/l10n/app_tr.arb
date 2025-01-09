@@ -1,0 +1,40 @@
+{
+    "appTitle": "Pandoo",
+    "renameList": "Listeyi Yeniden Adlandır",
+    "listName": "Liste Adı",
+    "cancel": "İptal",
+    "rename": "Yeniden Adlandır",
+    "delete": "Sil",
+    "deleteList": "Listeyi Sil",
+    "deleteConfirmation": "\"{listTitle}\" öğesini silmek istediğinizden emin misiniz?",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "Tamamlananları Temizle",
+    "cleanConfirmation": "Bu listeden tüm tamamlanan öğeleri kaldır?",
+    "clean": "Temizle",
+    "itemsCount": "{count} öğe",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "Ayarlar",
+    "theme": "Tema",
+    "system": "Sistem",
+    "light": "Açık",
+    "dark": "Koyu",
+    "close": "Kapat",
+    "listExists": "Liste Zaten Var",
+    "listExistsMessage": "'{name}' zaten var",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "Yeni liste ekle...",
+    "addNewItem": "Yeni öğe ekle...",
+    "language": "Dil"
+} 

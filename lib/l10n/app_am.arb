@@ -1,0 +1,40 @@
+{
+    "appTitle": "ፓንዱ",
+    "renameList": "ዝርዝሩን እንደገና ሰይም",
+    "listName": "የዝርዝር ስም",
+    "cancel": "ሰርዝ",
+    "rename": "እንደገና ሰይም",
+    "delete": "ሰርዝ",
+    "deleteList": "ዝርዝሩን ሰርዝ",
+    "deleteConfirmation": "\"{listTitle}\"ን መሰረዝ እንደሚፈልጉ እርግጠኛ ነዎት?",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "የተጠናቀቁ ንጥሎችን አጽዳ",
+    "cleanConfirmation": "ከዚህ ዝርዝር ሁሉንም የተጠናቀቁ ንጥሎችን ማስወገድ?",
+    "clean": "አጽዳ",
+    "itemsCount": "{count} ንጥሎች",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "ቅንብሮች",
+    "theme": "ገጽታ",
+    "system": "ሲስተም",
+    "light": "ብርሃን",
+    "dark": "ጨለማ",
+    "close": "ዝጋ",
+    "listExists": "ዝርዝሩ አስቀድሞ አለ",
+    "listExistsMessage": "'{name}' አስቀድሞ አለ",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "አዲስ ዝርዝር ጨምር...",
+    "addNewItem": "አዲስ ንጥል ጨምር...",
+    "language": "ቋንቋ"
+} 
