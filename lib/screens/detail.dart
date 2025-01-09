@@ -20,7 +20,7 @@ class DetailScreen extends StatelessWidget {
     final storage = StorageService();
 
     return Scaffold(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
       body: SafeArea(
         child: Column(
           children: [
@@ -69,11 +69,8 @@ class DetailScreen extends StatelessWidget {
                           icon: Icon(
                             Icons.cleaning_services_rounded,
                             color: hasCompletedItems
-                                ? Theme.of(context).appBarTheme.foregroundColor
-                                : Theme.of(context)
-                                    .appBarTheme
-                                    .foregroundColor
-                                    ?.withAlpha(77),
+                                ? Colors.white
+                                : Colors.white.withAlpha(77),
                           ),
                           onPressed: hasCompletedItems
                               ? () => _showCleanupDialog(context, storage)
@@ -87,17 +84,26 @@ class DetailScreen extends StatelessWidget {
             ),
             Expanded(
               child: Container(
-                color: Theme.of(context).scaffoldBackgroundColor,
+                decoration: BoxDecoration(
+                  color: Theme.of(context).scaffoldBackgroundColor,
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(16),
+                    topRight: Radius.circular(16),
+                  ),
+                ),
                 child: TodoList(
                   listTitle: listTitle,
                   storage: storage,
                 ),
               ),
             ),
-            AddItem(
-              onItemAdded: (String text) async {
-                await storage.addItemToList(listTitle, text);
-              },
+            Container(
+              color: Theme.of(context).scaffoldBackgroundColor,
+              child: AddItem(
+                onItemAdded: (String text) async {
+                  await storage.addItemToList(listTitle, text);
+                },
+              ),
             ),
           ],
         ),
@@ -128,7 +134,14 @@ class DetailScreen extends StatelessWidget {
             ? Theme.of(context).colorScheme.surface
             : Theme.of(context).colorScheme.surface,
         elevation: 0,
-        title: Text(AppLocalizations.of(context)!.renameList),
+        title: Text(
+          AppLocalizations.of(context)!.renameList,
+          style: TextStyle(
+            color: Theme.of(context).brightness == Brightness.light
+                ? Colors.black
+                : Colors.white,
+          ),
+        ),
         content: Form(
           key: formKey,
           child: TextFormField(
@@ -145,6 +158,11 @@ class DetailScreen extends StatelessWidget {
                 Navigator.pop(context, controller.text.trim());
               }
             },
+            style: TextStyle(
+              color: Theme.of(context).brightness == Brightness.light
+                  ? Colors.black
+                  : Colors.white,
+            ),
             decoration: InputDecoration(
               labelText: AppLocalizations.of(context)!.listName,
             ).applyDefaults(Theme.of(context).inputDecorationTheme),
@@ -259,14 +277,28 @@ class TodoItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return ListTile(
       leading: Checkbox(
+        fillColor: WidgetStateProperty.resolveWith<Color>((states) {
+          if (states.contains(WidgetState.selected)) {
+            return theme.brightness == Brightness.light
+                ? Colors.black
+                : Colors.white;
+          }
+          return Colors.grey;
+        }),
+        checkColor:
+            theme.brightness == Brightness.light ? Colors.white : Colors.black,
         value: isCompleted,
         onChanged: onToggle,
       ),
       title: Text(
         title,
         style: TextStyle(
+          color: theme.brightness == Brightness.light
+              ? Colors.black
+              : Colors.white,
           decoration: isCompleted ? TextDecoration.lineThrough : null,
         ),
       ),

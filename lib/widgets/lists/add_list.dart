@@ -67,9 +67,20 @@ class AddList extends StatelessWidget {
               controller: _controller,
               decoration: InputDecoration(
                 hintText: context.l10n.addNewList,
+                hintStyle: TextStyle(
+                  color: (theme.brightness == Brightness.light
+                          ? Colors.black
+                          : Colors.white)
+                      .withAlpha(128),
+                ),
+                fillColor: theme.brightness == Brightness.light
+                    ? Colors.white
+                    : Colors.black,
               ).applyDefaults(theme.inputDecorationTheme),
               style: TextStyle(
-                color: theme.colorScheme.onSurface,
+                color: theme.brightness == Brightness.light
+                    ? Colors.black
+                    : Colors.white,
               ),
               onSubmitted: (_) => _handleSubmit(context, keepFocus: true),
             ),
@@ -77,11 +88,18 @@ class AddList extends StatelessWidget {
           const SizedBox(width: 12),
           Container(
             decoration: BoxDecoration(
-              color: theme.colorScheme.primary,
+              color: theme.brightness == Brightness.light
+                  ? Colors.black
+                  : Colors.white,
               borderRadius: BorderRadius.circular(12),
             ),
             child: IconButton(
-              icon: Icon(Icons.add, color: theme.colorScheme.onPrimary),
+              icon: Icon(
+                Icons.add,
+                color: theme.brightness == Brightness.light
+                    ? Colors.white
+                    : Colors.black,
+              ),
               onPressed: () => _handleSubmit(context),
             ),
           ),

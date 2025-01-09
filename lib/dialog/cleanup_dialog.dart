@@ -6,8 +6,18 @@ class CleanupDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return AlertDialog(
-      title: Text(context.l10n.cleanCompleted),
+      backgroundColor:
+          theme.brightness == Brightness.light ? Colors.white : Colors.black,
+      title: Text(
+        context.l10n.cleanCompleted,
+        style: TextStyle(
+          color: theme.brightness == Brightness.light
+              ? Colors.black
+              : Colors.white,
+        ),
+      ),
       content: Text(
         context.l10n.cleanConfirmation,
         style: Theme.of(context).textTheme.bodyLarge,

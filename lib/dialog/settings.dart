@@ -22,9 +22,24 @@ class SettingsDialog extends StatefulWidget {
 class _SettingsDialogState extends State<SettingsDialog> {
   final Map<String, String> _supportedLanguages = {
     'system': 'System',
-    'en': 'English',
+    'af': 'Afrikaans',
+    'am': 'አማርኛ',
+    'ar': 'العربية',
+    'az': 'Azərbaycan',
+    'be': 'Беларуская',
+    'bg': 'Български',
+    'bn': 'বাংলা',
+    'ca': 'Català',
+    'cs': 'Čeština',
+    'da': 'Dansk',
     'de': 'Deutsch',
+    'el': 'Ελληνικά',
+    'en': 'English',
     'es': 'Español',
+    'et': 'Eesti',
+    'eu': 'Euskara',
+    'fa': 'فارسی',
+    'fi': 'Suomi',
     'fr': 'Français',
     'it': 'Italiano',
     'ja': '日本語',
@@ -42,7 +57,16 @@ class _SettingsDialogState extends State<SettingsDialog> {
     final theme = Theme.of(context);
 
     return AlertDialog(
-      title: Text(context.l10n.settings),
+      backgroundColor:
+          theme.brightness == Brightness.light ? Colors.white : Colors.black,
+      title: Text(
+        context.l10n.settings,
+        style: TextStyle(
+          color: theme.brightness == Brightness.light
+              ? Colors.black
+              : Colors.white,
+        ),
+      ),
       contentPadding: const EdgeInsets.fromLTRB(24, 20, 24, 0),
       content: SingleChildScrollView(
         child: Column(
@@ -58,6 +82,14 @@ class _SettingsDialogState extends State<SettingsDialog> {
             ),
             const SizedBox(height: 8),
             DropdownButtonFormField<ThemeMode>(
+              dropdownColor: theme.brightness == Brightness.light
+                  ? Colors.white
+                  : Colors.black,
+              style: TextStyle(
+                color: theme.brightness == Brightness.light
+                    ? Colors.black
+                    : Colors.white,
+              ),
               value: widget.currentThemeMode,
               isExpanded: true,
               decoration: const InputDecoration(
@@ -80,9 +112,7 @@ class _SettingsDialogState extends State<SettingsDialog> {
               ],
               onChanged: (ThemeMode? value) {
                 if (value != null) {
-                  setState(() {
-                    widget.onThemeChanged(value);
-                  });
+                  widget.onThemeChanged(value);
                 }
               },
             ),
@@ -90,13 +120,21 @@ class _SettingsDialogState extends State<SettingsDialog> {
 
             // Language Section
             Text(
-              'Language',
+              context.l10n.language,
               style: theme.textTheme.titleMedium?.copyWith(
                 fontWeight: FontWeight.bold,
               ),
             ),
             const SizedBox(height: 8),
             DropdownButtonFormField<String>(
+              dropdownColor: theme.brightness == Brightness.light
+                  ? Colors.white
+                  : Colors.black,
+              style: TextStyle(
+                color: theme.brightness == Brightness.light
+                    ? Colors.black
+                    : Colors.white,
+              ),
               value: _getCurrentLanguageCode(),
               isExpanded: true,
               decoration: const InputDecoration(
