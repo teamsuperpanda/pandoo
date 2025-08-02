@@ -71,12 +71,12 @@ For any inquiries or suggestions, feel free to reach out to us at [support@teams
 
 <p align="center">
   <a href="https://github.com/TeamSuperPanda/pandoo">
-    <img src="https://img.shields.io/github/license/TeamSuperPanda/pandoo" alt="License">
+    <img src="https://img.shields.io/github/license/teamsuperpanda/pandoo" alt="License">
   </a>
   <a href="https://github.com/TeamSuperPanda/pandoo/issues">
-    <img src="https://img.shields.io/github/issues/TeamSuperPanda/pandoo" alt="Issues">
+    <img src="https://img.shields.io/github/issues/teamsuperpanda/pandoo" alt="Issues">
   </a>
   <a href="https://github.com/TeamSuperPanda/pandoo/stargazers">
-    <img src="https://img.shields.io/github/stars/TeamSuperPanda/pandoo" alt="Stars">
+    <img src="https://img.shields.io/github/stars/teamsuperpanda/pandoo" alt="Stars">
   </a>
 </p>
