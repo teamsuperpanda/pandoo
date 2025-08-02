@@ -1,6 +1,6 @@
-# Pandoo 🐼✅
+# Pandoo 🐼
 
-**Pandoo** is a sleek and modern todo application designed by **Team Super Panda**. Combining the playful essence of pandas with efficient task management, Pandoo offers a clean and intuitive interface to help you organize your daily activities seamlessly.
+**Pandoo** is a sleek and modern todo application designed by **Team Super Panda**. Pandoo offers a clean and intuitive interface to help you organize your daily activities seamlessly.
 
 ## Features
 
@@ -8,10 +8,6 @@
 - **Theme Options:** Choose between Light, Dark, or follow your system's theme to match your preferences.
 - **Modern Design:** A clean and minimalistic UI infused with panda-themed elements for a delightful user experience.
 - **Cross-Platform Support:** Available on both iOS and Android devices.
-
-## Screenshots
-
-*Coming soon!*
 
 ## Getting Started
 
@@ -66,17 +62,3 @@ This project is licensed under the [MIT License](LICENSE).
 ## Contact
 
 For any inquiries or suggestions, feel free to reach out to us at [support@teamsuperpanda.com](mailto:support@teamsuperpanda.com).
-
----
-
-<p align="center">
-  <a href="https://github.com/TeamSuperPanda/pandoo">
-    <img src="https://img.shields.io/github/license/teamsuperpanda/pandoo" alt="License">
-  </a>
-  <a href="https://github.com/TeamSuperPanda/pandoo/issues">
-    <img src="https://img.shields.io/github/issues/teamsuperpanda/pandoo" alt="Issues">
-  </a>
-  <a href="https://github.com/TeamSuperPanda/pandoo/stargazers">
-    <img src="https://img.shields.io/github/stars/teamsuperpanda/pandoo" alt="Stars">
-  </a>
-</p>
