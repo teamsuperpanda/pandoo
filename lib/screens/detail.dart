@@ -5,9 +5,9 @@ import '../services/storage_service.dart';
 import '../models/list_model.dart';
 import '../dialog/cleanup_dialog.dart';
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:pandoo/l10n/app_localizations.dart';
 
-class DetailScreen extends StatelessWidget {
+class DetailScreen extends StatefulWidget {
   final String listTitle;
 
   const DetailScreen({
@@ -16,72 +16,67 @@ class DetailScreen extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
-    final storage = StorageService();
+  State<DetailScreen> createState() => _DetailScreenState();
+}
 
+class _DetailScreenState extends State<DetailScreen> {
+  late String _currentListTitle;
+  final StorageService _storage = StorageService();
+
+  @override
+  void initState() {
+    super.initState();
+    _currentListTitle = widget.listTitle;
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+        foregroundColor: Theme.of(context).appBarTheme.foregroundColor,
+        elevation: Theme.of(context).appBarTheme.elevation,
+        centerTitle: Theme.of(context).appBarTheme.centerTitle,
+        title: GestureDetector(
+          onTap: () => _showRenameDialog(context),
+          child: Text(
+            _currentListTitle,
+            style: Theme.of(context).appBarTheme.titleTextStyle,
+          ),
+        ),
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back,
+            color: Theme.of(context).appBarTheme.foregroundColor,
+          ),
+          onPressed: () => Navigator.pop(context),
+        ),
+        actions: [
+          ValueListenableBuilder<Box<ListModel>>(
+            valueListenable: _storage.getBoxNotifier(),
+            builder: (context, box, _) {
+              final list = box.get(_currentListTitle);
+              final hasCompletedItems =
+                  list?.items.any((item) => item.isCompleted) ?? false;
+
+              return IconButton(
+                icon: Icon(
+                  Icons.cleaning_services_rounded,
+                  color: hasCompletedItems
+                      ? Theme.of(context).appBarTheme.foregroundColor
+                      : Theme.of(context).appBarTheme.foregroundColor?.withAlpha((255 * 0.38).round()),
+                ),
+                onPressed: hasCompletedItems
+                    ? () => _showCleanupDialog(context, _storage)
+                    : null,
+              );
+            },
+          ),
+        ],
+      ),
       body: SafeArea(
         child: Column(
           children: [
-            Container(
-              height: 60,
-              color: Theme.of(context).appBarTheme.backgroundColor,
-              child: Stack(
-                children: [
-                  // Back button
-                  Positioned(
-                    left: 4,
-                    top: 0,
-                    bottom: 0,
-                    child: IconButton(
-                      icon: Icon(
-                        Icons.arrow_back,
-                        color: Theme.of(context).appBarTheme.foregroundColor,
-                      ),
-                      onPressed: () => Navigator.pop(context),
-                    ),
-                  ),
-                  // Tappable centered title
-                  Center(
-                    child: GestureDetector(
-                      onTap: () => _showRenameDialog(context),
-                      child: Text(
-                        listTitle,
-                        style: Theme.of(context).appBarTheme.titleTextStyle,
-                      ),
-                    ),
-                  ),
-                  // Cleanup button
-                  Positioned(
-                    right: 4,
-                    top: 0,
-                    bottom: 0,
-                    child: ValueListenableBuilder<Box<ListModel>>(
-                      valueListenable: storage.getBoxNotifier(),
-                      builder: (context, box, _) {
-                        final list = box.get(listTitle);
-                        final hasCompletedItems =
-                            list?.items.any((item) => item.isCompleted) ??
-                                false;
-
-                        return IconButton(
-                          icon: Icon(
-                            Icons.cleaning_services_rounded,
-                            color: hasCompletedItems
-                                ? Colors.white
-                                : Colors.white.withAlpha(77),
-                          ),
-                          onPressed: hasCompletedItems
-                              ? () => _showCleanupDialog(context, storage)
-                              : null,
-                        );
-                      },
-                    ),
-                  ),
-                ],
-              ),
-            ),
             Expanded(
               child: Container(
                 decoration: BoxDecoration(
@@ -92,8 +87,8 @@ class DetailScreen extends StatelessWidget {
                   ),
                 ),
                 child: TodoList(
-                  listTitle: listTitle,
-                  storage: storage,
+                  listTitle: _currentListTitle,
+                  storage: _storage,
                 ),
               ),
             ),
@@ -101,7 +96,7 @@ class DetailScreen extends StatelessWidget {
               color: Theme.of(context).scaffoldBackgroundColor,
               child: AddItem(
                 onItemAdded: (String text) async {
-                  await storage.addItemToList(listTitle, text);
+                  await _storage.addItemToList(_currentListTitle, text);
                 },
               ),
             ),
@@ -119,12 +114,12 @@ class DetailScreen extends StatelessWidget {
     );
 
     if (confirmed == true) {
-      await storage.removeCompletedItems(listTitle);
+      await storage.removeCompletedItems(_currentListTitle);
     }
   }
 
   Future<void> _showRenameDialog(BuildContext context) async {
-    final controller = TextEditingController(text: listTitle);
+    final controller = TextEditingController(text: _currentListTitle);
     final formKey = GlobalKey<FormState>();
 
     final newName = await showDialog<String>(
@@ -133,7 +128,7 @@ class DetailScreen extends StatelessWidget {
         backgroundColor: Theme.of(context).brightness == Brightness.dark
             ? Theme.of(context).colorScheme.surface
             : Theme.of(context).colorScheme.surface,
-        elevation: 0,
+        elevation: 4, // Added a small elevation for better visual separation
         title: Text(
           AppLocalizations.of(context)!.renameList,
           style: TextStyle(
@@ -190,9 +185,8 @@ class DetailScreen extends StatelessWidget {
       ),
     );
 
-    if (newName != null && newName != listTitle && context.mounted) {
-      final storage = StorageService();
-      final success = await storage.renameList(listTitle, newName);
+    if (newName != null && newName != _currentListTitle && context.mounted) {
+      final success = await _storage.renameList(_currentListTitle, newName);
       if (!success) {
         if (context.mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
@@ -210,10 +204,9 @@ class DetailScreen extends StatelessWidget {
           );
         }
       } else {
-        if (context.mounted) {
-          Navigator.pop(
-              context); // Go back to lists screen after successful rename
-        }
+        setState(() {
+          _currentListTitle = newName;
+        });
       }
     }
   }

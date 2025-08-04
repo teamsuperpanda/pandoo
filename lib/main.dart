@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:pandoo/l10n/app_localizations.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'services/storage_service.dart';
 import 'core/theme/app_theme.dart';
@@ -76,7 +76,7 @@ class _MyAppState extends State<MyApp> {
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
   final Function(ThemeMode) onThemeChanged;
   final ThemeMode currentThemeMode;
   final Function(Locale?) onLanguageChanged;
@@ -90,14 +90,38 @@ class MyHomePage extends StatelessWidget {
     required this.currentLocale,
   });
 
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMixin {
+  late AnimationController _animationController;
+  late Animation<double> _animation;
+
+  @override
+  void initState() {
+    super.initState();
+    _animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 500),
+    );
+    _animation = Tween<double>(begin: 0, end: 1).animate(_animationController);
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
   void _openSettings(BuildContext context) {
     showDialog(
       context: context,
       builder: (context) => SettingsDialog(
-        onThemeChanged: onThemeChanged,
-        currentThemeMode: currentThemeMode,
-        onLanguageChanged: onLanguageChanged,
-        currentLocale: currentLocale,
+        onThemeChanged: widget.onThemeChanged,
+        currentThemeMode: widget.currentThemeMode,
+        onLanguageChanged: widget.onLanguageChanged,
+        currentLocale: widget.currentLocale,
       ),
     );
   }
@@ -105,48 +129,41 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+        foregroundColor: Theme.of(context).appBarTheme.foregroundColor,
+        elevation: Theme.of(context).appBarTheme.elevation,
+        centerTitle: Theme.of(context).appBarTheme.centerTitle,
+        title: Text(
+          context.l10n.appTitle,
+          style: Theme.of(context).appBarTheme.titleTextStyle,
+        ),
+        leading: RotationTransition(
+          turns: _animation,
+          child: IconButton(
+            icon: Image.asset(
+              'assets/images/icon/icon.png',
+              height: 36,
+            ),
+            onPressed: () {
+              _animationController.forward(from: 0);
+            },
+          ),
+        ),
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.settings,
+              color: Theme.of(context).appBarTheme.foregroundColor,
+            ),
+            onPressed: () => _openSettings(context),
+            padding: const EdgeInsets.only(right: 16.0),
+          ),
+        ],
+      ),
       body: SafeArea(
         child: Column(
           children: [
-            Container(
-              height: 60,
-              color: Theme.of(context).appBarTheme.backgroundColor,
-              child: Stack(
-                children: [
-                  Positioned(
-                    left: 16,
-                    top: 0,
-                    bottom: 0,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 12),
-                      child: Image.asset(
-                        'assets/images/icon/icon.png',
-                        height: 36,
-                      ),
-                    ),
-                  ),
-                  Center(
-                    child: Text(
-                      context.l10n.appTitle,
-                      style: Theme.of(context).appBarTheme.titleTextStyle,
-                    ),
-                  ),
-                  Positioned(
-                    right: 4,
-                    top: 0,
-                    bottom: 0,
-                    child: IconButton(
-                      icon: Icon(
-                        Icons.settings,
-                        color: Theme.of(context).appBarTheme.foregroundColor,
-                      ),
-                      onPressed: () => _openSettings(context),
-                    ),
-                  ),
-                ],
-              ),
-            ),
             Expanded(
               child: Container(
                 color: Theme.of(context).scaffoldBackgroundColor,
