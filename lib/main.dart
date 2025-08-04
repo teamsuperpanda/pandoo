@@ -97,6 +97,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<double> _animation;
+  bool _isRotatingForward = true;
 
   @override
   void initState() {
@@ -146,7 +147,12 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
               height: 36,
             ),
             onPressed: () {
-              _animationController.forward(from: 0);
+              if (_isRotatingForward) {
+                _animationController.forward(from: 0);
+              } else {
+                _animationController.reverse(from: 1);
+              }
+              _isRotatingForward = !_isRotatingForward;
             },
           ),
         ),

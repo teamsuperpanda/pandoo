@@ -37,8 +37,14 @@ class StorageService {
   }
 
   List<ListModel> getAllLists() {
-    return _listsBox.values.toList()
-      ..sort((a, b) => a.order.compareTo(b.order));
+    final allLists = _listsBox.values.toList();
+    final pinnedLists = allLists.where((list) => list.pinned).toList();
+    final unpinnedLists = allLists.where((list) => !list.pinned).toList();
+
+    pinnedLists.sort((a, b) => a.name.compareTo(b.name));
+    unpinnedLists.sort((a, b) => a.order.compareTo(b.order));
+
+    return [...pinnedLists, ...unpinnedLists];
   }
 
   Future<void> addItemToList(String listName, String item) async {
@@ -49,6 +55,7 @@ class StorageService {
         name: list.name,
         items: updatedItems,
         order: list.order,
+        pinned: list.pinned,
       );
       await _listsBox.put(listName, updatedList);
     }
@@ -70,6 +77,7 @@ class StorageService {
         name: list.name,
         items: list.items,
         order: i,
+        pinned: list.pinned,
       );
       await _listsBox.put(list.name, updatedList);
     }
@@ -86,6 +94,7 @@ class StorageService {
         name: list.name,
         items: list.items,
         order: i,
+        pinned: list.pinned,
       );
       await _listsBox.put(list.name, updatedList);
     }
@@ -101,12 +110,26 @@ class StorageService {
         name: newName,
         items: list.items,
         order: list.order,
+        pinned: list.pinned,
       );
       await _listsBox.delete(oldName);
       await _listsBox.put(newName, updatedList);
       return true;
     }
     return false;
+  }
+
+  Future<void> togglePin(String listName) async {
+    final list = _listsBox.get(listName);
+    if (list != null) {
+      final updatedList = ListModel(
+        name: list.name,
+        items: list.items,
+        order: list.order,
+        pinned: !list.pinned,
+      );
+      await _listsBox.put(listName, updatedList);
+    }
   }
 
   ValueListenable<Box<ListModel>> getBoxNotifier() {
@@ -139,6 +162,7 @@ class StorageService {
       name: list.name,
       items: updatedItems,
       order: list.order,
+      pinned: list.pinned,
     );
 
     await _listsBox.put(listName, updatedList);
@@ -154,6 +178,7 @@ class StorageService {
       name: list.name,
       items: updatedItems,
       order: list.order,
+      pinned: list.pinned,
     );
 
     await _listsBox.put(listName, updatedList);
@@ -171,3 +196,4 @@ class StorageService {
     _instance._listsBox = box;
   }
 }
+

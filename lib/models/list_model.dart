@@ -13,10 +13,14 @@ class ListModel extends HiveObject {
   @HiveField(2)
   final int order;
 
+  @HiveField(3)
+  final bool pinned;
+
   ListModel({
     required this.name,
     List<TodoItem>? items,
     required this.order,
+    this.pinned = false,
   }) : items = items ?? [];
 }
 

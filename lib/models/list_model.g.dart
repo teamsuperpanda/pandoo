@@ -20,19 +20,22 @@ class ListModelAdapter extends TypeAdapter<ListModel> {
       name: fields[0] as String,
       items: (fields[1] as List?)?.cast<TodoItem>(),
       order: fields[2] as int,
+      pinned: fields[3] as bool,
     );
   }
 
   @override
   void write(BinaryWriter writer, ListModel obj) {
     writer
-      ..writeByte(3)
+      ..writeByte(4)
       ..writeByte(0)
       ..write(obj.name)
       ..writeByte(1)
       ..write(obj.items)
       ..writeByte(2)
-      ..write(obj.order);
+      ..write(obj.order)
+      ..writeByte(3)
+      ..write(obj.pinned);
   }
 
   @override

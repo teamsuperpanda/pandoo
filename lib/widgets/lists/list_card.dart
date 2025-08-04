@@ -11,6 +11,7 @@ class ListCard extends StatelessWidget {
   final VoidCallback onDelete;
   final Function(String) onRename;
   final int index;
+  final bool pinned;
 
   const ListCard({
     super.key,
@@ -19,6 +20,7 @@ class ListCard extends StatelessWidget {
     required this.onDelete,
     required this.onRename,
     required this.index,
+    required this.pinned,
   });
 
   Future<bool> _confirmDelete(BuildContext context) async {
@@ -111,13 +113,19 @@ class ListCard extends StatelessWidget {
             padding: const EdgeInsets.all(16),
             child: Row(
               children: [
-                ReorderableDragStartListener(
-                  index: index,
-                  child: Icon(
-                    Icons.drag_indicator,
+                if (!pinned)
+                  ReorderableDragStartListener(
+                    index: index,
+                    child: Icon(
+                      Icons.drag_indicator,
+                      color: theme.iconTheme.color?.withAlpha(128),
+                    ),
+                  ),
+                if (pinned)
+                  Icon(
+                    Icons.push_pin,
                     color: theme.iconTheme.color?.withAlpha(128),
                   ),
-                ),
                 const SizedBox(width: 16),
                 Expanded(
                   child: Column(
@@ -176,6 +184,10 @@ class ListCard extends StatelessWidget {
                   ),
                   itemBuilder: (context) => [
                     PopupMenuItem(
+                      value: 'pin',
+                      child: Text(pinned ? 'Unpin' : 'Pin'),
+                    ),
+                    PopupMenuItem(
                       value: 'delete',
                       child: Text(
                         'Delete',
@@ -188,6 +200,8 @@ class ListCard extends StatelessWidget {
                       if (await _confirmDelete(context)) {
                         onDelete();
                       }
+                    } else if (value == 'pin') {
+                      await StorageService().togglePin(title);
                     }
                   },
                 ),

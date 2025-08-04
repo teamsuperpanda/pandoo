@@ -22,11 +22,13 @@ class ShowListsState extends State<ShowLists> {
       valueListenable: _storage.getBoxNotifier(),
       builder: (context, box, _) {
         final lists = _storage.getAllLists();
+        final pinnedCount = lists.where((list) => list.pinned).length;
 
         return ReorderableListView.builder(
           buildDefaultDragHandles: false,
           itemCount: lists.length,
           onReorder: (oldIndex, newIndex) async {
+            if (oldIndex < pinnedCount || newIndex < pinnedCount) return;
             await _storage.reorderLists(oldIndex, newIndex);
           },
           itemBuilder: (context, index) {
@@ -35,6 +37,7 @@ class ShowListsState extends State<ShowLists> {
               key: ValueKey(list.name),
               title: list.name,
               index: index,
+              pinned: list.pinned,
               onTap: () {
                 Navigator.push(
                   context,
