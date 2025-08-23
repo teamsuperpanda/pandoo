@@ -91,7 +91,7 @@ class _SettingsDialogState extends State<SettingsDialog> {
                     ? Colors.black
                     : Colors.white,
               ),
-              value: widget.currentThemeMode,
+              initialValue: widget.currentThemeMode,
               isExpanded: true,
               decoration: const InputDecoration(
                 contentPadding:
@@ -136,7 +136,7 @@ class _SettingsDialogState extends State<SettingsDialog> {
                     ? Colors.black
                     : Colors.white,
               ),
-              value: _getCurrentLanguageCode(),
+              initialValue: _getCurrentLanguageCode(),
               isExpanded: true,
               decoration: const InputDecoration(
                 contentPadding:
