@@ -1,0 +1,40 @@
+{
+    "appTitle": "แพนดู",
+    "renameList": "เปลี่ยนชื่อรายการ",
+    "listName": "ชื่อรายการ",
+    "cancel": "ยกเลิก",
+    "rename": "เปลี่ยนชื่อ",
+    "delete": "ลบ",
+    "deleteList": "ลบรายการ",
+    "deleteConfirmation": "คุณแน่ใจหรือไม่ว่าต้องการลบ \"{listTitle}\"?",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "ล้างรายการที่เสร็จสิ้น",
+    "cleanConfirmation": "ลบรายการที่เสร็จสิ้นทั้งหมดจากรายการนี้?",
+    "clean": "ล้าง",
+    "itemsCount": "{count} รายการ",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "การตั้งค่า",
+    "theme": "ธีม",
+    "system": "ระบบ",
+    "light": "สว่าง",
+    "dark": "มืด",
+    "close": "ปิด",
+    "listExists": "มีรายการนี้อยู่แล้ว",
+    "listExistsMessage": "'{name}' มีอยู่แล้ว",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "เพิ่มรายการใหม่...",
+    "addNewItem": "เพิ่มรายการใหม่...",
+    "language": "ภาษา"
+} 

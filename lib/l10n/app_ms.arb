@@ -1,0 +1,40 @@
+{
+    "appTitle": "Pandoo",
+    "renameList": "Namakan Semula Senarai",
+    "listName": "Nama Senarai",
+    "cancel": "Batal",
+    "rename": "Namakan Semula",
+    "delete": "Padam",
+    "deleteList": "Padam Senarai",
+    "deleteConfirmation": "Adakah anda pasti mahu memadamkan \"{listTitle}\"?",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "Bersihkan Item Selesai",
+    "cleanConfirmation": "Buang semua item yang telah selesai dari senarai ini?",
+    "clean": "Bersihkan",
+    "itemsCount": "{count} item",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "Tetapan",
+    "theme": "Tema",
+    "system": "Sistem",
+    "light": "Cerah",
+    "dark": "Gelap",
+    "close": "Tutup",
+    "listExists": "Senarai Sudah Wujud",
+    "listExistsMessage": "'{name}' sudah wujud",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "Tambah senarai baharu...",
+    "addNewItem": "Tambah item baharu...",
+    "language": "Bahasa"
+} 

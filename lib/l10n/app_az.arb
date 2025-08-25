@@ -1,0 +1,40 @@
+{
+    "appTitle": "Pandoo",
+    "renameList": "Siyahını Yenidən Adlandır",
+    "listName": "Siyahı Adı",
+    "cancel": "Ləğv et",
+    "rename": "Yenidən Adlandır",
+    "delete": "Sil",
+    "deleteList": "Siyahını Sil",
+    "deleteConfirmation": "\"{listTitle}\" silmək istədiyinizə əminsiniz?",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "Tamamlanmış Elementləri Təmizlə",
+    "cleanConfirmation": "Bu siyahıdan bütün tamamlanmış elementlər silinsin?",
+    "clean": "Təmizlə",
+    "itemsCount": "{count} element",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "Parametrlər",
+    "theme": "Mövzu",
+    "system": "Sistem",
+    "light": "İşıqlı",
+    "dark": "Qaranlıq",
+    "close": "Bağla",
+    "listExists": "Siyahı Artıq Mövcuddur",
+    "listExistsMessage": "'{name}' artıq mövcuddur",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "Yeni siyahı əlavə et...",
+    "addNewItem": "Yeni element əlavə et...",
+    "language": "Dil"
+} 

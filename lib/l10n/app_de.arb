@@ -1,0 +1,40 @@
+{
+    "appTitle": "Pandoo",
+    "renameList": "Liste Umbenennen",
+    "listName": "Listenname",
+    "cancel": "Abbrechen",
+    "rename": "Umbenennen",
+    "delete": "Löschen",
+    "deleteList": "Liste Löschen",
+    "deleteConfirmation": "Sind Sie sicher, dass Sie \"{listTitle}\" löschen möchten?",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "Erledigte Einträge Entfernen",
+    "cleanConfirmation": "Alle erledigten Einträge aus dieser Liste entfernen?",
+    "clean": "Entfernen",
+    "itemsCount": "{count} Einträge",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "Einstellungen",
+    "theme": "Design",
+    "system": "System",
+    "light": "Hell",
+    "dark": "Dunkel",
+    "close": "Schließen",
+    "listExists": "Liste Existiert Bereits",
+    "listExistsMessage": "'{name}' existiert bereits",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "Neue Liste hinzufügen...",
+    "addNewItem": "Neuen Eintrag hinzufügen...",
+    "language": "Sprache"
+} 

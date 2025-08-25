@@ -1,0 +1,74 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file('key.properties')
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+
+android {
+    namespace = "com.teamsuperpanda.pandoo"
+    compileSdk = flutter.compileSdkVersion
+    ndkVersion = flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+
+    signingConfigs {
+        release {
+            if (
+                keystoreProperties['storeFile'] &&
+                keystoreProperties['storePassword'] &&
+                keystoreProperties['keyAlias'] &&
+                keystoreProperties['keyPassword']
+            ) {
+                keyAlias keystoreProperties['keyAlias']
+                keyPassword keystoreProperties['keyPassword']
+                storeFile file(keystoreProperties['storeFile'])
+                storePassword keystoreProperties['storePassword']
+            } else {
+                throw new GradleException("Missing keystore properties for release signing config.")
+            }
+        }
+    }
+
+    defaultConfig {
+        applicationId = "com.teamsuperpanda.pandoo"
+        minSdk = flutter.minSdkVersion
+        targetSdk = flutter.targetSdkVersion
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            shrinkResources false
+        }
+    }
+
+    packagingOptions {
+        jniLibs {
+            useLegacyPackaging = false
+        }
+        resources {
+            excludes += [ "META-INF/LICENSE*", "META-INF/NOTICE*", "META-INF/AL2.0", "META-INF/LGPL2.1" ]
+        }
+    }
+}
+
+flutter {
+    source = "../.."
+}

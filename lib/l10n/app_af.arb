@@ -1,0 +1,40 @@
+{
+    "appTitle": "Pandoo",
+    "renameList": "Hernoem Lys",
+    "listName": "Lysnaam",
+    "cancel": "Kanselleer",
+    "rename": "Hernoem",
+    "delete": "Verwyder",
+    "deleteList": "Verwyder Lys",
+    "deleteConfirmation": "Is jy seker jy wil \"{listTitle}\" verwyder?",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "Verwyder Voltooide Items",
+    "cleanConfirmation": "Verwyder alle voltooide items van hierdie lys?",
+    "clean": "Verwyder",
+    "itemsCount": "{count} items",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "Instellings",
+    "theme": "Tema",
+    "system": "Stelsel",
+    "light": "Lig",
+    "dark": "Donker",
+    "close": "Sluit",
+    "listExists": "Lys Bestaan Reeds",
+    "listExistsMessage": "'{name}' bestaan reeds",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "Voeg nuwe lys by...",
+    "addNewItem": "Voeg nuwe item by...",
+    "language": "Taal"
+} 
