@@ -1,0 +1,40 @@
+{
+    "appTitle": "Pandoo",
+    "renameList": "Preimenuj Listu",
+    "listName": "Naziv Liste",
+    "cancel": "Odustani",
+    "rename": "Preimenuj",
+    "delete": "Izbriši",
+    "deleteList": "Izbriši Listu",
+    "deleteConfirmation": "Jeste li sigurni da želite izbrisati \"{listTitle}\"?",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "Očisti Završene Stavke",
+    "cleanConfirmation": "Ukloniti sve završene stavke s ove liste?",
+    "clean": "Očisti",
+    "itemsCount": "{count} stavki",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "Postavke",
+    "theme": "Tema",
+    "system": "Sustav",
+    "light": "Svijetla",
+    "dark": "Tamna",
+    "close": "Zatvori",
+    "listExists": "Lista Već Postoji",
+    "listExistsMessage": "'{name}' već postoji",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "Dodaj novu listu...",
+    "addNewItem": "Dodaj novu stavku...",
+    "language": "Jezik"
+} 

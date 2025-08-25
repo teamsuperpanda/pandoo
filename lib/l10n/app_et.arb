@@ -1,0 +1,40 @@
+{
+    "appTitle": "Pandoo",
+    "renameList": "Nimeta Loend Ümber",
+    "listName": "Loendi Nimi",
+    "cancel": "Tühista",
+    "rename": "Nimeta Ümber",
+    "delete": "Kustuta",
+    "deleteList": "Kustuta Loend",
+    "deleteConfirmation": "Kas oled kindel, et soovid kustutada \"{listTitle}\"?",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "Puhasta Lõpetatud Üksused",
+    "cleanConfirmation": "Kas eemaldada kõik lõpetatud üksused sellest loendist?",
+    "clean": "Puhasta",
+    "itemsCount": "{count} üksust",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "Seaded",
+    "theme": "Teema",
+    "system": "Süsteem",
+    "light": "Hele",
+    "dark": "Tume",
+    "close": "Sulge",
+    "listExists": "Loend Juba Eksisteerib",
+    "listExistsMessage": "'{name}' on juba olemas",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "Lisa uus loend...",
+    "addNewItem": "Lisa uus üksus...",
+    "language": "Keel"
+} 

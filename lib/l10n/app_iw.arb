@@ -1,0 +1,40 @@
+{
+    "appTitle": "פנדו",
+    "renameList": "שנה שם רשימה",
+    "listName": "שם הרשימה",
+    "cancel": "ביטול",
+    "rename": "שנה שם",
+    "delete": "מחק",
+    "deleteList": "מחק רשימה",
+    "deleteConfirmation": "האם אתה בטוח שברצונך למחוק את \"{listTitle}\"?",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "נקה פריטים שהושלמו",
+    "cleanConfirmation": "להסיר את כל הפריטים שהושלמו מרשימה זו?",
+    "clean": "נקה",
+    "itemsCount": "{count} פריטים",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "הגדרות",
+    "theme": "ערכת נושא",
+    "system": "מערכת",
+    "light": "בהיר",
+    "dark": "כהה",
+    "close": "סגור",
+    "listExists": "הרשימה כבר קיימת",
+    "listExistsMessage": "'{name}' כבר קיים",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "הוסף רשימה חדשה...",
+    "addNewItem": "הוסף פריט חדש...",
+    "language": "שפה"
+} 

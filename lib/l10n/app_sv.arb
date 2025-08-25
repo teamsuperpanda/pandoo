@@ -1,0 +1,40 @@
+{
+    "appTitle": "Pandoo",
+    "renameList": "Byt Namn på Lista",
+    "listName": "Listnamn",
+    "cancel": "Avbryt",
+    "rename": "Byt Namn",
+    "delete": "Ta Bort",
+    "deleteList": "Ta Bort Lista",
+    "deleteConfirmation": "Är du säker på att du vill ta bort \"{listTitle}\"?",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "Rensa Färdiga Objekt",
+    "cleanConfirmation": "Ta bort alla färdiga objekt från denna lista?",
+    "clean": "Rensa",
+    "itemsCount": "{count} objekt",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "Inställningar",
+    "theme": "Tema",
+    "system": "System",
+    "light": "Ljust",
+    "dark": "Mörkt",
+    "close": "Stäng",
+    "listExists": "Listan Finns Redan",
+    "listExistsMessage": "'{name}' finns redan",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "Lägg till ny lista...",
+    "addNewItem": "Lägg till nytt objekt...",
+    "language": "Språk"
+} 

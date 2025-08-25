@@ -1,0 +1,40 @@
+{
+    "appTitle": "Пандоо",
+    "renameList": "Жагсаалтын Нэрийг Өөрчлөх",
+    "listName": "Жагсаалтын Нэр",
+    "cancel": "Цуцлах",
+    "rename": "Нэр Өөрчлөх",
+    "delete": "Устгах",
+    "deleteList": "Жагсаалт Устгах",
+    "deleteConfirmation": "\"{listTitle}\"-г устгахдаа итгэлтэй байна уу?",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "Дууссан Зүйлсийг Цэвэрлэх",
+    "cleanConfirmation": "Энэ жагсаалтаас бүх дууссан зүйлсийг хасах уу?",
+    "clean": "Цэвэрлэх",
+    "itemsCount": "{count} зүйл",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "Тохиргоо",
+    "theme": "Загвар",
+    "system": "Систем",
+    "light": "Цайвар",
+    "dark": "Бараан",
+    "close": "Хаах",
+    "listExists": "Жагсаалт Аль Хэдийн Байна",
+    "listExistsMessage": "'{name}' аль хэдийн байна",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "Шинэ жагсаалт нэмэх...",
+    "addNewItem": "Шинэ зүйл нэмэх...",
+    "language": "Хэл"
+} 

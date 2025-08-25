@@ -1,0 +1,40 @@
+{
+    "appTitle": "Pandoo",
+    "renameList": "Nimeä Lista Uudelleen",
+    "listName": "Listan Nimi",
+    "cancel": "Peruuta",
+    "rename": "Nimeä Uudelleen",
+    "delete": "Poista",
+    "deleteList": "Poista Lista",
+    "deleteConfirmation": "Haluatko varmasti poistaa \"{listTitle}\"?",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "Tyhjennä Valmiit Kohteet",
+    "cleanConfirmation": "Poistetaanko kaikki valmiit kohteet tästä listasta?",
+    "clean": "Tyhjennä",
+    "itemsCount": "{count} kohdetta",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "Asetukset",
+    "theme": "Teema",
+    "system": "Järjestelmä",
+    "light": "Vaalea",
+    "dark": "Tumma",
+    "close": "Sulje",
+    "listExists": "Lista On Jo Olemassa",
+    "listExistsMessage": "'{name}' on jo olemassa",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "Lisää uusi lista...",
+    "addNewItem": "Lisää uusi kohde...",
+    "language": "Kieli"
+} 
