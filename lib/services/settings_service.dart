@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import '../models/settings_model.dart';
+import 'package:pandoo/models/locale_adapter.dart';
+import 'package:pandoo/models/settings_model.dart';
+import 'package:pandoo/models/theme_mode_adapter.dart';
 
 class SettingsService {
   static const String _boxName = 'settings_db';
@@ -15,6 +17,12 @@ class SettingsService {
   Future<void> init() async {
     if (!Hive.isAdapterRegistered(2)) {
       Hive.registerAdapter(SettingsAdapter());
+    }
+    if (!Hive.isAdapterRegistered(100)) {
+      Hive.registerAdapter(ThemeModeAdapter());
+    }
+    if (!Hive.isAdapterRegistered(101)) {
+      Hive.registerAdapter(LocaleAdapter());
     }
     _box = await Hive.openBox<Settings>(_boxName);
 
@@ -31,12 +39,8 @@ class SettingsService {
   }
 
   Future<void> setThemeMode(ThemeMode mode) async {
-    await _box.put(
-        _settingsKey,
-        Settings(
-          languageCode: _settings.languageCode,
-          themeMode: mode.toString(),
-        ));
+    final newSettings = _settings..theme = mode;
+    await _box.put(_settingsKey, newSettings);
   }
 
   Locale? getLocale() {
@@ -44,11 +48,7 @@ class SettingsService {
   }
 
   Future<void> setLocale(Locale? locale) async {
-    await _box.put(
-        _settingsKey,
-        Settings(
-          languageCode: locale?.languageCode,
-          themeMode: _settings.themeMode,
-        ));
+    final newSettings = _settings..locale = locale;
+    await _box.put(_settingsKey, newSettings);
   }
 }

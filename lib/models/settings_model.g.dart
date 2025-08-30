@@ -17,8 +17,8 @@ class SettingsAdapter extends TypeAdapter<Settings> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return Settings(
-      languageCode: fields[0] as String?,
-      themeMode: fields[1] as String,
+      locale: fields[0] as Locale?,
+      theme: fields[1] as ThemeMode,
     );
   }
 
@@ -27,9 +27,9 @@ class SettingsAdapter extends TypeAdapter<Settings> {
     writer
       ..writeByte(2)
       ..writeByte(0)
-      ..write(obj.languageCode)
+      ..write(obj.locale)
       ..writeByte(1)
-      ..write(obj.themeMode);
+      ..write(obj.theme);
   }
 
   @override
