@@ -1,90 +1,90 @@
 [
   {
     "language": "en-US",
-    "text": "What's new in 2.2.1:\n• Updated dependencies to keep the app secure and compatible with the latest packages. No user-facing changes."
+    "text": "What's new :\n• Bug fixes and updated dependencies."
   },
   {
     "language": "en-GB",
-    "text": "What's new in 2.2.1:\n• Updated dependencies to keep the app secure and compatible with the latest packages. No user-facing changes."
+    "text": "What's new :\n• Bug fixes and updated dependencies."
   },
   {
     "language": "es-ES",
-    "text": "Novedades en la versión 2.2.1:\n• Actualizamos las dependencias para mantener la app segura y compatible con los paquetes más recientes. Sin cambios visibles para el usuario."
+    "text": "Novedades:\n• Corrección de errores y actualización de dependencias."
   },
   {
     "language": "fr-FR",
-    "text": "Nouveautés de la version 2.2.1 :\n• Mise à jour des dépendances pour garder l'application sécurisée et compatible avec les derniers paquets. Aucun changement visible pour les utilisateurs."
+    "text": "Nouveautés :\n• Corrections de bugs et mise à jour des dépendances."
   },
   {
     "language": "de-DE",
-    "text": "Neu in Version 2.2.1:\n• Abhängigkeiten aktualisiert, damit die App sicher bleibt und mit den neuesten Paketen kompatibel ist. Keine sichtbaren Änderungen für Nutzer."
+    "text": "Neuigkeiten:\n• Fehlerbehebungen und aktualisierte Abhängigkeiten."
   },
   {
     "language": "pt-BR",
-    "text": "Novidades na versão 2.2.1:\n• Atualizamos as dependências para manter o app seguro e compatível com os pacotes mais recentes. Sem mudanças visíveis para o usuário."
+    "text": "Novidades:\n• Correções de bugs e atualização de dependências."
   },
   {
     "language": "it-IT",
-    "text": "Novità nella versione 2.2.1:\n• Aggiornate le dipendenze per mantenere l'app sicura e compatibile con i pacchetti più recenti. Nessuna modifica visibile per gli utenti."
+    "text": "Novità:\n• Correzione di bug e aggiornamento delle dipendenze."
   },
   {
     "language": "ja-JP",
-    "text": "バージョン2.2.1の新機能：\n• アプリを安全に保ち、最新パッケージと互換性を保つために依存関係を更新しました。ユーザーに見える変更はありません。"
+    "text": "更新内容：\n• バグ修正と依存関係の更新。"
   },
   {
     "language": "ko-KR",
-    "text": "버전 2.2.1 변경사항:\n• 앱을 안전하게 유지하고 최신 패키지와의 호환성을 위해 종속 항목을 업데이트했습니다. 사용자에게 보이는 변경사항은 없습니다."
+    "text": "새로운 기능:\n• 버그 수정 및 종속성 업데이트."
   },
   {
     "language": "zh-CN",
-    "text": "2.2.1 更新内容：\n• 更新了依赖项以保持应用的安全性并与最新软件包兼容。对用户没有可见的更改。"
+    "text": "更新内容：\n• 错误修复和依赖项更新。"
   },
   {
     "language": "zh-TW",
-    "text": "2.2.1 更新內容：\n• 更新了相依套件，以保持應用安全並與最新套件相容。對使用者沒有可見的變更。"
+    "text": "更新內容：\n• 錯誤修復與相依套件更新。"
   },
   {
     "language": "ru-RU",
-    "text": "Что нового в версии 2.2.1:\n• Обновлены зависимости, чтобы приложение оставалось безопасным и совместимым с последними пакетами. Видимых для пользователей изменений нет."
+    "text": "Что нового:\n• Исправления ошибок и обновлённые зависимости."
   },
   {
     "language": "tr-TR",
-    "text": "2.2.1 sürümündeki yenilikler:\n• Uygulamayı güvende tutmak ve en son paketlerle uyumlu kalması için bağımlılıkları güncelledik. Kullanıcıya yönelik görünür bir değişiklik yok."
+    "text": "Yenilikler:\n• Hata düzeltmeleri ve güncellenen bağımlılıklar."
   },
   {
     "language": "nl-NL",
-    "text": "Wat is nieuw in 2.2.1:\n• Afhankelijkheden bijgewerkt om de app veilig te houden en compatibel met de nieuwste pakketten. Geen zichtbare wijzigingen voor gebruikers."
+    "text": "Wat is nieuw:\n• Bugfixes en bijgewerkte afhankelijkheden."
   },
   {
     "language": "sv-SE",
-    "text": "Nyheter i 2.2.1:\n• Uppdaterade beroenden för att hålla appen säker och kompatibel med de senaste paketen. Inga synliga förändringar för användaren."
+    "text": "Nyheter:\n• Buggfixar och uppdaterade beroenden."
   },
   {
     "language": "pl-PL",
-    "text": "Co nowego w wersji 2.2.1:\n• Zaktualizowano zależności, aby aplikacja była bezpieczna i kompatybilna z najnowszymi pakietami. Brak widocznych zmian dla użytkowników."
+    "text": "Co nowego:\n• Poprawki błędów i zaktualizowane zależności."
   },
   {
     "language": "ar-SA",
-    "text": "الجديد في الإصدار 2.2.1:\n• قمنا بتحديث التبعيات للحفاظ على أمان التطبيق وللتوافق مع الحزم الأحدث. لا توجد تغييرات مرئية للمستخدم."
+    "text": "ما الجديد:\n• إصلاحات للأخطاء وتحديث التبعيات."
   },
   {
     "language": "hi-IN",
-    "text": "वर्ज़न 2.2.1 में नया:\n• ऐप को सुरक्षित रखने और नवीनतम पैकेजों के साथ संगत बनाए रखने के लिए निर्भरताएँ अपडेट की गईं। उपयोगकर्ताओं के लिए कोई दिखाई देने वाला परिवर्तन नहीं।"
+    "text": "नया क्या है:\n• बग फिक्स और निर्भरताएँ अपडेट की गईं।"
   },
   {
     "language": "id-ID",
-    "text": "Yang baru di 2.2.1:\n• Memperbarui dependensi untuk menjaga aplikasi tetap aman dan kompatibel dengan paket terbaru. Tidak ada perubahan yang terlihat oleh pengguna."
+    "text": "Yang baru:\n• Perbaikan bug dan pembaruan dependensi."
   },
   {
     "language": "vi-VN",
-    "text": "Có gì mới trong 2.2.1:\n• Cập nhật các phụ thuộc để giữ an toàn cho ứng dụng và tương thích với các gói mới nhất. Không có thay đổi nào nhìn thấy đối với người dùng."
+    "text": "Có gì mới:\n• Sửa lỗi và cập nhật các phụ thuộc."
   },
   {
     "language": "pt-PT",
-    "text": "Novidades na versão 2.2.1:\n• Atualizámos as dependências para manter a aplicação segura e compatível com os pacotes mais recentes. Sem alterações visíveis para o utilizador."
+    "text": "Novidades:\n• Correções de bugs e dependências atualizadas."
   },
   {
     "language": "es-419",
-    "text": "Novedades en la versión 2.2.1:\n• Actualizamos las dependencias para mantener la app segura y compatible con los paquetes más recientes. Sin cambios visibles para el usuario."
+    "text": "Novedades:\n• Correcciones de errores y actualización de dependencias."
   }
 ]

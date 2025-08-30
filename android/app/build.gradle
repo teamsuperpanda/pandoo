@@ -38,7 +38,9 @@ android {
                 storeFile file(keystoreProperties['storeFile'])
                 storePassword keystoreProperties['storePassword']
             } else {
-                throw new GradleException("Missing keystore properties for release signing config.")
+                // No keystore properties found — skip setting release signing config.
+                // This avoids failing builds on developer machines that don't have a release keystore.
+                println("Skipping release signing config: key.properties not found or incomplete.")
             }
         }
     }
