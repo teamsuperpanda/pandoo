@@ -48,6 +48,16 @@ class MockBox extends Fake implements Box<ListModel> {
   ValueListenable<Box<ListModel>> listenable({List<dynamic>? keys}) {
     return _MockValueListenable(this);
   }
+
+  // Helper method for creating mock lists
+  static ListModel createMockList(String name, int order, {List<TodoItem>? items, bool pinned = false}) {
+    return ListModel(
+      name: name,
+      order: order,
+      items: items,
+      pinned: pinned,
+    );
+  }
 }
 
 class _MockValueListenable extends ValueListenable<Box<ListModel>> {
