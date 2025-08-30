@@ -3,6 +3,7 @@
         android:label="Pandoo"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <property android:name="android.supported_page_sizes" android:value="4096|16384" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

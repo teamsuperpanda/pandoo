@@ -163,7 +163,6 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
               color: Theme.of(context).appBarTheme.foregroundColor,
             ),
             onPressed: () => _openSettings(context),
-            padding: const EdgeInsets.only(right: 16.0),
           ),
         ],
       ),
