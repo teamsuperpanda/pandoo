@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:pandoo/l10n/app_localizations.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'services/storage_service.dart';
@@ -10,6 +11,11 @@ import 'l10n/l10n.dart';
 import 'services/settings_service.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  
+  // Preserve the splash screen
+  FlutterNativeSplash.preserve(widgetsBinding: WidgetsFlutterBinding.ensureInitialized());
+  
   await Hive.initFlutter();
   await StorageService().init();
   await SettingsService().init();
@@ -32,6 +38,13 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     _loadSettings();
+    _removeSplashScreen();
+  }
+
+  void _removeSplashScreen() async {
+    // Wait for 1 second before removing the splash screen
+    await Future.delayed(const Duration(seconds: 1));
+    FlutterNativeSplash.remove();
   }
 
   void _loadSettings() {
