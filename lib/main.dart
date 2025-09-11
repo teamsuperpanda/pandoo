@@ -16,9 +16,15 @@ void main() async {
   // Preserve the splash screen
   FlutterNativeSplash.preserve(widgetsBinding: WidgetsFlutterBinding.ensureInitialized());
   
-  await Hive.initFlutter();
-  await StorageService().init();
-  await SettingsService().init();
+  try {
+    await Hive.initFlutter();
+    await StorageService().init();
+    await SettingsService().init();
+  } catch (e) {
+    // Remove splash screen even if initialization fails
+    FlutterNativeSplash.remove();
+  }
+  
   runApp(const MyApp());
 }
 
@@ -37,14 +43,20 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    _loadSettings();
-    _removeSplashScreen();
+    _initializeApp();
   }
 
-  void _removeSplashScreen() async {
-    // Wait for 1 second before removing the splash screen
-    await Future.delayed(const Duration(seconds: 1));
-    FlutterNativeSplash.remove();
+  void _initializeApp() async {
+    try {
+      _loadSettings();
+      // Wait for 1 second before removing the splash screen
+      await Future.delayed(const Duration(seconds: 1));
+      FlutterNativeSplash.remove();
+    } catch (e) {
+      // Always remove splash screen to prevent hanging, even with delay
+      await Future.delayed(const Duration(seconds: 1));
+      FlutterNativeSplash.remove();
+    }
   }
 
   void _loadSettings() {
