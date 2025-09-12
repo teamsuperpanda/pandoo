@@ -36,9 +36,10 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  late ThemeMode _themeMode;
-  late Locale? _locale;
+  ThemeMode _themeMode = ThemeMode.system;
+  Locale? _locale;
   final _settings = SettingsService();
+  bool _isInitialized = false;
 
   @override
   void initState() {
@@ -48,22 +49,27 @@ class _MyAppState extends State<MyApp> {
 
   void _initializeApp() async {
     try {
-      _loadSettings();
-      // Wait for 1 second before removing the splash screen
+      // Load settings first
+      _themeMode = _settings.getThemeMode();
+      _locale = _settings.getLocale();
+      
+      // Wait for 1 second to show splash screen
       await Future.delayed(const Duration(seconds: 1));
+      
+      setState(() {
+        _isInitialized = true;
+      });
+      
+      // Remove splash screen after UI is ready
       FlutterNativeSplash.remove();
     } catch (e) {
       // Always remove splash screen to prevent hanging, even with delay
       await Future.delayed(const Duration(seconds: 1));
+      setState(() {
+        _isInitialized = true;
+      });
       FlutterNativeSplash.remove();
     }
-  }
-
-  void _loadSettings() {
-    setState(() {
-      _themeMode = _settings.getThemeMode();
-      _locale = _settings.getLocale();
-    });
   }
 
   void _handleThemeChange(ThemeMode themeMode) async {
@@ -82,6 +88,21 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    if (!_isInitialized) {
+      // Show a simple loading screen while initializing
+      return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: AppTheme.light(),
+        darkTheme: AppTheme.dark(),
+        themeMode: _themeMode,
+        home: const Scaffold(
+          body: Center(
+            child: CircularProgressIndicator(),
+          ),
+        ),
+      );
+    }
+    
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Pandoo',
