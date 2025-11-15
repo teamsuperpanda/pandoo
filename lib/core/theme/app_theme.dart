@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  // Update color constants to pure black/white
   static const _pandaBlack = Color(0xFF000000); // Pure black
   static const _pandaWhite = Color(0xFFFFFFFF); // Pure white
-  static const _pandaDarkGrey = Color(0xFF1E1E1E); // Add this line
-// Keep for borders/disabled states
+  static const _pandaDarkGrey = Color(0xFF1E1E1E);
 
   static ThemeData light() {
     return ThemeData(
@@ -30,7 +28,6 @@ class AppTheme {
         ),
       ),
 
-      // Update other theme components to use pure black/white
       iconTheme: const IconThemeData(
         color: _pandaBlack,
         size: 24,
@@ -59,6 +56,11 @@ class AppTheme {
           foregroundColor: _pandaBlack,
         ),
       ),
+      // Popup menus should use the same white surface as other material cards
+      // to avoid the default Material 3 surface tint (pinkish) on our menus.
+      popupMenuTheme: const PopupMenuThemeData(
+        color: _pandaWhite,
+      ),
     );
   }
 
@@ -86,7 +88,6 @@ class AppTheme {
         ),
       ),
 
-      // Update other theme components to use pure black/white
       iconTheme: const IconThemeData(
         color: _pandaWhite,
         size: 24,
@@ -114,6 +115,12 @@ class AppTheme {
         style: TextButton.styleFrom(
           foregroundColor: _pandaWhite,
         ),
+      ),
+      // Popup menus should use dark-themed surface in dark mode so that they
+      // don't get a pink tint from the color scheme. Use the dark grey
+      // background already used for dialogs in dark mode.
+      popupMenuTheme: const PopupMenuThemeData(
+        color: _pandaDarkGrey,
       ),
     );
   }
