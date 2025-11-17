@@ -26,11 +26,11 @@ Pandoo is a simple todo list app for people who want:
 - Dark & light themes: Easy on the eyes, day or night
 - Fast search: Find lists and items quickly
 - Smart sorting: Sort lists alphabetically or by custom order
-- Local-first storage: All data stays on your device via Hive
-- Zero cloud overhead: No accounts, no sync setup, no third-party services
+- Local first storage: All data stays on your device via Hive
+- Zero cloud overhead: No accounts, no sync setup, no third party services
 - Localization: Support for multiple languages
 
-If you want a focused, distraction‑free place to manage your tasks that "just works" on your device, Pandoo is for you.
+If you want a focused, distraction-free place to manage your tasks that "just works" on your device, Pandoo is for you.
 
 ---
 
@@ -147,11 +147,11 @@ Whether it's a bug report, feature idea, design tweak, or documentation improvem
 
 ### Ways to contribute
 
-- Report bugs – Open a GitHub issue with steps to reproduce
-- Suggest features – Share what you'd like to see next
-- Improve tests – Add or refine unit and widget tests
-- Polish the UI/UX – Small design improvements are very welcome
-- Docs – Help make the project easier to understand
+- Report bugs: Open a GitHub issue with steps to reproduce
+- Suggest features: Share what you'd like to see next
+- Improve tests: Add or refine unit and widget tests
+- Polish the UI/UX: Small design improvements are very welcome
+- Docs: Help make the project easier to understand
 
 ### Contribution flow
 
@@ -199,8 +199,8 @@ See [ASSETS-LICENSE.md](ASSETS-LICENSE.md) for full asset licensing details.
 
 ## Learn more about Team Super Panda
 
-Pandoo is maintained by **Team Super Panda**, a small group that loves building thoughtful, privacy-friendly tools.
+Pandoo is maintained by **Team Super Panda**, a small group that loves building thoughtful, privacy friendly tools.
 
 Visit us at **[www.teamsuperpanda.com](https://www.teamsuperpanda.com)** to learn more, follow our work, or say hi.
 
-If you ship something cool with Pandoo—or build your own spin‑off—let us know. We'd love to see what you create.
+If you ship something cool with Pandoo or build your own spin-off, let us know. We'd love to see what you create.
