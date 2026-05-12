@@ -1,39 +1,37 @@
-# Pandoo
+# Pandoo 🐼
 
 <img src="assets/images/icon/icon.png" width="80" alt="Pandoo Icon">
 
-A friendly, local-first todo list app. Fast, minimal, and private by default with offline support and zero cloud overhead.
+**Your friendly, local-first todo list.** Fast. Minimal. Private. No clouds, no accounts, no tracking — just you and your tasks.
 
-> Built by [Team Super Panda](https://www.teamsuperpanda.com)
-
----
-
-## Features
-
-- **Organization**: Multiple lists with custom ordering and pinning.
-- **Tasks**: Easy management of todo items with checkboxes.
-- **Privacy First**: All data stays on your device. No accounts or tracking.
-- **Customization**: Dark/light themes and localization support.
-- **UX**: Fast search, drag-and-drop reordering, and smart sorting.
+> A [Team Super Panda](https://www.teamsuperpanda.com) production 🦸‍♂️🐼
 
 ---
 
-## Tech Stack
+## ✨ Features
 
-- **Framework**: [Flutter](https://flutter.dev) (^3.9.0)
-- **Persistence**: [Hive](https://pub.dev/packages/hive)
-- **State Management**: Reactive [Hive](https://pub.dev/packages/hive_flutter) Listeners
-- **Localization**: [Intl](https://pub.dev/packages/intl)
-- **UI**: [Awesome Snackbar Content](https://pub.dev/packages/awesome_snackbar_content)
+- **Stay Organized** — Multiple lists, custom ordering, pin what matters.
+- **Task Mastery** — Checkboxes, drag-and-drop reordering, smart sorting.
+- **Privacy First** — Your data never leaves your device. Zero servers. Zero tracking.
+- **Your Vibe** — Dark & light themes + localization.
+- **Lightning Fast** — Search through everything instantly.
 
 ---
 
-## Getting Started
+## 🛠️ Tech Stack
 
-### Prerequisites
-- Flutter SDK & Dart: `^3.9.0`
+| What | How |
+|------|-----|
+| Framework | [Flutter](https://flutter.dev) (^3.9.0) |
+| Storage | [Hive](https://pub.dev/packages/hive) — snappy local DB |
+| State | Hive reactive listeners |
+| i18n | [Intl](https://pub.dev/packages/intl) |
+| Snacks | [Awesome Snackbar Content](https://pub.dev/packages/awesome_snackbar_content) |
 
-### Install & Run
+---
+
+## 🚀 Getting Started
+
 ```bash
 git clone https://github.com/teamsuperpanda/pandoo.git
 cd pandoo
@@ -41,24 +39,25 @@ flutter pub get
 flutter run
 ```
 
-### Tests
+### Run Tests
+
 ```bash
 flutter test --coverage
 ```
 
 ---
 
-## Architecture Overview
+## 🧠 How It Works
 
-- **Data**: `Hive` boxes store `lists` and `settings_db` locally.
-- **Logic**: `StorageService` handles CRUD operations; `SettingsService` manages preferences.
-- **UI**: `ShowLists` for the main view and `ListDetail` for items using `ValueListenableBuilder`.
+- **Data** lives in local Hive boxes (`lists`, `settings_db`).
+- **Logic** stays clean — `StorageService` for CRUD, `SettingsService` for prefs.
+- **UI** stays snappy — `ValueListenableBuilder` keeps everything in sync.
 
 ---
 
-## License
+## 📜 License
 
-- **Code**: [MIT License](LICENSE).
-- **Assets**: Copyright © 2025 Team Super Panda. See [ASSETS-LICENSE.md](ASSETS-LICENSE.md).
+- **Code**: [MIT](LICENSE)
+- **Assets**: © 2025 Team Super Panda — see [ASSETS-LICENSE.md](ASSETS-LICENSE.md)
 
-For more, visit [www.teamsuperpanda.com](https://www.teamsuperpanda.com).
+🐾 [teamsuperpanda.com](https://www.teamsuperpanda.com)
