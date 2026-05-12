@@ -4,11 +4,11 @@
 
 **Your friendly, local-first todo list.** Fast. Minimal. Private. No clouds, no accounts, no tracking — just you and your tasks.
 
-> A [Team Super Panda](https://www.teamsuperpanda.com) production 🦸‍♂️🐼
+> A [Team Super Panda](https://www.teamsuperpanda.com) production
 
 ---
 
-## ✨ Features
+## Features
 
 - **Stay Organized** — Multiple lists, custom ordering, pin what matters.
 - **Task Mastery** — Checkboxes, drag-and-drop reordering, smart sorting.
@@ -18,7 +18,7 @@
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | What | How |
 |------|-----|
@@ -30,7 +30,7 @@
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ```bash
 git clone https://github.com/teamsuperpanda/pandoo.git
@@ -47,7 +47,7 @@ flutter test --coverage
 
 ---
 
-## 🧠 How It Works
+## How It Works
 
 - **Data** lives in local Hive boxes (`lists`, `settings_db`).
 - **Logic** stays clean — `StorageService` for CRUD, `SettingsService` for prefs.
@@ -55,9 +55,9 @@ flutter test --coverage
 
 ---
 
-## 📜 License
+## License
 
 - **Code**: [MIT](LICENSE)
 - **Assets**: © 2025 Team Super Panda — see [ASSETS-LICENSE.md](ASSETS-LICENSE.md)
 
-🐾 [teamsuperpanda.com](https://www.teamsuperpanda.com)
+[teamsuperpanda.com](https://www.teamsuperpanda.com)
