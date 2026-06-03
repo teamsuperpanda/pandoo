@@ -72,8 +72,7 @@ class ShowListsState extends State<ShowLists> {
               onRename: (newName) async {
                 final messenger = ScaffoldMessenger.of(context);
                 final l10n = context.l10n;
-                final success =
-                    await _storage.renameList(list.name, newName);
+                final success = await _storage.renameList(list.name, newName);
                 if (success) {
                   widget.umamiService.trackEvent(
                     eventName: AnalyticsEvent.listRename,

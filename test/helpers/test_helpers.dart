@@ -5,7 +5,7 @@ import 'package:pandoo/services/storage_service.dart';
 
 Future<void> initializeHiveForTesting() async {
   TestWidgetsFlutterBinding.ensureInitialized();
-  
+
   // Initialize storage service with test path
   await StorageService().init(testPath: 'test');
 

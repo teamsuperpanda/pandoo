@@ -25,24 +25,30 @@ void main() {
     testWidgets('renders list title and item count', (tester) async {
       await mockBox.put(
         'Shopping',
-        MockBox.createMockList('Shopping', 0, items: [
-          TodoItem(text: 'Milk'),
-        ]),
+        MockBox.createMockList(
+          'Shopping',
+          0,
+          items: [
+            TodoItem(text: 'Milk'),
+          ],
+        ),
       );
 
-      await tester.pumpWidget(wrapWithMaterialApp(
-        Material(
-          child: ListCard(
-            title: 'Shopping',
-            onTap: () {},
-            onDelete: () {},
-            onRename: (String newName) {},
-            index: 0,
-            pinned: false,
-            umamiService: umamiService,
+      await tester.pumpWidget(
+        wrapWithMaterialApp(
+          Material(
+            child: ListCard(
+              title: 'Shopping',
+              onTap: () {},
+              onDelete: () {},
+              onRename: (String newName) {},
+              index: 0,
+              pinned: false,
+              umamiService: umamiService,
+            ),
           ),
         ),
-      ));
+      );
       await tester.pumpAndSettle();
 
       expect(find.text('Shopping'), findsOneWidget);
@@ -50,58 +56,63 @@ void main() {
     });
 
     testWidgets('shows pin icon when pinned', (tester) async {
-      await tester.pumpWidget(wrapWithMaterialApp(
-        Material(
-          child: ListCard(
-            title: 'Pinned List',
-            onTap: () {},
-            onDelete: () {},
-            onRename: (String newName) {},
-            index: 0,
-            pinned: true,
-            umamiService: umamiService,
+      await tester.pumpWidget(
+        wrapWithMaterialApp(
+          Material(
+            child: ListCard(
+              title: 'Pinned List',
+              onTap: () {},
+              onDelete: () {},
+              onRename: (String newName) {},
+              index: 0,
+              pinned: true,
+              umamiService: umamiService,
+            ),
           ),
         ),
-      ));
+      );
       await tester.pumpAndSettle();
 
       expect(find.byIcon(Icons.push_pin), findsOneWidget);
     });
 
     testWidgets('shows drag indicator when not pinned', (tester) async {
-      await tester.pumpWidget(wrapWithMaterialApp(
-        Material(
-          child: ListCard(
-            title: 'Unpinned List',
-            onTap: () {},
-            onDelete: () {},
-            onRename: (String newName) {},
-            index: 0,
-            pinned: false,
-            umamiService: umamiService,
+      await tester.pumpWidget(
+        wrapWithMaterialApp(
+          Material(
+            child: ListCard(
+              title: 'Unpinned List',
+              onTap: () {},
+              onDelete: () {},
+              onRename: (String newName) {},
+              index: 0,
+              pinned: false,
+              umamiService: umamiService,
+            ),
           ),
         ),
-      ));
+      );
       await tester.pumpAndSettle();
 
       expect(find.byIcon(Icons.drag_indicator), findsOneWidget);
     });
 
-    testWidgets('shows popup menu with pin and delete options',
-        (tester) async {
-      await tester.pumpWidget(wrapWithMaterialApp(
-        Material(
-          child: ListCard(
-            title: 'Test List',
-            onTap: () {},
-            onDelete: () {},
-            onRename: (String newName) {},
-            index: 0,
-            pinned: false,
-            umamiService: umamiService,
+    testWidgets('shows popup menu with pin and delete options', (tester) async {
+      await tester.pumpWidget(
+        wrapWithMaterialApp(
+          Material(
+            child: ListCard(
+              title: 'Test List',
+              onTap: () {},
+              onDelete: () {},
+              onRename: (String newName) {},
+              index: 0,
+              pinned: false,
+              umamiService: umamiService,
+            ),
           ),
         ),
-      ));
+      );
       await tester.pumpAndSettle();
 
       await tester.tap(find.byIcon(Icons.more_vert));
@@ -114,21 +125,23 @@ void main() {
     testWidgets('calls onTap when tapped on card body', (tester) async {
       var tapped = false;
 
-      await tester.pumpWidget(wrapWithMaterialApp(
-        Material(
-          child: ListCard(
-            title: 'Test List',
-            onTap: () {
-              tapped = true;
-            },
-            onDelete: () {},
-            onRename: (String newName) {},
-            index: 0,
-            pinned: false,
-            umamiService: umamiService,
+      await tester.pumpWidget(
+        wrapWithMaterialApp(
+          Material(
+            child: ListCard(
+              title: 'Test List',
+              onTap: () {
+                tapped = true;
+              },
+              onDelete: () {},
+              onRename: (String newName) {},
+              index: 0,
+              pinned: false,
+              umamiService: umamiService,
+            ),
           ),
         ),
-      ));
+      );
       await tester.pumpAndSettle();
 
       await tester.tap(find.byIcon(Icons.drag_indicator));

@@ -48,8 +48,6 @@ class TodoItem {
     String? id,
   }) : id = id ?? 'item_${DateTime.now().microsecondsSinceEpoch}';
 
-
-
   @HiveField(0)
   final String text;
 

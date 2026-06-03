@@ -8,9 +8,11 @@ import '../helpers/widget_wrapper.dart';
 void main() {
   group('ListNameDialog', () {
     testWidgets('renders text field and action buttons', (tester) async {
-      await tester.pumpWidget(wrapWithMaterialApp(
-        const Material(child: _DialogOpener()),
-      ));
+      await tester.pumpWidget(
+        wrapWithMaterialApp(
+          const Material(child: _DialogOpener()),
+        ),
+      );
       await tester.pumpAndSettle();
 
       await tester.tap(find.byType(FloatingActionButton));
@@ -23,24 +25,26 @@ void main() {
 
     testWidgets('returns list name when submitted', (tester) async {
       String? result;
-      await tester.pumpWidget(wrapWithMaterialApp(
-        Material(
-          child: Builder(
-            builder: (context) => FloatingActionButton(
-              onPressed: () async {
-                result = await showDialog<String>(
-                  context: context,
-                  builder: (ctx) => ListNameDialog(
-                    title: ctx.l10n.addNewList,
-                    buttonLabel: ctx.l10n.addNewList,
-                  ),
-                );
-              },
-              child: const Icon(Icons.add),
+      await tester.pumpWidget(
+        wrapWithMaterialApp(
+          Material(
+            child: Builder(
+              builder: (context) => FloatingActionButton(
+                onPressed: () async {
+                  result = await showDialog<String>(
+                    context: context,
+                    builder: (ctx) => ListNameDialog(
+                      title: ctx.l10n.addNewList,
+                      buttonLabel: ctx.l10n.addNewList,
+                    ),
+                  );
+                },
+                child: const Icon(Icons.add),
+              ),
             ),
           ),
         ),
-      ));
+      );
       await tester.pumpAndSettle();
 
       await tester.tap(find.byType(FloatingActionButton));
@@ -55,24 +59,26 @@ void main() {
 
     testWidgets('returns null when cancelled', (tester) async {
       String? result;
-      await tester.pumpWidget(wrapWithMaterialApp(
-        Material(
-          child: Builder(
-            builder: (context) => FloatingActionButton(
-              onPressed: () async {
-                result = await showDialog<String>(
-                  context: context,
-                  builder: (ctx) => ListNameDialog(
-                    title: ctx.l10n.addNewList,
-                    buttonLabel: ctx.l10n.addNewList,
-                  ),
-                );
-              },
-              child: const Icon(Icons.add),
+      await tester.pumpWidget(
+        wrapWithMaterialApp(
+          Material(
+            child: Builder(
+              builder: (context) => FloatingActionButton(
+                onPressed: () async {
+                  result = await showDialog<String>(
+                    context: context,
+                    builder: (ctx) => ListNameDialog(
+                      title: ctx.l10n.addNewList,
+                      buttonLabel: ctx.l10n.addNewList,
+                    ),
+                  );
+                },
+                child: const Icon(Icons.add),
+              ),
             ),
           ),
         ),
-      ));
+      );
       await tester.pumpAndSettle();
 
       await tester.tap(find.byType(FloatingActionButton));
@@ -85,9 +91,11 @@ void main() {
     });
 
     testWidgets('shows validation error for empty name', (tester) async {
-      await tester.pumpWidget(wrapWithMaterialApp(
-        const Material(child: _DialogOpener()),
-      ));
+      await tester.pumpWidget(
+        wrapWithMaterialApp(
+          const Material(child: _DialogOpener()),
+        ),
+      );
       await tester.pumpAndSettle();
 
       await tester.tap(find.byType(FloatingActionButton));

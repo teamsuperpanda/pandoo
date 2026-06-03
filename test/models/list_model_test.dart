@@ -20,7 +20,7 @@ void main() {
         TodoItem(text: 'Item 1'),
         TodoItem(text: 'Item 2', isCompleted: true),
       ];
-      
+
       final list = ListModel(
         name: 'Test List',
         order: 5,
@@ -92,14 +92,16 @@ void main() {
       expect(copy.id, equals(item.id));
     });
 
-    test('copyWith with no arguments returns equivalent but different object',
-        () {
-      final item = TodoItem(text: 'Test', isCompleted: true);
-      final copy = item.copyWith();
-      expect(copy.text, equals(item.text));
-      expect(copy.isCompleted, equals(item.isCompleted));
-      expect(copy.id, equals(item.id));
-    });
+    test(
+      'copyWith with no arguments returns equivalent but different object',
+      () {
+        final item = TodoItem(text: 'Test', isCompleted: true);
+        final copy = item.copyWith();
+        expect(copy.text, equals(item.text));
+        expect(copy.isCompleted, equals(item.isCompleted));
+        expect(copy.id, equals(item.id));
+      },
+    );
 
     test('== and hashCode work correctly', () {
       final item1 = TodoItem(text: 'Test', id: 'same-id');
@@ -163,7 +165,12 @@ void main() {
 
     test('copyWith with no arguments returns equivalent object', () {
       final items = [TodoItem(text: 'Item')];
-      final list = ListModel(name: 'Test', order: 1, items: items, pinned: true);
+      final list = ListModel(
+        name: 'Test',
+        order: 1,
+        items: items,
+        pinned: true,
+      );
       final copy = list.copyWith();
       expect(copy.name, equals(list.name));
       expect(copy.order, equals(list.order));

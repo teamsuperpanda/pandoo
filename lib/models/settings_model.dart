@@ -5,7 +5,6 @@ part 'settings_model.g.dart';
 
 @HiveType(typeId: 2)
 class Settings {
-
   Settings({
     this.locale,
     this.theme = ThemeMode.system,

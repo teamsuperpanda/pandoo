@@ -42,10 +42,10 @@ class ListCard extends StatelessWidget {
       context: context,
       builder: (context) => Semantics(
         child: ListNameDialog(
-                      title: context.l10n.renameList,
-                      buttonLabel: context.l10n.rename,
-                      initialValue: title,
-                    ),
+          title: context.l10n.renameList,
+          buttonLabel: context.l10n.rename,
+          initialValue: title,
+        ),
       ),
     );
     return result;
@@ -175,7 +175,8 @@ class ListCard extends StatelessWidget {
                       PopupMenuItem(
                         value: 'pin',
                         child: Text(
-                            pinned ? context.l10n.unpin : context.l10n.pin),
+                          pinned ? context.l10n.unpin : context.l10n.pin,
+                        ),
                       ),
                       PopupMenuItem(
                         value: 'delete',
@@ -193,7 +194,9 @@ class ListCard extends StatelessWidget {
                       } else if (value == 'pin') {
                         await StorageService().togglePin(title);
                         umamiService.trackEvent(
-                          eventName: pinned ? AnalyticsEvent.listUnpin : AnalyticsEvent.listPin,
+                          eventName: pinned
+                              ? AnalyticsEvent.listUnpin
+                              : AnalyticsEvent.listPin,
                           data: {'list': title},
                         );
                       }

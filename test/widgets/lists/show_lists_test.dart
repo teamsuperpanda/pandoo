@@ -23,9 +23,11 @@ void main() {
     });
 
     testWidgets('renders empty list when no lists exist', (tester) async {
-      await tester.pumpWidget(wrapWithMaterialApp(
-        ShowLists(umamiService: umamiService),
-      ));
+      await tester.pumpWidget(
+        wrapWithMaterialApp(
+          ShowLists(umamiService: umamiService),
+        ),
+      );
       await tester.pumpAndSettle();
 
       expect(find.byType(ReorderableListView), findsOneWidget);
@@ -41,9 +43,11 @@ void main() {
         MockBox.createMockList('Work', 1),
       );
 
-      await tester.pumpWidget(wrapWithMaterialApp(
-        ShowLists(umamiService: umamiService),
-      ));
+      await tester.pumpWidget(
+        wrapWithMaterialApp(
+          ShowLists(umamiService: umamiService),
+        ),
+      );
       await tester.pumpAndSettle();
 
       expect(find.text('Shopping'), findsOneWidget);
@@ -53,15 +57,21 @@ void main() {
     testWidgets('shows item count for each list', (tester) async {
       await mockBox.put(
         'Shopping',
-        MockBox.createMockList('Shopping', 0, items: [
-          TodoItem(text: 'Milk'),
-          TodoItem(text: 'Bread'),
-        ]),
+        MockBox.createMockList(
+          'Shopping',
+          0,
+          items: [
+            TodoItem(text: 'Milk'),
+            TodoItem(text: 'Bread'),
+          ],
+        ),
       );
 
-      await tester.pumpWidget(wrapWithMaterialApp(
-        ShowLists(umamiService: umamiService),
-      ));
+      await tester.pumpWidget(
+        wrapWithMaterialApp(
+          ShowLists(umamiService: umamiService),
+        ),
+      );
       await tester.pumpAndSettle();
 
       expect(find.text('2 items'), findsOneWidget);

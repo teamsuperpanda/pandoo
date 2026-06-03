@@ -86,8 +86,9 @@ class _DetailScreenState extends State<DetailScreen> {
                     Icons.cleaning_services_rounded,
                     color: hasCompletedItems
                         ? theme.appBarTheme.foregroundColor
-                        : theme.appBarTheme.foregroundColor
-                            ?.withAlpha((255 * 0.38).round()),
+                        : theme.appBarTheme.foregroundColor?.withAlpha(
+                            (255 * 0.38).round(),
+                          ),
                   ),
                   tooltip: context.l10n.cleanCompleted,
                   onPressed: hasCompletedItems
@@ -137,7 +138,9 @@ class _DetailScreenState extends State<DetailScreen> {
   }
 
   Future<void> _showCleanDialog(
-      BuildContext context, StorageService storage) async {
+    BuildContext context,
+    StorageService storage,
+  ) async {
     widget.umamiService.trackEvent(
       eventName: AnalyticsEvent.cleanupDialog,
       data: {'list': _currentListTitle},
@@ -220,7 +223,8 @@ class _TodoListView extends StatelessWidget {
         if (list == null) return const SizedBox();
 
         // Sort items: unchecked first, then checked
-        final sortedItems = [...list.items]..sort((a, b) {
+        final sortedItems = [...list.items]
+          ..sort((a, b) {
             if (a.isCompleted == b.isCompleted) return 0;
             return a.isCompleted ? 1 : -1;
           });

@@ -64,7 +64,12 @@ class MockBox extends Fake implements Box<ListModel> {
   }
 
   // Helper method for creating mock lists
-  static ListModel createMockList(String name, int order, {List<TodoItem>? items, bool pinned = false}) {
+  static ListModel createMockList(
+    String name,
+    int order, {
+    List<TodoItem>? items,
+    bool pinned = false,
+  }) {
     return ListModel(
       name: name,
       order: order,

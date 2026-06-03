@@ -6,9 +6,11 @@ import '../../helpers/widget_wrapper.dart';
 void main() {
   group('AddItem Widget', () {
     testWidgets('renders text field and add button', (tester) async {
-      await tester.pumpWidget(wrapWithMaterialApp(
-        AddItem(onItemAdded: (_) async {}),
-      ));
+      await tester.pumpWidget(
+        wrapWithMaterialApp(
+          AddItem(onItemAdded: (_) async {}),
+        ),
+      );
       await tester.pumpAndSettle();
 
       expect(find.byType(TextField), findsOneWidget);
@@ -17,11 +19,15 @@ void main() {
 
     testWidgets('calls onItemAdded when add button is pressed', (tester) async {
       String? addedText;
-      await tester.pumpWidget(wrapWithMaterialApp(
-        AddItem(onItemAdded: (text) async {
-          addedText = text;
-        }),
-      ));
+      await tester.pumpWidget(
+        wrapWithMaterialApp(
+          AddItem(
+            onItemAdded: (text) async {
+              addedText = text;
+            },
+          ),
+        ),
+      );
       await tester.pumpAndSettle();
 
       await tester.enterText(find.byType(TextField), 'test item');
@@ -33,11 +39,15 @@ void main() {
 
     testWidgets('does not call onItemAdded when text is empty', (tester) async {
       var wasCalled = false;
-      await tester.pumpWidget(wrapWithMaterialApp(
-        AddItem(onItemAdded: (_) async {
-          wasCalled = true;
-        }),
-      ));
+      await tester.pumpWidget(
+        wrapWithMaterialApp(
+          AddItem(
+            onItemAdded: (_) async {
+              wasCalled = true;
+            },
+          ),
+        ),
+      );
       await tester.pumpAndSettle();
 
       await tester.tap(find.byType(IconButton));

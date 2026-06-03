@@ -232,7 +232,9 @@ class StorageService {
         final list = _listsBox.get(listName);
         if (list == null) return;
 
-        final updatedItems = list.items.where((item) => !item.isCompleted).toList();
+        final updatedItems = list.items
+            .where((item) => !item.isCompleted)
+            .toList();
 
         await _listsBox.put(listName, list.copyWith(items: updatedItems));
       } catch (e) {

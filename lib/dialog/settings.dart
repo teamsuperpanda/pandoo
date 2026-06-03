@@ -139,8 +139,10 @@ class _SettingsDialogState extends State<SettingsDialog> {
                 initialValue: widget.currentThemeMode,
                 isExpanded: true,
                 decoration: const InputDecoration(
-                  contentPadding:
-                      EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                  contentPadding: EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 12,
+                  ),
                 ),
                 items: [
                   DropdownMenuItem(
@@ -181,8 +183,10 @@ class _SettingsDialogState extends State<SettingsDialog> {
                 initialValue: _getCurrentLanguageCode(),
                 isExpanded: true,
                 decoration: const InputDecoration(
-                  contentPadding:
-                      EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                  contentPadding: EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 12,
+                  ),
                 ),
                 items: _supportedLanguages.entries.map((entry) {
                   return DropdownMenuItem<String>(
@@ -192,8 +196,9 @@ class _SettingsDialogState extends State<SettingsDialog> {
                 }).toList(),
                 onChanged: (String? languageCode) {
                   if (languageCode != null) {
-                    final locale =
-                        languageCode == 'system' ? null : Locale(languageCode);
+                    final locale = languageCode == 'system'
+                        ? null
+                        : Locale(languageCode);
                     widget.onLanguageChanged(locale);
                   }
                 },

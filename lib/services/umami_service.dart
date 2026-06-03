@@ -15,7 +15,11 @@ class UmamiService {
   bool _disposed = false;
   bool enabled = true;
 
-  void trackPageView({required String url, String? title, Map<String, String>? data}) {
+  void trackPageView({
+    required String url,
+    String? title,
+    Map<String, String>? data,
+  }) {
     if (_disposed || !enabled) return;
     _send('event', {
       'url': url,
@@ -36,24 +40,26 @@ class UmamiService {
   void _send(String type, Map<String, dynamic> payload) {
     if (_disposed) return;
     try {
-      unawaited(_client
-          .post(
-            Uri.parse(endpoint),
-            headers: {'Content-Type': 'application/json'},
-            body: jsonEncode({
-              'type': type,
-              'payload': {
-                'website': websiteId,
-                ...payload,
-              },
+      unawaited(
+        _client
+            .post(
+              Uri.parse(endpoint),
+              headers: {'Content-Type': 'application/json'},
+              body: jsonEncode({
+                'type': type,
+                'payload': {
+                  'website': websiteId,
+                  ...payload,
+                },
+              }),
+            )
+            .timeout(const Duration(seconds: 10))
+            .then((_) => null)
+            .catchError((Object e) {
+              debugPrint('UmamiService: send failed: $e');
+              return null;
             }),
-          )
-          .timeout(const Duration(seconds: 10))
-          .then((_) => null)
-          .catchError((Object e) {
-            debugPrint('UmamiService: send failed: $e');
-            return null;
-          }));
+      );
     } on Object catch (_) {}
   }
 

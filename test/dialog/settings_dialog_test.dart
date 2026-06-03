@@ -7,14 +7,16 @@ import '../helpers/widget_wrapper.dart';
 void main() {
   group('SettingsDialog', () {
     testWidgets('renders theme and language sections', (tester) async {
-      await tester.pumpWidget(wrapWithMaterialApp(
-        SettingsDialog(
-          onThemeChanged: (ThemeMode mode) {},
-          currentThemeMode: ThemeMode.system,
-          onLanguageChanged: (Locale? locale) {},
-          currentLocale: null,
+      await tester.pumpWidget(
+        wrapWithMaterialApp(
+          SettingsDialog(
+            onThemeChanged: (ThemeMode mode) {},
+            currentThemeMode: ThemeMode.system,
+            onLanguageChanged: (Locale? locale) {},
+            currentLocale: null,
+          ),
         ),
-      ));
+      );
       await tester.pumpAndSettle();
 
       expect(find.text('Settings'), findsOneWidget);
@@ -25,15 +27,17 @@ void main() {
     });
 
     testWidgets('renders analytics toggle', (tester) async {
-      await tester.pumpWidget(wrapWithMaterialApp(
-        SettingsDialog(
-          onThemeChanged: (ThemeMode mode) {},
-          currentThemeMode: ThemeMode.system,
-          onLanguageChanged: (Locale? locale) {},
-          currentLocale: null,
-          analyticsEnabled: true,
+      await tester.pumpWidget(
+        wrapWithMaterialApp(
+          SettingsDialog(
+            onThemeChanged: (ThemeMode mode) {},
+            currentThemeMode: ThemeMode.system,
+            onLanguageChanged: (Locale? locale) {},
+            currentLocale: null,
+            analyticsEnabled: true,
+          ),
         ),
-      ));
+      );
       await tester.pumpAndSettle();
 
       expect(find.text('Analytics'), findsOneWidget);
@@ -43,18 +47,20 @@ void main() {
 
     testWidgets('analytics toggle calls onAnalyticsChanged', (tester) async {
       var analyticsChanged = false;
-      await tester.pumpWidget(wrapWithMaterialApp(
-        SettingsDialog(
-          onThemeChanged: (ThemeMode mode) {},
-          currentThemeMode: ThemeMode.system,
-          onLanguageChanged: (Locale? locale) {},
-          currentLocale: null,
-          analyticsEnabled: true,
-          onAnalyticsChanged: (enabled) {
-            analyticsChanged = true;
-          },
+      await tester.pumpWidget(
+        wrapWithMaterialApp(
+          SettingsDialog(
+            onThemeChanged: (ThemeMode mode) {},
+            currentThemeMode: ThemeMode.system,
+            onLanguageChanged: (Locale? locale) {},
+            currentLocale: null,
+            analyticsEnabled: true,
+            onAnalyticsChanged: (enabled) {
+              analyticsChanged = true;
+            },
+          ),
         ),
-      ));
+      );
       await tester.pumpAndSettle();
 
       await tester.tap(find.byType(Switch).last);
@@ -64,22 +70,24 @@ void main() {
     });
 
     testWidgets('close button pops dialog', (tester) async {
-      await tester.pumpWidget(wrapWithMaterialApp(
-        Builder(
-          builder: (context) => TextButton(
-            onPressed: () => showDialog<void>(
-              context: context,
-              builder: (context) => SettingsDialog(
-                onThemeChanged: (ThemeMode mode) {},
-                currentThemeMode: ThemeMode.system,
-                onLanguageChanged: (Locale? locale) {},
-                currentLocale: null,
+      await tester.pumpWidget(
+        wrapWithMaterialApp(
+          Builder(
+            builder: (context) => TextButton(
+              onPressed: () => showDialog<void>(
+                context: context,
+                builder: (context) => SettingsDialog(
+                  onThemeChanged: (ThemeMode mode) {},
+                  currentThemeMode: ThemeMode.system,
+                  onLanguageChanged: (Locale? locale) {},
+                  currentLocale: null,
+                ),
               ),
+              child: const Text('Open'),
             ),
-            child: const Text('Open'),
           ),
         ),
-      ));
+      );
       await tester.pumpAndSettle();
 
       await tester.tap(find.text('Open'));

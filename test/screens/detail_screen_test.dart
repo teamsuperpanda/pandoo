@@ -28,12 +28,14 @@ void main() {
         MockBox.createMockList('Shopping', 0),
       );
 
-      await tester.pumpWidget(wrapWithMaterialApp(
-        DetailScreen(
-          listTitle: 'Shopping',
-          umamiService: umamiService,
+      await tester.pumpWidget(
+        wrapWithMaterialApp(
+          DetailScreen(
+            listTitle: 'Shopping',
+            umamiService: umamiService,
+          ),
         ),
-      ));
+      );
       await tester.pumpAndSettle();
 
       expect(find.text('Shopping'), findsOneWidget);
@@ -45,12 +47,14 @@ void main() {
         MockBox.createMockList('Shopping', 0),
       );
 
-      await tester.pumpWidget(wrapWithMaterialApp(
-        DetailScreen(
-          listTitle: 'Shopping',
-          umamiService: umamiService,
+      await tester.pumpWidget(
+        wrapWithMaterialApp(
+          DetailScreen(
+            listTitle: 'Shopping',
+            umamiService: umamiService,
+          ),
         ),
-      ));
+      );
       await tester.pumpAndSettle();
 
       expect(find.byIcon(Icons.arrow_back), findsOneWidget);
@@ -59,18 +63,24 @@ void main() {
     testWidgets('renders todo items', (tester) async {
       await mockBox.put(
         'Shopping',
-        MockBox.createMockList('Shopping', 0, items: [
-          TodoItem(text: 'Milk'),
-          TodoItem(text: 'Bread'),
-        ]),
+        MockBox.createMockList(
+          'Shopping',
+          0,
+          items: [
+            TodoItem(text: 'Milk'),
+            TodoItem(text: 'Bread'),
+          ],
+        ),
       );
 
-      await tester.pumpWidget(wrapWithMaterialApp(
-        DetailScreen(
-          listTitle: 'Shopping',
-          umamiService: umamiService,
+      await tester.pumpWidget(
+        wrapWithMaterialApp(
+          DetailScreen(
+            listTitle: 'Shopping',
+            umamiService: umamiService,
+          ),
         ),
-      ));
+      );
       await tester.pumpAndSettle();
 
       expect(find.text('Milk'), findsOneWidget);
@@ -83,33 +93,42 @@ void main() {
         MockBox.createMockList('Shopping', 0),
       );
 
-      await tester.pumpWidget(wrapWithMaterialApp(
-        DetailScreen(
-          listTitle: 'Shopping',
-          umamiService: umamiService,
+      await tester.pumpWidget(
+        wrapWithMaterialApp(
+          DetailScreen(
+            listTitle: 'Shopping',
+            umamiService: umamiService,
+          ),
         ),
-      ));
+      );
       await tester.pumpAndSettle();
 
       expect(find.byIcon(Icons.add), findsOneWidget);
     });
 
-    testWidgets('shows cleanup button when completed items exist',
-        (tester) async {
+    testWidgets('shows cleanup button when completed items exist', (
+      tester,
+    ) async {
       await mockBox.put(
         'Shopping',
-        MockBox.createMockList('Shopping', 0, items: [
-          TodoItem(text: 'Milk', isCompleted: true),
-          TodoItem(text: 'Bread'),
-        ]),
+        MockBox.createMockList(
+          'Shopping',
+          0,
+          items: [
+            TodoItem(text: 'Milk', isCompleted: true),
+            TodoItem(text: 'Bread'),
+          ],
+        ),
       );
 
-      await tester.pumpWidget(wrapWithMaterialApp(
-        DetailScreen(
-          listTitle: 'Shopping',
-          umamiService: umamiService,
+      await tester.pumpWidget(
+        wrapWithMaterialApp(
+          DetailScreen(
+            listTitle: 'Shopping',
+            umamiService: umamiService,
+          ),
         ),
-      ));
+      );
       await tester.pumpAndSettle();
 
       expect(

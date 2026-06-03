@@ -7,9 +7,11 @@ import '../helpers/widget_wrapper.dart';
 void main() {
   group('CleanDialog', () {
     testWidgets('renders dialog', (tester) async {
-      await tester.pumpWidget(wrapWithMaterialApp(
-        const CleanDialog(),
-      ));
+      await tester.pumpWidget(
+        wrapWithMaterialApp(
+          const CleanDialog(),
+        ),
+      );
       await tester.pumpAndSettle();
 
       expect(find.text('Clean Completed Items'), findsOneWidget);
@@ -23,19 +25,21 @@ void main() {
 
     testWidgets('returns true when clean is pressed', (tester) async {
       bool? result;
-      await tester.pumpWidget(wrapWithMaterialApp(
-        Builder(
-          builder: (context) => TextButton(
-            onPressed: () async {
-              result = await showDialog<bool>(
-                context: context,
-                builder: (context) => const CleanDialog(),
-              );
-            },
-            child: const Text('Open'),
+      await tester.pumpWidget(
+        wrapWithMaterialApp(
+          Builder(
+            builder: (context) => TextButton(
+              onPressed: () async {
+                result = await showDialog<bool>(
+                  context: context,
+                  builder: (context) => const CleanDialog(),
+                );
+              },
+              child: const Text('Open'),
+            ),
           ),
         ),
-      ));
+      );
       await tester.pumpAndSettle();
 
       await tester.tap(find.text('Open'));
@@ -49,19 +53,21 @@ void main() {
 
     testWidgets('returns false when cancel is pressed', (tester) async {
       bool? result;
-      await tester.pumpWidget(wrapWithMaterialApp(
-        Builder(
-          builder: (context) => TextButton(
-            onPressed: () async {
-              result = await showDialog<bool>(
-                context: context,
-                builder: (context) => const CleanDialog(),
-              );
-            },
-            child: const Text('Open'),
+      await tester.pumpWidget(
+        wrapWithMaterialApp(
+          Builder(
+            builder: (context) => TextButton(
+              onPressed: () async {
+                result = await showDialog<bool>(
+                  context: context,
+                  builder: (context) => const CleanDialog(),
+                );
+              },
+              child: const Text('Open'),
+            ),
           ),
         ),
-      ));
+      );
       await tester.pumpAndSettle();
 
       await tester.tap(find.text('Open'));

@@ -7,9 +7,11 @@ import '../helpers/widget_wrapper.dart';
 void main() {
   group('DeleteListDialog', () {
     testWidgets('renders dialog with list title', (tester) async {
-      await tester.pumpWidget(wrapWithMaterialApp(
-        const DeleteListDialog(listTitle: 'Test List'),
-      ));
+      await tester.pumpWidget(
+        wrapWithMaterialApp(
+          const DeleteListDialog(listTitle: 'Test List'),
+        ),
+      );
       await tester.pumpAndSettle();
 
       expect(find.text('Delete List'), findsOneWidget);
@@ -23,20 +25,22 @@ void main() {
 
     testWidgets('returns true when delete is pressed', (tester) async {
       bool? result;
-      await tester.pumpWidget(wrapWithMaterialApp(
-        Builder(
-          builder: (context) => TextButton(
-            onPressed: () async {
-              result = await showDialog<bool>(
-                context: context,
-                builder: (context) =>
-                    const DeleteListDialog(listTitle: 'Test List'),
-              );
-            },
-            child: const Text('Open'),
+      await tester.pumpWidget(
+        wrapWithMaterialApp(
+          Builder(
+            builder: (context) => TextButton(
+              onPressed: () async {
+                result = await showDialog<bool>(
+                  context: context,
+                  builder: (context) =>
+                      const DeleteListDialog(listTitle: 'Test List'),
+                );
+              },
+              child: const Text('Open'),
+            ),
           ),
         ),
-      ));
+      );
       await tester.pumpAndSettle();
 
       await tester.tap(find.text('Open'));
@@ -50,20 +54,22 @@ void main() {
 
     testWidgets('returns false when cancel is pressed', (tester) async {
       bool? result;
-      await tester.pumpWidget(wrapWithMaterialApp(
-        Builder(
-          builder: (context) => TextButton(
-            onPressed: () async {
-              result = await showDialog<bool>(
-                context: context,
-                builder: (context) =>
-                    const DeleteListDialog(listTitle: 'Test List'),
-              );
-            },
-            child: const Text('Open'),
+      await tester.pumpWidget(
+        wrapWithMaterialApp(
+          Builder(
+            builder: (context) => TextButton(
+              onPressed: () async {
+                result = await showDialog<bool>(
+                  context: context,
+                  builder: (context) =>
+                      const DeleteListDialog(listTitle: 'Test List'),
+                );
+              },
+              child: const Text('Open'),
+            ),
           ),
         ),
-      ));
+      );
       await tester.pumpAndSettle();
 
       await tester.tap(find.text('Open'));

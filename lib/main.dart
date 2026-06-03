@@ -26,12 +26,14 @@ void main() async {
     FlutterNativeSplash.remove();
   }
 
-  runApp(MyApp(
-    umamiService: UmamiService(
-      websiteId: AppConfig.analyticsWebsiteId,
-      endpoint: AppConfig.analyticsEndpoint,
+  runApp(
+    MyApp(
+      umamiService: UmamiService(
+        websiteId: AppConfig.analyticsWebsiteId,
+        endpoint: AppConfig.analyticsEndpoint,
+      ),
     ),
-  ));
+  );
 }
 
 class MyApp extends StatefulWidget {
