@@ -1,0 +1,6 @@
+Yenilikler:
+• Hata düzeltmeleri ve performans iyileştirmeleri.
+• Analitik artık isteğe bağlı (varsayılan olarak devre dışı).
+• 55'ten fazla dil için geliştirilmiş çeviriler.
+• Öğe eklerken klavye kapanması düzeltildi.
+• Daha iyi hata yönetimi ve veri güvenliği.

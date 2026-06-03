@@ -1,0 +1,6 @@
+Nouveautés :
+• Corrections de bugs et améliorations des performances.
+• Les analytics sont désormais opt-in (désactivés par défaut).
+• Traductions améliorées pour plus de 55 langues.
+• Correction de la fermeture du clavier lors de l'ajout d'éléments.
+• Meilleure gestion des erreurs et sécurité des données.
