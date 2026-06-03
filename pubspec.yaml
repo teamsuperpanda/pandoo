@@ -18,13 +18,13 @@ dependencies:
   hive_flutter: ^1.1.0
   awesome_snackbar_content: ^0.1.8
   flutter_native_splash: ^2.4.8
-  google_fonts: ^6.2.1
+  google_fonts: ^8.1.0
   http: ^1.2.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  very_good_analysis: ^7.0.0
+  very_good_analysis: ^10.2.0
   build_runner: ^2.4.13
   hive_generator: ^2.0.1
   mockito: ^5.4.4
