@@ -46,9 +46,9 @@ class TodoItem {
     required this.text,
     this.isCompleted = false,
     String? id,
-  }) : id = id ?? 'item_${_nextId++}';
+  }) : id = id ?? 'item_${DateTime.now().microsecondsSinceEpoch}';
 
-  static int _nextId = 0;
+
 
   @HiveField(0)
   final String text;

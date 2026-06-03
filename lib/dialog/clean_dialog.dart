@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pandoo/l10n/l10n.dart';
 
-class CleanupDialog extends StatelessWidget {
-  const CleanupDialog({super.key});
+class CleanDialog extends StatelessWidget {
+  const CleanDialog({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -13,7 +13,7 @@ class Settings {
     this.fabAnimation = true,
   });
   @HiveField(0)
-  Locale? locale;
+  final Locale? locale;
 
   @HiveField(1)
   ThemeMode theme;
@@ -25,16 +25,17 @@ class Settings {
   bool fabAnimation;
 
   Settings copyWith({
-    Locale? Function()? locale,
-    ThemeMode Function()? theme,
-    bool Function()? analyticsEnabled,
-    bool Function()? fabAnimation,
+    Locale? locale,
+    bool clearLocale = false,
+    ThemeMode? theme,
+    bool? analyticsEnabled,
+    bool? fabAnimation,
   }) {
     return Settings(
-      locale: locale != null ? locale() : this.locale,
-      theme: theme != null ? theme() : this.theme,
-      analyticsEnabled: analyticsEnabled != null ? analyticsEnabled() : this.analyticsEnabled,
-      fabAnimation: fabAnimation != null ? fabAnimation() : this.fabAnimation,
+      locale: clearLocale ? null : locale ?? this.locale,
+      theme: theme ?? this.theme,
+      analyticsEnabled: analyticsEnabled ?? this.analyticsEnabled,
+      fabAnimation: fabAnimation ?? this.fabAnimation,
     );
   }
 }

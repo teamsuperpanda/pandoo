@@ -1,21 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:pandoo/l10n/l10n.dart';
 
-class NewListDialog extends StatefulWidget {
-  const NewListDialog({super.key});
+class ListNameDialog extends StatefulWidget {
+  const ListNameDialog({
+    required this.title,
+    required this.buttonLabel,
+    this.initialValue,
+    super.key,
+  });
+
+  final String title;
+  final String buttonLabel;
+  final String? initialValue;
 
   @override
-  State<NewListDialog> createState() => _NewListDialogState();
+  State<ListNameDialog> createState() => _ListNameDialogState();
 }
 
-class _NewListDialogState extends State<NewListDialog> {
+class _ListNameDialogState extends State<ListNameDialog> {
   late final TextEditingController _controller;
   late final GlobalKey<FormState> _formKey;
 
   @override
   void initState() {
     super.initState();
-    _controller = TextEditingController();
+    _controller = TextEditingController(text: widget.initialValue);
     _formKey = GlobalKey<FormState>();
   }
 
@@ -36,7 +45,7 @@ class _NewListDialogState extends State<NewListDialog> {
     return AlertDialog(
       title: Semantics(
         header: true,
-        child: Text(context.l10n.addNewList),
+        child: Text(widget.title),
       ),
       content: Form(
         key: _formKey,
@@ -66,10 +75,10 @@ class _NewListDialogState extends State<NewListDialog> {
         ),
         Semantics(
           button: true,
-          label: context.l10n.addNewList,
+          label: widget.buttonLabel,
           child: FilledButton(
             onPressed: _submit,
-            child: const Text('Add'),
+            child: Text(widget.buttonLabel),
           ),
         ),
       ],

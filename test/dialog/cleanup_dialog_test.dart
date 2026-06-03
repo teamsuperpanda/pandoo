@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pandoo/dialog/cleanup_dialog.dart';
+import 'package:pandoo/dialog/clean_dialog.dart';
 
 import '../helpers/widget_wrapper.dart';
 
 void main() {
-  group('CleanupDialog', () {
+  group('CleanDialog', () {
     testWidgets('renders dialog', (tester) async {
       await tester.pumpWidget(wrapWithMaterialApp(
-        const CleanupDialog(),
+        const CleanDialog(),
       ));
       await tester.pumpAndSettle();
 
@@ -29,7 +29,7 @@ void main() {
             onPressed: () async {
               result = await showDialog<bool>(
                 context: context,
-                builder: (context) => const CleanupDialog(),
+                builder: (context) => const CleanDialog(),
               );
             },
             child: const Text('Open'),
@@ -55,7 +55,7 @@ void main() {
             onPressed: () async {
               result = await showDialog<bool>(
                 context: context,
-                builder: (context) => const CleanupDialog(),
+                builder: (context) => const CleanDialog(),
               );
             },
             child: const Text('Open'),

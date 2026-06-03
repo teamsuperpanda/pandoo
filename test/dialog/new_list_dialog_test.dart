@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pandoo/dialog/new_list_dialog.dart';
+import 'package:pandoo/dialog/list_name_dialog.dart';
+import 'package:pandoo/l10n/l10n.dart';
 
 import '../helpers/widget_wrapper.dart';
 
 void main() {
-  group('NewListDialog', () {
+  group('ListNameDialog', () {
     testWidgets('renders text field and action buttons', (tester) async {
       await tester.pumpWidget(wrapWithMaterialApp(
         const Material(child: _DialogOpener()),
@@ -29,7 +30,10 @@ void main() {
               onPressed: () async {
                 result = await showDialog<String>(
                   context: context,
-                  builder: (_) => const NewListDialog(),
+                  builder: (ctx) => ListNameDialog(
+                    title: ctx.l10n.addNewList,
+                    buttonLabel: ctx.l10n.addNewList,
+                  ),
                 );
               },
               child: const Icon(Icons.add),
@@ -58,7 +62,10 @@ void main() {
               onPressed: () async {
                 result = await showDialog<String>(
                   context: context,
-                  builder: (_) => const NewListDialog(),
+                  builder: (ctx) => ListNameDialog(
+                    title: ctx.l10n.addNewList,
+                    buttonLabel: ctx.l10n.addNewList,
+                  ),
                 );
               },
               child: const Icon(Icons.add),
@@ -102,7 +109,10 @@ class _DialogOpener extends StatelessWidget {
     return FloatingActionButton(
       onPressed: () => showDialog<String>(
         context: context,
-        builder: (_) => const NewListDialog(),
+        builder: (ctx) => ListNameDialog(
+          title: ctx.l10n.addNewList,
+          buttonLabel: ctx.l10n.addNewList,
+        ),
       ),
       child: const Icon(Icons.add),
     );

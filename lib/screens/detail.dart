@@ -1,8 +1,8 @@
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:pandoo/dialog/cleanup_dialog.dart';
-import 'package:pandoo/dialog/rename_list_dialog.dart';
+import 'package:pandoo/dialog/clean_dialog.dart';
+import 'package:pandoo/dialog/list_name_dialog.dart';
 import 'package:pandoo/l10n/l10n.dart';
 import 'package:pandoo/models/list_model.dart';
 import 'package:pandoo/services/storage_service.dart';
@@ -91,7 +91,7 @@ class _DetailScreenState extends State<DetailScreen> {
                   ),
                   tooltip: context.l10n.cleanCompleted,
                   onPressed: hasCompletedItems
-                      ? () => _showCleanupDialog(context, _storage)
+                      ? () => _showCleanDialog(context, _storage)
                       : null,
                 ),
               );
@@ -136,7 +136,7 @@ class _DetailScreenState extends State<DetailScreen> {
     );
   }
 
-  Future<void> _showCleanupDialog(
+  Future<void> _showCleanDialog(
       BuildContext context, StorageService storage) async {
     widget.umamiService.trackEvent(
       eventName: AnalyticsEvent.cleanupDialog,
@@ -145,7 +145,7 @@ class _DetailScreenState extends State<DetailScreen> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => Semantics(
-        child: const CleanupDialog(),
+        child: const CleanDialog(),
       ),
     );
 
@@ -161,8 +161,12 @@ class _DetailScreenState extends State<DetailScreen> {
   Future<void> _showRenameDialog(BuildContext context) async {
     final newName = await showDialog<String>(
       context: context,
-      builder: (context) => Semantics(
-        child: RenameListDialog(currentName: _currentListTitle),
+      builder: (ctx) => Semantics(
+        child: ListNameDialog(
+          title: ctx.l10n.renameList,
+          buttonLabel: ctx.l10n.rename,
+          initialValue: _currentListTitle,
+        ),
       ),
     );
 

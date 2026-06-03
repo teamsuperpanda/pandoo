@@ -68,15 +68,12 @@ void main() {
       expect(item.id, equals('custom-id'));
     });
 
-    test('generates unique sequential IDs', () {
+    test('generates unique IDs', () {
       final item1 = TodoItem(text: 'First');
       final item2 = TodoItem(text: 'Second');
       expect(item1.id, startsWith('item_'));
       expect(item2.id, startsWith('item_'));
       expect(item1.id, isNot(equals(item2.id)));
-      final id1 = int.parse(item1.id.split('_')[1]);
-      final id2 = int.parse(item2.id.split('_')[1]);
-      expect(id2, equals(id1 + 1));
     });
 
     test('copyWith creates a copy with updated text', () {

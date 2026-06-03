@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
-import 'package:pandoo/dialog/new_list_dialog.dart';
+import 'package:pandoo/dialog/list_name_dialog.dart';
 import 'package:pandoo/dialog/settings.dart';
 import 'package:pandoo/l10n/l10n.dart';
 import 'package:pandoo/services/settings_service.dart';
@@ -195,7 +195,10 @@ class _HomeScreenState extends State<HomeScreen>
                   final messenger = ScaffoldMessenger.of(context);
                   final name = await showDialog<String>(
                     context: context,
-                    builder: (_) => const NewListDialog(),
+                    builder: (ctx) => ListNameDialog(
+                      title: ctx.l10n.addNewList,
+                      buttonLabel: ctx.l10n.addNewList,
+                    ),
                   );
                   if (name == null || !mounted) return;
                   final success = await StorageService().addList(name);

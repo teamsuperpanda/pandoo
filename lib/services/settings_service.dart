@@ -36,6 +36,7 @@ class SettingsService {
       notifier.value = _cached!;
     } on Object catch (e) {
       debugPrint('SettingsService init error: $e');
+      rethrow;
     }
   }
 
@@ -47,12 +48,13 @@ class SettingsService {
 
   Future<void> setThemeMode(ThemeMode mode) async {
     try {
-      final newSettings = _settings.copyWith(theme: () => mode);
+      final newSettings = _settings.copyWith(theme: mode);
       await _box.put(_settingsKey, newSettings);
       _cached = newSettings;
       notifier.value = newSettings;
     } on Object catch (e) {
       debugPrint('SettingsService setThemeMode error: $e');
+      rethrow;
     }
   }
 
@@ -62,12 +64,16 @@ class SettingsService {
 
   Future<void> setLocale(Locale? locale) async {
     try {
-      final newSettings = _settings.copyWith(locale: () => locale);
+      final newSettings = _settings.copyWith(
+        locale: locale,
+        clearLocale: locale == null,
+      );
       await _box.put(_settingsKey, newSettings);
       _cached = newSettings;
       notifier.value = newSettings;
     } on Object catch (e) {
       debugPrint('SettingsService setLocale error: $e');
+      rethrow;
     }
   }
 
@@ -77,12 +83,13 @@ class SettingsService {
 
   Future<void> setAnalyticsEnabled(bool enabled) async {
     try {
-      final newSettings = _settings.copyWith(analyticsEnabled: () => enabled);
+      final newSettings = _settings.copyWith(analyticsEnabled: enabled);
       await _box.put(_settingsKey, newSettings);
       _cached = newSettings;
       notifier.value = newSettings;
     } on Object catch (e) {
       debugPrint('SettingsService setAnalyticsEnabled error: $e');
+      rethrow;
     }
   }
 
@@ -92,12 +99,13 @@ class SettingsService {
 
   Future<void> setFabAnimation(bool value) async {
     try {
-      final newSettings = _settings.copyWith(fabAnimation: () => value);
+      final newSettings = _settings.copyWith(fabAnimation: value);
       await _box.put(_settingsKey, newSettings);
       _cached = newSettings;
       notifier.value = newSettings;
     } on Object catch (e) {
       debugPrint('SettingsService setFabAnimation error: $e');
+      rethrow;
     }
   }
 

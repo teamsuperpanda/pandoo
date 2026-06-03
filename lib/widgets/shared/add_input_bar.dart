@@ -24,12 +24,12 @@ class _AddInputBarState extends State<AddInputBar> {
     super.dispose();
   }
 
-  Future<void> _handleSubmit({bool keepFocus = false}) async {
+  Future<void> _handleSubmit({bool clearFocus = false}) async {
     final text = _controller.text.trim();
     if (text.isEmpty) return;
     await widget.onSubmit(text);
     _controller.clear();
-    if (keepFocus && mounted) {
+    if (clearFocus && mounted) {
       FocusScope.of(context).unfocus();
     }
   }
@@ -58,7 +58,7 @@ class _AddInputBarState extends State<AddInputBar> {
               decoration: InputDecoration(
                 hintText: widget.hintText,
               ),
-              onSubmitted: (_) => _handleSubmit(keepFocus: true),
+              onSubmitted: (_) => _handleSubmit(clearFocus: true),
             ),
           ),
           const SizedBox(width: AppSpacing.gapSm),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:pandoo/dialog/delete_list_dialog.dart';
-import 'package:pandoo/dialog/rename_list_dialog.dart';
+import 'package:pandoo/dialog/list_name_dialog.dart';
 import 'package:pandoo/l10n/l10n.dart';
 import 'package:pandoo/models/list_model.dart';
 import 'package:pandoo/services/storage_service.dart';
@@ -41,7 +41,11 @@ class ListCard extends StatelessWidget {
     final result = await showDialog<String>(
       context: context,
       builder: (context) => Semantics(
-        child: RenameListDialog(currentName: title),
+        child: ListNameDialog(
+                      title: context.l10n.renameList,
+                      buttonLabel: context.l10n.rename,
+                      initialValue: title,
+                    ),
       ),
     );
     return result;

@@ -69,6 +69,7 @@ class StorageService {
   }
 
   List<ListModel> getAllLists() {
+    if (!_listsBox.isOpen) return [];
     final allLists = _listsBox.values.toList();
     final pinnedLists = allLists.where((list) => list.pinned).toList();
     final unpinnedLists = allLists.where((list) => !list.pinned).toList();
