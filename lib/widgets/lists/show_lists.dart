@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -51,7 +53,7 @@ class ShowListsState extends State<ShowLists> {
                   eventName: AnalyticsEvent.listOpen,
                   data: {'list': list.name},
                 );
-                Navigator.push(
+                unawaited(Navigator.push(
                   context,
                   MaterialPageRoute<DetailScreen>(
                     builder: (context) => DetailScreen(
@@ -60,7 +62,7 @@ class ShowListsState extends State<ShowLists> {
                     ),
                     settings: RouteSettings(name: '/detail/${list.name}'),
                   ),
-                );
+                ));
               },
               onDelete: () async {
                 widget.umamiService.trackEvent(

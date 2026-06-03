@@ -87,7 +87,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
   void _openSettings(BuildContext context) {
     widget.umamiService.trackEvent(eventName: AnalyticsEvent.settingsOpen);
-    showDialog<void>(
+    unawaited(showDialog<void>(
       context: context,
       builder: (context) => SettingsDialog(
         onThemeChanged: (mode) {
@@ -113,7 +113,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           unawaited(SettingsService().setFabAnimation(value));
         },
       ),
-    );
+    ));
   }
 
   @override
@@ -145,9 +145,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               ),
               onPressed: () {
                 if (_isRotatingForward) {
-                  _animationController.forward(from: 0);
+                  unawaited(_animationController.forward(from: 0));
                 } else {
-                  _animationController.reverse(from: 1);
+                  unawaited(_animationController.reverse(from: 1));
                 }
                 _isRotatingForward = !_isRotatingForward;
               },

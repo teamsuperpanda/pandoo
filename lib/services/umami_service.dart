@@ -21,19 +21,22 @@ class UmamiService {
     Map<String, String>? data,
   }) {
     if (_disposed || !enabled) return;
-    _send('event', {
+    final payload = <String, dynamic>{
       'url': url,
       'event_name': 'pageview',
-      if (title != null) 'title': title,
-      if (data != null) ...data,
-    });
+      ...?data,
+    };
+    if (title != null) {
+      payload['title'] = title;
+    }
+    _send('event', payload);
   }
 
   void trackEvent({required String eventName, Map<String, dynamic>? data}) {
     if (_disposed || !enabled) return;
     _send('event', {
       'event_name': eventName,
-      if (data != null) ...data,
+      ...?data,
     });
   }
 

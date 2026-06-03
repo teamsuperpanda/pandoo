@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:pandoo/dialog/delete_list_dialog.dart';
@@ -112,13 +114,13 @@ class ListCard extends StatelessWidget {
                       children: [
                         Semantics(
                           header: true,
-                          child: GestureDetector(
+                          child:                           GestureDetector(
                             onTap: () {
-                              _showRenameDialog(context).then((newName) {
+                              unawaited(_showRenameDialog(context).then((newName) {
                                 if (newName != null && newName != title) {
                                   onRename(newName);
                                 }
-                              });
+                              }));
                             },
                             child: Text(
                               title,
