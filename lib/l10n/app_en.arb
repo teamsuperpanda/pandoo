@@ -37,5 +37,11 @@
     "addNewList": "Add new list...",
     "addNewItem": "Add new item...",
     "language": "Language",
-    "@language": {}
-} 
+    "@language": {},
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics",
+    "animateAddButton": "Animation"
+}

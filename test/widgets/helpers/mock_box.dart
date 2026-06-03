@@ -1,11 +1,17 @@
+import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:hive/hive.dart';
-import 'package:pandoo/models/list_model.dart';
 import 'package:mockito/mockito.dart';
+import 'package:pandoo/models/list_model.dart';
 
 class MockBox extends Fake implements Box<ListModel> {
+  MockBox() {
+    _listenable = _MockValueListenable(this);
+  }
+
   final Map<dynamic, ListModel> _store = {};
   bool _isOpen = true;
+  late final _MockValueListenable _listenable;
 
   @override
   ListModel? get(dynamic key, {ListModel? defaultValue}) =>
@@ -14,6 +20,7 @@ class MockBox extends Fake implements Box<ListModel> {
   @override
   Future<void> put(dynamic key, ListModel value) async {
     _store[key] = value;
+    _listenable.notifyListeners();
   }
 
   @override
@@ -26,12 +33,14 @@ class MockBox extends Fake implements Box<ListModel> {
   Future<int> clear() async {
     final count = _store.length;
     _store.clear();
+    _listenable.notifyListeners();
     return count;
   }
 
   @override
   Future<void> delete(dynamic key) async {
     _store.remove(key);
+    _listenable.notifyListeners();
   }
 
   @override
@@ -46,7 +55,12 @@ class MockBox extends Fake implements Box<ListModel> {
   }
 
   ValueListenable<Box<ListModel>> listenable({List<dynamic>? keys}) {
-    return _MockValueListenable(this);
+    return _listenable;
+  }
+
+  @override
+  Stream<BoxEvent> watch({dynamic key}) {
+    return const Stream.empty();
   }
 
   // Helper method for creating mock lists
@@ -61,10 +75,16 @@ class MockBox extends Fake implements Box<ListModel> {
 }
 
 class _MockValueListenable extends ValueListenable<Box<ListModel>> {
+  _MockValueListenable(this.box);
+
   final Box<ListModel> box;
   final List<VoidCallback> _listeners = [];
 
-  _MockValueListenable(this.box);
+  void notifyListeners() {
+    for (final listener in List<VoidCallback>.from(_listeners)) {
+      listener();
+    }
+  }
 
   @override
   void addListener(VoidCallback listener) {

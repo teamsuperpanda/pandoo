@@ -1,19 +1,23 @@
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import '../widgets/detail/add_item.dart';
-import '../services/storage_service.dart';
-import '../models/list_model.dart';
-import '../dialog/cleanup_dialog.dart';
-import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
-import 'package:pandoo/l10n/app_localizations.dart';
+import 'package:pandoo/dialog/cleanup_dialog.dart';
+import 'package:pandoo/dialog/rename_list_dialog.dart';
+import 'package:pandoo/l10n/l10n.dart';
+import 'package:pandoo/models/list_model.dart';
+import 'package:pandoo/services/storage_service.dart';
+import 'package:pandoo/services/umami_service.dart';
+import 'package:pandoo/widgets/detail/add_item.dart';
 
 class DetailScreen extends StatefulWidget {
-  final String listTitle;
-
   const DetailScreen({
-    super.key,
     required this.listTitle,
+    required this.umamiService,
+    super.key,
   });
+
+  final String listTitle;
+  final UmamiService umamiService;
 
   @override
   State<DetailScreen> createState() => _DetailScreenState();
@@ -27,29 +31,44 @@ class _DetailScreenState extends State<DetailScreen> {
   void initState() {
     super.initState();
     _currentListTitle = widget.listTitle;
+    widget.umamiService.trackPageView(
+      url: '/detail/${widget.listTitle}',
+      title: widget.listTitle,
+    );
   }
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-        foregroundColor: Theme.of(context).appBarTheme.foregroundColor,
-        elevation: Theme.of(context).appBarTheme.elevation,
-        centerTitle: Theme.of(context).appBarTheme.centerTitle,
-        title: GestureDetector(
-          onTap: () => _showRenameDialog(context),
-          child: Text(
-            _currentListTitle,
-            style: Theme.of(context).appBarTheme.titleTextStyle,
+        backgroundColor: theme.appBarTheme.backgroundColor,
+        foregroundColor: theme.appBarTheme.foregroundColor,
+        elevation: theme.appBarTheme.elevation,
+        centerTitle: theme.appBarTheme.centerTitle,
+        title: Semantics(
+          button: true,
+          label: '${context.l10n.renameList}: $_currentListTitle',
+          child: GestureDetector(
+            onTap: () => _showRenameDialog(context),
+            child: Text(
+              _currentListTitle,
+              style: theme.appBarTheme.titleTextStyle,
+            ),
           ),
         ),
-        leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back,
-            color: Theme.of(context).appBarTheme.foregroundColor,
+        leading: Semantics(
+          button: true,
+          label: MaterialLocalizations.of(context).backButtonTooltip,
+          child: IconButton(
+            icon: Icon(
+              Icons.arrow_back,
+              color: theme.appBarTheme.foregroundColor,
+            ),
+            tooltip: MaterialLocalizations.of(context).backButtonTooltip,
+            onPressed: () => Navigator.pop(context),
           ),
-          onPressed: () => Navigator.pop(context),
         ),
         actions: [
           ValueListenableBuilder<Box<ListModel>>(
@@ -59,16 +78,22 @@ class _DetailScreenState extends State<DetailScreen> {
               final hasCompletedItems =
                   list?.items.any((item) => item.isCompleted) ?? false;
 
-              return IconButton(
-                icon: Icon(
-                  Icons.cleaning_services_rounded,
-                  color: hasCompletedItems
-                      ? Theme.of(context).appBarTheme.foregroundColor
-                      : Theme.of(context).appBarTheme.foregroundColor?.withAlpha((255 * 0.38).round()),
+              return Semantics(
+                button: true,
+                label: context.l10n.cleanCompleted,
+                child: IconButton(
+                  icon: Icon(
+                    Icons.cleaning_services_rounded,
+                    color: hasCompletedItems
+                        ? theme.appBarTheme.foregroundColor
+                        : theme.appBarTheme.foregroundColor
+                            ?.withAlpha((255 * 0.38).round()),
+                  ),
+                  tooltip: context.l10n.cleanCompleted,
+                  onPressed: hasCompletedItems
+                      ? () => _showCleanupDialog(context, _storage)
+                      : null,
                 ),
-                onPressed: hasCompletedItems
-                    ? () => _showCleanupDialog(context, _storage)
-                    : null,
               );
             },
           ),
@@ -86,17 +111,22 @@ class _DetailScreenState extends State<DetailScreen> {
                     topRight: Radius.circular(16),
                   ),
                 ),
-                child: TodoList(
+                child: _TodoListView(
                   listTitle: _currentListTitle,
                   storage: _storage,
+                  umamiService: widget.umamiService,
                 ),
               ),
             ),
-            Container(
+            ColoredBox(
               color: Theme.of(context).scaffoldBackgroundColor,
               child: AddItem(
                 onItemAdded: (String text) async {
                   await _storage.addItemToList(_currentListTitle, text);
+                  widget.umamiService.trackEvent(
+                    eventName: AnalyticsEvent.itemAdd,
+                    data: {'list': _currentListTitle},
+                  );
                 },
               ),
             ),
@@ -108,80 +138,31 @@ class _DetailScreenState extends State<DetailScreen> {
 
   Future<void> _showCleanupDialog(
       BuildContext context, StorageService storage) async {
+    widget.umamiService.trackEvent(
+      eventName: AnalyticsEvent.cleanupDialog,
+      data: {'list': _currentListTitle},
+    );
     final confirmed = await showDialog<bool>(
       context: context,
-      builder: (context) => const CleanupDialog(),
+      builder: (context) => Semantics(
+        child: const CleanupDialog(),
+      ),
     );
 
-    if (confirmed == true) {
+    if (confirmed ?? false) {
       await storage.removeCompletedItems(_currentListTitle);
+      widget.umamiService.trackEvent(
+        eventName: AnalyticsEvent.cleanupComplete,
+        data: {'list': _currentListTitle},
+      );
     }
   }
 
   Future<void> _showRenameDialog(BuildContext context) async {
-    final controller = TextEditingController(text: _currentListTitle);
-    final formKey = GlobalKey<FormState>();
-
     final newName = await showDialog<String>(
       context: context,
-      builder: (context) => AlertDialog(
-        backgroundColor: Theme.of(context).brightness == Brightness.dark
-            ? Theme.of(context).colorScheme.surface
-            : Theme.of(context).colorScheme.surface,
-        elevation: 4, // Added a small elevation for better visual separation
-        title: Text(
-          AppLocalizations.of(context)!.renameList,
-          style: TextStyle(
-            color: Theme.of(context).brightness == Brightness.light
-                ? Colors.black
-                : Colors.white,
-          ),
-        ),
-        content: Form(
-          key: formKey,
-          child: TextFormField(
-            controller: controller,
-            autofocus: true,
-            validator: (value) {
-              if (value == null || value.trim().isEmpty) {
-                return 'Name cannot be empty';
-              }
-              return null;
-            },
-            onEditingComplete: () {
-              if (formKey.currentState?.validate() ?? false) {
-                Navigator.pop(context, controller.text.trim());
-              }
-            },
-            style: TextStyle(
-              color: Theme.of(context).brightness == Brightness.light
-                  ? Colors.black
-                  : Colors.white,
-            ),
-            decoration: InputDecoration(
-              labelText: AppLocalizations.of(context)!.listName,
-            ).applyDefaults(Theme.of(context).inputDecorationTheme),
-          ),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: Text(AppLocalizations.of(context)!.cancel),
-          ),
-          FilledButton(
-            onPressed: () {
-              if (formKey.currentState?.validate() ?? false) {
-                Navigator.pop(context, controller.text.trim());
-              }
-            },
-            style: FilledButton.styleFrom(
-              backgroundColor: Theme.of(context).colorScheme.primary,
-              foregroundColor: Theme.of(context).colorScheme.onPrimary,
-            ),
-            child: Text(AppLocalizations.of(context)!.rename),
-          ),
-        ],
-        actionsPadding: const EdgeInsets.all(16),
+      builder: (context) => Semantics(
+        child: RenameListDialog(currentName: _currentListTitle),
       ),
     );
 
@@ -195,15 +176,18 @@ class _DetailScreenState extends State<DetailScreen> {
               behavior: SnackBarBehavior.floating,
               backgroundColor: Colors.transparent,
               content: AwesomeSnackbarContent(
-                title: AppLocalizations.of(context)!.listExists,
-                message:
-                    AppLocalizations.of(context)!.listExistsMessage(newName),
+                title: context.l10n.listExists,
+                message: context.l10n.listExistsMessage(newName),
                 contentType: ContentType.failure,
               ),
             ),
           );
         }
       } else {
+        widget.umamiService.trackEvent(
+          eventName: AnalyticsEvent.listRename,
+          data: {'old_name': _currentListTitle, 'new_name': newName},
+        );
         setState(() {
           _currentListTitle = newName;
         });
@@ -212,15 +196,16 @@ class _DetailScreenState extends State<DetailScreen> {
   }
 }
 
-class TodoList extends StatelessWidget {
-  final String listTitle;
-  final StorageService storage;
-
-  const TodoList({
-    super.key,
+class _TodoListView extends StatelessWidget {
+  const _TodoListView({
     required this.listTitle,
     required this.storage,
+    required this.umamiService,
   });
+
+  final String listTitle;
+  final StorageService storage;
+  final UmamiService umamiService;
 
   @override
   Widget build(BuildContext context) {
@@ -240,12 +225,19 @@ class TodoList extends StatelessWidget {
           itemCount: sortedItems.length,
           itemBuilder: (context, index) {
             final item = sortedItems[index];
-            return TodoItem(
+            return _TodoItemTile(
               title: item.text,
               isCompleted: item.isCompleted,
               onToggle: (bool? value) async {
                 if (value != null) {
                   await storage.toggleItemCompletion(listTitle, item.id);
+                  umamiService.trackEvent(
+                    eventName: AnalyticsEvent.itemToggle,
+                    data: {
+                      'list': listTitle,
+                      'completed': (!item.isCompleted).toString(),
+                    },
+                  );
                 }
               },
             );
@@ -256,43 +248,35 @@ class TodoList extends StatelessWidget {
   }
 }
 
-class TodoItem extends StatelessWidget {
-  final String title;
-  final bool isCompleted;
-  final ValueChanged<bool?> onToggle;
-
-  const TodoItem({
-    super.key,
+class _TodoItemTile extends StatelessWidget {
+  const _TodoItemTile({
     required this.title,
     required this.isCompleted,
     required this.onToggle,
   });
 
+  final String title;
+  final bool isCompleted;
+  final ValueChanged<bool?> onToggle;
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return ListTile(
-      leading: Checkbox(
-        fillColor: WidgetStateProperty.resolveWith<Color>((states) {
-          if (states.contains(WidgetState.selected)) {
-            return theme.brightness == Brightness.light
-                ? Colors.black
-                : Colors.white;
-          }
-          return Colors.grey;
-        }),
-        checkColor:
-            theme.brightness == Brightness.light ? Colors.white : Colors.black,
-        value: isCompleted,
-        onChanged: onToggle,
-      ),
-      title: Text(
-        title,
-        style: TextStyle(
-          color: theme.brightness == Brightness.light
-              ? Colors.black
-              : Colors.white,
-          decoration: isCompleted ? TextDecoration.lineThrough : null,
+    return Semantics(
+      button: true,
+      // TODO(M26): use localized strings for 'Completed' / 'Incomplete'
+      label: '${isCompleted ? 'Completed' : 'Incomplete'}: $title',
+      child: ListTile(
+        leading: Checkbox(
+          value: isCompleted,
+          onChanged: onToggle,
+        ),
+        title: Text(
+          title,
+          style: TextStyle(
+            color: theme.colorScheme.onSurface,
+            decoration: isCompleted ? TextDecoration.lineThrough : null,
+          ),
         ),
       ),
     );

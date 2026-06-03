@@ -36,5 +36,11 @@
     },
     "addNewList": "Lisa uus loend...",
     "addNewItem": "Lisa uus üksus...",
-    "language": "Keel"
-} 
+    "language": "Keel",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

@@ -36,5 +36,11 @@
     },
     "addNewList": "إضافة قائمة جديدة...",
     "addNewItem": "إضافة عنصر جديد...",
-    "language": "اللغة"
-} 
+    "language": "اللغة",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

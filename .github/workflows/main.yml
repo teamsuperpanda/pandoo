@@ -4,11 +4,14 @@ on:
   pull_request:
     branches: ['main']
     types: [opened, synchronize, reopened]
+  push:
+    branches: ['main']
 
 jobs:
   analyze_and_test:
     name: Analyze & Test
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -19,7 +22,7 @@ jobs:
           path: |
             ~/.pub-cache
             .dart_tool
-          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
+          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pub-
 
@@ -36,3 +39,9 @@ jobs:
 
       - name: Run flutter test
         run: flutter test --coverage
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage/lcov.info

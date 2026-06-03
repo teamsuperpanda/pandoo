@@ -36,5 +36,11 @@
     },
     "addNewList": "Lisää uusi lista...",
     "addNewItem": "Lisää uusi kohde...",
-    "language": "Kieli"
-} 
+    "language": "Kieli",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

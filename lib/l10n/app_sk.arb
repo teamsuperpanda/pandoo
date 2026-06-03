@@ -36,5 +36,11 @@
     },
     "addNewList": "Pridať nový zoznam...",
     "addNewItem": "Pridať novú položku...",
-    "language": "Jazyk"
-} 
+    "language": "Jazyk",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

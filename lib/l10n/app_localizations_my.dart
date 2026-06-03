@@ -83,4 +83,22 @@ class AppLocalizationsMy extends AppLocalizations {
 
   @override
   String get language => 'ဘာသာစကား';
+
+  @override
+  String get nameCannotBeEmpty => 'Name cannot be empty';
+
+  @override
+  String get pin => 'Pin';
+
+  @override
+  String get unpin => 'Unpin';
+
+  @override
+  String get analytics => 'Analytics';
+
+  @override
+  String get enableAnalytics => 'Enable Analytics';
+
+  @override
+  String get animateAddButton => 'Animation';
 }

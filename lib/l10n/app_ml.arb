@@ -36,5 +36,11 @@
     },
     "addNewList": "പുതിയ ലിസ്റ്റ് ചേർക്കുക...",
     "addNewItem": "പുതിയ ഇനം ചേർക്കുക...",
-    "language": "ഭാഷ"
-} 
+    "language": "ഭാഷ",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

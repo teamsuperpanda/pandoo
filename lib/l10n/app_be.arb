@@ -36,5 +36,11 @@
     },
     "addNewList": "Дадаць новы спіс...",
     "addNewItem": "Дадаць новы элемент...",
-    "language": "Мова"
-} 
+    "language": "Мова",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

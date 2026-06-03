@@ -36,5 +36,11 @@
     },
     "addNewList": "הוסף רשימה חדשה...",
     "addNewItem": "הוסף פריט חדש...",
-    "language": "שפה"
-} 
+    "language": "שפה",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

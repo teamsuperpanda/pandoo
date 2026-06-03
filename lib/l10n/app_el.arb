@@ -36,5 +36,11 @@
     },
     "addNewList": "Προσθήκη νέας λίστας...",
     "addNewItem": "Προσθήκη νέου στοιχείου...",
-    "language": "Γλώσσα"
-} 
+    "language": "Γλώσσα",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

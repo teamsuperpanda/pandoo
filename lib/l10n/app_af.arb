@@ -36,5 +36,11 @@
     },
     "addNewList": "Voeg nuwe lys by...",
     "addNewItem": "Voeg nuwe item by...",
-    "language": "Taal"
-} 
+    "language": "Taal",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

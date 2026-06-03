@@ -36,5 +36,11 @@
     },
     "addNewList": "새 목록 추가...",
     "addNewItem": "새 항목 추가...",
-    "language": "언어"
-} 
+    "language": "언어",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

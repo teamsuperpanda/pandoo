@@ -36,5 +36,11 @@
     },
     "addNewList": "Ավելացնել նոր ցուցակ...",
     "addNewItem": "Ավելացնել նոր տարր...",
-    "language": "Լեզու"
-} 
+    "language": "Լեզու",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

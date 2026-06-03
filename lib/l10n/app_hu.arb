@@ -36,5 +36,11 @@
     },
     "addNewList": "Új lista hozzáadása...",
     "addNewItem": "Új elem hozzáadása...",
-    "language": "Nyelv"
-} 
+    "language": "Nyelv",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

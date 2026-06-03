@@ -83,6 +83,24 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get language => 'Langue';
+
+  @override
+  String get nameCannotBeEmpty => 'Name cannot be empty';
+
+  @override
+  String get pin => 'Pin';
+
+  @override
+  String get unpin => 'Unpin';
+
+  @override
+  String get analytics => 'Analytics';
+
+  @override
+  String get enableAnalytics => 'Enable Analytics';
+
+  @override
+  String get animateAddButton => 'Animation';
 }
 
 /// The translations for French, as used in Canada (`fr_CA`).
@@ -164,6 +182,24 @@ class AppLocalizationsFrCa extends AppLocalizationsFr {
 
   @override
   String get language => 'Langue';
+
+  @override
+  String get nameCannotBeEmpty => 'Name cannot be empty';
+
+  @override
+  String get pin => 'Pin';
+
+  @override
+  String get unpin => 'Unpin';
+
+  @override
+  String get analytics => 'Analytics';
+
+  @override
+  String get enableAnalytics => 'Enable Analytics';
+
+  @override
+  String get animateAddButton => 'Animation';
 }
 
 /// The translations for French, as used in France (`fr_FR`).
@@ -245,4 +281,22 @@ class AppLocalizationsFrFr extends AppLocalizationsFr {
 
   @override
   String get language => 'Langue';
+
+  @override
+  String get nameCannotBeEmpty => 'Name cannot be empty';
+
+  @override
+  String get pin => 'Pin';
+
+  @override
+  String get unpin => 'Unpin';
+
+  @override
+  String get analytics => 'Analytics';
+
+  @override
+  String get enableAnalytics => 'Enable Analytics';
+
+  @override
+  String get animateAddButton => 'Animation';
 }

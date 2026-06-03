@@ -36,5 +36,11 @@
     },
     "addNewList": "Thêm danh sách mới...",
     "addNewItem": "Thêm mục mới...",
-    "language": "Ngôn ngữ"
-} 
+    "language": "Ngôn ngữ",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

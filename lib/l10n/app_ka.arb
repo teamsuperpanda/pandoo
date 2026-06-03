@@ -36,5 +36,11 @@
     },
     "addNewList": "ახალი სიის დამატება...",
     "addNewItem": "ახალი ელემენტის დამატება...",
-    "language": "ენა"
-} 
+    "language": "ენა",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

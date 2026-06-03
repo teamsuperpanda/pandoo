@@ -1,8 +1,9 @@
-import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/material.dart';
-import 'package:pandoo/services/settings_service.dart';
-import 'package:pandoo/models/settings_model.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:pandoo/models/settings_model.dart';
+import 'package:pandoo/services/settings_service.dart';
+
 import '../helpers/test_helpers.dart';
 
 void main() {
@@ -15,7 +16,7 @@ void main() {
         Hive.registerAdapter(SettingsAdapter());
       }
       if (Hive.isBoxOpen('settings_db')) {
-        await Hive.box('settings_db').close();
+        await Hive.box<Settings>('settings_db').close();
       }
     });
 
@@ -23,10 +24,6 @@ void main() {
       await Hive.deleteBoxFromDisk('settings_db');
       settingsService = SettingsService();
       await settingsService.init();
-    });
-
-    tearDown(() async {
-      await Hive.close();
     });
 
     tearDownAll(() async {

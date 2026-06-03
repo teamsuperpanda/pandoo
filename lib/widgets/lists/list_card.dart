@@ -1,83 +1,50 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import '../../services/storage_service.dart';
-import '../../models/list_model.dart';
-import '../../dialog/delete_list_dialog.dart';
-import '../../l10n/l10n.dart';
+import 'package:pandoo/dialog/delete_list_dialog.dart';
+import 'package:pandoo/dialog/rename_list_dialog.dart';
+import 'package:pandoo/l10n/l10n.dart';
+import 'package:pandoo/models/list_model.dart';
+import 'package:pandoo/services/storage_service.dart';
+import 'package:pandoo/services/umami_service.dart';
 
 class ListCard extends StatelessWidget {
-  final String title;
-  final VoidCallback onTap;
-  final VoidCallback onDelete;
-  final Function(String) onRename;
-  final int index;
-  final bool pinned;
-
   const ListCard({
-    super.key,
     required this.title,
     required this.onTap,
     required this.onDelete,
     required this.onRename,
     required this.index,
     required this.pinned,
+    required this.umamiService,
+    super.key,
   });
 
+  final String title;
+  final VoidCallback onTap;
+  final VoidCallback onDelete;
+  final void Function(String) onRename;
+  final int index;
+  final bool pinned;
+  final UmamiService umamiService;
+
   Future<bool> _confirmDelete(BuildContext context) async {
-    return await showDialog(
+    return await showDialog<bool>(
           context: context,
-          builder: (context) => DeleteListDialog(listTitle: title),
+          builder: (context) => Semantics(
+            child: DeleteListDialog(listTitle: title),
+          ),
         ) ??
         false;
   }
 
   Future<String?> _showRenameDialog(BuildContext context) async {
-    final controller = TextEditingController(text: title);
-    final formKey = GlobalKey<FormState>();
-    final theme = Theme.of(context);
-
-    return showDialog<String>(
+    final result = await showDialog<String>(
       context: context,
-      builder: (context) => AlertDialog(
-        title: Text(context.l10n.renameList),
-        content: Form(
-          key: formKey,
-          child: TextFormField(
-            controller: controller,
-            autofocus: true,
-            validator: (value) {
-              if (value == null || value.trim().isEmpty) {
-                return 'Name cannot be empty';
-              }
-              return null;
-            },
-            onEditingComplete: () {
-              if (formKey.currentState?.validate() ?? false) {
-                Navigator.pop(context, controller.text.trim());
-              }
-            },
-            decoration: InputDecoration(
-              labelText: context.l10n.listName,
-            ).applyDefaults(theme.inputDecorationTheme),
-          ),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: Text(context.l10n.cancel),
-          ),
-          FilledButton(
-            onPressed: () {
-              if (formKey.currentState?.validate() ?? false) {
-                Navigator.pop(context, controller.text.trim());
-              }
-            },
-            child: Text(context.l10n.rename),
-          ),
-        ],
-        actionsPadding: const EdgeInsets.all(16),
+      builder: (context) => Semantics(
+        child: RenameListDialog(currentName: title),
       ),
     );
+    return result;
   }
 
   @override
@@ -103,9 +70,7 @@ class ListCard extends StatelessWidget {
       ),
       child: Card(
         margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        color: theme.brightness == Brightness.light
-            ? Colors.white
-            : const Color(0xFF1E1E1E),
+        color: theme.colorScheme.surface,
         child: InkWell(
           onTap: onTap,
           borderRadius: BorderRadius.circular(16),
@@ -114,96 +79,122 @@ class ListCard extends StatelessWidget {
             child: Row(
               children: [
                 if (!pinned)
-                  ReorderableDragStartListener(
-                    index: index,
-                    child: Icon(
-                      Icons.drag_indicator,
-                      color: theme.iconTheme.color?.withAlpha(128),
+                  Semantics(
+                    button: true,
+                    label: 'Reorder list',
+                    child: ReorderableDragStartListener(
+                      index: index,
+                      child: Icon(
+                        Icons.drag_indicator,
+                        color: theme.iconTheme.color?.withAlpha(128),
+                      ),
                     ),
                   ),
                 if (pinned)
-                  Icon(
-                    Icons.push_pin,
-                    color: theme.iconTheme.color?.withAlpha(128),
+                  Semantics(
+                    label: 'Pinned list',
+                    child: Icon(
+                      Icons.push_pin,
+                      color: theme.iconTheme.color?.withAlpha(128),
+                    ),
                   ),
                 const SizedBox(width: 16),
                 Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      GestureDetector(
-                        onTap: () => _showRenameDialog(context),
-                        child: Text(
-                          title,
-                          style: const TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 4),
-                      ValueListenableBuilder<Box<ListModel>>(
-                        valueListenable: StorageService().getBoxNotifier(),
-                        builder: (context, box, _) {
-                          final list = box.get(title);
-                          final itemCount = list?.items.length ?? 0;
-                          return Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 8,
-                              vertical: 4,
-                            ),
-                            decoration: BoxDecoration(
-                              color: theme.brightness == Brightness.light
-                                  ? Colors.black
-                                  : Colors.white,
-                              borderRadius: BorderRadius.circular(12),
-                            ),
+                  child: Semantics(
+                    button: true,
+                    label: context.l10n.renameList,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Semantics(
+                          header: true,
+                          child: GestureDetector(
+                            onTap: () {
+                              _showRenameDialog(context).then((newName) {
+                                if (newName != null && newName != title) {
+                                  onRename(newName);
+                                }
+                              });
+                            },
                             child: Text(
-                              context.l10n.itemsCount(itemCount.toString()),
-                              style: TextStyle(
-                                color: theme.brightness == Brightness.light
-                                    ? Colors.white
-                                    : Colors.black,
-                                fontSize: 12,
+                              title,
+                              style: const TextStyle(
+                                fontSize: 16,
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
-                          );
-                        },
-                      ),
-                    ],
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        ValueListenableBuilder<Box<ListModel>>(
+                          valueListenable: StorageService().getBoxNotifier(),
+                          builder: (context, box, _) {
+                            final list = box.get(title);
+                            final itemCount = list?.items.length ?? 0;
+                            return Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 8,
+                                vertical: 4,
+                              ),
+                              decoration: BoxDecoration(
+                                color: theme.colorScheme.primary,
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              child: Text(
+                                context.l10n.itemsCount(itemCount.toString()),
+                                style: TextStyle(
+                                  color: theme.colorScheme.onPrimary,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-                PopupMenuButton<String>(
-                  icon: Icon(
-                    Icons.more_vert,
-                    color: theme.iconTheme.color?.withAlpha(128),
-                  ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  itemBuilder: (context) => [
-                    PopupMenuItem(
-                      value: 'pin',
-                      child: Text(pinned ? 'Unpin' : 'Pin'),
+                Semantics(
+                  button: true,
+                  label: 'More options',
+                  child: PopupMenuButton<String>(
+                    icon: Icon(
+                      Icons.more_vert,
+                      color: theme.iconTheme.color?.withAlpha(128),
                     ),
-                    PopupMenuItem(
-                      value: 'delete',
-                      child: Text(
-                        'Delete',
-                        style: TextStyle(color: theme.colorScheme.error),
+                    tooltip: 'More options',
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    itemBuilder: (context) => [
+                      PopupMenuItem(
+                        value: 'pin',
+                        child: Text(
+                            pinned ? context.l10n.unpin : context.l10n.pin),
                       ),
-                    ),
-                  ],
-                  onSelected: (value) async {
-                    if (value == 'delete') {
-                      if (await _confirmDelete(context)) {
-                        onDelete();
+                      PopupMenuItem(
+                        value: 'delete',
+                        child: Text(
+                          context.l10n.delete,
+                          style: TextStyle(color: theme.colorScheme.error),
+                        ),
+                      ),
+                    ],
+                    onSelected: (value) async {
+                      if (value == 'delete') {
+                        if (await _confirmDelete(context)) {
+                          onDelete();
+                        }
+                      } else if (value == 'pin') {
+                        await StorageService().togglePin(title);
+                        umamiService.trackEvent(
+                          eventName: pinned ? AnalyticsEvent.listUnpin : AnalyticsEvent.listPin,
+                          data: {'list': title},
+                        );
                       }
-                    } else if (value == 'pin') {
-                      await StorageService().togglePin(title);
-                    }
-                  },
+                    },
+                  ),
                 ),
               ],
             ),

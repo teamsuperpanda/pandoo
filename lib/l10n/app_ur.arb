@@ -36,5 +36,11 @@
     },
     "addNewList": "نئی فہرست شامل کریں...",
     "addNewItem": "نیا آئٹم شامل کریں...",
-    "language": "زبان"
-} 
+    "language": "زبان",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

@@ -36,5 +36,11 @@
     },
     "addNewList": "Добави нов списък...",
     "addNewItem": "Добави нов елемент...",
-    "language": "Език"
-} 
+    "language": "Език",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

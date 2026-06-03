@@ -36,5 +36,11 @@
     },
     "addNewList": "Ajouter une nouvelle liste...",
     "addNewItem": "Ajouter un nouvel élément...",
-    "language": "Langue"
-} 
+    "language": "Langue",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

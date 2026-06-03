@@ -36,5 +36,11 @@
     },
     "addNewList": "አዲስ ዝርዝር ጨምር...",
     "addNewItem": "አዲስ ንጥል ጨምር...",
-    "language": "ቋንቋ"
-} 
+    "language": "ቋንቋ",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

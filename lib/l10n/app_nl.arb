@@ -36,5 +36,11 @@
     },
     "addNewList": "Nieuwe lijst toevoegen...",
     "addNewItem": "Nieuw item toevoegen...",
-    "language": "Taal"
-} 
+    "language": "Taal",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

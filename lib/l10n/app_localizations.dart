@@ -367,6 +367,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Language'**
   String get language;
+
+  /// No description provided for @nameCannotBeEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Name cannot be empty'**
+  String get nameCannotBeEmpty;
+
+  /// No description provided for @pin.
+  ///
+  /// In en, this message translates to:
+  /// **'Pin'**
+  String get pin;
+
+  /// No description provided for @unpin.
+  ///
+  /// In en, this message translates to:
+  /// **'Unpin'**
+  String get unpin;
+
+  /// No description provided for @analytics.
+  ///
+  /// In en, this message translates to:
+  /// **'Analytics'**
+  String get analytics;
+
+  /// No description provided for @enableAnalytics.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable Analytics'**
+  String get enableAnalytics;
+
+  /// No description provided for @animateAddButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Animation'**
+  String get animateAddButton;
 }
 
 class _AppLocalizationsDelegate

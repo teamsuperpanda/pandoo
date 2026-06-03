@@ -36,5 +36,11 @@
     },
     "addNewList": "စာရင်းအသစ်ထည့်ရန်...",
     "addNewItem": "အရာအသစ်ထည့်ရန်...",
-    "language": "ဘာသာစကား"
-} 
+    "language": "ဘာသာစကား",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

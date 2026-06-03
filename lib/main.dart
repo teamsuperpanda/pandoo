@@ -1,35 +1,46 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:pandoo/l10n/app_localizations.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'services/storage_service.dart';
-import 'core/theme/app_theme.dart';
-import 'dialog/settings.dart';
-import 'widgets/lists/show_lists.dart';
-import 'widgets/lists/add_list.dart';
-import 'l10n/l10n.dart';
-import 'services/settings_service.dart';
+import 'package:pandoo/core/config.dart';
+import 'package:pandoo/core/theme/app_theme.dart';
+import 'package:pandoo/l10n/app_localizations.dart';
+import 'package:pandoo/screens/home_screen.dart';
+import 'package:pandoo/services/settings_service.dart';
+import 'package:pandoo/services/storage_service.dart';
+import 'package:pandoo/services/umami_service.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  
-  // Preserve the splash screen
-  FlutterNativeSplash.preserve(widgetsBinding: WidgetsFlutterBinding.ensureInitialized());
-  
+  final widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+
   try {
     await Hive.initFlutter();
     await StorageService().init();
     await SettingsService().init();
-  } catch (e) {
-    // Remove splash screen even if initialization fails
+  } finally {
     FlutterNativeSplash.remove();
   }
-  
-  runApp(const MyApp());
+
+  runApp(MyApp(
+    umamiService: UmamiService(
+      websiteId: AppConfig.analyticsWebsiteId,
+      endpoint: AppConfig.analyticsEndpoint,
+    ),
+  ));
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+  const MyApp({
+    required this.umamiService,
+    super.key,
+  });
+
+  final UmamiService umamiService;
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -40,60 +51,62 @@ class _MyAppState extends State<MyApp> {
   Locale? _locale;
   final _settings = SettingsService();
   bool _isInitialized = false;
+  late final ThemeData _lightTheme = AppTheme.light();
+  late final ThemeData _darkTheme = AppTheme.dark();
 
   @override
   void initState() {
     super.initState();
-    _initializeApp();
+    widget.umamiService.trackEvent(eventName: 'app_launch');
+    unawaited(_initializeApp());
   }
 
-  void _initializeApp() async {
+  @override
+  void dispose() {
+    widget.umamiService.dispose();
+    super.dispose();
+  }
+
+  Future<void> _initializeApp() async {
     try {
-      // Load settings first
       _themeMode = _settings.getThemeMode();
       _locale = _settings.getLocale();
-      
-      // Wait for 1 second to show splash screen
-      await Future.delayed(const Duration(seconds: 1));
-      
+      widget.umamiService.enabled = _settings.getAnalyticsEnabled();
+
       setState(() {
         _isInitialized = true;
       });
-      
-      // Remove splash screen after UI is ready
-      FlutterNativeSplash.remove();
-    } catch (e) {
-      // Always remove splash screen to prevent hanging, even with delay
-      await Future.delayed(const Duration(seconds: 1));
-      setState(() {
-        _isInitialized = true;
-      });
+    } finally {
       FlutterNativeSplash.remove();
     }
   }
 
-  void _handleThemeChange(ThemeMode themeMode) async {
+  Future<void> _handleThemeChange(ThemeMode themeMode) async {
     await _settings.setThemeMode(themeMode);
     setState(() {
       _themeMode = themeMode;
     });
   }
 
-  void _handleLanguageChange(Locale? locale) async {
+  Future<void> _handleLanguageChange(Locale? locale) async {
     await _settings.setLocale(locale);
     setState(() {
       _locale = locale;
     });
   }
 
+  Future<void> _handleAnalyticsChanged(bool enabled) async {
+    await _settings.setAnalyticsEnabled(enabled);
+    widget.umamiService.enabled = enabled;
+  }
+
   @override
   Widget build(BuildContext context) {
     if (!_isInitialized) {
-      // Show a simple loading screen while initializing
       return MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: AppTheme.light(),
-        darkTheme: AppTheme.dark(),
+        theme: _lightTheme,
+        darkTheme: _darkTheme,
         themeMode: _themeMode,
         home: const Scaffold(
           body: Center(
@@ -102,132 +115,24 @@ class _MyAppState extends State<MyApp> {
         ),
       );
     }
-    
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Pandoo',
-      theme: AppTheme.light(),
-      darkTheme: AppTheme.dark(),
+      theme: _lightTheme,
+      darkTheme: _darkTheme,
       themeMode: _themeMode,
       locale: _locale,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: MyHomePage(
+      navigatorObservers: [UmamiNavigatorObserver(widget.umamiService)],
+      home: HomeScreen(
         onThemeChanged: _handleThemeChange,
         currentThemeMode: _themeMode,
         onLanguageChanged: _handleLanguageChange,
         currentLocale: _locale,
-      ),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  final Function(ThemeMode) onThemeChanged;
-  final ThemeMode currentThemeMode;
-  final Function(Locale?) onLanguageChanged;
-  final Locale? currentLocale;
-
-  const MyHomePage({
-    super.key,
-    required this.onThemeChanged,
-    required this.currentThemeMode,
-    required this.onLanguageChanged,
-    required this.currentLocale,
-  });
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMixin {
-  late AnimationController _animationController;
-  late Animation<double> _animation;
-  bool _isRotatingForward = true;
-
-  @override
-  void initState() {
-    super.initState();
-    _animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 500),
-    );
-    _animation = Tween<double>(begin: 0, end: 1).animate(_animationController);
-  }
-
-  @override
-  void dispose() {
-    _animationController.dispose();
-    super.dispose();
-  }
-
-  void _openSettings(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (context) => SettingsDialog(
-        onThemeChanged: widget.onThemeChanged,
-        currentThemeMode: widget.currentThemeMode,
-        onLanguageChanged: widget.onLanguageChanged,
-        currentLocale: widget.currentLocale,
-      ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-        foregroundColor: Theme.of(context).appBarTheme.foregroundColor,
-        elevation: Theme.of(context).appBarTheme.elevation,
-        centerTitle: Theme.of(context).appBarTheme.centerTitle,
-        title: Text(
-          context.l10n.appTitle,
-          style: Theme.of(context).appBarTheme.titleTextStyle,
-        ),
-        leading: RotationTransition(
-          turns: _animation,
-          child: IconButton(
-            icon: Image.asset(
-              'assets/images/icon/icon.png',
-              height: 36,
-            ),
-            onPressed: () {
-              if (_isRotatingForward) {
-                _animationController.forward(from: 0);
-              } else {
-                _animationController.reverse(from: 1);
-              }
-              _isRotatingForward = !_isRotatingForward;
-            },
-          ),
-        ),
-        actions: [
-          IconButton(
-            icon: Icon(
-              Icons.settings,
-              color: Theme.of(context).appBarTheme.foregroundColor,
-            ),
-            onPressed: () => _openSettings(context),
-          ),
-        ],
-      ),
-      body: SafeArea(
-        child: Column(
-          children: [
-            Expanded(
-              child: Container(
-                color: Theme.of(context).scaffoldBackgroundColor,
-                child: const ShowLists(),
-              ),
-            ),
-            AddList(
-              onListAdded: () {
-                // No need for refresh - ValueListenableBuilder handles updates
-              },
-            ),
-          ],
-        ),
+        umamiService: widget.umamiService,
+        onAnalyticsChanged: _handleAnalyticsChanged,
       ),
     );
   }

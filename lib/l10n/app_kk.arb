@@ -36,5 +36,11 @@
     },
     "addNewList": "Жаңа тізім қосу...",
     "addNewItem": "Жаңа элемент қосу...",
-    "language": "Тіл"
-} 
+    "language": "Тіл",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

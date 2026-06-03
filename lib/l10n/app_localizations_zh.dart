@@ -82,6 +82,24 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get language => '语言';
+
+  @override
+  String get nameCannotBeEmpty => 'Name cannot be empty';
+
+  @override
+  String get pin => 'Pin';
+
+  @override
+  String get unpin => 'Unpin';
+
+  @override
+  String get analytics => 'Analytics';
+
+  @override
+  String get enableAnalytics => 'Enable Analytics';
+
+  @override
+  String get animateAddButton => 'Animation';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -162,6 +180,24 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get language => '语言';
+
+  @override
+  String get nameCannotBeEmpty => 'Name cannot be empty';
+
+  @override
+  String get pin => 'Pin';
+
+  @override
+  String get unpin => 'Unpin';
+
+  @override
+  String get analytics => 'Analytics';
+
+  @override
+  String get enableAnalytics => 'Enable Analytics';
+
+  @override
+  String get animateAddButton => 'Animation';
 }
 
 /// The translations for Chinese, as used in Hong Kong (`zh_HK`).
@@ -242,6 +278,24 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
 
   @override
   String get language => '語言';
+
+  @override
+  String get nameCannotBeEmpty => 'Name cannot be empty';
+
+  @override
+  String get pin => 'Pin';
+
+  @override
+  String get unpin => 'Unpin';
+
+  @override
+  String get analytics => 'Analytics';
+
+  @override
+  String get enableAnalytics => 'Enable Analytics';
+
+  @override
+  String get animateAddButton => 'Animation';
 }
 
 /// The translations for Chinese, as used in Taiwan (`zh_TW`).
@@ -322,4 +376,22 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String get language => '語言';
+
+  @override
+  String get nameCannotBeEmpty => 'Name cannot be empty';
+
+  @override
+  String get pin => 'Pin';
+
+  @override
+  String get unpin => 'Unpin';
+
+  @override
+  String get analytics => 'Analytics';
+
+  @override
+  String get enableAnalytics => 'Enable Analytics';
+
+  @override
+  String get animateAddButton => 'Animation';
 }

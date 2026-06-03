@@ -36,5 +36,11 @@
     },
     "addNewList": "Lägg till ny lista...",
     "addNewItem": "Lägg till nytt objekt...",
-    "language": "Språk"
-} 
+    "language": "Språk",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

@@ -36,5 +36,11 @@
     },
     "addNewList": "Dodaj novu listu...",
     "addNewItem": "Dodaj novu stavku...",
-    "language": "Jezik"
-} 
+    "language": "Jezik",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

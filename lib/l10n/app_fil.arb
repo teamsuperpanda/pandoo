@@ -36,5 +36,11 @@
     },
     "addNewList": "Magdagdag ng bagong listahan...",
     "addNewItem": "Magdagdag ng bagong item...",
-    "language": "Wika"
-} 
+    "language": "Wika",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

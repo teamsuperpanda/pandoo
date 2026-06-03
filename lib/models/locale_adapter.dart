@@ -10,6 +10,7 @@ class LocaleAdapter extends TypeAdapter<Locale> {
   Locale read(BinaryReader reader) {
     final languageCode = reader.readString();
     final countryCode = reader.readString();
+    if (countryCode.isEmpty) return Locale(languageCode);
     return Locale(languageCode, countryCode);
   }
 

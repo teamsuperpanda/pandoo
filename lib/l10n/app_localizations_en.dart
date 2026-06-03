@@ -82,6 +82,24 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get language => 'Language';
+
+  @override
+  String get nameCannotBeEmpty => 'Name cannot be empty';
+
+  @override
+  String get pin => 'Pin';
+
+  @override
+  String get unpin => 'Unpin';
+
+  @override
+  String get analytics => 'Analytics';
+
+  @override
+  String get enableAnalytics => 'Enable Analytics';
+
+  @override
+  String get animateAddButton => 'Animation';
 }
 
 /// The translations for English, as used in Australia (`en_AU`).
@@ -162,6 +180,24 @@ class AppLocalizationsEnAu extends AppLocalizationsEn {
 
   @override
   String get language => 'Language';
+
+  @override
+  String get nameCannotBeEmpty => 'Name cannot be empty';
+
+  @override
+  String get pin => 'Pin';
+
+  @override
+  String get unpin => 'Unpin';
+
+  @override
+  String get analytics => 'Analytics';
+
+  @override
+  String get enableAnalytics => 'Enable Analytics';
+
+  @override
+  String get animateAddButton => 'Animation';
 }
 
 /// The translations for English, as used in Canada (`en_CA`).
@@ -242,6 +278,24 @@ class AppLocalizationsEnCa extends AppLocalizationsEn {
 
   @override
   String get language => 'Language';
+
+  @override
+  String get nameCannotBeEmpty => 'Name cannot be empty';
+
+  @override
+  String get pin => 'Pin';
+
+  @override
+  String get unpin => 'Unpin';
+
+  @override
+  String get analytics => 'Analytics';
+
+  @override
+  String get enableAnalytics => 'Enable Analytics';
+
+  @override
+  String get animateAddButton => 'Animation';
 }
 
 /// The translations for English, as used in the United Kingdom (`en_GB`).
@@ -322,6 +376,24 @@ class AppLocalizationsEnGb extends AppLocalizationsEn {
 
   @override
   String get language => 'Language';
+
+  @override
+  String get nameCannotBeEmpty => 'Name cannot be empty';
+
+  @override
+  String get pin => 'Pin';
+
+  @override
+  String get unpin => 'Unpin';
+
+  @override
+  String get analytics => 'Analytics';
+
+  @override
+  String get enableAnalytics => 'Enable Analytics';
+
+  @override
+  String get animateAddButton => 'Animation';
 }
 
 /// The translations for English, as used in India (`en_IN`).
@@ -402,6 +474,24 @@ class AppLocalizationsEnIn extends AppLocalizationsEn {
 
   @override
   String get language => 'Language';
+
+  @override
+  String get nameCannotBeEmpty => 'Name cannot be empty';
+
+  @override
+  String get pin => 'Pin';
+
+  @override
+  String get unpin => 'Unpin';
+
+  @override
+  String get analytics => 'Analytics';
+
+  @override
+  String get enableAnalytics => 'Enable Analytics';
+
+  @override
+  String get animateAddButton => 'Animation';
 }
 
 /// The translations for English, as used in Singapore (`en_SG`).
@@ -482,6 +572,24 @@ class AppLocalizationsEnSg extends AppLocalizationsEn {
 
   @override
   String get language => 'Language';
+
+  @override
+  String get nameCannotBeEmpty => 'Name cannot be empty';
+
+  @override
+  String get pin => 'Pin';
+
+  @override
+  String get unpin => 'Unpin';
+
+  @override
+  String get analytics => 'Analytics';
+
+  @override
+  String get enableAnalytics => 'Enable Analytics';
+
+  @override
+  String get animateAddButton => 'Animation';
 }
 
 /// The translations for English, as used in South Africa (`en_ZA`).
@@ -562,4 +670,22 @@ class AppLocalizationsEnZa extends AppLocalizationsEn {
 
   @override
   String get language => 'Language';
+
+  @override
+  String get nameCannotBeEmpty => 'Name cannot be empty';
+
+  @override
+  String get pin => 'Pin';
+
+  @override
+  String get unpin => 'Unpin';
+
+  @override
+  String get analytics => 'Analytics';
+
+  @override
+  String get enableAnalytics => 'Enable Analytics';
+
+  @override
+  String get animateAddButton => 'Animation';
 }

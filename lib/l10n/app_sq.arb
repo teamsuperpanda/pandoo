@@ -36,5 +36,11 @@
     },
     "addNewList": "Shto listë të re...",
     "addNewItem": "Shto artikull të ri...",
-    "language": "Gjuha"
-} 
+    "language": "Gjuha",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

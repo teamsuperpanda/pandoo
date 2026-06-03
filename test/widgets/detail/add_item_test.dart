@@ -32,7 +32,7 @@ void main() {
     });
 
     testWidgets('does not call onItemAdded when text is empty', (tester) async {
-      bool wasCalled = false;
+      var wasCalled = false;
       await tester.pumpWidget(wrapWithMaterialApp(
         AddItem(onItemAdded: (_) async {
           wasCalled = true;

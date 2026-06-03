@@ -36,5 +36,11 @@
     },
     "addNewList": "Yeni liste ekle...",
     "addNewItem": "Yeni öğe ekle...",
-    "language": "Dil"
-} 
+    "language": "Dil",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

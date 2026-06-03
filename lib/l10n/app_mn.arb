@@ -36,5 +36,11 @@
     },
     "addNewList": "Шинэ жагсаалт нэмэх...",
     "addNewItem": "Шинэ зүйл нэмэх...",
-    "language": "Хэл"
-} 
+    "language": "Хэл",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

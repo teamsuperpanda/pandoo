@@ -2,41 +2,95 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pandoo/dialog/settings.dart';
 
+import '../helpers/widget_wrapper.dart';
+
 void main() {
   group('SettingsDialog', () {
-    testWidgets('SettingsDialog can be instantiated', (tester) async {
-      expect(() => SettingsDialog(
-        onThemeChanged: (ThemeMode mode) {},
-        currentThemeMode: ThemeMode.system,
-        onLanguageChanged: (Locale? locale) {},
-        currentLocale: null,
-      ), returnsNormally);
+    testWidgets('renders theme and language sections', (tester) async {
+      await tester.pumpWidget(wrapWithMaterialApp(
+        SettingsDialog(
+          onThemeChanged: (ThemeMode mode) {},
+          currentThemeMode: ThemeMode.system,
+          onLanguageChanged: (Locale? locale) {},
+          currentLocale: null,
+        ),
+      ));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Settings'), findsOneWidget);
+      expect(find.text('Theme'), findsOneWidget);
+      expect(find.text('Language'), findsOneWidget);
+      expect(find.text('System'), findsAtLeast(1));
+      expect(find.text('Close'), findsOneWidget);
     });
 
-    testWidgets('has required callback properties', (tester) async {
-      bool themeChangedCalled = false;
-      bool languageChangedCalled = false;
-      
-      final dialog = SettingsDialog(
-        onThemeChanged: (ThemeMode mode) { themeChangedCalled = true; },
-        currentThemeMode: ThemeMode.dark,
-        onLanguageChanged: (Locale? locale) { languageChangedCalled = true; },
-        currentLocale: const Locale('en'),
-      );
-      
-      expect(dialog.currentThemeMode, equals(ThemeMode.dark));
-      expect(dialog.currentLocale, equals(const Locale('en')));
-      
-      // Test callbacks work
-      dialog.onThemeChanged(ThemeMode.light);
-      dialog.onLanguageChanged(const Locale('es'));
-      
-      expect(themeChangedCalled, isTrue);
-      expect(languageChangedCalled, isTrue);
+    testWidgets('renders analytics toggle', (tester) async {
+      await tester.pumpWidget(wrapWithMaterialApp(
+        SettingsDialog(
+          onThemeChanged: (ThemeMode mode) {},
+          currentThemeMode: ThemeMode.system,
+          onLanguageChanged: (Locale? locale) {},
+          currentLocale: null,
+          analyticsEnabled: true,
+        ),
+      ));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Analytics'), findsOneWidget);
+      expect(find.text('Animation'), findsAtLeast(1));
+      expect(find.byType(Switch), findsNWidgets(2));
     });
 
-    // Note: Full dialog tests require complex widget tree setup with
-    // localization and theme providers. These basic tests verify the
-    // dialog structure. Integration tests cover full functionality.
+    testWidgets('analytics toggle calls onAnalyticsChanged', (tester) async {
+      var analyticsChanged = false;
+      await tester.pumpWidget(wrapWithMaterialApp(
+        SettingsDialog(
+          onThemeChanged: (ThemeMode mode) {},
+          currentThemeMode: ThemeMode.system,
+          onLanguageChanged: (Locale? locale) {},
+          currentLocale: null,
+          analyticsEnabled: true,
+          onAnalyticsChanged: (enabled) {
+            analyticsChanged = true;
+          },
+        ),
+      ));
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.byType(Switch).last);
+      await tester.pumpAndSettle();
+
+      expect(analyticsChanged, isTrue);
+    });
+
+    testWidgets('close button pops dialog', (tester) async {
+      await tester.pumpWidget(wrapWithMaterialApp(
+        Builder(
+          builder: (context) => TextButton(
+            onPressed: () => showDialog<void>(
+              context: context,
+              builder: (context) => SettingsDialog(
+                onThemeChanged: (ThemeMode mode) {},
+                currentThemeMode: ThemeMode.system,
+                onLanguageChanged: (Locale? locale) {},
+                currentLocale: null,
+              ),
+            ),
+            child: const Text('Open'),
+          ),
+        ),
+      ));
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('Open'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Close'), findsOneWidget);
+
+      await tester.tap(find.text('Close'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Close'), findsNothing);
+    });
   });
 }

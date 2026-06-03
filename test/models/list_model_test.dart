@@ -67,5 +67,111 @@ void main() {
       final item = TodoItem(text: 'Test', id: 'custom-id');
       expect(item.id, equals('custom-id'));
     });
+
+    test('generates unique sequential IDs', () {
+      final item1 = TodoItem(text: 'First');
+      final item2 = TodoItem(text: 'Second');
+      expect(item1.id, startsWith('item_'));
+      expect(item2.id, startsWith('item_'));
+      expect(item1.id, isNot(equals(item2.id)));
+      final id1 = int.parse(item1.id.split('_')[1]);
+      final id2 = int.parse(item2.id.split('_')[1]);
+      expect(id2, equals(id1 + 1));
+    });
+
+    test('copyWith creates a copy with updated text', () {
+      final item = TodoItem(text: 'Original');
+      final copy = item.copyWith(text: 'Updated');
+      expect(copy.text, equals('Updated'));
+      expect(copy.id, equals(item.id));
+      expect(copy.isCompleted, equals(item.isCompleted));
+    });
+
+    test('copyWith creates a copy with updated isCompleted', () {
+      final item = TodoItem(text: 'Test');
+      final copy = item.copyWith(isCompleted: true);
+      expect(copy.isCompleted, isTrue);
+      expect(copy.text, equals('Test'));
+      expect(copy.id, equals(item.id));
+    });
+
+    test('copyWith with no arguments returns equivalent but different object',
+        () {
+      final item = TodoItem(text: 'Test', isCompleted: true);
+      final copy = item.copyWith();
+      expect(copy.text, equals(item.text));
+      expect(copy.isCompleted, equals(item.isCompleted));
+      expect(copy.id, equals(item.id));
+    });
+
+    test('== and hashCode work correctly', () {
+      final item1 = TodoItem(text: 'Test', id: 'same-id');
+      final item2 = TodoItem(text: 'Test', id: 'same-id');
+      final item3 = TodoItem(text: 'Different', id: 'other-id');
+
+      expect(item1, equals(item2));
+      expect(item1.hashCode, equals(item2.hashCode));
+      expect(item1, isNot(equals(item3)));
+    });
+
+    test('edge cases: empty name', () {
+      final item = TodoItem(text: '');
+      expect(item.text, isEmpty);
+      expect(item.isCompleted, isFalse);
+    });
+
+    test('edge cases: long text', () {
+      final longText = 'a' * 1000;
+      final item = TodoItem(text: longText);
+      expect(item.text.length, equals(1000));
+    });
+
+    test('edge cases: special characters', () {
+      final item = TodoItem(text: r'Hello\nWorld\t!@#$%^&*()_+');
+      expect(item.text, contains(r'\n'));
+      expect(item.text, contains(r'\t'));
+      expect(item.text, contains(r'!@#$%^&*()_+'));
+    });
+  });
+
+  group('ListModel copyWith', () {
+    test('copyWith creates a copy with updated name', () {
+      final list = ListModel(name: 'Original', order: 1, pinned: true);
+      final copy = list.copyWith(name: 'Renamed');
+      expect(copy.name, equals('Renamed'));
+      expect(copy.order, equals(1));
+      expect(copy.pinned, isTrue);
+      expect(copy.items, isEmpty);
+    });
+
+    test('copyWith creates a copy with updated items', () {
+      final list = ListModel(name: 'Test', order: 0);
+      final items = [TodoItem(text: 'New item')];
+      final copy = list.copyWith(items: items);
+      expect(copy.items, equals(items));
+      expect(copy.name, equals('Test'));
+    });
+
+    test('copyWith creates a copy with updated order', () {
+      final list = ListModel(name: 'Test', order: 0);
+      final copy = list.copyWith(order: 5);
+      expect(copy.order, equals(5));
+    });
+
+    test('copyWith creates a copy with updated pinned', () {
+      final list = ListModel(name: 'Test', order: 0);
+      final copy = list.copyWith(pinned: true);
+      expect(copy.pinned, isTrue);
+    });
+
+    test('copyWith with no arguments returns equivalent object', () {
+      final items = [TodoItem(text: 'Item')];
+      final list = ListModel(name: 'Test', order: 1, items: items, pinned: true);
+      final copy = list.copyWith();
+      expect(copy.name, equals(list.name));
+      expect(copy.order, equals(list.order));
+      expect(copy.items, equals(list.items));
+      expect(copy.pinned, equals(list.pinned));
+    });
   });
 }

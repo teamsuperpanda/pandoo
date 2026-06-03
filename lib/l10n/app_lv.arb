@@ -36,5 +36,11 @@
     },
     "addNewList": "Pievienot jaunu sarakstu...",
     "addNewItem": "Pievienot jaunu vienumu...",
-    "language": "Valoda"
-} 
+    "language": "Valoda",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

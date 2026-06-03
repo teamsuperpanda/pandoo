@@ -36,5 +36,11 @@
     },
     "addNewList": "নতুন তালিকা যোগ করুন...",
     "addNewItem": "নতুন আইটেম যোগ করুন...",
-    "language": "ভাষা"
-} 
+    "language": "ভাষা",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

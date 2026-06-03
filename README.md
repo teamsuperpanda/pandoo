@@ -2,7 +2,7 @@
 
 <img src="assets/images/icon/icon.png" width="80" alt="Pandoo Icon">
 
-**Your friendly, local-first todo list.** Fast. Minimal. Private. No clouds, no accounts, no tracking — just you and your tasks.
+**Your friendly, local-first todo list.** Fast. Minimal. Private. No clouds, no accounts — just you and your tasks. Analytics is anonymous and opt-out.
 
 > A [Team Super Panda](https://www.teamsuperpanda.com) production
 
@@ -12,7 +12,7 @@
 
 - **Stay Organized** — Multiple lists, custom ordering, pin what matters.
 - **Task Mastery** — Checkboxes, drag-and-drop reordering, smart sorting.
-- **Privacy First** — Your data never leaves your device. Zero servers. Zero tracking.
+- **Privacy First** — Your data never leaves your device. Zero servers. Anonymous analytics, opt-out anytime.
 - **Your Vibe** — Dark & light themes + localization.
 - **Lightning Fast** — Search through everything instantly.
 
@@ -57,7 +57,7 @@ flutter test --coverage
 
 ## License
 
-- **Code**: [MIT](LICENSE)
+- **Code**: [PolyForm Noncommercial 1.0.0](LICENSE)
 - **Assets**: © 2025 Team Super Panda — see [ASSETS-LICENSE.md](ASSETS-LICENSE.md)
 
 [teamsuperpanda.com](https://www.teamsuperpanda.com)

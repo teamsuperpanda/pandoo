@@ -36,5 +36,11 @@
     },
     "addNewList": "Zerrenda berria gehitu...",
     "addNewItem": "Elementu berria gehitu...",
-    "language": "Hizkuntza"
-} 
+    "language": "Hizkuntza",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

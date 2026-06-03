@@ -36,5 +36,11 @@
     },
     "addNewList": "नवीन यादी जोडा...",
     "addNewItem": "नवीन आयटम जोडा...",
-    "language": "भाषा"
-} 
+    "language": "भाषा",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

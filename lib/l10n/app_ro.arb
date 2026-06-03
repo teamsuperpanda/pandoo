@@ -36,5 +36,11 @@
     },
     "addNewList": "Adaugă listă nouă...",
     "addNewItem": "Adaugă element nou...",
-    "language": "Limbă"
-} 
+    "language": "Limbă",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

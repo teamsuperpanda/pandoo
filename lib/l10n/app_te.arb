@@ -36,5 +36,11 @@
     },
     "addNewList": "కొత్త జాబితాను జోడించు...",
     "addNewItem": "కొత్త అంశాన్ని జోడించు...",
-    "language": "భాష"
-} 
+    "language": "భాష",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

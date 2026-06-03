@@ -36,5 +36,11 @@
     },
     "addNewList": "新しいリストを追加...",
     "addNewItem": "新しいアイテムを追加...",
-    "language": "言語"
-} 
+    "language": "言語",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

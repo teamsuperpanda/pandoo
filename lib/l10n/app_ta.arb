@@ -36,5 +36,11 @@
     },
     "addNewList": "புதிய பட்டியலைச் சேர்...",
     "addNewItem": "புதிய உருப்படியைச் சேர்...",
-    "language": "மொழி"
-} 
+    "language": "மொழி",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

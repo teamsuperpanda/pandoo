@@ -5,42 +5,55 @@ import 'package:pandoo/models/settings_model.dart';
 import 'package:pandoo/models/theme_mode_adapter.dart';
 
 class SettingsService {
+  factory SettingsService() => _instance;
+  SettingsService._internal();
   static const String _boxName = 'settings_db';
   static const String _settingsKey = 'app_settings';
 
-  static final SettingsService _instance = SettingsService._internal();
-  factory SettingsService() => _instance;
-  SettingsService._internal();
+  static SettingsService _instance = SettingsService._internal();
 
   late Box<Settings> _box;
+  Settings? _cached;
+  final ValueNotifier<Settings> notifier = ValueNotifier<Settings>(Settings());
 
   Future<void> init() async {
-    if (!Hive.isAdapterRegistered(2)) {
-      Hive.registerAdapter(SettingsAdapter());
-    }
-    if (!Hive.isAdapterRegistered(100)) {
-      Hive.registerAdapter(ThemeModeAdapter());
-    }
-    if (!Hive.isAdapterRegistered(101)) {
-      Hive.registerAdapter(LocaleAdapter());
-    }
-    _box = await Hive.openBox<Settings>(_boxName);
+    try {
+      if (!Hive.isAdapterRegistered(2)) {
+        Hive.registerAdapter(SettingsAdapter());
+      }
+      if (!Hive.isAdapterRegistered(100)) {
+        Hive.registerAdapter(ThemeModeAdapter());
+      }
+      if (!Hive.isAdapterRegistered(101)) {
+        Hive.registerAdapter(LocaleAdapter());
+      }
+      _box = await Hive.openBox<Settings>(_boxName);
 
-    // Initialize with default settings if empty
-    if (_box.isEmpty) {
-      await _box.put(_settingsKey, Settings());
+      if (_box.isEmpty) {
+        await _box.put(_settingsKey, Settings());
+      }
+      _cached = _box.get(_settingsKey) ?? Settings();
+      notifier.value = _cached!;
+    } on Object catch (e) {
+      debugPrint('SettingsService init error: $e');
     }
   }
 
-  Settings get _settings => _box.get(_settingsKey) ?? Settings();
+  Settings get _settings => _cached ??= _box.get(_settingsKey) ?? Settings();
 
   ThemeMode getThemeMode() {
     return _settings.theme;
   }
 
   Future<void> setThemeMode(ThemeMode mode) async {
-    final newSettings = _settings..theme = mode;
-    await _box.put(_settingsKey, newSettings);
+    try {
+      final newSettings = _settings.copyWith(theme: () => mode);
+      await _box.put(_settingsKey, newSettings);
+      _cached = newSettings;
+      notifier.value = newSettings;
+    } on Object catch (e) {
+      debugPrint('SettingsService setThemeMode error: $e');
+    }
   }
 
   Locale? getLocale() {
@@ -48,7 +61,49 @@ class SettingsService {
   }
 
   Future<void> setLocale(Locale? locale) async {
-    final newSettings = _settings..locale = locale;
-    await _box.put(_settingsKey, newSettings);
+    try {
+      final newSettings = _settings.copyWith(locale: () => locale);
+      await _box.put(_settingsKey, newSettings);
+      _cached = newSettings;
+      notifier.value = newSettings;
+    } on Object catch (e) {
+      debugPrint('SettingsService setLocale error: $e');
+    }
+  }
+
+  bool getAnalyticsEnabled() {
+    return _settings.analyticsEnabled;
+  }
+
+  Future<void> setAnalyticsEnabled(bool enabled) async {
+    try {
+      final newSettings = _settings.copyWith(analyticsEnabled: () => enabled);
+      await _box.put(_settingsKey, newSettings);
+      _cached = newSettings;
+      notifier.value = newSettings;
+    } on Object catch (e) {
+      debugPrint('SettingsService setAnalyticsEnabled error: $e');
+    }
+  }
+
+  bool getFabAnimation() {
+    return _settings.fabAnimation;
+  }
+
+  Future<void> setFabAnimation(bool value) async {
+    try {
+      final newSettings = _settings.copyWith(fabAnimation: () => value);
+      await _box.put(_settingsKey, newSettings);
+      _cached = newSettings;
+      notifier.value = newSettings;
+    } on Object catch (e) {
+      debugPrint('SettingsService setFabAnimation error: $e');
+    }
+  }
+
+  @visibleForTesting
+  static void setTestInstance(Box<Settings> box) {
+    _instance = SettingsService._internal();
+    _instance._box = box;
   }
 }

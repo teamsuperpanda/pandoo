@@ -1,90 +1,90 @@
 [
   {
     "language": "en-US",
-  "text": "What's new :\n• Bug fixes and updated dependencies.\n• New splash screen."
+    "text": "What's new:\n• Bug fixes and performance improvements.\n• Analytics is now opt-in (disabled by default).\n• Improved translations for 55+ languages.\n• Fixed keyboard dismissal when adding items.\n• Better error handling and data safety."
   },
   {
     "language": "en-GB",
-  "text": "What's new :\n• Bug fixes and updated dependencies.\n• New splash screen."
+    "text": "What's new:\n• Bug fixes and performance improvements.\n• Analytics is now opt-in (disabled by default).\n• Improved translations for 55+ languages.\n• Fixed keyboard dismissal when adding items.\n• Better error handling and data safety."
   },
   {
     "language": "es-ES",
-  "text": "Novedades:\n• Corrección de errores y actualización de dependencias.\n• Nueva pantalla de inicio."
+    "text": "Novedades:\n• Corrección de errores y mejoras de rendimiento.\n• La analítica ahora es opcional (desactivada por defecto).\n• Traducciones mejoradas para más de 55 idiomas.\n• Solucionado el cierre del teclado al añadir elementos.\n• Mejor gestión de errores y seguridad de datos."
   },
   {
     "language": "fr-FR",
-  "text": "Nouveautés :\n• Corrections de bugs et mise à jour des dépendances.\n• Nouvel écran de démarrage."
+    "text": "Nouveautés :\n• Corrections de bugs et améliorations des performances.\n• Les analytics sont désormais opt-in (désactivés par défaut).\n• Traductions améliorées pour plus de 55 langues.\n• Correction de la fermeture du clavier lors de l'ajout d'éléments.\n• Meilleure gestion des erreurs et sécurité des données."
   },
   {
     "language": "de-DE",
-  "text": "Neuigkeiten:\n• Fehlerbehebungen und aktualisierte Abhängigkeiten.\n• Neuer Splashscreen."
+    "text": "Neuigkeiten:\n• Fehlerbehebungen und Leistungsverbesserungen.\n• Analytik ist jetzt optional (standardmäßig deaktiviert).\n• Verbesserte Übersetzungen für über 55 Sprachen.\n• Tastaturschließen beim Hinzufügen von Elementen behoben.\n• Bessere Fehlerbehandlung und Datensicherheit."
   },
   {
     "language": "pt-BR",
-  "text": "Novidades:\n• Correções de bugs e atualização de dependências.\n• Nova tela de abertura."
+    "text": "Novidades:\n• Correções de bugs e melhorias de desempenho.\n• A análise agora é opcional (desativada por padrão).\n• Traduções melhoradas para mais de 55 idiomas.\n• Corrigido o fechamento do teclado ao adicionar itens.\n• Melhor tratamento de erros e segurança de dados."
   },
   {
     "language": "it-IT",
-  "text": "Novità:\n• Correzione di bug e aggiornamento delle dipendenze.\n• Nuova schermata iniziale."
+    "text": "Novità:\n• Correzione di bug e miglioramenti delle prestazioni.\n• L'analisi è ora opt-in (disabilitata per impostazione predefinita).\n• Traduzioni migliorate per oltre 55 lingue.\n• Risolta la chiusura della tastiera durante l'aggiunta di elementi.\n• Migliore gestione degli errori e sicurezza dei dati."
   },
   {
     "language": "ja-JP",
-  "text": "更新内容：\n• バグ修正と依存関係の更新。\n• 新しいスプラッシュ画面。"
+    "text": "更新内容：\n• バグ修正とパフォーマンスの改善。\n• 分析機能はオプトインになりました（デフォルトでは無効）。\n• 55以上の言語の翻訳を改善。\n• アイテム追加時のキーボード解除の問題を修正。\n• エラー処理とデータ安全性の向上。"
   },
   {
     "language": "ko-KR",
-  "text": "새로운 기능:\n• 버그 수정 및 종속성 업데이트.\n• 새로운 스플래시 화면."
+    "text": "새로운 기능:\n• 버그 수정 및 성능 개선.\n• 분석 기능이 옵트인으로 변경됨(기본 비활성화).\n• 55개 이상 언어 번역 개선.\n• 항목 추가 시 키보드 닫힘 문제 수정.\n• 오류 처리 및 데이터 안전성 강화."
   },
   {
     "language": "zh-CN",
-  "text": "更新内容：\n• 错误修复和依赖项更新。\n• 新的启动画面。"
+    "text": "更新内容：\n• 错误修复和性能改进。\n• 分析功能现为选择加入（默认禁用）。\n• 改进了55种以上语言的翻译。\n• 修复了添加项目时键盘关闭的问题。\n• 更好的错误处理和数据安全性。"
   },
   {
     "language": "zh-TW",
-    "text": "更新內容：\n• 錯誤修復與相依套件更新。"
+    "text": "更新內容：\n• 錯誤修復與效能改進。\n• 分析功能現為選擇加入（預設停用）。\n• 改進了55種以上語言的翻譯。\n• 修復了新增項目時鍵盤關閉的問題。\n• 更好的錯誤處理和資料安全性。"
   },
   {
     "language": "ru-RU",
-    "text": "Что нового:\n• Исправления ошибок и обновлённые зависимости."
+    "text": "Что нового:\n• Исправления ошибок и улучшение производительности.\n• Аналитика теперь с согласием (отключена по умолчанию).\n• Улучшен перевод для более чем 55 языков.\n• Исправлено закрытие клавиатуры при добавлении элементов.\n• Улучшена обработка ошибок и безопасность данных."
   },
   {
     "language": "tr-TR",
-    "text": "Yenilikler:\n• Hata düzeltmeleri ve güncellenen bağımlılıklar."
+    "text": "Yenilikler:\n• Hata düzeltmeleri ve performans iyileştirmeleri.\n• Analitik artık isteğe bağlı (varsayılan olarak devre dışı).\n• 55'ten fazla dil için geliştirilmiş çeviriler.\n• Öğe eklerken klavye kapanması düzeltildi.\n• Daha iyi hata yönetimi ve veri güvenliği."
   },
   {
     "language": "nl-NL",
-    "text": "Wat is nieuw:\n• Bugfixes en bijgewerkte afhankelijkheden."
+    "text": "Wat is nieuw:\n• Bugfixes en prestatieverbeteringen.\n• Analytics is nu opt-in (standaard uitgeschakeld).\n• Verbeterde vertalingen voor meer dan 55 talen.\n• Probleem met toetsenbordsluiting bij toevoegen opgelost.\n• Betere foutafhandeling en gegevensbeveiliging."
   },
   {
     "language": "sv-SE",
-    "text": "Nyheter:\n• Buggfixar och uppdaterade beroenden."
+    "text": "Nyheter:\n• Buggfixar och prestandaförbättringar.\n• Analys är nu valfritt (inaktiverat som standard).\n• Förbättrade översättningar för över 55 språk.\n• Åtgärdat tangentbordsstängning vid tillägg av objekt.\n• Bättre felhantering och datasäkerhet."
   },
   {
     "language": "pl-PL",
-    "text": "Co nowego:\n• Poprawki błędów i zaktualizowane zależności."
+    "text": "Co nowego:\n• Poprawki błędów i ulepszenia wydajności.\n• Analityka jest teraz opcjonalna (domyślnie wyłączona).\n• Ulepszone tłumaczenia dla ponad 55 języków.\n• Naprawiono zamykanie klawiatury podczas dodawania elementów.\n• Lepsza obsługa błędów i bezpieczeństwo danych."
   },
   {
     "language": "ar-SA",
-    "text": "ما الجديد:\n• إصلاحات للأخطاء وتحديث التبعيات."
+    "text": "ما الجديد:\n• إصلاحات للأخطاء وتحسينات الأداء.\n• التحليلات الآن اختيارية (معطلة افتراضياً).\n• ترجمات محسّنة لأكثر من 55 لغة.\n• إصلاح مشكلة إغلاق لوحة المفاتيح عند إضافة العناصر.\n• تحسين معالجة الأخطاء وأمان البيانات."
   },
   {
     "language": "hi-IN",
-    "text": "नया क्या है:\n• बग फिक्स और निर्भरताएँ अपडेट की गईं।"
+    "text": "नया क्या है:\n• बग फिक्स और प्रदर्शन सुधार।\n• एनालिटिक्स अब ऑप्ट-इन है (डिफ़ॉल्ट रूप से अक्षम)।\n• 55+ भाषाओं के लिए बेहतर अनुवाद।\n• आइटम जोड़ते समय कीबोर्ड बंद होने की समस्या ठीक की गई।\n• बेहतर त्रुटि प्रबंधन और डेटा सुरक्षा।"
   },
   {
     "language": "id-ID",
-    "text": "Yang baru:\n• Perbaikan bug dan pembaruan dependensi."
+    "text": "Yang baru:\n• Perbaikan bug dan peningkatan kinerja.\n• Analitik sekarang bersifat opt-in (dinonaktifkan secara default).\n• Terjemahan yang ditingkatkan untuk lebih dari 55 bahasa.\n• Memperbaiki penutupan keyboard saat menambahkan item.\n• Penanganan kesalahan dan keamanan data yang lebih baik."
   },
   {
     "language": "vi-VN",
-    "text": "Có gì mới:\n• Sửa lỗi và cập nhật các phụ thuộc."
+    "text": "Có gì mới:\n• Sửa lỗi và cải thiện hiệu suất.\n• Phân tích hiện là tùy chọn (tắt theo mặc định).\n• Cải thiện bản dịch cho hơn 55 ngôn ngữ.\n• Đã sửa lỗi đóng bàn phím khi thêm mục.\n• Xử lý lỗi và bảo mật dữ liệu tốt hơn."
   },
   {
     "language": "pt-PT",
-    "text": "Novidades:\n• Correções de bugs e dependências atualizadas."
+    "text": "Novidades:\n• Correções de bugs e melhorias de desempenho.\n• A análise agora é opcional (desativada por predefinição).\n• Traduções melhoradas para mais de 55 idiomas.\n• Corrigido o fecho do teclado ao adicionar itens.\n• Melhor tratamento de erros e segurança de dados."
   },
   {
     "language": "es-419",
-    "text": "Novedades:\n• Correcciones de errores y actualización de dependencias."
+    "text": "Novedades:\n• Corrección de errores y mejoras de rendimiento.\n• La analítica ahora es opcional (desactivada por defecto).\n• Traducciones mejoradas para más de 55 idiomas.\n• Solucionado el cierre del teclado al añadir elementos.\n• Mejor gestión de errores y seguridad de datos."
   }
 ]

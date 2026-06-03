@@ -36,5 +36,11 @@
     },
     "addNewList": "添加新列表...",
     "addNewItem": "添加新项目...",
-    "language": "语言"
-} 
+    "language": "语言",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}
