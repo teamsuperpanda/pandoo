@@ -58,6 +58,6 @@ flutter test --coverage
 ## License
 
 - **Code**: [PolyForm Noncommercial 1.0.0](LICENSE)
-- **Assets**: © 2025 Team Super Panda — see [ASSETS-LICENSE.md](ASSETS-LICENSE.md)
+- **Assets**: © 2026 Team Super Panda — see [ASSETS-LICENSE.md](ASSETS-LICENSE.md)
 
 [teamsuperpanda.com](https://www.teamsuperpanda.com)
