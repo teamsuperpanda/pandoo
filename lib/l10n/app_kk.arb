@@ -1,0 +1,46 @@
+{
+    "appTitle": "Пандоо",
+    "renameList": "Тізім Атын Өзгерту",
+    "listName": "Тізім Аты",
+    "cancel": "Бас Тарту",
+    "rename": "Атын Өзгерту",
+    "delete": "Жою",
+    "deleteList": "Тізімді Жою",
+    "deleteConfirmation": "\"{listTitle}\" тізімін жойғыңыз келетініне сенімдісіз бе?",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "Аяқталған Элементтерді Тазалау",
+    "cleanConfirmation": "Осы тізімнен барлық аяқталған элементтерді жою керек пе?",
+    "clean": "Тазалау",
+    "itemsCount": "{count} элемент",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "Параметрлер",
+    "theme": "Тақырып",
+    "system": "Жүйе",
+    "light": "Ашық",
+    "dark": "Қараңғы",
+    "close": "Жабу",
+    "listExists": "Тізім Әлдеқашан Бар",
+    "listExistsMessage": "'{name}' әлдеқашан бар",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "Жаңа тізім қосу...",
+    "addNewItem": "Жаңа элемент қосу...",
+    "language": "Тіл",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

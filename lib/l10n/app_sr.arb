@@ -1,0 +1,46 @@
+{
+    "appTitle": "Пандо",
+    "renameList": "Преименуј Листу",
+    "listName": "Име Листе",
+    "cancel": "Откажи",
+    "rename": "Преименуј",
+    "delete": "Обриши",
+    "deleteList": "Обриши Листу",
+    "deleteConfirmation": "Да ли сте сигурни да желите да обришете \"{listTitle}\"?",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "Очисти Завршене Ставке",
+    "cleanConfirmation": "Уклонити све завршене ставке са ове листе?",
+    "clean": "Очисти",
+    "itemsCount": "{count} ставки",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "Подешавања",
+    "theme": "Тема",
+    "system": "Систем",
+    "light": "Светла",
+    "dark": "Тамна",
+    "close": "Затвори",
+    "listExists": "Листа Већ Постоји",
+    "listExistsMessage": "'{name}' већ постоји",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "Додај нову листу...",
+    "addNewItem": "Додај нову ставку...",
+    "language": "Језик",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

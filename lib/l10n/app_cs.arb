@@ -1,0 +1,46 @@
+{
+    "appTitle": "Pandoo",
+    "renameList": "Přejmenovat Seznam",
+    "listName": "Název Seznamu",
+    "cancel": "Zrušit",
+    "rename": "Přejmenovat",
+    "delete": "Smazat",
+    "deleteList": "Smazat Seznam",
+    "deleteConfirmation": "Opravdu chcete smazat \"{listTitle}\"?",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "Vyčistit Dokončené Položky",
+    "cleanConfirmation": "Odstranit všechny dokončené položky z tohoto seznamu?",
+    "clean": "Vyčistit",
+    "itemsCount": "{count} položek",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "Nastavení",
+    "theme": "Motiv",
+    "system": "Systém",
+    "light": "Světlý",
+    "dark": "Tmavý",
+    "close": "Zavřít",
+    "listExists": "Seznam Již Existuje",
+    "listExistsMessage": "'{name}' již existuje",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "Přidat nový seznam...",
+    "addNewItem": "Přidat novou položku...",
+    "language": "Jazyk",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

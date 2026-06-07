@@ -1,0 +1,6 @@
+Co nowego:
+• Poprawki błędów i ulepszenia wydajności.
+• Analityka jest teraz opcjonalna (domyślnie wyłączona).
+• Ulepszone tłumaczenia dla ponad 55 języków.
+• Naprawiono zamykanie klawiatury podczas dodawania elementów.
+• Lepsza obsługa błędów i bezpieczeństwo danych.

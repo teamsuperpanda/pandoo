@@ -1,0 +1,46 @@
+{
+    "appTitle": "Пандо",
+    "renameList": "Преименувай Списък",
+    "listName": "Име на Списък",
+    "cancel": "Отказ",
+    "rename": "Преименувай",
+    "delete": "Изтрий",
+    "deleteList": "Изтрий Списък",
+    "deleteConfirmation": "Сигурни ли сте, че искате да изтриете \"{listTitle}\"?",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "Изчисти Завършените Елементи",
+    "cleanConfirmation": "Премахване на всички завършени елементи от този списък?",
+    "clean": "Изчисти",
+    "itemsCount": "{count} елемента",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "Настройки",
+    "theme": "Тема",
+    "system": "Система",
+    "light": "Светла",
+    "dark": "Тъмна",
+    "close": "Затвори",
+    "listExists": "Списъкът Вече Съществува",
+    "listExistsMessage": "'{name}' вече съществува",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "Добави нов списък...",
+    "addNewItem": "Добави нов елемент...",
+    "language": "Език",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

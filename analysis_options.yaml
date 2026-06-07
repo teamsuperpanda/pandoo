@@ -1,0 +1,19 @@
+include: package:very_good_analysis/analysis_options.yaml
+
+analyzer:
+  errors:
+    close_sinks: warning
+
+linter:
+  rules:
+    public_member_api_docs: false
+    lines_longer_than_80_chars: false
+    cascade_invocations: false
+    flutter_style_todos: false
+    avoid_final_parameters: false
+    one_member_abstracts: false
+    join_return_with_assignment: false
+    avoid_single_cascade_in_expression_statements: false
+    avoid_types_on_closure_parameters: false
+    sort_pub_dependencies: false
+    avoid_positional_boolean_parameters: false

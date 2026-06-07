@@ -1,0 +1,46 @@
+{
+    "appTitle": "پاندو",
+    "renameList": "فہرست کا نام تبدیل کریں",
+    "listName": "فہرست کا نام",
+    "cancel": "منسوخ کریں",
+    "rename": "نام تبدیل کریں",
+    "delete": "حذف کریں",
+    "deleteList": "فہرست حذف کریں",
+    "deleteConfirmation": "کیا آپ واقعی \"{listTitle}\" کو حذف کرنا چاہتے ہیں؟",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "مکمل شدہ آئٹمز صاف کریں",
+    "cleanConfirmation": "اس فہرست سے تمام مکمل شدہ آئٹمز کو ہٹا دیں؟",
+    "clean": "صاف کریں",
+    "itemsCount": "{count} آئٹمز",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "ترتیبات",
+    "theme": "تھیم",
+    "system": "سسٹم",
+    "light": "روشن",
+    "dark": "تاریک",
+    "close": "بند کریں",
+    "listExists": "فہرست پہلے سے موجود ہے",
+    "listExistsMessage": "'{name}' پہلے سے موجود ہے",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "نئی فہرست شامل کریں...",
+    "addNewItem": "نیا آئٹم شامل کریں...",
+    "language": "زبان",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

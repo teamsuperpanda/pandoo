@@ -1,0 +1,46 @@
+{
+    "appTitle": "ಪಾಂಡೂ",
+    "renameList": "ಪಟ್ಟಿ ಹೆಸರನ್ನು ಬದಲಾಯಿಸಿ",
+    "listName": "ಪಟ್ಟಿಯ ಹೆಸರು",
+    "cancel": "ರದ್ದುಮಾಡಿ",
+    "rename": "ಮರುಹೆಸರಿಸಿ",
+    "delete": "ಅಳಿಸಿ",
+    "deleteList": "ಪಟ್ಟಿಯನ್ನು ಅಳಿಸಿ",
+    "deleteConfirmation": "ನೀವು ಖಚಿತವಾಗಿ \"{listTitle}\" ಅನ್ನು ಅಳಿಸಲು ಬಯಸುವಿರಾ?",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "ಪೂರ್ಣಗೊಂಡ ಐಟಂಗಳನ್ನು ತೆರವುಗೊಳಿಸಿ",
+    "cleanConfirmation": "ಈ ಪಟ್ಟಿಯಿಂದ ಎಲ್ಲಾ ಪೂರ್ಣಗೊಂಡ ಐಟಂಗಳನ್ನು ತೆಗೆದುಹಾಕುವುದೇ?",
+    "clean": "ತೆರವುಗೊಳಿಸಿ",
+    "itemsCount": "{count} ಐಟಂಗಳು",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "ಸೆಟ್ಟಿಂಗ್‌ಗಳು",
+    "theme": "ಥೀಮ್",
+    "system": "ಸಿಸ್ಟಮ್",
+    "light": "ಬೆಳಕಿನ",
+    "dark": "ಗಾಢ",
+    "close": "ಮುಚ್ಚಿ",
+    "listExists": "ಪಟ್ಟಿ ಈಗಾಗಲೇ ಅಸ್ತಿತ್ವದಲ್ಲಿದೆ",
+    "listExistsMessage": "'{name}' ಈಗಾಗಲೇ ಅಸ್ತಿತ್ವದಲ್ಲಿದೆ",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "ಹೊಸ ಪಟ್ಟಿಯನ್ನು ಸೇರಿಸಿ...",
+    "addNewItem": "ಹೊಸ ಐಟಂ ಸೇರಿಸಿ...",
+    "language": "ಭಾಷೆ",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

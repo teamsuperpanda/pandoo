@@ -1,0 +1,46 @@
+{
+    "appTitle": "باندو",
+    "renameList": "إعادة تسمية القائمة",
+    "listName": "اسم القائمة",
+    "cancel": "إلغاء",
+    "rename": "إعادة تسمية",
+    "delete": "حذف",
+    "deleteList": "حذف القائمة",
+    "deleteConfirmation": "هل أنت متأكد أنك تريد حذف \"{listTitle}\"؟",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "تنظيف العناصر المكتملة",
+    "cleanConfirmation": "إزالة جميع العناصر المكتملة من هذه القائمة؟",
+    "clean": "تنظيف",
+    "itemsCount": "{count} عنصر",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "الإعدادات",
+    "theme": "المظهر",
+    "system": "النظام",
+    "light": "فاتح",
+    "dark": "داكن",
+    "close": "إغلاق",
+    "listExists": "القائمة موجودة بالفعل",
+    "listExistsMessage": "القائمة '{name}' موجودة بالفعل",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "إضافة قائمة جديدة...",
+    "addNewItem": "إضافة عنصر جديد...",
+    "language": "اللغة",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

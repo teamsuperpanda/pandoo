@@ -1,0 +1,46 @@
+{
+    "appTitle": "Pandoo",
+    "renameList": "Zerrenda Berrizendatu",
+    "listName": "Zerrendaren Izena",
+    "cancel": "Utzi",
+    "rename": "Berrizendatu",
+    "delete": "Ezabatu",
+    "deleteList": "Zerrenda Ezabatu",
+    "deleteConfirmation": "Ziur zaude \"{listTitle}\" ezabatu nahi duzula?",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "Osatutako Elementuak Garbitu",
+    "cleanConfirmation": "Zerrenda honetatik osatutako elementu guztiak kendu?",
+    "clean": "Garbitu",
+    "itemsCount": "{count} elementu",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "Ezarpenak",
+    "theme": "Gaia",
+    "system": "Sistema",
+    "light": "Argia",
+    "dark": "Iluna",
+    "close": "Itxi",
+    "listExists": "Zerrenda Dagoeneko Existitzen Da",
+    "listExistsMessage": "'{name}' dagoeneko existitzen da",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "Zerrenda berria gehitu...",
+    "addNewItem": "Elementu berria gehitu...",
+    "language": "Hizkuntza",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

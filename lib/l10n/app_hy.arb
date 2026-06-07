@@ -1,0 +1,46 @@
+{
+    "appTitle": "Պանդու",
+    "renameList": "Վերանվանել Ցուցակը",
+    "listName": "Ցուցակի Անունը",
+    "cancel": "Չեղարկել",
+    "rename": "Վերանվանել",
+    "delete": "Ջնջել",
+    "deleteList": "Ջնջել Ցուցակը",
+    "deleteConfirmation": "Վստա՞հ եք, որ ցանկանում եք ջնջել \"{listTitle}\"-ը:",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "Մաքրել Ավարտված Տարրերը",
+    "cleanConfirmation": "Հեռացնե՞լ բոլոր ավարտված տարրերը այս ցուցակից:",
+    "clean": "Մաքրել",
+    "itemsCount": "{count} տարր",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "Կարգավորումներ",
+    "theme": "Թեմա",
+    "system": "Համակարգ",
+    "light": "Լուսավոր",
+    "dark": "Մուգ",
+    "close": "Փակել",
+    "listExists": "Ցուցակն Արդեն Գոյություն Ունի",
+    "listExistsMessage": "'{name}'-ն արդեն գոյություն ունի",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "Ավելացնել նոր ցուցակ...",
+    "addNewItem": "Ավելացնել նոր տարր...",
+    "language": "Լեզու",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

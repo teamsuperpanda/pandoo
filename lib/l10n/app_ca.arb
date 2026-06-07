@@ -1,0 +1,46 @@
+{
+    "appTitle": "Pandoo",
+    "renameList": "Canviar Nom de la Llista",
+    "listName": "Nom de la Llista",
+    "cancel": "Cancel·lar",
+    "rename": "Canviar Nom",
+    "delete": "Eliminar",
+    "deleteList": "Eliminar Llista",
+    "deleteConfirmation": "Estàs segur que vols eliminar \"{listTitle}\"?",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "Netejar Elements Completats",
+    "cleanConfirmation": "Eliminar tots els elements completats d'aquesta llista?",
+    "clean": "Netejar",
+    "itemsCount": "{count} elements",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "Configuració",
+    "theme": "Tema",
+    "system": "Sistema",
+    "light": "Clar",
+    "dark": "Fosc",
+    "close": "Tancar",
+    "listExists": "La Llista Ja Existeix",
+    "listExistsMessage": "'{name}' ja existeix",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "Afegir nova llista...",
+    "addNewItem": "Afegir nou element...",
+    "language": "Idioma",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

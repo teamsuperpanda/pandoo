@@ -1,0 +1,46 @@
+{
+    "appTitle": "Pandoo",
+    "renameList": "Ubah Nama Daftar",
+    "listName": "Nama Daftar",
+    "cancel": "Batal",
+    "rename": "Ubah Nama",
+    "delete": "Hapus",
+    "deleteList": "Hapus Daftar",
+    "deleteConfirmation": "Apakah Anda yakin ingin menghapus \"{listTitle}\"?",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "Bersihkan Item Selesai",
+    "cleanConfirmation": "Hapus semua item yang telah selesai dari daftar ini?",
+    "clean": "Bersihkan",
+    "itemsCount": "{count} item",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "Pengaturan",
+    "theme": "Tema",
+    "system": "Sistem",
+    "light": "Terang",
+    "dark": "Gelap",
+    "close": "Tutup",
+    "listExists": "Daftar Sudah Ada",
+    "listExistsMessage": "'{name}' sudah ada",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "Tambah daftar baru...",
+    "addNewItem": "Tambah item baru...",
+    "language": "Bahasa",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

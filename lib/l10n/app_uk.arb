@@ -1,0 +1,46 @@
+{
+    "appTitle": "Панду",
+    "renameList": "Перейменувати Список",
+    "listName": "Назва Списку",
+    "cancel": "Скасувати",
+    "rename": "Перейменувати",
+    "delete": "Видалити",
+    "deleteList": "Видалити Список",
+    "deleteConfirmation": "Ви впевнені, що хочете видалити \"{listTitle}\"?",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "Очистити Завершені Елементи",
+    "cleanConfirmation": "Видалити всі завершені елементи з цього списку?",
+    "clean": "Очистити",
+    "itemsCount": "{count} елементів",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "Налаштування",
+    "theme": "Тема",
+    "system": "Система",
+    "light": "Світла",
+    "dark": "Темна",
+    "close": "Закрити",
+    "listExists": "Список Вже Існує",
+    "listExistsMessage": "'{name}' вже існує",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "Додати новий список...",
+    "addNewItem": "Додати новий елемент...",
+    "language": "Мова",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

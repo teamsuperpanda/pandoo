@@ -1,0 +1,46 @@
+{
+    "appTitle": "판두",
+    "renameList": "목록 이름 바꾸기",
+    "listName": "목록 이름",
+    "cancel": "취소",
+    "rename": "이름 바꾸기",
+    "delete": "삭제",
+    "deleteList": "목록 삭제",
+    "deleteConfirmation": "정말로 \"{listTitle}\"을(를) 삭제하시겠습니까?",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "완료된 항목 정리",
+    "cleanConfirmation": "이 목록에서 모든 완료된 항목을 제거하시겠습니까?",
+    "clean": "정리",
+    "itemsCount": "항목 {count}개",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "설정",
+    "theme": "테마",
+    "system": "시스템",
+    "light": "라이트",
+    "dark": "다크",
+    "close": "닫기",
+    "listExists": "목록이 이미 존재함",
+    "listExistsMessage": "'{name}'이(가) 이미 존재합니다",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "새 목록 추가...",
+    "addNewItem": "새 항목 추가...",
+    "language": "언어",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

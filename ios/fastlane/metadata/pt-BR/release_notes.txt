@@ -1,0 +1,6 @@
+Novidades:
+• Correções de bugs e melhorias de desempenho.
+• A análise agora é opcional (desativada por padrão).
+• Traduções melhoradas para mais de 55 idiomas.
+• Corrigido o fechamento do teclado ao adicionar itens.
+• Melhor tratamento de erros e segurança de dados.

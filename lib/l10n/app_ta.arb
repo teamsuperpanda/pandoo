@@ -1,0 +1,46 @@
+{
+    "appTitle": "பாண்டூ",
+    "renameList": "பட்டியலை மறுபெயரிடு",
+    "listName": "பட்டியல் பெயர்",
+    "cancel": "ரத்து செய்",
+    "rename": "மறுபெயரிடு",
+    "delete": "நீக்கு",
+    "deleteList": "பட்டியலை நீக்கு",
+    "deleteConfirmation": "\"{listTitle}\" ஐ நீக்க விரும்புகிறீர்களா?",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "முடிந்த உருப்படிகளை அழி",
+    "cleanConfirmation": "இந்த பட்டியலில் உள்ள அனைத்து முடிந்த உருப்படிகளையும் நீக்கவா?",
+    "clean": "அழி",
+    "itemsCount": "{count} உருப்படிகள்",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "அமைப்புகள்",
+    "theme": "தீம்",
+    "system": "சிஸ்டம்",
+    "light": "வெளிச்சம்",
+    "dark": "இருள்",
+    "close": "மூடு",
+    "listExists": "பட்டியல் ஏற்கனவே உள்ளது",
+    "listExistsMessage": "'{name}' ஏற்கனவே உள்ளது",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "புதிய பட்டியலைச் சேர்...",
+    "addNewItem": "புதிய உருப்படியைச் சேர்...",
+    "language": "மொழி",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

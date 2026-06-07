@@ -1,0 +1,46 @@
+{
+    "appTitle": "Pandoo",
+    "renameList": "Lista Átnevezése",
+    "listName": "Lista Neve",
+    "cancel": "Mégse",
+    "rename": "Átnevezés",
+    "delete": "Törlés",
+    "deleteList": "Lista Törlése",
+    "deleteConfirmation": "Biztosan törölni szeretné a(z) \"{listTitle}\"-t?",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "Befejezett Elemek Törlése",
+    "cleanConfirmation": "Törli az összes befejezett elemet ebből a listából?",
+    "clean": "Törlés",
+    "itemsCount": "{count} elem",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "Beállítások",
+    "theme": "Téma",
+    "system": "Rendszer",
+    "light": "Világos",
+    "dark": "Sötét",
+    "close": "Bezárás",
+    "listExists": "A Lista Már Létezik",
+    "listExistsMessage": "A(z) '{name}' már létezik",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "Új lista hozzáadása...",
+    "addNewItem": "Új elem hozzáadása...",
+    "language": "Nyelv",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

@@ -1,0 +1,46 @@
+{
+    "appTitle": "पांडू",
+    "renameList": "सूची का नाम बदलें",
+    "listName": "सूची का नाम",
+    "cancel": "रद्द करें",
+    "rename": "नाम बदलें",
+    "delete": "हटाएं",
+    "deleteList": "सूची हटाएं",
+    "deleteConfirmation": "क्या आप वाकई \"{listTitle}\" को हटाना चाहते हैं?",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "पूर्ण आइटम साफ़ करें",
+    "cleanConfirmation": "इस सूची से सभी पूर्ण आइटम हटाएं?",
+    "clean": "साफ़ करें",
+    "itemsCount": "{count} आइटम",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "सेटिंग्स",
+    "theme": "थीम",
+    "system": "सिस्टम",
+    "light": "हल्का",
+    "dark": "गहरा",
+    "close": "बंद करें",
+    "listExists": "सूची पहले से मौजूद है",
+    "listExistsMessage": "'{name}' पहले से मौजूद है",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "नई सूची जोड़ें...",
+    "addNewItem": "नया आइटम जोड़ें...",
+    "language": "भाषा",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

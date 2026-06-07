@@ -1,0 +1,46 @@
+{
+    "appTitle": "Pandoo",
+    "renameList": "Pervadinti Sąrašą",
+    "listName": "Sąrašo Pavadinimas",
+    "cancel": "Atšaukti",
+    "rename": "Pervadinti",
+    "delete": "Ištrinti",
+    "deleteList": "Ištrinti Sąrašą",
+    "deleteConfirmation": "Ar tikrai norite ištrinti \"{listTitle}\"?",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "Išvalyti Baigtus Elementus",
+    "cleanConfirmation": "Pašalinti visus baigtus elementus iš šio sąrašo?",
+    "clean": "Išvalyti",
+    "itemsCount": "{count} elementai",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "Nustatymai",
+    "theme": "Tema",
+    "system": "Sistema",
+    "light": "Šviesus",
+    "dark": "Tamsus",
+    "close": "Uždaryti",
+    "listExists": "Sąrašas Jau Egzistuoja",
+    "listExistsMessage": "'{name}' jau egzistuoja",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "Pridėti naują sąrašą...",
+    "addNewItem": "Pridėti naują elementą...",
+    "language": "Kalba",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

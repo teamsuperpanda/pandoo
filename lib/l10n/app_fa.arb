@@ -1,0 +1,46 @@
+{
+    "appTitle": "پاندو",
+    "renameList": "تغییر نام لیست",
+    "listName": "نام لیست",
+    "cancel": "لغو",
+    "rename": "تغییر نام",
+    "delete": "حذف",
+    "deleteList": "حذف لیست",
+    "deleteConfirmation": "آیا مطمئن هستید که می‌خواهید \"{listTitle}\" را حذف کنید؟",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "پاک کردن موارد تکمیل شده",
+    "cleanConfirmation": "همه موارد تکمیل شده از این لیست حذف شوند؟",
+    "clean": "پاک کردن",
+    "itemsCount": "{count} مورد",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "تنظیمات",
+    "theme": "تم",
+    "system": "سیستم",
+    "light": "روشن",
+    "dark": "تاریک",
+    "close": "بستن",
+    "listExists": "لیست از قبل وجود دارد",
+    "listExistsMessage": "'{name}' از قبل وجود دارد",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "افزودن لیست جدید...",
+    "addNewItem": "افزودن مورد جدید...",
+    "language": "زبان",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

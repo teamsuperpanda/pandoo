@@ -1,0 +1,46 @@
+{
+    "appTitle": "పాండూ",
+    "renameList": "జాబితా పేరు మార్చు",
+    "listName": "జాబితా పేరు",
+    "cancel": "రద్దు చేయి",
+    "rename": "పేరు మార్చు",
+    "delete": "తొలగించు",
+    "deleteList": "జాబితాను తొలగించు",
+    "deleteConfirmation": "మీరు నిజంగా \"{listTitle}\"ని తొలగించాలనుకుంటున్నారా?",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "పూర్తయిన అంశాలను తొలగించు",
+    "cleanConfirmation": "ఈ జాబితా నుండి పూర్తయిన అన్ని అంశాలను తొలగించాలా?",
+    "clean": "శుభ్రం చేయి",
+    "itemsCount": "{count} అంశాలు",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "సెట్టింగ్‌లు",
+    "theme": "థీమ్",
+    "system": "సిస్టమ్",
+    "light": "లైట్",
+    "dark": "డార్క్",
+    "close": "మూసివేయి",
+    "listExists": "జాబితా ఇప్పటికే ఉంది",
+    "listExistsMessage": "'{name}' ఇప్పటికే ఉంది",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "కొత్త జాబితాను జోడించు...",
+    "addNewItem": "కొత్త అంశాన్ని జోడించు...",
+    "language": "భాష",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

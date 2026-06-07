@@ -1,0 +1,46 @@
+{
+    "appTitle": "Pandoo",
+    "renameList": "Đổi Tên Danh Sách",
+    "listName": "Tên Danh Sách",
+    "cancel": "Hủy",
+    "rename": "Đổi Tên",
+    "delete": "Xóa",
+    "deleteList": "Xóa Danh Sách",
+    "deleteConfirmation": "Bạn có chắc chắn muốn xóa \"{listTitle}\"?",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "Xóa Mục Đã Hoàn Thành",
+    "cleanConfirmation": "Xóa tất cả các mục đã hoàn thành khỏi danh sách này?",
+    "clean": "Xóa",
+    "itemsCount": "{count} mục",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "Cài Đặt",
+    "theme": "Giao Diện",
+    "system": "Hệ Thống",
+    "light": "Sáng",
+    "dark": "Tối",
+    "close": "Đóng",
+    "listExists": "Danh Sách Đã Tồn Tại",
+    "listExistsMessage": "'{name}' đã tồn tại",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "Thêm danh sách mới...",
+    "addNewItem": "Thêm mục mới...",
+    "language": "Ngôn ngữ",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

@@ -1,0 +1,46 @@
+{
+    "appTitle": "পান্ডু",
+    "renameList": "তালিকার নাম পরিবর্তন করুন",
+    "listName": "তালিকার নাম",
+    "cancel": "বাতিল",
+    "rename": "নাম পরিবর্তন",
+    "delete": "মুছুন",
+    "deleteList": "তালিকা মুছুন",
+    "deleteConfirmation": "আপনি কি নিশ্চিত যে আপনি \"{listTitle}\" মুছতে চান?",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "সম্পন্ন আইটেমগুলি পরিষ্কার করুন",
+    "cleanConfirmation": "এই তালিকা থেকে সমস্ত সম্পন্ন আইটেম সরাবেন?",
+    "clean": "পরিষ্কার",
+    "itemsCount": "{count}টি আইটেম",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "সেটিংস",
+    "theme": "থিম",
+    "system": "সিস্টেম",
+    "light": "লাইট",
+    "dark": "ডার্ক",
+    "close": "বন্ধ করুন",
+    "listExists": "তালিকা ইতিমধ্যে বিদ্যমান",
+    "listExistsMessage": "'{name}' ইতিমধ্যে বিদ্যমান",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "নতুন তালিকা যোগ করুন...",
+    "addNewItem": "নতুন আইটেম যোগ করুন...",
+    "language": "ভাষা",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

@@ -1,0 +1,6 @@
+Có gì mới:
+• Sửa lỗi và cải thiện hiệu suất.
+• Phân tích hiện là tùy chọn (tắt theo mặc định).
+• Cải thiện bản dịch cho hơn 55 ngôn ngữ.
+• Đã sửa lỗi đóng bàn phím khi thêm mục.
+• Xử lý lỗi và bảo mật dữ liệu tốt hơn.

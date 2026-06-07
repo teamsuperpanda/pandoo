@@ -1,0 +1,46 @@
+{
+    "appTitle": "პანდუ",
+    "renameList": "სიის გადარქმევა",
+    "listName": "სიის სახელი",
+    "cancel": "გაუქმება",
+    "rename": "გადარქმევა",
+    "delete": "წაშლა",
+    "deleteList": "სიის წაშლა",
+    "deleteConfirmation": "დარწმუნებული ხართ, რომ გსურთ \"{listTitle}\"-ის წაშლა?",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "დასრულებული ელემენტების გასუფთავება",
+    "cleanConfirmation": "წავშალოთ ყველა დასრულებული ელემენტი ამ სიიდან?",
+    "clean": "გასუფთავება",
+    "itemsCount": "{count} ელემენტი",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "პარამეტრები",
+    "theme": "თემა",
+    "system": "სისტემა",
+    "light": "ნათელი",
+    "dark": "მუქი",
+    "close": "დახურვა",
+    "listExists": "სია უკვე არსებობს",
+    "listExistsMessage": "'{name}' უკვე არსებობს",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "ახალი სიის დამატება...",
+    "addNewItem": "ახალი ელემენტის დამატება...",
+    "language": "ენა",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}

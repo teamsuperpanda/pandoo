@@ -1,0 +1,46 @@
+{
+    "appTitle": "Πάντου",
+    "renameList": "Μετονομασία Λίστας",
+    "listName": "Όνομα Λίστας",
+    "cancel": "Ακύρωση",
+    "rename": "Μετονομασία",
+    "delete": "Διαγραφή",
+    "deleteList": "Διαγραφή Λίστας",
+    "deleteConfirmation": "Είστε σίγουροι ότι θέλετε να διαγράψετε το \"{listTitle}\";",
+    "@deleteConfirmation": {
+        "placeholders": {
+            "listTitle": {}
+        }
+    },
+    "cleanCompleted": "Εκκαθάριση Ολοκληρωμένων Στοιχείων",
+    "cleanConfirmation": "Αφαίρεση όλων των ολοκληρωμένων στοιχείων από αυτή τη λίστα;",
+    "clean": "Εκκαθάριση",
+    "itemsCount": "{count} στοιχεία",
+    "@itemsCount": {
+        "placeholders": {
+            "count": {}
+        }
+    },
+    "settings": "Ρυθμίσεις",
+    "theme": "Θέμα",
+    "system": "Σύστημα",
+    "light": "Φωτεινό",
+    "dark": "Σκοτεινό",
+    "close": "Κλείσιμο",
+    "listExists": "Η Λίστα Υπάρχει Ήδη",
+    "listExistsMessage": "Το '{name}' υπάρχει ήδη",
+    "@listExistsMessage": {
+        "placeholders": {
+            "name": {}
+        }
+    },
+    "addNewList": "Προσθήκη νέας λίστας...",
+    "addNewItem": "Προσθήκη νέου στοιχείου...",
+    "language": "Γλώσσα",
+    "animateAddButton": "Animation",
+    "nameCannotBeEmpty": "Name cannot be empty",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "analytics": "Analytics",
+    "enableAnalytics": "Enable Analytics"
+}
