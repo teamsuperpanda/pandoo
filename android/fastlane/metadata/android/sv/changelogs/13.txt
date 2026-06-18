@@ -1,0 +1,6 @@
+Nyheter:
+• Buggfixar och prestandaförbättringar.
+• Analys är nu valfritt (inaktiverat som standard).
+• Förbättrade översättningar för över 55 språk.
+• Åtgärdat tangentbordsstängning vid tillägg av objekt.
+• Bättre felhantering och datasäkerhet.

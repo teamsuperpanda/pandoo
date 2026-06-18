@@ -1,0 +1,6 @@
+Neuigkeiten:
+• Fehlerbehebungen und Leistungsverbesserungen.
+• Analytik ist jetzt optional (standardmäßig deaktiviert).
+• Verbesserte Übersetzungen für über 55 Sprachen.
+• Tastaturschließen beim Hinzufügen von Elementen behoben.
+• Bessere Fehlerbehandlung und Datensicherheit.

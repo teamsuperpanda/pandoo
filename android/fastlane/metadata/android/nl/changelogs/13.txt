@@ -1,0 +1,6 @@
+Wat is nieuw:
+• Bugfixes en prestatieverbeteringen.
+• Analytics is nu opt-in (standaard uitgeschakeld).
+• Verbeterde vertalingen voor meer dan 55 talen.
+• Probleem met toetsenbordsluiting bij toevoegen opgelost.
+• Betere foutafhandeling en gegevensbeveiliging.

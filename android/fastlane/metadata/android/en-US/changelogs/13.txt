@@ -1,0 +1,6 @@
+What's new:
+• Bug fixes and performance improvements.
+• Analytics is now opt-in (disabled by default).
+• Improved translations for 55+ languages.
+• Fixed keyboard dismissal when adding items.
+• Better error handling and data safety.
