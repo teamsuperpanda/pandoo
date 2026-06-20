@@ -1,4 +1,4 @@
-Novità:
+Novità nella versione 2.4.0:
 • Correzione di bug e miglioramenti delle prestazioni.
 • L'analisi è ora opt-in (disabilitata per impostazione predefinita).
 • Traduzioni migliorate per oltre 55 lingue.

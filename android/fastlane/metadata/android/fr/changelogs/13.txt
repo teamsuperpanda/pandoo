@@ -1,4 +1,4 @@
-Nouveautés :
+Nouveautés de la version 2.4.0 :
 • Corrections de bugs et améliorations des performances.
 • Les analytics sont désormais opt-in (désactivés par défaut).
 • Traductions améliorées pour plus de 55 langues.

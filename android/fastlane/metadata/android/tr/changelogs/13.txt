@@ -1,4 +1,4 @@
-Yenilikler:
+Sürüm 2.4.0'daki yenilikler:
 • Hata düzeltmeleri ve performans iyileştirmeleri.
 • Analitik artık isteğe bağlı (varsayılan olarak devre dışı).
 • 55'ten fazla dil için geliştirilmiş çeviriler.

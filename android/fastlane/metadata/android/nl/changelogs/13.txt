@@ -1,4 +1,4 @@
-Wat is nieuw:
+Wat is er nieuw in versie 2.4.0:
 • Bugfixes en prestatieverbeteringen.
 • Analytics is nu opt-in (standaard uitgeschakeld).
 • Verbeterde vertalingen voor meer dan 55 talen.

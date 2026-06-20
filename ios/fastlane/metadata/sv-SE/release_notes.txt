@@ -1,4 +1,4 @@
-Nyheter:
+Vad är nytt i version 2.4.0:
 • Buggfixar och prestandaförbättringar.
 • Analys är nu valfritt (inaktiverat som standard).
 • Förbättrade översättningar för över 55 språk.

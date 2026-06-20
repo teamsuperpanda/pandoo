@@ -1,4 +1,4 @@
-Có gì mới:
+Có gì mới trong phiên bản 2.4.0:
 • Sửa lỗi và cải thiện hiệu suất.
 • Phân tích hiện là tùy chọn (tắt theo mặc định).
 • Cải thiện bản dịch cho hơn 55 ngôn ngữ.

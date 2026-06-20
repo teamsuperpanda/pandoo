@@ -1,4 +1,4 @@
-Neuigkeiten:
+Neu in Version 2.4.0:
 • Fehlerbehebungen und Leistungsverbesserungen.
 • Analytik ist jetzt optional (standardmäßig deaktiviert).
 • Verbesserte Übersetzungen für über 55 Sprachen.

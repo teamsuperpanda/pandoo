@@ -1,4 +1,4 @@
-Co nowego:
+Co nowego w wersji 2.4.0:
 • Poprawki błędów i ulepszenia wydajności.
 • Analityka jest teraz opcjonalna (domyślnie wyłączona).
 • Ulepszone tłumaczenia dla ponad 55 języków.

@@ -6,7 +6,7 @@ import 'package:pandoo/services/umami_service.dart';
 import 'package:pandoo/widgets/lists/show_lists.dart';
 
 import '../../helpers/widget_wrapper.dart';
-import '../../widgets/helpers/mock_box.dart';
+import '../helpers/mock_box.dart';
 
 void main() {
   group('ShowLists Widget', () {

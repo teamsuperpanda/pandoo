@@ -1,4 +1,4 @@
-What's new:
+What's new in version 2.4.0:
 • Bug fixes and performance improvements.
 • Analytics is now opt-in (disabled by default).
 • Improved translations for 55+ languages.
