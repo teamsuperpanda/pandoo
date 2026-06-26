@@ -37,10 +37,8 @@ jobs:
       - name: Install Noto fonts for screenshot generation
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y -qq \
-            fonts-noto-cjk \
-            fonts-noto-arabic \
-            fonts-noto-devanagari
+          sudo apt-get install -y -qq fonts-noto-cjk || true
+          sudo apt-get install -y -qq fonts-noto-arabic fonts-noto-devanagari || true
 
       - name: Generate localization
         run: flutter gen-l10n
