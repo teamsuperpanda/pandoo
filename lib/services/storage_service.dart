@@ -148,13 +148,15 @@ class StorageService {
   Future<bool> renameList(String oldName, String newName) async {
     return _lock.synchronized(() async {
       try {
-        if (_listsBox.containsKey(newName)) {
+        final trimmed = newName.trim();
+        if (trimmed.isEmpty || trimmed == oldName) return false;
+        if (_listsBox.containsKey(trimmed)) {
           return false;
         }
         final list = _listsBox.get(oldName);
         if (list != null) {
           await _listsBox.delete(oldName);
-          await _listsBox.put(newName, list.copyWith(name: newName));
+          await _listsBox.put(trimmed, list.copyWith(name: trimmed));
           return true;
         }
         return false;
@@ -221,6 +223,20 @@ class StorageService {
         await _listsBox.put(listName, list.copyWith(items: updatedItems));
       } catch (e) {
         debugPrint('StorageService.toggleItemCompletion error: $e');
+        rethrow;
+      }
+    });
+  }
+
+  Future<void> deleteItemFromList(String listName, String itemId) async {
+    return _lock.synchronized(() async {
+      try {
+        final list = _listsBox.get(listName);
+        if (list == null) return;
+        final updatedItems = list.items.where((item) => item.id != itemId).toList();
+        await _listsBox.put(listName, list.copyWith(items: updatedItems));
+      } catch (e) {
+        debugPrint('StorageService.deleteItemFromList error: $e');
         rethrow;
       }
     });

@@ -1,46 +1,58 @@
 {
-    "appTitle": "潘都",
-    "renameList": "重新命名清單",
-    "listName": "清單名稱",
-    "cancel": "取消",
-    "rename": "重新命名",
-    "delete": "刪除",
-    "deleteList": "刪除清單",
-    "deleteConfirmation": "您確定要刪除\"{listTitle}\"嗎？",
+    "appTitle": "\u6f58\u90fd",
+    "renameList": "\u91cd\u65b0\u547d\u540d\u6e05\u55ae",
+    "listName": "\u6e05\u55ae\u540d\u7a31",
+    "cancel": "\u53d6\u6d88",
+    "rename": "\u91cd\u65b0\u547d\u540d",
+    "delete": "\u522a\u9664",
+    "deleteList": "\u522a\u9664\u6e05\u55ae",
+    "deleteConfirmation": "\u60a8\u78ba\u5b9a\u8981\u522a\u9664\"{listTitle}\"\u55ce\uff1f",
     "@deleteConfirmation": {
         "placeholders": {
             "listTitle": {}
         }
     },
-    "cleanCompleted": "清除已完成項目",
-    "cleanConfirmation": "從此清單中移除所有已完成的項目？",
-    "clean": "清除",
-    "itemsCount": "{count}個項目",
+    "cleanCompleted": "\u6e05\u9664\u5df2\u5b8c\u6210\u9805\u76ee",
+    "cleanConfirmation": "\u5f9e\u6b64\u6e05\u55ae\u4e2d\u79fb\u9664\u6240\u6709\u5df2\u5b8c\u6210\u7684\u9805\u76ee\uff1f",
+    "clean": "\u6e05\u9664",
+    "itemsCount": "{count}\u500b\u9805\u76ee",
     "@itemsCount": {
         "placeholders": {
             "count": {}
         }
     },
-    "settings": "設定",
-    "theme": "主題",
-    "system": "系統",
-    "light": "淺色",
-    "dark": "深色",
-    "close": "關閉",
-    "listExists": "清單已存在",
-    "listExistsMessage": "\"{name}\"已存在",
+    "settings": "\u8a2d\u5b9a",
+    "theme": "\u4e3b\u984c",
+    "system": "\u7cfb\u7d71",
+    "light": "\u6dfa\u8272",
+    "dark": "\u6df1\u8272",
+    "close": "\u95dc\u9589",
+    "listExists": "\u6e05\u55ae\u5df2\u5b58\u5728",
+    "listExistsMessage": "\"{name}\"\u5df2\u5b58\u5728",
     "@listExistsMessage": {
         "placeholders": {
             "name": {}
         }
     },
-    "addNewList": "新增清單...",
-    "addNewItem": "新增項目...",
-    "language": "語言",
+    "addNewList": "\u65b0\u589e\u6e05\u55ae...",
+    "addNewItem": "\u65b0\u589e\u9805\u76ee...",
+    "language": "\u8a9e\u8a00",
     "animateAddButton": "Animation",
     "nameCannotBeEmpty": "Name cannot be empty",
     "pin": "Pin",
     "unpin": "Unpin",
-    "analytics": "Analytics",
-    "enableAnalytics": "Enable Analytics"
+    "searchItems": "Search items...",
+    "@searchItems": {},
+    "completedItemLabel": "Completed: {title}",
+    "@completedItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    },
+    "incompleteItemLabel": "Incomplete: {title}",
+    "@incompleteItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    }
 }

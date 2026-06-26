@@ -1,46 +1,58 @@
 {
     "appTitle": "Pandoo",
-    "renameList": "Siyahını Yenidən Adlandır",
-    "listName": "Siyahı Adı",
-    "cancel": "Ləğv et",
-    "rename": "Yenidən Adlandır",
+    "renameList": "Siyah\u0131n\u0131 Yenid\u0259n Adland\u0131r",
+    "listName": "Siyah\u0131 Ad\u0131",
+    "cancel": "L\u0259\u011fv et",
+    "rename": "Yenid\u0259n Adland\u0131r",
     "delete": "Sil",
-    "deleteList": "Siyahını Sil",
-    "deleteConfirmation": "\"{listTitle}\" silmək istədiyinizə əminsiniz?",
+    "deleteList": "Siyah\u0131n\u0131 Sil",
+    "deleteConfirmation": "\"{listTitle}\" silm\u0259k ist\u0259diyiniz\u0259 \u0259minsiniz?",
     "@deleteConfirmation": {
         "placeholders": {
             "listTitle": {}
         }
     },
-    "cleanCompleted": "Tamamlanmış Elementləri Təmizlə",
-    "cleanConfirmation": "Bu siyahıdan bütün tamamlanmış elementlər silinsin?",
-    "clean": "Təmizlə",
+    "cleanCompleted": "Tamamlanm\u0131\u015f Elementl\u0259ri T\u0259mizl\u0259",
+    "cleanConfirmation": "Bu siyah\u0131dan b\u00fct\u00fcn tamamlanm\u0131\u015f elementl\u0259r silinsin?",
+    "clean": "T\u0259mizl\u0259",
     "itemsCount": "{count} element",
     "@itemsCount": {
         "placeholders": {
             "count": {}
         }
     },
-    "settings": "Parametrlər",
-    "theme": "Mövzu",
+    "settings": "Parametrl\u0259r",
+    "theme": "M\u00f6vzu",
     "system": "Sistem",
-    "light": "İşıqlı",
-    "dark": "Qaranlıq",
-    "close": "Bağla",
-    "listExists": "Siyahı Artıq Mövcuddur",
-    "listExistsMessage": "'{name}' artıq mövcuddur",
+    "light": "\u0130\u015f\u0131ql\u0131",
+    "dark": "Qaranl\u0131q",
+    "close": "Ba\u011fla",
+    "listExists": "Siyah\u0131 Art\u0131q M\u00f6vcuddur",
+    "listExistsMessage": "'{name}' art\u0131q m\u00f6vcuddur",
     "@listExistsMessage": {
         "placeholders": {
             "name": {}
         }
     },
-    "addNewList": "Yeni siyahı əlavə et...",
-    "addNewItem": "Yeni element əlavə et...",
+    "addNewList": "Yeni siyah\u0131 \u0259lav\u0259 et...",
+    "addNewItem": "Yeni element \u0259lav\u0259 et...",
     "language": "Dil",
     "animateAddButton": "Animation",
     "nameCannotBeEmpty": "Name cannot be empty",
     "pin": "Pin",
     "unpin": "Unpin",
-    "analytics": "Analytics",
-    "enableAnalytics": "Enable Analytics"
+    "searchItems": "Search items...",
+    "@searchItems": {},
+    "completedItemLabel": "Completed: {title}",
+    "@completedItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    },
+    "incompleteItemLabel": "Incomplete: {title}",
+    "@incompleteItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    }
 }

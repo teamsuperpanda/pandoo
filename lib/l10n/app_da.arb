@@ -1,19 +1,19 @@
 {
     "appTitle": "Pandoo",
-    "renameList": "Omdøb Liste",
+    "renameList": "Omd\u00f8b Liste",
     "listName": "Listenavn",
     "cancel": "Annuller",
-    "rename": "Omdøb",
+    "rename": "Omd\u00f8b",
     "delete": "Slet",
     "deleteList": "Slet Liste",
-    "deleteConfirmation": "Er du sikker på, at du vil slette \"{listTitle}\"?",
+    "deleteConfirmation": "Er du sikker p\u00e5, at du vil slette \"{listTitle}\"?",
     "@deleteConfirmation": {
         "placeholders": {
             "listTitle": {}
         }
     },
-    "cleanCompleted": "Ryd Færdige Elementer",
-    "cleanConfirmation": "Fjern alle færdige elementer fra denne liste?",
+    "cleanCompleted": "Ryd F\u00e6rdige Elementer",
+    "cleanConfirmation": "Fjern alle f\u00e6rdige elementer fra denne liste?",
     "clean": "Ryd",
     "itemsCount": "{count} elementer",
     "@itemsCount": {
@@ -25,7 +25,7 @@
     "theme": "Tema",
     "system": "System",
     "light": "Lys",
-    "dark": "Mørk",
+    "dark": "M\u00f8rk",
     "close": "Luk",
     "listExists": "Listen Findes Allerede",
     "listExistsMessage": "'{name}' findes allerede",
@@ -34,13 +34,25 @@
             "name": {}
         }
     },
-    "addNewList": "Tilføj ny liste...",
-    "addNewItem": "Tilføj nyt element...",
+    "addNewList": "Tilf\u00f8j ny liste...",
+    "addNewItem": "Tilf\u00f8j nyt element...",
     "language": "Sprog",
     "animateAddButton": "Animation",
     "nameCannotBeEmpty": "Name cannot be empty",
     "pin": "Pin",
     "unpin": "Unpin",
-    "analytics": "Analytics",
-    "enableAnalytics": "Enable Analytics"
+    "searchItems": "Search items...",
+    "@searchItems": {},
+    "completedItemLabel": "Completed: {title}",
+    "@completedItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    },
+    "incompleteItemLabel": "Incomplete: {title}",
+    "@incompleteItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    }
 }

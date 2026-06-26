@@ -1,46 +1,58 @@
 {
-    "appTitle": "פנדו",
-    "renameList": "שנה שם רשימה",
-    "listName": "שם הרשימה",
-    "cancel": "ביטול",
-    "rename": "שנה שם",
-    "delete": "מחק",
-    "deleteList": "מחק רשימה",
-    "deleteConfirmation": "האם אתה בטוח שברצונך למחוק את \"{listTitle}\"?",
+    "appTitle": "\u05e4\u05e0\u05d3\u05d5",
+    "renameList": "\u05e9\u05e0\u05d4 \u05e9\u05dd \u05e8\u05e9\u05d9\u05de\u05d4",
+    "listName": "\u05e9\u05dd \u05d4\u05e8\u05e9\u05d9\u05de\u05d4",
+    "cancel": "\u05d1\u05d9\u05d8\u05d5\u05dc",
+    "rename": "\u05e9\u05e0\u05d4 \u05e9\u05dd",
+    "delete": "\u05de\u05d7\u05e7",
+    "deleteList": "\u05de\u05d7\u05e7 \u05e8\u05e9\u05d9\u05de\u05d4",
+    "deleteConfirmation": "\u05d4\u05d0\u05dd \u05d0\u05ea\u05d4 \u05d1\u05d8\u05d5\u05d7 \u05e9\u05d1\u05e8\u05e6\u05d5\u05e0\u05da \u05dc\u05de\u05d7\u05d5\u05e7 \u05d0\u05ea \"{listTitle}\"?",
     "@deleteConfirmation": {
         "placeholders": {
             "listTitle": {}
         }
     },
-    "cleanCompleted": "נקה פריטים שהושלמו",
-    "cleanConfirmation": "להסיר את כל הפריטים שהושלמו מרשימה זו?",
-    "clean": "נקה",
-    "itemsCount": "{count} פריטים",
+    "cleanCompleted": "\u05e0\u05e7\u05d4 \u05e4\u05e8\u05d9\u05d8\u05d9\u05dd \u05e9\u05d4\u05d5\u05e9\u05dc\u05de\u05d5",
+    "cleanConfirmation": "\u05dc\u05d4\u05e1\u05d9\u05e8 \u05d0\u05ea \u05db\u05dc \u05d4\u05e4\u05e8\u05d9\u05d8\u05d9\u05dd \u05e9\u05d4\u05d5\u05e9\u05dc\u05de\u05d5 \u05de\u05e8\u05e9\u05d9\u05de\u05d4 \u05d6\u05d5?",
+    "clean": "\u05e0\u05e7\u05d4",
+    "itemsCount": "{count} \u05e4\u05e8\u05d9\u05d8\u05d9\u05dd",
     "@itemsCount": {
         "placeholders": {
             "count": {}
         }
     },
-    "settings": "הגדרות",
-    "theme": "ערכת נושא",
-    "system": "מערכת",
-    "light": "בהיר",
-    "dark": "כהה",
-    "close": "סגור",
-    "listExists": "הרשימה כבר קיימת",
-    "listExistsMessage": "'{name}' כבר קיים",
+    "settings": "\u05d4\u05d2\u05d3\u05e8\u05d5\u05ea",
+    "theme": "\u05e2\u05e8\u05db\u05ea \u05e0\u05d5\u05e9\u05d0",
+    "system": "\u05de\u05e2\u05e8\u05db\u05ea",
+    "light": "\u05d1\u05d4\u05d9\u05e8",
+    "dark": "\u05db\u05d4\u05d4",
+    "close": "\u05e1\u05d2\u05d5\u05e8",
+    "listExists": "\u05d4\u05e8\u05e9\u05d9\u05de\u05d4 \u05db\u05d1\u05e8 \u05e7\u05d9\u05d9\u05de\u05ea",
+    "listExistsMessage": "'{name}' \u05db\u05d1\u05e8 \u05e7\u05d9\u05d9\u05dd",
     "@listExistsMessage": {
         "placeholders": {
             "name": {}
         }
     },
-    "addNewList": "הוסף רשימה חדשה...",
-    "addNewItem": "הוסף פריט חדש...",
-    "language": "שפה",
+    "addNewList": "\u05d4\u05d5\u05e1\u05e3 \u05e8\u05e9\u05d9\u05de\u05d4 \u05d7\u05d3\u05e9\u05d4...",
+    "addNewItem": "\u05d4\u05d5\u05e1\u05e3 \u05e4\u05e8\u05d9\u05d8 \u05d7\u05d3\u05e9...",
+    "language": "\u05e9\u05e4\u05d4",
     "animateAddButton": "Animation",
     "nameCannotBeEmpty": "Name cannot be empty",
     "pin": "Pin",
     "unpin": "Unpin",
-    "analytics": "Analytics",
-    "enableAnalytics": "Enable Analytics"
+    "searchItems": "Search items...",
+    "@searchItems": {},
+    "completedItemLabel": "Completed: {title}",
+    "@completedItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    },
+    "incompleteItemLabel": "Incomplete: {title}",
+    "@incompleteItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    }
 }

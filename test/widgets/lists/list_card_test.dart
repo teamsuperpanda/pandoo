@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pandoo/models/list_model.dart';
 import 'package:pandoo/services/storage_service.dart';
-import 'package:pandoo/services/umami_service.dart';
 import 'package:pandoo/widgets/lists/list_card.dart';
 
 import '../../helpers/widget_wrapper.dart';
@@ -11,15 +10,10 @@ import '../helpers/mock_box.dart';
 void main() {
   group('ListCard Widget', () {
     late MockBox mockBox;
-    late UmamiService umamiService;
 
     setUp(() {
       mockBox = MockBox();
       StorageService.setTestInstance(mockBox);
-      umamiService = UmamiService(
-        websiteId: 'test',
-        endpoint: 'https://example.com',
-      );
     });
 
     testWidgets('renders list title and item count', (tester) async {
@@ -44,7 +38,6 @@ void main() {
               onRename: (String newName) {},
               index: 0,
               pinned: false,
-              umamiService: umamiService,
             ),
           ),
         ),
@@ -66,7 +59,6 @@ void main() {
               onRename: (String newName) {},
               index: 0,
               pinned: true,
-              umamiService: umamiService,
             ),
           ),
         ),
@@ -76,7 +68,7 @@ void main() {
       expect(find.byIcon(Icons.push_pin), findsOneWidget);
     });
 
-    testWidgets('shows drag indicator when not pinned', (tester) async {
+    testWidgets('shows drag indicator for all lists', (tester) async {
       await tester.pumpWidget(
         wrapWithMaterialApp(
           Material(
@@ -87,7 +79,6 @@ void main() {
               onRename: (String newName) {},
               index: 0,
               pinned: false,
-              umamiService: umamiService,
             ),
           ),
         ),
@@ -95,6 +86,26 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.byIcon(Icons.drag_indicator), findsOneWidget);
+    });
+
+    testWidgets('shows no drag indicator when pinned', (tester) async {
+      await tester.pumpWidget(
+        wrapWithMaterialApp(
+          Material(
+            child: ListCard(
+              title: 'Pinned List',
+              onTap: () {},
+              onDelete: () {},
+              onRename: (String newName) {},
+              index: 0,
+              pinned: true,
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.byIcon(Icons.drag_indicator), findsNothing);
     });
 
     testWidgets('shows popup menu with pin and delete options', (tester) async {
@@ -108,7 +119,6 @@ void main() {
               onRename: (String newName) {},
               index: 0,
               pinned: false,
-              umamiService: umamiService,
             ),
           ),
         ),
@@ -122,32 +132,37 @@ void main() {
       expect(find.text('Delete'), findsOneWidget);
     });
 
-    testWidgets('calls onTap when tapped on card body', (tester) async {
-      var tapped = false;
+    testWidgets('renders title and item count for pinned lists', (tester) async {
+      await mockBox.put(
+        'Pinned',
+        MockBox.createMockList(
+          'Pinned',
+          0,
+          pinned: true,
+          items: [
+            TodoItem(text: 'Item 1'),
+          ],
+        ),
+      );
 
       await tester.pumpWidget(
         wrapWithMaterialApp(
           Material(
             child: ListCard(
-              title: 'Test List',
-              onTap: () {
-                tapped = true;
-              },
+              title: 'Pinned',
+              onTap: () {},
               onDelete: () {},
               onRename: (String newName) {},
               index: 0,
-              pinned: false,
-              umamiService: umamiService,
+              pinned: true,
             ),
           ),
         ),
       );
       await tester.pumpAndSettle();
 
-      await tester.tap(find.byIcon(Icons.drag_indicator));
-      await tester.pumpAndSettle();
-
-      expect(tapped, isTrue);
+      expect(find.text('Pinned'), findsOneWidget);
+      expect(find.text('1 items'), findsOneWidget);
     });
   });
 }

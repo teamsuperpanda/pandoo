@@ -1,46 +1,58 @@
 {
-    "appTitle": "പാണ്ഡു",
-    "renameList": "ലിസ്റ്റിന്റെ പേര് മാറ്റുക",
-    "listName": "ലിസ്റ്റിന്റെ പേര്",
-    "cancel": "റദ്ദാക്കുക",
-    "rename": "പേര് മാറ്റുക",
-    "delete": "ഇല്ലാതാക്കുക",
-    "deleteList": "ലിസ്റ്റ് ഇല്ലാതാക്കുക",
-    "deleteConfirmation": "\"{listTitle}\" ഇല്ലാതാക്കണമെന്ന് തീർച്ചയാണോ?",
+    "appTitle": "\u0d2a\u0d3e\u0d23\u0d4d\u0d21\u0d41",
+    "renameList": "\u0d32\u0d3f\u0d38\u0d4d\u0d31\u0d4d\u0d31\u0d3f\u0d28\u0d4d\u0d31\u0d46 \u0d2a\u0d47\u0d30\u0d4d \u0d2e\u0d3e\u0d31\u0d4d\u0d31\u0d41\u0d15",
+    "listName": "\u0d32\u0d3f\u0d38\u0d4d\u0d31\u0d4d\u0d31\u0d3f\u0d28\u0d4d\u0d31\u0d46 \u0d2a\u0d47\u0d30\u0d4d",
+    "cancel": "\u0d31\u0d26\u0d4d\u0d26\u0d3e\u0d15\u0d4d\u0d15\u0d41\u0d15",
+    "rename": "\u0d2a\u0d47\u0d30\u0d4d \u0d2e\u0d3e\u0d31\u0d4d\u0d31\u0d41\u0d15",
+    "delete": "\u0d07\u0d32\u0d4d\u0d32\u0d3e\u0d24\u0d3e\u0d15\u0d4d\u0d15\u0d41\u0d15",
+    "deleteList": "\u0d32\u0d3f\u0d38\u0d4d\u0d31\u0d4d\u0d31\u0d4d \u0d07\u0d32\u0d4d\u0d32\u0d3e\u0d24\u0d3e\u0d15\u0d4d\u0d15\u0d41\u0d15",
+    "deleteConfirmation": "\"{listTitle}\" \u0d07\u0d32\u0d4d\u0d32\u0d3e\u0d24\u0d3e\u0d15\u0d4d\u0d15\u0d23\u0d2e\u0d46\u0d28\u0d4d\u0d28\u0d4d \u0d24\u0d40\u0d7c\u0d1a\u0d4d\u0d1a\u0d2f\u0d3e\u0d23\u0d4b?",
     "@deleteConfirmation": {
         "placeholders": {
             "listTitle": {}
         }
     },
-    "cleanCompleted": "പൂർത്തിയായ ഇനങ്ങൾ മായ്ക്കുക",
-    "cleanConfirmation": "ഈ ലിസ്റ്റിൽ നിന്ന് എല്ലാ പൂർത്തിയായ ഇനങ്ങളും നീക്കം ചെയ്യണോ?",
-    "clean": "മായ്ക്കുക",
-    "itemsCount": "{count} ഇനങ്ങൾ",
+    "cleanCompleted": "\u0d2a\u0d42\u0d7c\u0d24\u0d4d\u0d24\u0d3f\u0d2f\u0d3e\u0d2f \u0d07\u0d28\u0d19\u0d4d\u0d19\u0d7e \u0d2e\u0d3e\u0d2f\u0d4d\u0d15\u0d4d\u0d15\u0d41\u0d15",
+    "cleanConfirmation": "\u0d08 \u0d32\u0d3f\u0d38\u0d4d\u0d31\u0d4d\u0d31\u0d3f\u0d7d \u0d28\u0d3f\u0d28\u0d4d\u0d28\u0d4d \u0d0e\u0d32\u0d4d\u0d32\u0d3e \u0d2a\u0d42\u0d7c\u0d24\u0d4d\u0d24\u0d3f\u0d2f\u0d3e\u0d2f \u0d07\u0d28\u0d19\u0d4d\u0d19\u0d33\u0d41\u0d02 \u0d28\u0d40\u0d15\u0d4d\u0d15\u0d02 \u0d1a\u0d46\u0d2f\u0d4d\u0d2f\u0d23\u0d4b?",
+    "clean": "\u0d2e\u0d3e\u0d2f\u0d4d\u0d15\u0d4d\u0d15\u0d41\u0d15",
+    "itemsCount": "{count} \u0d07\u0d28\u0d19\u0d4d\u0d19\u0d7e",
     "@itemsCount": {
         "placeholders": {
             "count": {}
         }
     },
-    "settings": "ക്രമീകരണങ്ങൾ",
-    "theme": "തീം",
-    "system": "സിസ്റ്റം",
-    "light": "വെളിച്ചം",
-    "dark": "ഇരുട്ട്",
-    "close": "അടയ്ക്കുക",
-    "listExists": "ലിസ്റ്റ് നിലവിലുണ്ട്",
-    "listExistsMessage": "'{name}' നിലവിലുണ്ട്",
+    "settings": "\u0d15\u0d4d\u0d30\u0d2e\u0d40\u0d15\u0d30\u0d23\u0d19\u0d4d\u0d19\u0d7e",
+    "theme": "\u0d24\u0d40\u0d02",
+    "system": "\u0d38\u0d3f\u0d38\u0d4d\u0d31\u0d4d\u0d31\u0d02",
+    "light": "\u0d35\u0d46\u0d33\u0d3f\u0d1a\u0d4d\u0d1a\u0d02",
+    "dark": "\u0d07\u0d30\u0d41\u0d1f\u0d4d\u0d1f\u0d4d",
+    "close": "\u0d05\u0d1f\u0d2f\u0d4d\u0d15\u0d4d\u0d15\u0d41\u0d15",
+    "listExists": "\u0d32\u0d3f\u0d38\u0d4d\u0d31\u0d4d\u0d31\u0d4d \u0d28\u0d3f\u0d32\u0d35\u0d3f\u0d32\u0d41\u0d23\u0d4d\u0d1f\u0d4d",
+    "listExistsMessage": "'{name}' \u0d28\u0d3f\u0d32\u0d35\u0d3f\u0d32\u0d41\u0d23\u0d4d\u0d1f\u0d4d",
     "@listExistsMessage": {
         "placeholders": {
             "name": {}
         }
     },
-    "addNewList": "പുതിയ ലിസ്റ്റ് ചേർക്കുക...",
-    "addNewItem": "പുതിയ ഇനം ചേർക്കുക...",
-    "language": "ഭാഷ",
+    "addNewList": "\u0d2a\u0d41\u0d24\u0d3f\u0d2f \u0d32\u0d3f\u0d38\u0d4d\u0d31\u0d4d\u0d31\u0d4d \u0d1a\u0d47\u0d7c\u0d15\u0d4d\u0d15\u0d41\u0d15...",
+    "addNewItem": "\u0d2a\u0d41\u0d24\u0d3f\u0d2f \u0d07\u0d28\u0d02 \u0d1a\u0d47\u0d7c\u0d15\u0d4d\u0d15\u0d41\u0d15...",
+    "language": "\u0d2d\u0d3e\u0d37",
     "animateAddButton": "Animation",
     "nameCannotBeEmpty": "Name cannot be empty",
     "pin": "Pin",
     "unpin": "Unpin",
-    "analytics": "Analytics",
-    "enableAnalytics": "Enable Analytics"
+    "searchItems": "Search items...",
+    "@searchItems": {},
+    "completedItemLabel": "Completed: {title}",
+    "@completedItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    },
+    "incompleteItemLabel": "Incomplete: {title}",
+    "@incompleteItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    }
 }

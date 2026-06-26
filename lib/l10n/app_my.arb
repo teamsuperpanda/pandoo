@@ -1,46 +1,58 @@
 {
-    "appTitle": "ပန်ဒူး",
-    "renameList": "စာရင်းအမည်ပြောင်းရန်",
-    "listName": "စာရင်းအမည်",
-    "cancel": "ပယ်ဖျက်ရန်",
-    "rename": "အမည်ပြောင်းရန်",
-    "delete": "ဖျက်ရန်",
-    "deleteList": "စာရင်းဖျက်ရန်",
-    "deleteConfirmation": "\"{listTitle}\" ကို ဖျက်ရန် သေချာပါသလား?",
+    "appTitle": "\u1015\u1014\u103a\u1012\u1030\u1038",
+    "renameList": "\u1005\u102c\u101b\u1004\u103a\u1038\u1021\u1019\u100a\u103a\u1015\u103c\u1031\u102c\u1004\u103a\u1038\u101b\u1014\u103a",
+    "listName": "\u1005\u102c\u101b\u1004\u103a\u1038\u1021\u1019\u100a\u103a",
+    "cancel": "\u1015\u101a\u103a\u1016\u103b\u1000\u103a\u101b\u1014\u103a",
+    "rename": "\u1021\u1019\u100a\u103a\u1015\u103c\u1031\u102c\u1004\u103a\u1038\u101b\u1014\u103a",
+    "delete": "\u1016\u103b\u1000\u103a\u101b\u1014\u103a",
+    "deleteList": "\u1005\u102c\u101b\u1004\u103a\u1038\u1016\u103b\u1000\u103a\u101b\u1014\u103a",
+    "deleteConfirmation": "\"{listTitle}\" \u1000\u102d\u102f \u1016\u103b\u1000\u103a\u101b\u1014\u103a \u101e\u1031\u1001\u103b\u102c\u1015\u102b\u101e\u101c\u102c\u1038?",
     "@deleteConfirmation": {
         "placeholders": {
             "listTitle": {}
         }
     },
-    "cleanCompleted": "ပြီးဆုံးသွားသောအရာများကို ရှင်းလင်းရန်",
-    "cleanConfirmation": "ဤစာရင်းမှ ပြီးဆုံးသွားသောအရာအားလုံးကို ဖယ်ရှားမလား?",
-    "clean": "ရှင်းလင်းရန်",
-    "itemsCount": "အရာ {count} ခု",
+    "cleanCompleted": "\u1015\u103c\u102e\u1038\u1006\u102f\u1036\u1038\u101e\u103d\u102c\u1038\u101e\u1031\u102c\u1021\u101b\u102c\u1019\u103b\u102c\u1038\u1000\u102d\u102f \u101b\u103e\u1004\u103a\u1038\u101c\u1004\u103a\u1038\u101b\u1014\u103a",
+    "cleanConfirmation": "\u1024\u1005\u102c\u101b\u1004\u103a\u1038\u1019\u103e \u1015\u103c\u102e\u1038\u1006\u102f\u1036\u1038\u101e\u103d\u102c\u1038\u101e\u1031\u102c\u1021\u101b\u102c\u1021\u102c\u1038\u101c\u102f\u1036\u1038\u1000\u102d\u102f \u1016\u101a\u103a\u101b\u103e\u102c\u1038\u1019\u101c\u102c\u1038?",
+    "clean": "\u101b\u103e\u1004\u103a\u1038\u101c\u1004\u103a\u1038\u101b\u1014\u103a",
+    "itemsCount": "\u1021\u101b\u102c {count} \u1001\u102f",
     "@itemsCount": {
         "placeholders": {
             "count": {}
         }
     },
-    "settings": "ဆက်တင်များ",
-    "theme": "အပြင်အဆင်",
-    "system": "စနစ်",
-    "light": "အလင်း",
-    "dark": "အမှောင်",
-    "close": "ပိတ်ရန်",
-    "listExists": "စာရင်းရှိပြီးသားဖြစ်သည်",
-    "listExistsMessage": "'{name}' ရှိပြီးသားဖြစ်သည်",
+    "settings": "\u1006\u1000\u103a\u1010\u1004\u103a\u1019\u103b\u102c\u1038",
+    "theme": "\u1021\u1015\u103c\u1004\u103a\u1021\u1006\u1004\u103a",
+    "system": "\u1005\u1014\u1005\u103a",
+    "light": "\u1021\u101c\u1004\u103a\u1038",
+    "dark": "\u1021\u1019\u103e\u1031\u102c\u1004\u103a",
+    "close": "\u1015\u102d\u1010\u103a\u101b\u1014\u103a",
+    "listExists": "\u1005\u102c\u101b\u1004\u103a\u1038\u101b\u103e\u102d\u1015\u103c\u102e\u1038\u101e\u102c\u1038\u1016\u103c\u1005\u103a\u101e\u100a\u103a",
+    "listExistsMessage": "'{name}' \u101b\u103e\u102d\u1015\u103c\u102e\u1038\u101e\u102c\u1038\u1016\u103c\u1005\u103a\u101e\u100a\u103a",
     "@listExistsMessage": {
         "placeholders": {
             "name": {}
         }
     },
-    "addNewList": "စာရင်းအသစ်ထည့်ရန်...",
-    "addNewItem": "အရာအသစ်ထည့်ရန်...",
-    "language": "ဘာသာစကား",
+    "addNewList": "\u1005\u102c\u101b\u1004\u103a\u1038\u1021\u101e\u1005\u103a\u1011\u100a\u1037\u103a\u101b\u1014\u103a...",
+    "addNewItem": "\u1021\u101b\u102c\u1021\u101e\u1005\u103a\u1011\u100a\u1037\u103a\u101b\u1014\u103a...",
+    "language": "\u1018\u102c\u101e\u102c\u1005\u1000\u102c\u1038",
     "animateAddButton": "Animation",
     "nameCannotBeEmpty": "Name cannot be empty",
     "pin": "Pin",
     "unpin": "Unpin",
-    "analytics": "Analytics",
-    "enableAnalytics": "Enable Analytics"
+    "searchItems": "Search items...",
+    "@searchItems": {},
+    "completedItemLabel": "Completed: {title}",
+    "@completedItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    },
+    "incompleteItemLabel": "Incomplete: {title}",
+    "@incompleteItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    }
 }

@@ -23,50 +23,8 @@ void main() {
       expect(find.text('Theme'), findsOneWidget);
       expect(find.text('Language'), findsOneWidget);
       expect(find.text('System'), findsAtLeast(1));
-      expect(find.text('Close'), findsOneWidget);
-    });
-
-    testWidgets('renders analytics toggle', (tester) async {
-      await tester.pumpWidget(
-        wrapWithMaterialApp(
-          SettingsDialog(
-            onThemeChanged: (ThemeMode mode) {},
-            currentThemeMode: ThemeMode.system,
-            onLanguageChanged: (Locale? locale) {},
-            currentLocale: null,
-            analyticsEnabled: true,
-          ),
-        ),
-      );
-      await tester.pumpAndSettle();
-
-      expect(find.text('Analytics'), findsOneWidget);
       expect(find.text('Animation'), findsAtLeast(1));
-      expect(find.byType(Switch), findsNWidgets(2));
-    });
-
-    testWidgets('analytics toggle calls onAnalyticsChanged', (tester) async {
-      var analyticsChanged = false;
-      await tester.pumpWidget(
-        wrapWithMaterialApp(
-          SettingsDialog(
-            onThemeChanged: (ThemeMode mode) {},
-            currentThemeMode: ThemeMode.system,
-            onLanguageChanged: (Locale? locale) {},
-            currentLocale: null,
-            analyticsEnabled: true,
-            onAnalyticsChanged: (enabled) {
-              analyticsChanged = true;
-            },
-          ),
-        ),
-      );
-      await tester.pumpAndSettle();
-
-      await tester.tap(find.byType(Switch).last);
-      await tester.pumpAndSettle();
-
-      expect(analyticsChanged, isTrue);
+      expect(find.text('Close'), findsOneWidget);
     });
 
     testWidgets('close button pops dialog', (tester) async {

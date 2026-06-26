@@ -4,17 +4,17 @@
     "listName": "Naziv Liste",
     "cancel": "Odustani",
     "rename": "Preimenuj",
-    "delete": "Izbriši",
-    "deleteList": "Izbriši Listu",
-    "deleteConfirmation": "Jeste li sigurni da želite izbrisati \"{listTitle}\"?",
+    "delete": "Izbri\u0161i",
+    "deleteList": "Izbri\u0161i Listu",
+    "deleteConfirmation": "Jeste li sigurni da \u017eelite izbrisati \"{listTitle}\"?",
     "@deleteConfirmation": {
         "placeholders": {
             "listTitle": {}
         }
     },
-    "cleanCompleted": "Očisti Završene Stavke",
-    "cleanConfirmation": "Ukloniti sve završene stavke s ove liste?",
-    "clean": "Očisti",
+    "cleanCompleted": "O\u010disti Zavr\u0161ene Stavke",
+    "cleanConfirmation": "Ukloniti sve zavr\u0161ene stavke s ove liste?",
+    "clean": "O\u010disti",
     "itemsCount": "{count} stavki",
     "@itemsCount": {
         "placeholders": {
@@ -27,8 +27,8 @@
     "light": "Svijetla",
     "dark": "Tamna",
     "close": "Zatvori",
-    "listExists": "Lista Već Postoji",
-    "listExistsMessage": "'{name}' već postoji",
+    "listExists": "Lista Ve\u0107 Postoji",
+    "listExistsMessage": "'{name}' ve\u0107 postoji",
     "@listExistsMessage": {
         "placeholders": {
             "name": {}
@@ -41,6 +41,18 @@
     "nameCannotBeEmpty": "Name cannot be empty",
     "pin": "Pin",
     "unpin": "Unpin",
-    "analytics": "Analytics",
-    "enableAnalytics": "Enable Analytics"
+    "searchItems": "Search items...",
+    "@searchItems": {},
+    "completedItemLabel": "Completed: {title}",
+    "@completedItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    },
+    "incompleteItemLabel": "Incomplete: {title}",
+    "@incompleteItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    }
 }

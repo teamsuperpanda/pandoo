@@ -1,46 +1,58 @@
 {
     "appTitle": "Pandoo",
-    "renameList": "Đổi Tên Danh Sách",
-    "listName": "Tên Danh Sách",
-    "cancel": "Hủy",
-    "rename": "Đổi Tên",
-    "delete": "Xóa",
-    "deleteList": "Xóa Danh Sách",
-    "deleteConfirmation": "Bạn có chắc chắn muốn xóa \"{listTitle}\"?",
+    "renameList": "\u0110\u1ed5i T\u00ean Danh S\u00e1ch",
+    "listName": "T\u00ean Danh S\u00e1ch",
+    "cancel": "H\u1ee7y",
+    "rename": "\u0110\u1ed5i T\u00ean",
+    "delete": "X\u00f3a",
+    "deleteList": "X\u00f3a Danh S\u00e1ch",
+    "deleteConfirmation": "B\u1ea1n c\u00f3 ch\u1eafc ch\u1eafn mu\u1ed1n x\u00f3a \"{listTitle}\"?",
     "@deleteConfirmation": {
         "placeholders": {
             "listTitle": {}
         }
     },
-    "cleanCompleted": "Xóa Mục Đã Hoàn Thành",
-    "cleanConfirmation": "Xóa tất cả các mục đã hoàn thành khỏi danh sách này?",
-    "clean": "Xóa",
-    "itemsCount": "{count} mục",
+    "cleanCompleted": "X\u00f3a M\u1ee5c \u0110\u00e3 Ho\u00e0n Th\u00e0nh",
+    "cleanConfirmation": "X\u00f3a t\u1ea5t c\u1ea3 c\u00e1c m\u1ee5c \u0111\u00e3 ho\u00e0n th\u00e0nh kh\u1ecfi danh s\u00e1ch n\u00e0y?",
+    "clean": "X\u00f3a",
+    "itemsCount": "{count} m\u1ee5c",
     "@itemsCount": {
         "placeholders": {
             "count": {}
         }
     },
-    "settings": "Cài Đặt",
-    "theme": "Giao Diện",
-    "system": "Hệ Thống",
-    "light": "Sáng",
-    "dark": "Tối",
-    "close": "Đóng",
-    "listExists": "Danh Sách Đã Tồn Tại",
-    "listExistsMessage": "'{name}' đã tồn tại",
+    "settings": "C\u00e0i \u0110\u1eb7t",
+    "theme": "Giao Di\u1ec7n",
+    "system": "H\u1ec7 Th\u1ed1ng",
+    "light": "S\u00e1ng",
+    "dark": "T\u1ed1i",
+    "close": "\u0110\u00f3ng",
+    "listExists": "Danh S\u00e1ch \u0110\u00e3 T\u1ed3n T\u1ea1i",
+    "listExistsMessage": "'{name}' \u0111\u00e3 t\u1ed3n t\u1ea1i",
     "@listExistsMessage": {
         "placeholders": {
             "name": {}
         }
     },
-    "addNewList": "Thêm danh sách mới...",
-    "addNewItem": "Thêm mục mới...",
-    "language": "Ngôn ngữ",
+    "addNewList": "Th\u00eam danh s\u00e1ch m\u1edbi...",
+    "addNewItem": "Th\u00eam m\u1ee5c m\u1edbi...",
+    "language": "Ng\u00f4n ng\u1eef",
     "animateAddButton": "Animation",
     "nameCannotBeEmpty": "Name cannot be empty",
     "pin": "Pin",
     "unpin": "Unpin",
-    "analytics": "Analytics",
-    "enableAnalytics": "Enable Analytics"
+    "searchItems": "Search items...",
+    "@searchItems": {},
+    "completedItemLabel": "Completed: {title}",
+    "@completedItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    },
+    "incompleteItemLabel": "Incomplete: {title}",
+    "@incompleteItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    }
 }

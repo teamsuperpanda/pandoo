@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pandoo/models/list_model.dart';
 import 'package:pandoo/services/storage_service.dart';
-import 'package:pandoo/services/umami_service.dart';
 import 'package:pandoo/widgets/lists/show_lists.dart';
 
 import '../../helpers/widget_wrapper.dart';
@@ -11,21 +10,16 @@ import '../helpers/mock_box.dart';
 void main() {
   group('ShowLists Widget', () {
     late MockBox mockBox;
-    late UmamiService umamiService;
 
     setUp(() {
       mockBox = MockBox();
       StorageService.setTestInstance(mockBox);
-      umamiService = UmamiService(
-        websiteId: 'test',
-        endpoint: 'https://example.com',
-      );
     });
 
     testWidgets('renders empty list when no lists exist', (tester) async {
       await tester.pumpWidget(
         wrapWithMaterialApp(
-          ShowLists(umamiService: umamiService),
+          const ShowLists(),
         ),
       );
       await tester.pumpAndSettle();
@@ -45,7 +39,7 @@ void main() {
 
       await tester.pumpWidget(
         wrapWithMaterialApp(
-          ShowLists(umamiService: umamiService),
+          const ShowLists(),
         ),
       );
       await tester.pumpAndSettle();
@@ -69,7 +63,7 @@ void main() {
 
       await tester.pumpWidget(
         wrapWithMaterialApp(
-          ShowLists(umamiService: umamiService),
+          const ShowLists(),
         ),
       );
       await tester.pumpAndSettle();

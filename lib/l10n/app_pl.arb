@@ -1,21 +1,21 @@
 {
     "appTitle": "Pandoo",
-    "renameList": "Zmień Nazwę Listy",
+    "renameList": "Zmie\u0144 Nazw\u0119 Listy",
     "listName": "Nazwa Listy",
     "cancel": "Anuluj",
-    "rename": "Zmień Nazwę",
-    "delete": "Usuń",
-    "deleteList": "Usuń Listę",
-    "deleteConfirmation": "Czy na pewno chcesz usunąć \"{listTitle}\"?",
+    "rename": "Zmie\u0144 Nazw\u0119",
+    "delete": "Usu\u0144",
+    "deleteList": "Usu\u0144 List\u0119",
+    "deleteConfirmation": "Czy na pewno chcesz usun\u0105\u0107 \"{listTitle}\"?",
     "@deleteConfirmation": {
         "placeholders": {
             "listTitle": {}
         }
     },
-    "cleanCompleted": "Wyczyść Ukończone Elementy",
-    "cleanConfirmation": "Usunąć wszystkie ukończone elementy z tej listy?",
-    "clean": "Wyczyść",
-    "itemsCount": "{count} elementów",
+    "cleanCompleted": "Wyczy\u015b\u0107 Uko\u0144czone Elementy",
+    "cleanConfirmation": "Usun\u0105\u0107 wszystkie uko\u0144czone elementy z tej listy?",
+    "clean": "Wyczy\u015b\u0107",
+    "itemsCount": "{count} element\u00f3w",
     "@itemsCount": {
         "placeholders": {
             "count": {}
@@ -27,20 +27,32 @@
     "light": "Jasny",
     "dark": "Ciemny",
     "close": "Zamknij",
-    "listExists": "Lista Już Istnieje",
-    "listExistsMessage": "'{name}' już istnieje",
+    "listExists": "Lista Ju\u017c Istnieje",
+    "listExistsMessage": "'{name}' ju\u017c istnieje",
     "@listExistsMessage": {
         "placeholders": {
             "name": {}
         }
     },
-    "addNewList": "Dodaj nową listę...",
+    "addNewList": "Dodaj now\u0105 list\u0119...",
     "addNewItem": "Dodaj nowy element...",
-    "language": "Język",
+    "language": "J\u0119zyk",
     "animateAddButton": "Animation",
     "nameCannotBeEmpty": "Name cannot be empty",
     "pin": "Pin",
     "unpin": "Unpin",
-    "analytics": "Analytics",
-    "enableAnalytics": "Enable Analytics"
+    "searchItems": "Search items...",
+    "@searchItems": {},
+    "completedItemLabel": "Completed: {title}",
+    "@completedItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    },
+    "incompleteItemLabel": "Incomplete: {title}",
+    "@incompleteItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    }
 }

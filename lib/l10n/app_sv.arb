@@ -1,19 +1,19 @@
 {
     "appTitle": "Pandoo",
-    "renameList": "Byt Namn på Lista",
+    "renameList": "Byt Namn p\u00e5 Lista",
     "listName": "Listnamn",
     "cancel": "Avbryt",
     "rename": "Byt Namn",
     "delete": "Ta Bort",
     "deleteList": "Ta Bort Lista",
-    "deleteConfirmation": "Är du säker på att du vill ta bort \"{listTitle}\"?",
+    "deleteConfirmation": "\u00c4r du s\u00e4ker p\u00e5 att du vill ta bort \"{listTitle}\"?",
     "@deleteConfirmation": {
         "placeholders": {
             "listTitle": {}
         }
     },
-    "cleanCompleted": "Rensa Färdiga Objekt",
-    "cleanConfirmation": "Ta bort alla färdiga objekt från denna lista?",
+    "cleanCompleted": "Rensa F\u00e4rdiga Objekt",
+    "cleanConfirmation": "Ta bort alla f\u00e4rdiga objekt fr\u00e5n denna lista?",
     "clean": "Rensa",
     "itemsCount": "{count} objekt",
     "@itemsCount": {
@@ -21,12 +21,12 @@
             "count": {}
         }
     },
-    "settings": "Inställningar",
+    "settings": "Inst\u00e4llningar",
     "theme": "Tema",
     "system": "System",
     "light": "Ljust",
-    "dark": "Mörkt",
-    "close": "Stäng",
+    "dark": "M\u00f6rkt",
+    "close": "St\u00e4ng",
     "listExists": "Listan Finns Redan",
     "listExistsMessage": "'{name}' finns redan",
     "@listExistsMessage": {
@@ -34,13 +34,25 @@
             "name": {}
         }
     },
-    "addNewList": "Lägg till ny lista...",
-    "addNewItem": "Lägg till nytt objekt...",
-    "language": "Språk",
+    "addNewList": "L\u00e4gg till ny lista...",
+    "addNewItem": "L\u00e4gg till nytt objekt...",
+    "language": "Spr\u00e5k",
     "animateAddButton": "Animation",
     "nameCannotBeEmpty": "Name cannot be empty",
     "pin": "Pin",
     "unpin": "Unpin",
-    "analytics": "Analytics",
-    "enableAnalytics": "Enable Analytics"
+    "searchItems": "Search items...",
+    "@searchItems": {},
+    "completedItemLabel": "Completed: {title}",
+    "@completedItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    },
+    "incompleteItemLabel": "Incomplete: {title}",
+    "@incompleteItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    }
 }

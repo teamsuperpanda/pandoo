@@ -1,19 +1,19 @@
 {
     "appTitle": "Pandoo",
-    "renameList": "Riemërto Listën",
-    "listName": "Emri i Listës",
+    "renameList": "Riem\u00ebrto List\u00ebn",
+    "listName": "Emri i List\u00ebs",
     "cancel": "Anulo",
-    "rename": "Riemërto",
+    "rename": "Riem\u00ebrto",
     "delete": "Fshi",
-    "deleteList": "Fshi Listën",
-    "deleteConfirmation": "A jeni i sigurt që dëshironi të fshini \"{listTitle}\"?",
+    "deleteList": "Fshi List\u00ebn",
+    "deleteConfirmation": "A jeni i sigurt q\u00eb d\u00ebshironi t\u00eb fshini \"{listTitle}\"?",
     "@deleteConfirmation": {
         "placeholders": {
             "listTitle": {}
         }
     },
-    "cleanCompleted": "Pastro Artikujt e Përfunduar",
-    "cleanConfirmation": "Të hiqen të gjithë artikujt e përfunduar nga kjo listë?",
+    "cleanCompleted": "Pastro Artikujt e P\u00ebrfunduar",
+    "cleanConfirmation": "T\u00eb hiqen t\u00eb gjith\u00eb artikujt e p\u00ebrfunduar nga kjo list\u00eb?",
     "clean": "Pastro",
     "itemsCount": "{count} artikuj",
     "@itemsCount": {
@@ -21,26 +21,38 @@
             "count": {}
         }
     },
-    "settings": "Cilësimet",
+    "settings": "Cil\u00ebsimet",
     "theme": "Tema",
     "system": "Sistemi",
-    "light": "E Lehtë",
-    "dark": "E Errët",
+    "light": "E Leht\u00eb",
+    "dark": "E Err\u00ebt",
     "close": "Mbyll",
     "listExists": "Lista Ekziston",
-    "listExistsMessage": "'{name}' tashmë ekziston",
+    "listExistsMessage": "'{name}' tashm\u00eb ekziston",
     "@listExistsMessage": {
         "placeholders": {
             "name": {}
         }
     },
-    "addNewList": "Shto listë të re...",
-    "addNewItem": "Shto artikull të ri...",
+    "addNewList": "Shto list\u00eb t\u00eb re...",
+    "addNewItem": "Shto artikull t\u00eb ri...",
     "language": "Gjuha",
     "animateAddButton": "Animation",
     "nameCannotBeEmpty": "Name cannot be empty",
     "pin": "Pin",
     "unpin": "Unpin",
-    "analytics": "Analytics",
-    "enableAnalytics": "Enable Analytics"
+    "searchItems": "Search items...",
+    "@searchItems": {},
+    "completedItemLabel": "Completed: {title}",
+    "@completedItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    },
+    "incompleteItemLabel": "Incomplete: {title}",
+    "@incompleteItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    }
 }

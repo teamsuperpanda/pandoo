@@ -27,8 +27,8 @@
     "light": "Chiaro",
     "dark": "Scuro",
     "close": "Chiudi",
-    "listExists": "La Lista Esiste Già",
-    "listExistsMessage": "'{name}' esiste già",
+    "listExists": "La Lista Esiste Gi\u00e0",
+    "listExistsMessage": "'{name}' esiste gi\u00e0",
     "@listExistsMessage": {
         "placeholders": {
             "name": {}
@@ -41,6 +41,18 @@
     "nameCannotBeEmpty": "Name cannot be empty",
     "pin": "Pin",
     "unpin": "Unpin",
-    "analytics": "Analytics",
-    "enableAnalytics": "Enable Analytics"
+    "searchItems": "Search items...",
+    "@searchItems": {},
+    "completedItemLabel": "Completed: {title}",
+    "@completedItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    },
+    "incompleteItemLabel": "Incomplete: {title}",
+    "@incompleteItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    }
 }

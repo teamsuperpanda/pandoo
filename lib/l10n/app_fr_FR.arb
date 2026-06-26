@@ -6,41 +6,53 @@
     "rename": "Renommer",
     "delete": "Supprimer",
     "deleteList": "Supprimer la Liste",
-    "deleteConfirmation": "Êtes-vous sûr de vouloir supprimer \"{listTitle}\"?",
+    "deleteConfirmation": "\u00cates-vous s\u00fbr de vouloir supprimer \"{listTitle}\"?",
     "@deleteConfirmation": {
         "placeholders": {
             "listTitle": {}
         }
     },
-    "cleanCompleted": "Nettoyer les Éléments Terminés",
-    "cleanConfirmation": "Supprimer tous les éléments terminés de cette liste?",
+    "cleanCompleted": "Nettoyer les \u00c9l\u00e9ments Termin\u00e9s",
+    "cleanConfirmation": "Supprimer tous les \u00e9l\u00e9ments termin\u00e9s de cette liste?",
     "clean": "Nettoyer",
-    "itemsCount": "{count} éléments",
+    "itemsCount": "{count} \u00e9l\u00e9ments",
     "@itemsCount": {
         "placeholders": {
             "count": {}
         }
     },
-    "settings": "Paramètres",
-    "theme": "Thème",
-    "system": "Système",
+    "settings": "Param\u00e8tres",
+    "theme": "Th\u00e8me",
+    "system": "Syst\u00e8me",
     "light": "Clair",
     "dark": "Sombre",
     "close": "Fermer",
-    "listExists": "La Liste Existe Déjà",
-    "listExistsMessage": "'{name}' existe déjà",
+    "listExists": "La Liste Existe D\u00e9j\u00e0",
+    "listExistsMessage": "'{name}' existe d\u00e9j\u00e0",
     "@listExistsMessage": {
         "placeholders": {
             "name": {}
         }
     },
     "addNewList": "Ajouter une nouvelle liste...",
-    "addNewItem": "Ajouter un nouvel élément...",
+    "addNewItem": "Ajouter un nouvel \u00e9l\u00e9ment...",
     "language": "Langue",
     "animateAddButton": "Animation",
     "nameCannotBeEmpty": "Name cannot be empty",
     "pin": "Pin",
     "unpin": "Unpin",
-    "analytics": "Analytics",
-    "enableAnalytics": "Enable Analytics"
+    "searchItems": "Search items...",
+    "@searchItems": {},
+    "completedItemLabel": "Completed: {title}",
+    "@completedItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    },
+    "incompleteItemLabel": "Incomplete: {title}",
+    "@incompleteItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    }
 }

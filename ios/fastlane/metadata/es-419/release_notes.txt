@@ -1,6 +1,5 @@
-Novedades en la versión 2.4.0:
-• Corrección de errores y mejoras de rendimiento.
-• La analítica ahora es opcional (desactivada por defecto).
-• Traducciones mejoradas para más de 55 idiomas.
-• Solucionado el cierre del teclado al añadir elementos.
-• Mejor gestión de errores y seguridad de datos.
+Novedades en la versión 2.5.0:
+• Fija tus listas más usadas y reordénalas como quieras.
+• Busca elementos en cualquier lista para encontrar lo que necesites rápido.
+• Desliza para eliminar tareas individuales.
+• Etiquetas de accesibilidad mejoradas para elementos completados y pendientes.

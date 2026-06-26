@@ -1,46 +1,58 @@
 {
-    "appTitle": "પાંડૂ",
-    "renameList": "યાદી નું નામ બદલો",
-    "listName": "યાદી નું નામ",
-    "cancel": "રદ કરો",
-    "rename": "નામ બદલો",
-    "delete": "કાઢી નાખો",
-    "deleteList": "યાદી કાઢી નાખો",
-    "deleteConfirmation": "શું તમે ખરેખર \"{listTitle}\" ને કાઢી નાખવા માંગો છો?",
+    "appTitle": "\u0aaa\u0abe\u0a82\u0aa1\u0ac2",
+    "renameList": "\u0aaf\u0abe\u0aa6\u0ac0 \u0aa8\u0ac1\u0a82 \u0aa8\u0abe\u0aae \u0aac\u0aa6\u0ab2\u0acb",
+    "listName": "\u0aaf\u0abe\u0aa6\u0ac0 \u0aa8\u0ac1\u0a82 \u0aa8\u0abe\u0aae",
+    "cancel": "\u0ab0\u0aa6 \u0a95\u0ab0\u0acb",
+    "rename": "\u0aa8\u0abe\u0aae \u0aac\u0aa6\u0ab2\u0acb",
+    "delete": "\u0a95\u0abe\u0aa2\u0ac0 \u0aa8\u0abe\u0a96\u0acb",
+    "deleteList": "\u0aaf\u0abe\u0aa6\u0ac0 \u0a95\u0abe\u0aa2\u0ac0 \u0aa8\u0abe\u0a96\u0acb",
+    "deleteConfirmation": "\u0ab6\u0ac1\u0a82 \u0aa4\u0aae\u0ac7 \u0a96\u0ab0\u0ac7\u0a96\u0ab0 \"{listTitle}\" \u0aa8\u0ac7 \u0a95\u0abe\u0aa2\u0ac0 \u0aa8\u0abe\u0a96\u0ab5\u0abe \u0aae\u0abe\u0a82\u0a97\u0acb \u0a9b\u0acb?",
     "@deleteConfirmation": {
         "placeholders": {
             "listTitle": {}
         }
     },
-    "cleanCompleted": "પૂર્ણ થયેલી વસ્તુઓ સાફ કરો",
-    "cleanConfirmation": "આ યાદીમાંથી બધી પૂર્ણ થયેલી વસ્તુઓ દૂર કરવી છે?",
-    "clean": "સાફ કરો",
-    "itemsCount": "{count} વસ્તુઓ",
+    "cleanCompleted": "\u0aaa\u0ac2\u0ab0\u0acd\u0aa3 \u0aa5\u0aaf\u0ac7\u0ab2\u0ac0 \u0ab5\u0ab8\u0acd\u0aa4\u0ac1\u0a93 \u0ab8\u0abe\u0aab \u0a95\u0ab0\u0acb",
+    "cleanConfirmation": "\u0a86 \u0aaf\u0abe\u0aa6\u0ac0\u0aae\u0abe\u0a82\u0aa5\u0ac0 \u0aac\u0aa7\u0ac0 \u0aaa\u0ac2\u0ab0\u0acd\u0aa3 \u0aa5\u0aaf\u0ac7\u0ab2\u0ac0 \u0ab5\u0ab8\u0acd\u0aa4\u0ac1\u0a93 \u0aa6\u0ac2\u0ab0 \u0a95\u0ab0\u0ab5\u0ac0 \u0a9b\u0ac7?",
+    "clean": "\u0ab8\u0abe\u0aab \u0a95\u0ab0\u0acb",
+    "itemsCount": "{count} \u0ab5\u0ab8\u0acd\u0aa4\u0ac1\u0a93",
     "@itemsCount": {
         "placeholders": {
             "count": {}
         }
     },
-    "settings": "સેટિંગ્સ",
-    "theme": "થીમ",
-    "system": "સિસ્ટમ",
-    "light": "પ્રકાશિત",
-    "dark": "ઘેરું",
-    "close": "બંધ કરો",
-    "listExists": "યાદી પહેલેથી અસ્તિત્વમાં છે",
-    "listExistsMessage": "'{name}' પહેલેથી અસ્તિત્વમાં છે",
+    "settings": "\u0ab8\u0ac7\u0a9f\u0abf\u0a82\u0a97\u0acd\u0ab8",
+    "theme": "\u0aa5\u0ac0\u0aae",
+    "system": "\u0ab8\u0abf\u0ab8\u0acd\u0a9f\u0aae",
+    "light": "\u0aaa\u0acd\u0ab0\u0a95\u0abe\u0ab6\u0abf\u0aa4",
+    "dark": "\u0a98\u0ac7\u0ab0\u0ac1\u0a82",
+    "close": "\u0aac\u0a82\u0aa7 \u0a95\u0ab0\u0acb",
+    "listExists": "\u0aaf\u0abe\u0aa6\u0ac0 \u0aaa\u0ab9\u0ac7\u0ab2\u0ac7\u0aa5\u0ac0 \u0a85\u0ab8\u0acd\u0aa4\u0abf\u0aa4\u0acd\u0ab5\u0aae\u0abe\u0a82 \u0a9b\u0ac7",
+    "listExistsMessage": "'{name}' \u0aaa\u0ab9\u0ac7\u0ab2\u0ac7\u0aa5\u0ac0 \u0a85\u0ab8\u0acd\u0aa4\u0abf\u0aa4\u0acd\u0ab5\u0aae\u0abe\u0a82 \u0a9b\u0ac7",
     "@listExistsMessage": {
         "placeholders": {
             "name": {}
         }
     },
-    "addNewList": "નવી યાદી ઉમેરો...",
-    "addNewItem": "નવી વસ્તુ ઉમેરો...",
-    "language": "ભાષા",
+    "addNewList": "\u0aa8\u0ab5\u0ac0 \u0aaf\u0abe\u0aa6\u0ac0 \u0a89\u0aae\u0ac7\u0ab0\u0acb...",
+    "addNewItem": "\u0aa8\u0ab5\u0ac0 \u0ab5\u0ab8\u0acd\u0aa4\u0ac1 \u0a89\u0aae\u0ac7\u0ab0\u0acb...",
+    "language": "\u0aad\u0abe\u0ab7\u0abe",
     "animateAddButton": "Animation",
     "nameCannotBeEmpty": "Name cannot be empty",
     "pin": "Pin",
     "unpin": "Unpin",
-    "analytics": "Analytics",
-    "enableAnalytics": "Enable Analytics"
+    "searchItems": "Search items...",
+    "@searchItems": {},
+    "completedItemLabel": "Completed: {title}",
+    "@completedItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    },
+    "incompleteItemLabel": "Incomplete: {title}",
+    "@incompleteItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    }
 }

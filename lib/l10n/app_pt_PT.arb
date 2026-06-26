@@ -12,8 +12,8 @@
             "listTitle": {}
         }
     },
-    "cleanCompleted": "Limpar Itens Concluídos",
-    "cleanConfirmation": "Remover todos os itens concluídos desta lista?",
+    "cleanCompleted": "Limpar Itens Conclu\u00eddos",
+    "cleanConfirmation": "Remover todos os itens conclu\u00eddos desta lista?",
     "clean": "Limpar",
     "itemsCount": "{count} itens",
     "@itemsCount": {
@@ -21,14 +21,14 @@
             "count": {}
         }
     },
-    "settings": "Definições",
+    "settings": "Defini\u00e7\u00f5es",
     "theme": "Tema",
     "system": "Sistema",
     "light": "Claro",
     "dark": "Escuro",
     "close": "Fechar",
-    "listExists": "Lista Já Existe",
-    "listExistsMessage": "'{name}' já existe",
+    "listExists": "Lista J\u00e1 Existe",
+    "listExistsMessage": "'{name}' j\u00e1 existe",
     "@listExistsMessage": {
         "placeholders": {
             "name": {}
@@ -41,6 +41,18 @@
     "nameCannotBeEmpty": "Name cannot be empty",
     "pin": "Pin",
     "unpin": "Unpin",
-    "analytics": "Analytics",
-    "enableAnalytics": "Enable Analytics"
+    "searchItems": "Search items...",
+    "@searchItems": {},
+    "completedItemLabel": "Completed: {title}",
+    "@completedItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    },
+    "incompleteItemLabel": "Incomplete: {title}",
+    "@incompleteItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    }
 }

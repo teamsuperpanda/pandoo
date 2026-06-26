@@ -4,18 +4,18 @@
     "listName": "Listenname",
     "cancel": "Abbrechen",
     "rename": "Umbenennen",
-    "delete": "Löschen",
-    "deleteList": "Liste Löschen",
-    "deleteConfirmation": "Sind Sie sicher, dass Sie \"{listTitle}\" löschen möchten?",
+    "delete": "L\u00f6schen",
+    "deleteList": "Liste L\u00f6schen",
+    "deleteConfirmation": "Sind Sie sicher, dass Sie \"{listTitle}\" l\u00f6schen m\u00f6chten?",
     "@deleteConfirmation": {
         "placeholders": {
             "listTitle": {}
         }
     },
-    "cleanCompleted": "Erledigte Einträge Entfernen",
-    "cleanConfirmation": "Alle erledigten Einträge aus dieser Liste entfernen?",
+    "cleanCompleted": "Erledigte Eintr\u00e4ge Entfernen",
+    "cleanConfirmation": "Alle erledigten Eintr\u00e4ge aus dieser Liste entfernen?",
     "clean": "Entfernen",
-    "itemsCount": "{count} Einträge",
+    "itemsCount": "{count} Eintr\u00e4ge",
     "@itemsCount": {
         "placeholders": {
             "count": {}
@@ -26,7 +26,7 @@
     "system": "System",
     "light": "Hell",
     "dark": "Dunkel",
-    "close": "Schließen",
+    "close": "Schlie\u00dfen",
     "listExists": "Liste Existiert Bereits",
     "listExistsMessage": "'{name}' existiert bereits",
     "@listExistsMessage": {
@@ -34,13 +34,25 @@
             "name": {}
         }
     },
-    "addNewList": "Neue Liste hinzufügen...",
-    "addNewItem": "Neuen Eintrag hinzufügen...",
+    "addNewList": "Neue Liste hinzuf\u00fcgen...",
+    "addNewItem": "Neuen Eintrag hinzuf\u00fcgen...",
     "language": "Sprache",
     "animateAddButton": "Animation",
     "nameCannotBeEmpty": "Name cannot be empty",
     "pin": "Pin",
     "unpin": "Unpin",
-    "analytics": "Analytics",
-    "enableAnalytics": "Enable Analytics"
+    "searchItems": "Search items...",
+    "@searchItems": {},
+    "completedItemLabel": "Completed: {title}",
+    "@completedItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    },
+    "incompleteItemLabel": "Incomplete: {title}",
+    "@incompleteItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    }
 }

@@ -1,6 +1,5 @@
-Yang baru di versi 2.4.0:
-• Perbaikan bug dan peningkatan kinerja.
-• Analitik sekarang bersifat opt-in (dinonaktifkan secara default).
-• Terjemahan yang ditingkatkan untuk lebih dari 55 bahasa.
-• Memperbaiki penutupan keyboard saat menambahkan item.
-• Penanganan kesalahan dan keamanan data yang lebih baik.
+Yang baru di versi 2.5.0:
+• Sematkan daftar yang paling sering Anda gunakan dan urutkan ulang sesuai keinginan Anda.
+• Cari item di daftar mana pun untuk menemukan yang Anda butuhkan dengan cepat.
+• Geser untuk menghapus item tugas satu per satu.
+• Label aksesibilitas yang ditingkatkan untuk item yang selesai dan belum selesai.

@@ -11,7 +11,6 @@ import 'package:pandoo/models/theme_mode_adapter.dart';
 import 'package:pandoo/screens/detail.dart';
 import 'package:pandoo/services/settings_service.dart';
 import 'package:pandoo/services/storage_service.dart';
-import 'package:pandoo/services/umami_service.dart';
 
 import 'store_frame.dart';
 import 'widgets/helpers/mock_box.dart';
@@ -38,7 +37,7 @@ Widget _buildMockHomeScreen({
 }) {
   final theme = themeMode == ThemeMode.dark ? AppTheme.dark() : AppTheme.light();
   final lists = mockBox.values.toList();
-  final pinned = lists.where((l) => l.pinned).toList()..sort((a, b) => a.name.compareTo(b.name));
+  final pinned = lists.where((l) => l.pinned).toList()..sort((a, b) => a.order.compareTo(b.order));
   final unpinned = lists.where((l) => !l.pinned).toList()..sort((a, b) => a.order.compareTo(b.order));
   final sorted = [...pinned, ...unpinned];
 
@@ -247,16 +246,11 @@ void main() {
 
     group('Golden $deviceName', () {
       late MockBox mockBox;
-      late UmamiService umamiService;
 
       setUp(() async {
         GoogleFonts.config.allowRuntimeFetching = false;
         mockBox = MockBox();
         StorageService.setTestInstance(mockBox);
-        umamiService = UmamiService(
-          websiteId: 'test',
-          endpoint: 'https://example.com',
-        );
         await _initSettingsService();
       });
 
@@ -311,9 +305,8 @@ void main() {
             theme: AppTheme.light(),
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
-            home: DetailScreen(
+            home: const DetailScreen(
               listTitle: 'Groceries',
-              umamiService: umamiService,
             ),
           ),
         );
@@ -337,9 +330,8 @@ void main() {
             themeMode: ThemeMode.dark,
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
-            home: DetailScreen(
+            home: const DetailScreen(
               listTitle: 'Groceries',
-              umamiService: umamiService,
             ),
           ),
         );
@@ -408,9 +400,8 @@ void main() {
             theme: AppTheme.light(),
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
-            home: DetailScreen(
+            home: const DetailScreen(
               listTitle: 'Groceries',
-              umamiService: umamiService,
             ),
           ),
         );
@@ -430,9 +421,8 @@ void main() {
             themeMode: ThemeMode.dark,
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
-            home: DetailScreen(
+            home: const DetailScreen(
               listTitle: 'Groceries',
-              umamiService: umamiService,
             ),
           ),
         );

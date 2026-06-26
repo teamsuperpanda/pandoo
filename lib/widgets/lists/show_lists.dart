@@ -7,16 +7,10 @@ import 'package:pandoo/l10n/l10n.dart';
 import 'package:pandoo/models/list_model.dart';
 import 'package:pandoo/screens/detail.dart';
 import 'package:pandoo/services/storage_service.dart';
-import 'package:pandoo/services/umami_service.dart';
 import 'package:pandoo/widgets/lists/list_card.dart';
 
 class ShowLists extends StatefulWidget {
-  const ShowLists({
-    required this.umamiService,
-    super.key,
-  });
-
-  final UmamiService umamiService;
+  const ShowLists({super.key});
 
   @override
   State<ShowLists> createState() => ShowListsState();
@@ -47,40 +41,25 @@ class ShowListsState extends State<ShowLists> {
               title: list.name,
               index: index,
               pinned: list.pinned,
-              umamiService: widget.umamiService,
               onTap: () {
-                widget.umamiService.trackEvent(
-                  eventName: AnalyticsEvent.listOpen,
-                  data: {'list': list.name},
-                );
                 unawaited(Navigator.push(
                   context,
                   MaterialPageRoute<DetailScreen>(
                     builder: (context) => DetailScreen(
                       listTitle: list.name,
-                      umamiService: widget.umamiService,
                     ),
                     settings: RouteSettings(name: '/detail/${list.name}'),
                   ),
                 ));
               },
               onDelete: () async {
-                widget.umamiService.trackEvent(
-                  eventName: AnalyticsEvent.listDelete,
-                  data: {'list': list.name},
-                );
                 await _storage.deleteList(list.name);
               },
               onRename: (newName) async {
                 final messenger = ScaffoldMessenger.of(context);
                 final l10n = context.l10n;
                 final success = await _storage.renameList(list.name, newName);
-                if (success) {
-                  widget.umamiService.trackEvent(
-                    eventName: AnalyticsEvent.listRename,
-                    data: {'old_name': list.name, 'new_name': newName},
-                  );
-                } else if (mounted) {
+                if (!success && mounted) {
                   messenger.showSnackBar(
                     SnackBar(
                       elevation: 0,

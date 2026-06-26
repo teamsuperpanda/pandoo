@@ -4,13 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:pandoo/core/config.dart';
 import 'package:pandoo/core/theme/app_theme.dart';
 import 'package:pandoo/l10n/app_localizations.dart';
 import 'package:pandoo/screens/home_screen.dart';
 import 'package:pandoo/services/settings_service.dart';
 import 'package:pandoo/services/storage_service.dart';
-import 'package:pandoo/services/umami_service.dart';
 
 void main() async {
   final widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -26,23 +24,11 @@ void main() async {
     FlutterNativeSplash.remove();
   }
 
-  runApp(
-    MyApp(
-      umamiService: UmamiService(
-        websiteId: AppConfig.analyticsWebsiteId,
-        endpoint: AppConfig.analyticsEndpoint,
-      ),
-    ),
-  );
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({
-    required this.umamiService,
-    super.key,
-  });
-
-  final UmamiService umamiService;
+  const MyApp({super.key});
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -59,13 +45,11 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    widget.umamiService.trackEvent(eventName: 'app_launch');
     unawaited(_initializeApp());
   }
 
   @override
   void dispose() {
-    widget.umamiService.dispose();
     super.dispose();
   }
 
@@ -73,7 +57,6 @@ class _MyAppState extends State<MyApp> {
     try {
       _themeMode = _settings.getThemeMode();
       _locale = _settings.getLocale();
-      widget.umamiService.enabled = _settings.getAnalyticsEnabled();
 
       setState(() {
         _isInitialized = true;
@@ -95,11 +78,6 @@ class _MyAppState extends State<MyApp> {
     setState(() {
       _locale = locale;
     });
-  }
-
-  Future<void> _handleAnalyticsChanged(bool enabled) async {
-    await _settings.setAnalyticsEnabled(enabled);
-    widget.umamiService.enabled = enabled;
   }
 
   @override
@@ -127,14 +105,11 @@ class _MyAppState extends State<MyApp> {
       locale: _locale,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      navigatorObservers: [UmamiNavigatorObserver(widget.umamiService)],
       home: HomeScreen(
         onThemeChanged: _handleThemeChange,
         currentThemeMode: _themeMode,
         onLanguageChanged: _handleLanguageChange,
         currentLocale: _locale,
-        umamiService: widget.umamiService,
-        onAnalyticsChanged: _handleAnalyticsChanged,
       ),
     );
   }

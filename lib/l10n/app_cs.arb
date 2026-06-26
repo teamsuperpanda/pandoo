@@ -1,9 +1,9 @@
 {
     "appTitle": "Pandoo",
-    "renameList": "Přejmenovat Seznam",
-    "listName": "Název Seznamu",
-    "cancel": "Zrušit",
-    "rename": "Přejmenovat",
+    "renameList": "P\u0159ejmenovat Seznam",
+    "listName": "N\u00e1zev Seznamu",
+    "cancel": "Zru\u0161it",
+    "rename": "P\u0159ejmenovat",
     "delete": "Smazat",
     "deleteList": "Smazat Seznam",
     "deleteConfirmation": "Opravdu chcete smazat \"{listTitle}\"?",
@@ -12,35 +12,47 @@
             "listTitle": {}
         }
     },
-    "cleanCompleted": "Vyčistit Dokončené Položky",
-    "cleanConfirmation": "Odstranit všechny dokončené položky z tohoto seznamu?",
-    "clean": "Vyčistit",
-    "itemsCount": "{count} položek",
+    "cleanCompleted": "Vy\u010distit Dokon\u010den\u00e9 Polo\u017eky",
+    "cleanConfirmation": "Odstranit v\u0161echny dokon\u010den\u00e9 polo\u017eky z tohoto seznamu?",
+    "clean": "Vy\u010distit",
+    "itemsCount": "{count} polo\u017eek",
     "@itemsCount": {
         "placeholders": {
             "count": {}
         }
     },
-    "settings": "Nastavení",
+    "settings": "Nastaven\u00ed",
     "theme": "Motiv",
-    "system": "Systém",
-    "light": "Světlý",
-    "dark": "Tmavý",
-    "close": "Zavřít",
-    "listExists": "Seznam Již Existuje",
-    "listExistsMessage": "'{name}' již existuje",
+    "system": "Syst\u00e9m",
+    "light": "Sv\u011btl\u00fd",
+    "dark": "Tmav\u00fd",
+    "close": "Zav\u0159\u00edt",
+    "listExists": "Seznam Ji\u017e Existuje",
+    "listExistsMessage": "'{name}' ji\u017e existuje",
     "@listExistsMessage": {
         "placeholders": {
             "name": {}
         }
     },
-    "addNewList": "Přidat nový seznam...",
-    "addNewItem": "Přidat novou položku...",
+    "addNewList": "P\u0159idat nov\u00fd seznam...",
+    "addNewItem": "P\u0159idat novou polo\u017eku...",
     "language": "Jazyk",
     "animateAddButton": "Animation",
     "nameCannotBeEmpty": "Name cannot be empty",
     "pin": "Pin",
     "unpin": "Unpin",
-    "analytics": "Analytics",
-    "enableAnalytics": "Enable Analytics"
+    "searchItems": "Search items...",
+    "@searchItems": {},
+    "completedItemLabel": "Completed: {title}",
+    "@completedItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    },
+    "incompleteItemLabel": "Incomplete: {title}",
+    "@incompleteItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    }
 }

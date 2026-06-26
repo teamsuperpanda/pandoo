@@ -6,14 +6,14 @@
     "rename": "Renombrar",
     "delete": "Eliminar",
     "deleteList": "Eliminar Lista",
-    "deleteConfirmation": "¿Estás seguro de que deseas eliminar \"{listTitle}\"?",
+    "deleteConfirmation": "\u00bfEst\u00e1s seguro de que deseas eliminar \"{listTitle}\"?",
     "@deleteConfirmation": {
         "placeholders": {
             "listTitle": {}
         }
     },
     "cleanCompleted": "Limpiar Elementos Completados",
-    "cleanConfirmation": "¿Eliminar todos los elementos completados de esta lista?",
+    "cleanConfirmation": "\u00bfEliminar todos los elementos completados de esta lista?",
     "clean": "Limpiar",
     "itemsCount": "{count} elementos",
     "@itemsCount": {
@@ -21,7 +21,7 @@
             "count": {}
         }
     },
-    "settings": "Configuración",
+    "settings": "Configuraci\u00f3n",
     "theme": "Tema",
     "system": "Sistema",
     "light": "Claro",
@@ -41,6 +41,18 @@
     "nameCannotBeEmpty": "Name cannot be empty",
     "pin": "Pin",
     "unpin": "Unpin",
-    "analytics": "Analytics",
-    "enableAnalytics": "Enable Analytics"
+    "searchItems": "Search items...",
+    "@searchItems": {},
+    "completedItemLabel": "Completed: {title}",
+    "@completedItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    },
+    "incompleteItemLabel": "Incomplete: {title}",
+    "@incompleteItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    }
 }

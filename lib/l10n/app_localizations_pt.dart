@@ -94,13 +94,20 @@ class AppLocalizationsPt extends AppLocalizations {
   String get unpin => 'Unpin';
 
   @override
-  String get analytics => 'Analytics';
-
-  @override
-  String get enableAnalytics => 'Enable Analytics';
-
-  @override
   String get animateAddButton => 'Animation';
+
+  @override
+  String get searchItems => 'Search items...';
+
+  @override
+  String completedItemLabel(Object title) {
+    return 'Completed: $title';
+  }
+
+  @override
+  String incompleteItemLabel(Object title) {
+    return 'Incomplete: $title';
+  }
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -193,13 +200,20 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get unpin => 'Unpin';
 
   @override
-  String get analytics => 'Analytics';
-
-  @override
-  String get enableAnalytics => 'Enable Analytics';
-
-  @override
   String get animateAddButton => 'Animation';
+
+  @override
+  String get searchItems => 'Search items...';
+
+  @override
+  String completedItemLabel(Object title) {
+    return 'Completed: $title';
+  }
+
+  @override
+  String incompleteItemLabel(Object title) {
+    return 'Incomplete: $title';
+  }
 }
 
 /// The translations for Portuguese, as used in Portugal (`pt_PT`).
@@ -292,11 +306,18 @@ class AppLocalizationsPtPt extends AppLocalizationsPt {
   String get unpin => 'Unpin';
 
   @override
-  String get analytics => 'Analytics';
-
-  @override
-  String get enableAnalytics => 'Enable Analytics';
-
-  @override
   String get animateAddButton => 'Animation';
+
+  @override
+  String get searchItems => 'Search items...';
+
+  @override
+  String completedItemLabel(Object title) {
+    return 'Completed: $title';
+  }
+
+  @override
+  String incompleteItemLabel(Object title) {
+    return 'Incomplete: $title';
+  }
 }

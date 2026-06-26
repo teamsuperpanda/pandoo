@@ -1,9 +1,9 @@
 {
     "appTitle": "Pandoo",
-    "renameList": "Nimeta Loend Ümber",
+    "renameList": "Nimeta Loend \u00dcmber",
     "listName": "Loendi Nimi",
-    "cancel": "Tühista",
-    "rename": "Nimeta Ümber",
+    "cancel": "T\u00fchista",
+    "rename": "Nimeta \u00dcmber",
     "delete": "Kustuta",
     "deleteList": "Kustuta Loend",
     "deleteConfirmation": "Kas oled kindel, et soovid kustutada \"{listTitle}\"?",
@@ -12,10 +12,10 @@
             "listTitle": {}
         }
     },
-    "cleanCompleted": "Puhasta Lõpetatud Üksused",
-    "cleanConfirmation": "Kas eemaldada kõik lõpetatud üksused sellest loendist?",
+    "cleanCompleted": "Puhasta L\u00f5petatud \u00dcksused",
+    "cleanConfirmation": "Kas eemaldada k\u00f5ik l\u00f5petatud \u00fcksused sellest loendist?",
     "clean": "Puhasta",
-    "itemsCount": "{count} üksust",
+    "itemsCount": "{count} \u00fcksust",
     "@itemsCount": {
         "placeholders": {
             "count": {}
@@ -23,7 +23,7 @@
     },
     "settings": "Seaded",
     "theme": "Teema",
-    "system": "Süsteem",
+    "system": "S\u00fcsteem",
     "light": "Hele",
     "dark": "Tume",
     "close": "Sulge",
@@ -35,12 +35,24 @@
         }
     },
     "addNewList": "Lisa uus loend...",
-    "addNewItem": "Lisa uus üksus...",
+    "addNewItem": "Lisa uus \u00fcksus...",
     "language": "Keel",
     "animateAddButton": "Animation",
     "nameCannotBeEmpty": "Name cannot be empty",
     "pin": "Pin",
     "unpin": "Unpin",
-    "analytics": "Analytics",
-    "enableAnalytics": "Enable Analytics"
+    "searchItems": "Search items...",
+    "@searchItems": {},
+    "completedItemLabel": "Completed: {title}",
+    "@completedItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    },
+    "incompleteItemLabel": "Incomplete: {title}",
+    "@incompleteItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    }
 }

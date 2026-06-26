@@ -1,46 +1,58 @@
 {
-    "appTitle": "Պանդու",
-    "renameList": "Վերանվանել Ցուցակը",
-    "listName": "Ցուցակի Անունը",
-    "cancel": "Չեղարկել",
-    "rename": "Վերանվանել",
-    "delete": "Ջնջել",
-    "deleteList": "Ջնջել Ցուցակը",
-    "deleteConfirmation": "Վստա՞հ եք, որ ցանկանում եք ջնջել \"{listTitle}\"-ը:",
+    "appTitle": "\u054a\u0561\u0576\u0564\u0578\u0582",
+    "renameList": "\u054e\u0565\u0580\u0561\u0576\u057e\u0561\u0576\u0565\u056c \u0551\u0578\u0582\u0581\u0561\u056f\u0568",
+    "listName": "\u0551\u0578\u0582\u0581\u0561\u056f\u056b \u0531\u0576\u0578\u0582\u0576\u0568",
+    "cancel": "\u0549\u0565\u0572\u0561\u0580\u056f\u0565\u056c",
+    "rename": "\u054e\u0565\u0580\u0561\u0576\u057e\u0561\u0576\u0565\u056c",
+    "delete": "\u054b\u0576\u057b\u0565\u056c",
+    "deleteList": "\u054b\u0576\u057b\u0565\u056c \u0551\u0578\u0582\u0581\u0561\u056f\u0568",
+    "deleteConfirmation": "\u054e\u057d\u057f\u0561\u055e\u0570 \u0565\u0584, \u0578\u0580 \u0581\u0561\u0576\u056f\u0561\u0576\u0578\u0582\u0574 \u0565\u0584 \u057b\u0576\u057b\u0565\u056c \"{listTitle}\"-\u0568:",
     "@deleteConfirmation": {
         "placeholders": {
             "listTitle": {}
         }
     },
-    "cleanCompleted": "Մաքրել Ավարտված Տարրերը",
-    "cleanConfirmation": "Հեռացնե՞լ բոլոր ավարտված տարրերը այս ցուցակից:",
-    "clean": "Մաքրել",
-    "itemsCount": "{count} տարր",
+    "cleanCompleted": "\u0544\u0561\u0584\u0580\u0565\u056c \u0531\u057e\u0561\u0580\u057f\u057e\u0561\u056e \u054f\u0561\u0580\u0580\u0565\u0580\u0568",
+    "cleanConfirmation": "\u0540\u0565\u057c\u0561\u0581\u0576\u0565\u055e\u056c \u0562\u0578\u056c\u0578\u0580 \u0561\u057e\u0561\u0580\u057f\u057e\u0561\u056e \u057f\u0561\u0580\u0580\u0565\u0580\u0568 \u0561\u0575\u057d \u0581\u0578\u0582\u0581\u0561\u056f\u056b\u0581:",
+    "clean": "\u0544\u0561\u0584\u0580\u0565\u056c",
+    "itemsCount": "{count} \u057f\u0561\u0580\u0580",
     "@itemsCount": {
         "placeholders": {
             "count": {}
         }
     },
-    "settings": "Կարգավորումներ",
-    "theme": "Թեմա",
-    "system": "Համակարգ",
-    "light": "Լուսավոր",
-    "dark": "Մուգ",
-    "close": "Փակել",
-    "listExists": "Ցուցակն Արդեն Գոյություն Ունի",
-    "listExistsMessage": "'{name}'-ն արդեն գոյություն ունի",
+    "settings": "\u053f\u0561\u0580\u0563\u0561\u057e\u0578\u0580\u0578\u0582\u0574\u0576\u0565\u0580",
+    "theme": "\u0539\u0565\u0574\u0561",
+    "system": "\u0540\u0561\u0574\u0561\u056f\u0561\u0580\u0563",
+    "light": "\u053c\u0578\u0582\u057d\u0561\u057e\u0578\u0580",
+    "dark": "\u0544\u0578\u0582\u0563",
+    "close": "\u0553\u0561\u056f\u0565\u056c",
+    "listExists": "\u0551\u0578\u0582\u0581\u0561\u056f\u0576 \u0531\u0580\u0564\u0565\u0576 \u0533\u0578\u0575\u0578\u0582\u0569\u0575\u0578\u0582\u0576 \u0548\u0582\u0576\u056b",
+    "listExistsMessage": "'{name}'-\u0576 \u0561\u0580\u0564\u0565\u0576 \u0563\u0578\u0575\u0578\u0582\u0569\u0575\u0578\u0582\u0576 \u0578\u0582\u0576\u056b",
     "@listExistsMessage": {
         "placeholders": {
             "name": {}
         }
     },
-    "addNewList": "Ավելացնել նոր ցուցակ...",
-    "addNewItem": "Ավելացնել նոր տարր...",
-    "language": "Լեզու",
+    "addNewList": "\u0531\u057e\u0565\u056c\u0561\u0581\u0576\u0565\u056c \u0576\u0578\u0580 \u0581\u0578\u0582\u0581\u0561\u056f...",
+    "addNewItem": "\u0531\u057e\u0565\u056c\u0561\u0581\u0576\u0565\u056c \u0576\u0578\u0580 \u057f\u0561\u0580\u0580...",
+    "language": "\u053c\u0565\u0566\u0578\u0582",
     "animateAddButton": "Animation",
     "nameCannotBeEmpty": "Name cannot be empty",
     "pin": "Pin",
     "unpin": "Unpin",
-    "analytics": "Analytics",
-    "enableAnalytics": "Enable Analytics"
+    "searchItems": "Search items...",
+    "@searchItems": {},
+    "completedItemLabel": "Completed: {title}",
+    "@completedItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    },
+    "incompleteItemLabel": "Incomplete: {title}",
+    "@incompleteItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    }
 }

@@ -6,14 +6,14 @@
     "rename": "Gi Nytt Navn",
     "delete": "Slett",
     "deleteList": "Slett Liste",
-    "deleteConfirmation": "Er du sikker på at du vil slette \"{listTitle}\"?",
+    "deleteConfirmation": "Er du sikker p\u00e5 at du vil slette \"{listTitle}\"?",
     "@deleteConfirmation": {
         "placeholders": {
             "listTitle": {}
         }
     },
-    "cleanCompleted": "Fjern Fullførte Elementer",
-    "cleanConfirmation": "Fjerne alle fullførte elementer fra denne listen?",
+    "cleanCompleted": "Fjern Fullf\u00f8rte Elementer",
+    "cleanConfirmation": "Fjerne alle fullf\u00f8rte elementer fra denne listen?",
     "clean": "Fjern",
     "itemsCount": "{count} elementer",
     "@itemsCount": {
@@ -25,7 +25,7 @@
     "theme": "Tema",
     "system": "System",
     "light": "Lys",
-    "dark": "Mørk",
+    "dark": "M\u00f8rk",
     "close": "Lukk",
     "listExists": "Listen Finnes Allerede",
     "listExistsMessage": "'{name}' finnes allerede",
@@ -36,11 +36,23 @@
     },
     "addNewList": "Legg til ny liste...",
     "addNewItem": "Legg til nytt element...",
-    "language": "Språk",
+    "language": "Spr\u00e5k",
     "animateAddButton": "Animation",
     "nameCannotBeEmpty": "Name cannot be empty",
     "pin": "Pin",
     "unpin": "Unpin",
-    "analytics": "Analytics",
-    "enableAnalytics": "Enable Analytics"
+    "searchItems": "Search items...",
+    "@searchItems": {},
+    "completedItemLabel": "Completed: {title}",
+    "@completedItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    },
+    "incompleteItemLabel": "Incomplete: {title}",
+    "@incompleteItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    }
 }

@@ -1,46 +1,58 @@
 {
-    "appTitle": "Пандо",
-    "renameList": "Преименувай Списък",
-    "listName": "Име на Списък",
-    "cancel": "Отказ",
-    "rename": "Преименувай",
-    "delete": "Изтрий",
-    "deleteList": "Изтрий Списък",
-    "deleteConfirmation": "Сигурни ли сте, че искате да изтриете \"{listTitle}\"?",
+    "appTitle": "\u041f\u0430\u043d\u0434\u043e",
+    "renameList": "\u041f\u0440\u0435\u0438\u043c\u0435\u043d\u0443\u0432\u0430\u0439 \u0421\u043f\u0438\u0441\u044a\u043a",
+    "listName": "\u0418\u043c\u0435 \u043d\u0430 \u0421\u043f\u0438\u0441\u044a\u043a",
+    "cancel": "\u041e\u0442\u043a\u0430\u0437",
+    "rename": "\u041f\u0440\u0435\u0438\u043c\u0435\u043d\u0443\u0432\u0430\u0439",
+    "delete": "\u0418\u0437\u0442\u0440\u0438\u0439",
+    "deleteList": "\u0418\u0437\u0442\u0440\u0438\u0439 \u0421\u043f\u0438\u0441\u044a\u043a",
+    "deleteConfirmation": "\u0421\u0438\u0433\u0443\u0440\u043d\u0438 \u043b\u0438 \u0441\u0442\u0435, \u0447\u0435 \u0438\u0441\u043a\u0430\u0442\u0435 \u0434\u0430 \u0438\u0437\u0442\u0440\u0438\u0435\u0442\u0435 \"{listTitle}\"?",
     "@deleteConfirmation": {
         "placeholders": {
             "listTitle": {}
         }
     },
-    "cleanCompleted": "Изчисти Завършените Елементи",
-    "cleanConfirmation": "Премахване на всички завършени елементи от този списък?",
-    "clean": "Изчисти",
-    "itemsCount": "{count} елемента",
+    "cleanCompleted": "\u0418\u0437\u0447\u0438\u0441\u0442\u0438 \u0417\u0430\u0432\u044a\u0440\u0448\u0435\u043d\u0438\u0442\u0435 \u0415\u043b\u0435\u043c\u0435\u043d\u0442\u0438",
+    "cleanConfirmation": "\u041f\u0440\u0435\u043c\u0430\u0445\u0432\u0430\u043d\u0435 \u043d\u0430 \u0432\u0441\u0438\u0447\u043a\u0438 \u0437\u0430\u0432\u044a\u0440\u0448\u0435\u043d\u0438 \u0435\u043b\u0435\u043c\u0435\u043d\u0442\u0438 \u043e\u0442 \u0442\u043e\u0437\u0438 \u0441\u043f\u0438\u0441\u044a\u043a?",
+    "clean": "\u0418\u0437\u0447\u0438\u0441\u0442\u0438",
+    "itemsCount": "{count} \u0435\u043b\u0435\u043c\u0435\u043d\u0442\u0430",
     "@itemsCount": {
         "placeholders": {
             "count": {}
         }
     },
-    "settings": "Настройки",
-    "theme": "Тема",
-    "system": "Система",
-    "light": "Светла",
-    "dark": "Тъмна",
-    "close": "Затвори",
-    "listExists": "Списъкът Вече Съществува",
-    "listExistsMessage": "'{name}' вече съществува",
+    "settings": "\u041d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0438",
+    "theme": "\u0422\u0435\u043c\u0430",
+    "system": "\u0421\u0438\u0441\u0442\u0435\u043c\u0430",
+    "light": "\u0421\u0432\u0435\u0442\u043b\u0430",
+    "dark": "\u0422\u044a\u043c\u043d\u0430",
+    "close": "\u0417\u0430\u0442\u0432\u043e\u0440\u0438",
+    "listExists": "\u0421\u043f\u0438\u0441\u044a\u043a\u044a\u0442 \u0412\u0435\u0447\u0435 \u0421\u044a\u0449\u0435\u0441\u0442\u0432\u0443\u0432\u0430",
+    "listExistsMessage": "'{name}' \u0432\u0435\u0447\u0435 \u0441\u044a\u0449\u0435\u0441\u0442\u0432\u0443\u0432\u0430",
     "@listExistsMessage": {
         "placeholders": {
             "name": {}
         }
     },
-    "addNewList": "Добави нов списък...",
-    "addNewItem": "Добави нов елемент...",
-    "language": "Език",
+    "addNewList": "\u0414\u043e\u0431\u0430\u0432\u0438 \u043d\u043e\u0432 \u0441\u043f\u0438\u0441\u044a\u043a...",
+    "addNewItem": "\u0414\u043e\u0431\u0430\u0432\u0438 \u043d\u043e\u0432 \u0435\u043b\u0435\u043c\u0435\u043d\u0442...",
+    "language": "\u0415\u0437\u0438\u043a",
     "animateAddButton": "Animation",
     "nameCannotBeEmpty": "Name cannot be empty",
     "pin": "Pin",
     "unpin": "Unpin",
-    "analytics": "Analytics",
-    "enableAnalytics": "Enable Analytics"
+    "searchItems": "Search items...",
+    "@searchItems": {},
+    "completedItemLabel": "Completed: {title}",
+    "@completedItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    },
+    "incompleteItemLabel": "Incomplete: {title}",
+    "@incompleteItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    }
 }

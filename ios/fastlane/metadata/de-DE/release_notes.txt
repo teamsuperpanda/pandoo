@@ -1,6 +1,5 @@
-Neu in Version 2.4.0:
-• Fehlerbehebungen und Leistungsverbesserungen.
-• Analytik ist jetzt optional (standardmäßig deaktiviert).
-• Verbesserte Übersetzungen für über 55 Sprachen.
-• Tastaturschließen beim Hinzufügen von Elementen behoben.
-• Bessere Fehlerbehandlung und Datensicherheit.
+Neu in Version 2.5.0:
+• Halte deine wichtigsten Listen fest und ordne sie nach Belieben neu.
+• Durchsuche Elemente in jeder Liste, um schnell zu finden, was du brauchst.
+• Wische, um einzelne Aufgaben zu löschen.
+• Verbesserte Barrierefreiheitskennzeichnungen für erledigte und unerledigte Elemente.

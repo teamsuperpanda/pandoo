@@ -94,11 +94,18 @@ class AppLocalizationsEt extends AppLocalizations {
   String get unpin => 'Unpin';
 
   @override
-  String get analytics => 'Analytics';
-
-  @override
-  String get enableAnalytics => 'Enable Analytics';
-
-  @override
   String get animateAddButton => 'Animation';
+
+  @override
+  String get searchItems => 'Search items...';
+
+  @override
+  String completedItemLabel(Object title) {
+    return 'Completed: $title';
+  }
+
+  @override
+  String incompleteItemLabel(Object title) {
+    return 'Incomplete: $title';
+  }
 }

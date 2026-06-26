@@ -94,13 +94,20 @@ class AppLocalizationsFr extends AppLocalizations {
   String get unpin => 'Unpin';
 
   @override
-  String get analytics => 'Analytics';
-
-  @override
-  String get enableAnalytics => 'Enable Analytics';
-
-  @override
   String get animateAddButton => 'Animation';
+
+  @override
+  String get searchItems => 'Search items...';
+
+  @override
+  String completedItemLabel(Object title) {
+    return 'Completed: $title';
+  }
+
+  @override
+  String incompleteItemLabel(Object title) {
+    return 'Incomplete: $title';
+  }
 }
 
 /// The translations for French, as used in Canada (`fr_CA`).
@@ -193,13 +200,20 @@ class AppLocalizationsFrCa extends AppLocalizationsFr {
   String get unpin => 'Unpin';
 
   @override
-  String get analytics => 'Analytics';
-
-  @override
-  String get enableAnalytics => 'Enable Analytics';
-
-  @override
   String get animateAddButton => 'Animation';
+
+  @override
+  String get searchItems => 'Search items...';
+
+  @override
+  String completedItemLabel(Object title) {
+    return 'Completed: $title';
+  }
+
+  @override
+  String incompleteItemLabel(Object title) {
+    return 'Incomplete: $title';
+  }
 }
 
 /// The translations for French, as used in France (`fr_FR`).
@@ -292,11 +306,18 @@ class AppLocalizationsFrFr extends AppLocalizationsFr {
   String get unpin => 'Unpin';
 
   @override
-  String get analytics => 'Analytics';
-
-  @override
-  String get enableAnalytics => 'Enable Analytics';
-
-  @override
   String get animateAddButton => 'Animation';
+
+  @override
+  String get searchItems => 'Search items...';
+
+  @override
+  String completedItemLabel(Object title) {
+    return 'Completed: $title';
+  }
+
+  @override
+  String incompleteItemLabel(Object title) {
+    return 'Incomplete: $title';
+  }
 }

@@ -1,6 +1,5 @@
-Wat is er nieuw in versie 2.4.0:
-• Bugfixes en prestatieverbeteringen.
-• Analytics is nu opt-in (standaard uitgeschakeld).
-• Verbeterde vertalingen voor meer dan 55 talen.
-• Probleem met toetsenbordsluiting bij toevoegen opgelost.
-• Betere foutafhandeling en gegevensbeveiliging.
+Wat is er nieuw in versie 2.5.0:
+• Vast je meest gebruikte lijsten en herschik ze zoals jij wilt.
+• Zoek items in elke lijst om snel te vinden wat je nodig hebt.
+• Veeg om individuele taken te verwijderen.
+• Verbeterde toegankelijkheidslabels voor voltooide en onvoltooide items.

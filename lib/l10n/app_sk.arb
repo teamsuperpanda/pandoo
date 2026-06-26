@@ -1,46 +1,58 @@
 {
     "appTitle": "Pandoo",
-    "renameList": "Premenovať Zoznam",
-    "listName": "Názov Zoznamu",
-    "cancel": "Zrušiť",
-    "rename": "Premenovať",
-    "delete": "Vymazať",
-    "deleteList": "Vymazať Zoznam",
-    "deleteConfirmation": "Naozaj chcete vymazať \"{listTitle}\"?",
+    "renameList": "Premenova\u0165 Zoznam",
+    "listName": "N\u00e1zov Zoznamu",
+    "cancel": "Zru\u0161i\u0165",
+    "rename": "Premenova\u0165",
+    "delete": "Vymaza\u0165",
+    "deleteList": "Vymaza\u0165 Zoznam",
+    "deleteConfirmation": "Naozaj chcete vymaza\u0165 \"{listTitle}\"?",
     "@deleteConfirmation": {
         "placeholders": {
             "listTitle": {}
         }
     },
-    "cleanCompleted": "Vyčistiť Dokončené Položky",
-    "cleanConfirmation": "Odstrániť všetky dokončené položky z tohto zoznamu?",
-    "clean": "Vyčistiť",
-    "itemsCount": "{count} položiek",
+    "cleanCompleted": "Vy\u010disti\u0165 Dokon\u010den\u00e9 Polo\u017eky",
+    "cleanConfirmation": "Odstr\u00e1ni\u0165 v\u0161etky dokon\u010den\u00e9 polo\u017eky z tohto zoznamu?",
+    "clean": "Vy\u010disti\u0165",
+    "itemsCount": "{count} polo\u017eiek",
     "@itemsCount": {
         "placeholders": {
             "count": {}
         }
     },
     "settings": "Nastavenia",
-    "theme": "Téma",
-    "system": "Systém",
-    "light": "Svetlá",
-    "dark": "Tmavá",
-    "close": "Zavrieť",
-    "listExists": "Zoznam Už Existuje",
-    "listExistsMessage": "'{name}' už existuje",
+    "theme": "T\u00e9ma",
+    "system": "Syst\u00e9m",
+    "light": "Svetl\u00e1",
+    "dark": "Tmav\u00e1",
+    "close": "Zavrie\u0165",
+    "listExists": "Zoznam U\u017e Existuje",
+    "listExistsMessage": "'{name}' u\u017e existuje",
     "@listExistsMessage": {
         "placeholders": {
             "name": {}
         }
     },
-    "addNewList": "Pridať nový zoznam...",
-    "addNewItem": "Pridať novú položku...",
+    "addNewList": "Prida\u0165 nov\u00fd zoznam...",
+    "addNewItem": "Prida\u0165 nov\u00fa polo\u017eku...",
     "language": "Jazyk",
     "animateAddButton": "Animation",
     "nameCannotBeEmpty": "Name cannot be empty",
     "pin": "Pin",
     "unpin": "Unpin",
-    "analytics": "Analytics",
-    "enableAnalytics": "Enable Analytics"
+    "searchItems": "Search items...",
+    "@searchItems": {},
+    "completedItemLabel": "Completed: {title}",
+    "@completedItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    },
+    "incompleteItemLabel": "Incomplete: {title}",
+    "@incompleteItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    }
 }

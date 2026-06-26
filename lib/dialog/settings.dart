@@ -7,8 +7,6 @@ class SettingsDialog extends StatefulWidget {
     required this.currentThemeMode,
     required this.onLanguageChanged,
     required this.currentLocale,
-    this.analyticsEnabled,
-    this.onAnalyticsChanged,
     this.fabAnimation,
     this.onFabAnimationChanged,
     super.key,
@@ -18,8 +16,6 @@ class SettingsDialog extends StatefulWidget {
   final ThemeMode currentThemeMode;
   final void Function(Locale?) onLanguageChanged;
   final Locale? currentLocale;
-  final bool? analyticsEnabled;
-  final void Function(bool)? onAnalyticsChanged;
   final bool? fabAnimation;
   final void Function(bool)? onFabAnimationChanged;
 
@@ -28,13 +24,11 @@ class SettingsDialog extends StatefulWidget {
 }
 
 class _SettingsDialogState extends State<SettingsDialog> {
-  late bool _analyticsEnabled;
   late bool _fabAnimation;
 
   @override
   void initState() {
     super.initState();
-    _analyticsEnabled = widget.analyticsEnabled ?? true;
     _fabAnimation = widget.fabAnimation ?? true;
   }
 
@@ -226,31 +220,6 @@ class _SettingsDialogState extends State<SettingsDialog> {
                 onChanged: (value) {
                   setState(() => _fabAnimation = value);
                   widget.onFabAnimationChanged?.call(value);
-                },
-              ),
-            ),
-            const SizedBox(height: 24),
-
-            // Analytics Section
-            Semantics(
-              header: true,
-              child: Text(
-                context.l10n.analytics,
-                style: theme.textTheme.titleMedium?.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            Semantics(
-              button: true,
-              label: context.l10n.enableAnalytics,
-              child: SwitchListTile(
-                contentPadding: EdgeInsets.zero,
-                title: Text(context.l10n.enableAnalytics),
-                value: _analyticsEnabled,
-                onChanged: (value) {
-                  setState(() => _analyticsEnabled = value);
-                  widget.onAnalyticsChanged?.call(value);
                 },
               ),
             ),

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -6,18 +8,15 @@ import 'package:pandoo/dialog/list_name_dialog.dart';
 import 'package:pandoo/l10n/l10n.dart';
 import 'package:pandoo/models/list_model.dart';
 import 'package:pandoo/services/storage_service.dart';
-import 'package:pandoo/services/umami_service.dart';
 import 'package:pandoo/widgets/detail/add_item.dart';
 
 class DetailScreen extends StatefulWidget {
   const DetailScreen({
     required this.listTitle,
-    required this.umamiService,
     super.key,
   });
 
   final String listTitle;
-  final UmamiService umamiService;
 
   @override
   State<DetailScreen> createState() => _DetailScreenState();
@@ -26,15 +25,24 @@ class DetailScreen extends StatefulWidget {
 class _DetailScreenState extends State<DetailScreen> {
   late String _currentListTitle;
   final StorageService _storage = StorageService();
+  final TextEditingController _searchController = TextEditingController();
+  String _searchQuery = '';
 
   @override
   void initState() {
     super.initState();
     _currentListTitle = widget.listTitle;
-    widget.umamiService.trackPageView(
-      url: '/detail/${widget.listTitle}',
-      title: widget.listTitle,
-    );
+    _searchController.addListener(() {
+      setState(() {
+        _searchQuery = _searchController.text;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
   }
 
   @override
@@ -103,6 +111,23 @@ class _DetailScreenState extends State<DetailScreen> {
       body: SafeArea(
         child: Column(
           children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+              child: TextField(
+                key: const Key('searchField'),
+                controller: _searchController,
+                decoration: InputDecoration(
+                  hintText: context.l10n.searchItems,
+                  prefixIcon: const Icon(Icons.search),
+                  suffixIcon: _searchQuery.isNotEmpty
+                      ? IconButton(
+                          icon: const Icon(Icons.clear),
+                          onPressed: _searchController.clear,
+                        )
+                      : null,
+                ),
+              ),
+            ),
             Expanded(
               child: Container(
                 decoration: BoxDecoration(
@@ -115,19 +140,15 @@ class _DetailScreenState extends State<DetailScreen> {
                 child: _TodoListView(
                   listTitle: _currentListTitle,
                   storage: _storage,
-                  umamiService: widget.umamiService,
+                  searchQuery: _searchQuery,
                 ),
               ),
             ),
             ColoredBox(
               color: Theme.of(context).scaffoldBackgroundColor,
-              child: AddItem(
+                child: AddItem(
                 onItemAdded: (String text) async {
                   await _storage.addItemToList(_currentListTitle, text);
-                  widget.umamiService.trackEvent(
-                    eventName: AnalyticsEvent.itemAdd,
-                    data: {'list': _currentListTitle},
-                  );
                 },
               ),
             ),
@@ -141,10 +162,6 @@ class _DetailScreenState extends State<DetailScreen> {
     BuildContext context,
     StorageService storage,
   ) async {
-    widget.umamiService.trackEvent(
-      eventName: AnalyticsEvent.cleanupDialog,
-      data: {'list': _currentListTitle},
-    );
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => Semantics(
@@ -154,10 +171,6 @@ class _DetailScreenState extends State<DetailScreen> {
 
     if (confirmed ?? false) {
       await storage.removeCompletedItems(_currentListTitle);
-      widget.umamiService.trackEvent(
-        eventName: AnalyticsEvent.cleanupComplete,
-        data: {'list': _currentListTitle},
-      );
     }
   }
 
@@ -191,10 +204,6 @@ class _DetailScreenState extends State<DetailScreen> {
           );
         }
       } else {
-        widget.umamiService.trackEvent(
-          eventName: AnalyticsEvent.listRename,
-          data: {'old_name': _currentListTitle, 'new_name': newName},
-        );
         setState(() {
           _currentListTitle = newName;
         });
@@ -207,12 +216,12 @@ class _TodoListView extends StatelessWidget {
   const _TodoListView({
     required this.listTitle,
     required this.storage,
-    required this.umamiService,
+    required this.searchQuery,
   });
 
   final String listTitle;
   final StorageService storage;
-  final UmamiService umamiService;
+  final String searchQuery;
 
   @override
   Widget build(BuildContext context) {
@@ -222,12 +231,18 @@ class _TodoListView extends StatelessWidget {
         final list = box.get(listTitle);
         if (list == null) return const SizedBox();
 
-        // Sort items: unchecked first, then checked
-        final sortedItems = [...list.items]
+        var sortedItems = [...list.items]
           ..sort((a, b) {
             if (a.isCompleted == b.isCompleted) return 0;
             return a.isCompleted ? 1 : -1;
           });
+
+        if (searchQuery.isNotEmpty) {
+          final query = searchQuery.trim().toLowerCase();
+          sortedItems = sortedItems
+              .where((item) => item.text.toLowerCase().contains(query))
+              .toList();
+        }
 
         return ListView.builder(
           itemCount: sortedItems.length,
@@ -236,16 +251,12 @@ class _TodoListView extends StatelessWidget {
             return _TodoItemTile(
               title: item.text,
               isCompleted: item.isCompleted,
+              itemId: item.id,
+              listTitle: listTitle,
+              storage: storage,
               onToggle: (bool? value) async {
                 if (value != null) {
                   await storage.toggleItemCompletion(listTitle, item.id);
-                  umamiService.trackEvent(
-                    eventName: AnalyticsEvent.itemToggle,
-                    data: {
-                      'list': listTitle,
-                      'completed': (!item.isCompleted).toString(),
-                    },
-                  );
                 }
               },
             );
@@ -260,30 +271,55 @@ class _TodoItemTile extends StatelessWidget {
   const _TodoItemTile({
     required this.title,
     required this.isCompleted,
+    required this.itemId,
+    required this.listTitle,
+    required this.storage,
     required this.onToggle,
   });
 
   final String title;
   final bool isCompleted;
+  final String itemId;
+  final String listTitle;
+  final StorageService storage;
   final ValueChanged<bool?> onToggle;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return Semantics(
-      button: true,
-      // TODO(M26): use localized strings for 'Completed' / 'Incomplete'
-      label: '${isCompleted ? 'Completed' : 'Incomplete'}: $title',
-      child: ListTile(
-        leading: Checkbox(
-          value: isCompleted,
-          onChanged: onToggle,
+    return Dismissible(
+      key: ValueKey(itemId),
+      direction: DismissDirection.endToStart,
+      background: Container(
+        alignment: Alignment.centerRight,
+        padding: const EdgeInsets.only(right: 24),
+        decoration: BoxDecoration(
+          color: theme.colorScheme.error.withAlpha(26),
         ),
-        title: Text(
-          title,
-          style: TextStyle(
-            color: theme.colorScheme.onSurface,
-            decoration: isCompleted ? TextDecoration.lineThrough : null,
+        child: Icon(
+          Icons.delete,
+          color: theme.colorScheme.error,
+        ),
+      ),
+      onDismissed: (_) {
+        unawaited(storage.deleteItemFromList(listTitle, itemId));
+      },
+      child: Semantics(
+        button: true,
+        label: isCompleted
+            ? context.l10n.completedItemLabel(title)
+            : context.l10n.incompleteItemLabel(title),
+        child: ListTile(
+          leading: Checkbox(
+            value: isCompleted,
+            onChanged: onToggle,
+          ),
+          title: Text(
+            title,
+            style: TextStyle(
+              color: theme.colorScheme.onSurface,
+              decoration: isCompleted ? TextDecoration.lineThrough : null,
+            ),
           ),
         ),
       ),

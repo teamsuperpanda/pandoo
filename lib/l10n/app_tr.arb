@@ -1,21 +1,21 @@
 {
     "appTitle": "Pandoo",
-    "renameList": "Listeyi Yeniden Adlandır",
-    "listName": "Liste Adı",
-    "cancel": "İptal",
-    "rename": "Yeniden Adlandır",
+    "renameList": "Listeyi Yeniden Adland\u0131r",
+    "listName": "Liste Ad\u0131",
+    "cancel": "\u0130ptal",
+    "rename": "Yeniden Adland\u0131r",
     "delete": "Sil",
     "deleteList": "Listeyi Sil",
-    "deleteConfirmation": "\"{listTitle}\" öğesini silmek istediğinizden emin misiniz?",
+    "deleteConfirmation": "\"{listTitle}\" \u00f6\u011fesini silmek istedi\u011finizden emin misiniz?",
     "@deleteConfirmation": {
         "placeholders": {
             "listTitle": {}
         }
     },
-    "cleanCompleted": "Tamamlananları Temizle",
-    "cleanConfirmation": "Bu listeden tüm tamamlanan öğeleri kaldır?",
+    "cleanCompleted": "Tamamlananlar\u0131 Temizle",
+    "cleanConfirmation": "Bu listeden t\u00fcm tamamlanan \u00f6\u011feleri kald\u0131r?",
     "clean": "Temizle",
-    "itemsCount": "{count} öğe",
+    "itemsCount": "{count} \u00f6\u011fe",
     "@itemsCount": {
         "placeholders": {
             "count": {}
@@ -24,7 +24,7 @@
     "settings": "Ayarlar",
     "theme": "Tema",
     "system": "Sistem",
-    "light": "Açık",
+    "light": "A\u00e7\u0131k",
     "dark": "Koyu",
     "close": "Kapat",
     "listExists": "Liste Zaten Var",
@@ -35,12 +35,24 @@
         }
     },
     "addNewList": "Yeni liste ekle...",
-    "addNewItem": "Yeni öğe ekle...",
+    "addNewItem": "Yeni \u00f6\u011fe ekle...",
     "language": "Dil",
     "animateAddButton": "Animation",
     "nameCannotBeEmpty": "Name cannot be empty",
     "pin": "Pin",
     "unpin": "Unpin",
-    "analytics": "Analytics",
-    "enableAnalytics": "Enable Analytics"
+    "searchItems": "Search items...",
+    "@searchItems": {},
+    "completedItemLabel": "Completed: {title}",
+    "@completedItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    },
+    "incompleteItemLabel": "Incomplete: {title}",
+    "@incompleteItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    }
 }

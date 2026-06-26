@@ -386,23 +386,29 @@ abstract class AppLocalizations {
   /// **'Unpin'**
   String get unpin;
 
-  /// No description provided for @analytics.
-  ///
-  /// In en, this message translates to:
-  /// **'Analytics'**
-  String get analytics;
-
-  /// No description provided for @enableAnalytics.
-  ///
-  /// In en, this message translates to:
-  /// **'Enable Analytics'**
-  String get enableAnalytics;
-
   /// No description provided for @animateAddButton.
   ///
   /// In en, this message translates to:
   /// **'Animation'**
   String get animateAddButton;
+
+  /// No description provided for @searchItems.
+  ///
+  /// In en, this message translates to:
+  /// **'Search items...'**
+  String get searchItems;
+
+  /// No description provided for @completedItemLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Completed: {title}'**
+  String completedItemLabel(Object title);
+
+  /// No description provided for @incompleteItemLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Incomplete: {title}'**
+  String incompleteItemLabel(Object title);
 }
 
 class _AppLocalizationsDelegate

@@ -1,46 +1,58 @@
 {
-    "appTitle": "పాండూ",
-    "renameList": "జాబితా పేరు మార్చు",
-    "listName": "జాబితా పేరు",
-    "cancel": "రద్దు చేయి",
-    "rename": "పేరు మార్చు",
-    "delete": "తొలగించు",
-    "deleteList": "జాబితాను తొలగించు",
-    "deleteConfirmation": "మీరు నిజంగా \"{listTitle}\"ని తొలగించాలనుకుంటున్నారా?",
+    "appTitle": "\u0c2a\u0c3e\u0c02\u0c21\u0c42",
+    "renameList": "\u0c1c\u0c3e\u0c2c\u0c3f\u0c24\u0c3e \u0c2a\u0c47\u0c30\u0c41 \u0c2e\u0c3e\u0c30\u0c4d\u0c1a\u0c41",
+    "listName": "\u0c1c\u0c3e\u0c2c\u0c3f\u0c24\u0c3e \u0c2a\u0c47\u0c30\u0c41",
+    "cancel": "\u0c30\u0c26\u0c4d\u0c26\u0c41 \u0c1a\u0c47\u0c2f\u0c3f",
+    "rename": "\u0c2a\u0c47\u0c30\u0c41 \u0c2e\u0c3e\u0c30\u0c4d\u0c1a\u0c41",
+    "delete": "\u0c24\u0c4a\u0c32\u0c17\u0c3f\u0c02\u0c1a\u0c41",
+    "deleteList": "\u0c1c\u0c3e\u0c2c\u0c3f\u0c24\u0c3e\u0c28\u0c41 \u0c24\u0c4a\u0c32\u0c17\u0c3f\u0c02\u0c1a\u0c41",
+    "deleteConfirmation": "\u0c2e\u0c40\u0c30\u0c41 \u0c28\u0c3f\u0c1c\u0c02\u0c17\u0c3e \"{listTitle}\"\u0c28\u0c3f \u0c24\u0c4a\u0c32\u0c17\u0c3f\u0c02\u0c1a\u0c3e\u0c32\u0c28\u0c41\u0c15\u0c41\u0c02\u0c1f\u0c41\u0c28\u0c4d\u0c28\u0c3e\u0c30\u0c3e?",
     "@deleteConfirmation": {
         "placeholders": {
             "listTitle": {}
         }
     },
-    "cleanCompleted": "పూర్తయిన అంశాలను తొలగించు",
-    "cleanConfirmation": "ఈ జాబితా నుండి పూర్తయిన అన్ని అంశాలను తొలగించాలా?",
-    "clean": "శుభ్రం చేయి",
-    "itemsCount": "{count} అంశాలు",
+    "cleanCompleted": "\u0c2a\u0c42\u0c30\u0c4d\u0c24\u0c2f\u0c3f\u0c28 \u0c05\u0c02\u0c36\u0c3e\u0c32\u0c28\u0c41 \u0c24\u0c4a\u0c32\u0c17\u0c3f\u0c02\u0c1a\u0c41",
+    "cleanConfirmation": "\u0c08 \u0c1c\u0c3e\u0c2c\u0c3f\u0c24\u0c3e \u0c28\u0c41\u0c02\u0c21\u0c3f \u0c2a\u0c42\u0c30\u0c4d\u0c24\u0c2f\u0c3f\u0c28 \u0c05\u0c28\u0c4d\u0c28\u0c3f \u0c05\u0c02\u0c36\u0c3e\u0c32\u0c28\u0c41 \u0c24\u0c4a\u0c32\u0c17\u0c3f\u0c02\u0c1a\u0c3e\u0c32\u0c3e?",
+    "clean": "\u0c36\u0c41\u0c2d\u0c4d\u0c30\u0c02 \u0c1a\u0c47\u0c2f\u0c3f",
+    "itemsCount": "{count} \u0c05\u0c02\u0c36\u0c3e\u0c32\u0c41",
     "@itemsCount": {
         "placeholders": {
             "count": {}
         }
     },
-    "settings": "సెట్టింగ్‌లు",
-    "theme": "థీమ్",
-    "system": "సిస్టమ్",
-    "light": "లైట్",
-    "dark": "డార్క్",
-    "close": "మూసివేయి",
-    "listExists": "జాబితా ఇప్పటికే ఉంది",
-    "listExistsMessage": "'{name}' ఇప్పటికే ఉంది",
+    "settings": "\u0c38\u0c46\u0c1f\u0c4d\u0c1f\u0c3f\u0c02\u0c17\u0c4d\u200c\u0c32\u0c41",
+    "theme": "\u0c25\u0c40\u0c2e\u0c4d",
+    "system": "\u0c38\u0c3f\u0c38\u0c4d\u0c1f\u0c2e\u0c4d",
+    "light": "\u0c32\u0c48\u0c1f\u0c4d",
+    "dark": "\u0c21\u0c3e\u0c30\u0c4d\u0c15\u0c4d",
+    "close": "\u0c2e\u0c42\u0c38\u0c3f\u0c35\u0c47\u0c2f\u0c3f",
+    "listExists": "\u0c1c\u0c3e\u0c2c\u0c3f\u0c24\u0c3e \u0c07\u0c2a\u0c4d\u0c2a\u0c1f\u0c3f\u0c15\u0c47 \u0c09\u0c02\u0c26\u0c3f",
+    "listExistsMessage": "'{name}' \u0c07\u0c2a\u0c4d\u0c2a\u0c1f\u0c3f\u0c15\u0c47 \u0c09\u0c02\u0c26\u0c3f",
     "@listExistsMessage": {
         "placeholders": {
             "name": {}
         }
     },
-    "addNewList": "కొత్త జాబితాను జోడించు...",
-    "addNewItem": "కొత్త అంశాన్ని జోడించు...",
-    "language": "భాష",
+    "addNewList": "\u0c15\u0c4a\u0c24\u0c4d\u0c24 \u0c1c\u0c3e\u0c2c\u0c3f\u0c24\u0c3e\u0c28\u0c41 \u0c1c\u0c4b\u0c21\u0c3f\u0c02\u0c1a\u0c41...",
+    "addNewItem": "\u0c15\u0c4a\u0c24\u0c4d\u0c24 \u0c05\u0c02\u0c36\u0c3e\u0c28\u0c4d\u0c28\u0c3f \u0c1c\u0c4b\u0c21\u0c3f\u0c02\u0c1a\u0c41...",
+    "language": "\u0c2d\u0c3e\u0c37",
     "animateAddButton": "Animation",
     "nameCannotBeEmpty": "Name cannot be empty",
     "pin": "Pin",
     "unpin": "Unpin",
-    "analytics": "Analytics",
-    "enableAnalytics": "Enable Analytics"
+    "searchItems": "Search items...",
+    "@searchItems": {},
+    "completedItemLabel": "Completed: {title}",
+    "@completedItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    },
+    "incompleteItemLabel": "Incomplete: {title}",
+    "@incompleteItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    }
 }

@@ -1,46 +1,58 @@
 {
-    "appTitle": "باندو",
-    "renameList": "إعادة تسمية القائمة",
-    "listName": "اسم القائمة",
-    "cancel": "إلغاء",
-    "rename": "إعادة تسمية",
-    "delete": "حذف",
-    "deleteList": "حذف القائمة",
-    "deleteConfirmation": "هل أنت متأكد أنك تريد حذف \"{listTitle}\"؟",
+    "appTitle": "\u0628\u0627\u0646\u062f\u0648",
+    "renameList": "\u0625\u0639\u0627\u062f\u0629 \u062a\u0633\u0645\u064a\u0629 \u0627\u0644\u0642\u0627\u0626\u0645\u0629",
+    "listName": "\u0627\u0633\u0645 \u0627\u0644\u0642\u0627\u0626\u0645\u0629",
+    "cancel": "\u0625\u0644\u063a\u0627\u0621",
+    "rename": "\u0625\u0639\u0627\u062f\u0629 \u062a\u0633\u0645\u064a\u0629",
+    "delete": "\u062d\u0630\u0641",
+    "deleteList": "\u062d\u0630\u0641 \u0627\u0644\u0642\u0627\u0626\u0645\u0629",
+    "deleteConfirmation": "\u0647\u0644 \u0623\u0646\u062a \u0645\u062a\u0623\u0643\u062f \u0623\u0646\u0643 \u062a\u0631\u064a\u062f \u062d\u0630\u0641 \"{listTitle}\"\u061f",
     "@deleteConfirmation": {
         "placeholders": {
             "listTitle": {}
         }
     },
-    "cleanCompleted": "تنظيف العناصر المكتملة",
-    "cleanConfirmation": "إزالة جميع العناصر المكتملة من هذه القائمة؟",
-    "clean": "تنظيف",
-    "itemsCount": "{count} عنصر",
+    "cleanCompleted": "\u062a\u0646\u0638\u064a\u0641 \u0627\u0644\u0639\u0646\u0627\u0635\u0631 \u0627\u0644\u0645\u0643\u062a\u0645\u0644\u0629",
+    "cleanConfirmation": "\u0625\u0632\u0627\u0644\u0629 \u062c\u0645\u064a\u0639 \u0627\u0644\u0639\u0646\u0627\u0635\u0631 \u0627\u0644\u0645\u0643\u062a\u0645\u0644\u0629 \u0645\u0646 \u0647\u0630\u0647 \u0627\u0644\u0642\u0627\u0626\u0645\u0629\u061f",
+    "clean": "\u062a\u0646\u0638\u064a\u0641",
+    "itemsCount": "{count} \u0639\u0646\u0635\u0631",
     "@itemsCount": {
         "placeholders": {
             "count": {}
         }
     },
-    "settings": "الإعدادات",
-    "theme": "المظهر",
-    "system": "النظام",
-    "light": "فاتح",
-    "dark": "داكن",
-    "close": "إغلاق",
-    "listExists": "القائمة موجودة بالفعل",
-    "listExistsMessage": "القائمة '{name}' موجودة بالفعل",
+    "settings": "\u0627\u0644\u0625\u0639\u062f\u0627\u062f\u0627\u062a",
+    "theme": "\u0627\u0644\u0645\u0638\u0647\u0631",
+    "system": "\u0627\u0644\u0646\u0638\u0627\u0645",
+    "light": "\u0641\u0627\u062a\u062d",
+    "dark": "\u062f\u0627\u0643\u0646",
+    "close": "\u0625\u063a\u0644\u0627\u0642",
+    "listExists": "\u0627\u0644\u0642\u0627\u0626\u0645\u0629 \u0645\u0648\u062c\u0648\u062f\u0629 \u0628\u0627\u0644\u0641\u0639\u0644",
+    "listExistsMessage": "\u0627\u0644\u0642\u0627\u0626\u0645\u0629 '{name}' \u0645\u0648\u062c\u0648\u062f\u0629 \u0628\u0627\u0644\u0641\u0639\u0644",
     "@listExistsMessage": {
         "placeholders": {
             "name": {}
         }
     },
-    "addNewList": "إضافة قائمة جديدة...",
-    "addNewItem": "إضافة عنصر جديد...",
-    "language": "اللغة",
+    "addNewList": "\u0625\u0636\u0627\u0641\u0629 \u0642\u0627\u0626\u0645\u0629 \u062c\u062f\u064a\u062f\u0629...",
+    "addNewItem": "\u0625\u0636\u0627\u0641\u0629 \u0639\u0646\u0635\u0631 \u062c\u062f\u064a\u062f...",
+    "language": "\u0627\u0644\u0644\u063a\u0629",
     "animateAddButton": "Animation",
     "nameCannotBeEmpty": "Name cannot be empty",
     "pin": "Pin",
     "unpin": "Unpin",
-    "analytics": "Analytics",
-    "enableAnalytics": "Enable Analytics"
+    "searchItems": "Search items...",
+    "@searchItems": {},
+    "completedItemLabel": "Completed: {title}",
+    "@completedItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    },
+    "incompleteItemLabel": "Incomplete: {title}",
+    "@incompleteItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    }
 }

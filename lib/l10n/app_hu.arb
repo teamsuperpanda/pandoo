@@ -1,46 +1,58 @@
 {
     "appTitle": "Pandoo",
-    "renameList": "Lista Átnevezése",
+    "renameList": "Lista \u00c1tnevez\u00e9se",
     "listName": "Lista Neve",
-    "cancel": "Mégse",
-    "rename": "Átnevezés",
-    "delete": "Törlés",
-    "deleteList": "Lista Törlése",
-    "deleteConfirmation": "Biztosan törölni szeretné a(z) \"{listTitle}\"-t?",
+    "cancel": "M\u00e9gse",
+    "rename": "\u00c1tnevez\u00e9s",
+    "delete": "T\u00f6rl\u00e9s",
+    "deleteList": "Lista T\u00f6rl\u00e9se",
+    "deleteConfirmation": "Biztosan t\u00f6r\u00f6lni szeretn\u00e9 a(z) \"{listTitle}\"-t?",
     "@deleteConfirmation": {
         "placeholders": {
             "listTitle": {}
         }
     },
-    "cleanCompleted": "Befejezett Elemek Törlése",
-    "cleanConfirmation": "Törli az összes befejezett elemet ebből a listából?",
-    "clean": "Törlés",
+    "cleanCompleted": "Befejezett Elemek T\u00f6rl\u00e9se",
+    "cleanConfirmation": "T\u00f6rli az \u00f6sszes befejezett elemet ebb\u0151l a list\u00e1b\u00f3l?",
+    "clean": "T\u00f6rl\u00e9s",
     "itemsCount": "{count} elem",
     "@itemsCount": {
         "placeholders": {
             "count": {}
         }
     },
-    "settings": "Beállítások",
-    "theme": "Téma",
+    "settings": "Be\u00e1ll\u00edt\u00e1sok",
+    "theme": "T\u00e9ma",
     "system": "Rendszer",
-    "light": "Világos",
-    "dark": "Sötét",
-    "close": "Bezárás",
-    "listExists": "A Lista Már Létezik",
-    "listExistsMessage": "A(z) '{name}' már létezik",
+    "light": "Vil\u00e1gos",
+    "dark": "S\u00f6t\u00e9t",
+    "close": "Bez\u00e1r\u00e1s",
+    "listExists": "A Lista M\u00e1r L\u00e9tezik",
+    "listExistsMessage": "A(z) '{name}' m\u00e1r l\u00e9tezik",
     "@listExistsMessage": {
         "placeholders": {
             "name": {}
         }
     },
-    "addNewList": "Új lista hozzáadása...",
-    "addNewItem": "Új elem hozzáadása...",
+    "addNewList": "\u00daj lista hozz\u00e1ad\u00e1sa...",
+    "addNewItem": "\u00daj elem hozz\u00e1ad\u00e1sa...",
     "language": "Nyelv",
     "animateAddButton": "Animation",
     "nameCannotBeEmpty": "Name cannot be empty",
     "pin": "Pin",
     "unpin": "Unpin",
-    "analytics": "Analytics",
-    "enableAnalytics": "Enable Analytics"
+    "searchItems": "Search items...",
+    "@searchItems": {},
+    "completedItemLabel": "Completed: {title}",
+    "@completedItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    },
+    "incompleteItemLabel": "Incomplete: {title}",
+    "@incompleteItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    }
 }

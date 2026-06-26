@@ -1,46 +1,58 @@
 {
-    "appTitle": "Пандоо",
-    "renameList": "Жагсаалтын Нэрийг Өөрчлөх",
-    "listName": "Жагсаалтын Нэр",
-    "cancel": "Цуцлах",
-    "rename": "Нэр Өөрчлөх",
-    "delete": "Устгах",
-    "deleteList": "Жагсаалт Устгах",
-    "deleteConfirmation": "\"{listTitle}\"-г устгахдаа итгэлтэй байна уу?",
+    "appTitle": "\u041f\u0430\u043d\u0434\u043e\u043e",
+    "renameList": "\u0416\u0430\u0433\u0441\u0430\u0430\u043b\u0442\u044b\u043d \u041d\u044d\u0440\u0438\u0439\u0433 \u04e8\u04e9\u0440\u0447\u043b\u04e9\u0445",
+    "listName": "\u0416\u0430\u0433\u0441\u0430\u0430\u043b\u0442\u044b\u043d \u041d\u044d\u0440",
+    "cancel": "\u0426\u0443\u0446\u043b\u0430\u0445",
+    "rename": "\u041d\u044d\u0440 \u04e8\u04e9\u0440\u0447\u043b\u04e9\u0445",
+    "delete": "\u0423\u0441\u0442\u0433\u0430\u0445",
+    "deleteList": "\u0416\u0430\u0433\u0441\u0430\u0430\u043b\u0442 \u0423\u0441\u0442\u0433\u0430\u0445",
+    "deleteConfirmation": "\"{listTitle}\"-\u0433 \u0443\u0441\u0442\u0433\u0430\u0445\u0434\u0430\u0430 \u0438\u0442\u0433\u044d\u043b\u0442\u044d\u0439 \u0431\u0430\u0439\u043d\u0430 \u0443\u0443?",
     "@deleteConfirmation": {
         "placeholders": {
             "listTitle": {}
         }
     },
-    "cleanCompleted": "Дууссан Зүйлсийг Цэвэрлэх",
-    "cleanConfirmation": "Энэ жагсаалтаас бүх дууссан зүйлсийг хасах уу?",
-    "clean": "Цэвэрлэх",
-    "itemsCount": "{count} зүйл",
+    "cleanCompleted": "\u0414\u0443\u0443\u0441\u0441\u0430\u043d \u0417\u04af\u0439\u043b\u0441\u0438\u0439\u0433 \u0426\u044d\u0432\u044d\u0440\u043b\u044d\u0445",
+    "cleanConfirmation": "\u042d\u043d\u044d \u0436\u0430\u0433\u0441\u0430\u0430\u043b\u0442\u0430\u0430\u0441 \u0431\u04af\u0445 \u0434\u0443\u0443\u0441\u0441\u0430\u043d \u0437\u04af\u0439\u043b\u0441\u0438\u0439\u0433 \u0445\u0430\u0441\u0430\u0445 \u0443\u0443?",
+    "clean": "\u0426\u044d\u0432\u044d\u0440\u043b\u044d\u0445",
+    "itemsCount": "{count} \u0437\u04af\u0439\u043b",
     "@itemsCount": {
         "placeholders": {
             "count": {}
         }
     },
-    "settings": "Тохиргоо",
-    "theme": "Загвар",
-    "system": "Систем",
-    "light": "Цайвар",
-    "dark": "Бараан",
-    "close": "Хаах",
-    "listExists": "Жагсаалт Аль Хэдийн Байна",
-    "listExistsMessage": "'{name}' аль хэдийн байна",
+    "settings": "\u0422\u043e\u0445\u0438\u0440\u0433\u043e\u043e",
+    "theme": "\u0417\u0430\u0433\u0432\u0430\u0440",
+    "system": "\u0421\u0438\u0441\u0442\u0435\u043c",
+    "light": "\u0426\u0430\u0439\u0432\u0430\u0440",
+    "dark": "\u0411\u0430\u0440\u0430\u0430\u043d",
+    "close": "\u0425\u0430\u0430\u0445",
+    "listExists": "\u0416\u0430\u0433\u0441\u0430\u0430\u043b\u0442 \u0410\u043b\u044c \u0425\u044d\u0434\u0438\u0439\u043d \u0411\u0430\u0439\u043d\u0430",
+    "listExistsMessage": "'{name}' \u0430\u043b\u044c \u0445\u044d\u0434\u0438\u0439\u043d \u0431\u0430\u0439\u043d\u0430",
     "@listExistsMessage": {
         "placeholders": {
             "name": {}
         }
     },
-    "addNewList": "Шинэ жагсаалт нэмэх...",
-    "addNewItem": "Шинэ зүйл нэмэх...",
-    "language": "Хэл",
+    "addNewList": "\u0428\u0438\u043d\u044d \u0436\u0430\u0433\u0441\u0430\u0430\u043b\u0442 \u043d\u044d\u043c\u044d\u0445...",
+    "addNewItem": "\u0428\u0438\u043d\u044d \u0437\u04af\u0439\u043b \u043d\u044d\u043c\u044d\u0445...",
+    "language": "\u0425\u044d\u043b",
     "animateAddButton": "Animation",
     "nameCannotBeEmpty": "Name cannot be empty",
     "pin": "Pin",
     "unpin": "Unpin",
-    "analytics": "Analytics",
-    "enableAnalytics": "Enable Analytics"
+    "searchItems": "Search items...",
+    "@searchItems": {},
+    "completedItemLabel": "Completed: {title}",
+    "@completedItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    },
+    "incompleteItemLabel": "Incomplete: {title}",
+    "@incompleteItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    }
 }

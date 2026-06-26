@@ -1,6 +1,5 @@
-Nouveautés de la version 2.4.0 :
-• Corrections de bugs et améliorations des performances.
-• Les analytics sont désormais opt-in (désactivés par défaut).
-• Traductions améliorées pour plus de 55 langues.
-• Correction de la fermeture du clavier lors de l'ajout d'éléments.
-• Meilleure gestion des erreurs et sécurité des données.
+Nouveautés de la version 2.5.0 :
+• Épinglez vos listes les plus utilisées et réorganisez-les comme vous le souhaitez.
+• Recherchez des éléments dans n'importe quelle liste pour trouver rapidement ce dont vous avez besoin.
+• Balayez pour supprimer des tâches individuelles.
+• Étiquettes d'accessibilité améliorées pour les éléments terminés et incomplets.

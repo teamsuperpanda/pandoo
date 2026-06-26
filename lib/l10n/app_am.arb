@@ -1,46 +1,58 @@
 {
-    "appTitle": "ፓንዱ",
-    "renameList": "ዝርዝሩን እንደገና ሰይም",
-    "listName": "የዝርዝር ስም",
-    "cancel": "ሰርዝ",
-    "rename": "እንደገና ሰይም",
-    "delete": "ሰርዝ",
-    "deleteList": "ዝርዝሩን ሰርዝ",
-    "deleteConfirmation": "\"{listTitle}\"ን መሰረዝ እንደሚፈልጉ እርግጠኛ ነዎት?",
+    "appTitle": "\u1353\u1295\u12f1",
+    "renameList": "\u12dd\u122d\u12dd\u1229\u1295 \u12a5\u1295\u12f0\u1308\u1293 \u1230\u12ed\u121d",
+    "listName": "\u12e8\u12dd\u122d\u12dd\u122d \u1235\u121d",
+    "cancel": "\u1230\u122d\u12dd",
+    "rename": "\u12a5\u1295\u12f0\u1308\u1293 \u1230\u12ed\u121d",
+    "delete": "\u1230\u122d\u12dd",
+    "deleteList": "\u12dd\u122d\u12dd\u1229\u1295 \u1230\u122d\u12dd",
+    "deleteConfirmation": "\"{listTitle}\"\u1295 \u1218\u1230\u1228\u12dd \u12a5\u1295\u12f0\u121a\u1348\u120d\u1309 \u12a5\u122d\u130d\u1320\u129b \u1290\u12ce\u1275?",
     "@deleteConfirmation": {
         "placeholders": {
             "listTitle": {}
         }
     },
-    "cleanCompleted": "የተጠናቀቁ ንጥሎችን አጽዳ",
-    "cleanConfirmation": "ከዚህ ዝርዝር ሁሉንም የተጠናቀቁ ንጥሎችን ማስወገድ?",
-    "clean": "አጽዳ",
-    "itemsCount": "{count} ንጥሎች",
+    "cleanCompleted": "\u12e8\u1270\u1320\u1293\u1240\u1241 \u1295\u1325\u120e\u127d\u1295 \u12a0\u133d\u12f3",
+    "cleanConfirmation": "\u12a8\u12da\u1205 \u12dd\u122d\u12dd\u122d \u1201\u1209\u1295\u121d \u12e8\u1270\u1320\u1293\u1240\u1241 \u1295\u1325\u120e\u127d\u1295 \u121b\u1235\u12c8\u1308\u12f5?",
+    "clean": "\u12a0\u133d\u12f3",
+    "itemsCount": "{count} \u1295\u1325\u120e\u127d",
     "@itemsCount": {
         "placeholders": {
             "count": {}
         }
     },
-    "settings": "ቅንብሮች",
-    "theme": "ገጽታ",
-    "system": "ሲስተም",
-    "light": "ብርሃን",
-    "dark": "ጨለማ",
-    "close": "ዝጋ",
-    "listExists": "ዝርዝሩ አስቀድሞ አለ",
-    "listExistsMessage": "'{name}' አስቀድሞ አለ",
+    "settings": "\u1245\u1295\u1265\u122e\u127d",
+    "theme": "\u1308\u133d\u1273",
+    "system": "\u1232\u1235\u1270\u121d",
+    "light": "\u1265\u122d\u1203\u1295",
+    "dark": "\u1328\u1208\u121b",
+    "close": "\u12dd\u130b",
+    "listExists": "\u12dd\u122d\u12dd\u1229 \u12a0\u1235\u1240\u12f5\u121e \u12a0\u1208",
+    "listExistsMessage": "'{name}' \u12a0\u1235\u1240\u12f5\u121e \u12a0\u1208",
     "@listExistsMessage": {
         "placeholders": {
             "name": {}
         }
     },
-    "addNewList": "አዲስ ዝርዝር ጨምር...",
-    "addNewItem": "አዲስ ንጥል ጨምር...",
-    "language": "ቋንቋ",
+    "addNewList": "\u12a0\u12f2\u1235 \u12dd\u122d\u12dd\u122d \u1328\u121d\u122d...",
+    "addNewItem": "\u12a0\u12f2\u1235 \u1295\u1325\u120d \u1328\u121d\u122d...",
+    "language": "\u124b\u1295\u124b",
     "animateAddButton": "Animation",
     "nameCannotBeEmpty": "Name cannot be empty",
     "pin": "Pin",
     "unpin": "Unpin",
-    "analytics": "Analytics",
-    "enableAnalytics": "Enable Analytics"
+    "searchItems": "Search items...",
+    "@searchItems": {},
+    "completedItemLabel": "Completed: {title}",
+    "@completedItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    },
+    "incompleteItemLabel": "Incomplete: {title}",
+    "@incompleteItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    }
 }

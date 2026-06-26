@@ -1,6 +1,5 @@
-Novità nella versione 2.4.0:
-• Correzione di bug e miglioramenti delle prestazioni.
-• L'analisi è ora opt-in (disabilitata per impostazione predefinita).
-• Traduzioni migliorate per oltre 55 lingue.
-• Risolta la chiusura della tastiera durante l'aggiunta di elementi.
-• Migliore gestione degli errori e sicurezza dei dati.
+Novità nella versione 2.5.0:
+• Fissa le tue liste più usate e riordinale come preferisci.
+• Cerca elementi in qualsiasi lista per trovare rapidamente ciò di cui hai bisogno.
+• Scorri per eliminare singole attività.
+• Etichette di accessibilità migliorate per elementi completati e incompleti.

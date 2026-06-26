@@ -1,6 +1,5 @@
-What's new in version 2.4.0:
-• Bug fixes and performance improvements.
-• Analytics is now opt-in (disabled by default).
-• Improved translations for 55+ languages.
-• Fixed keyboard dismissal when adding items.
-• Better error handling and data safety.
+What's new in version 2.5.0:
+• Pin your most-used lists and reorder them however you like.
+• Search items in any list to find what you need fast.
+• Swipe to delete individual todo items.
+• Improved accessibility labels for completed and incomplete items.

@@ -6,7 +6,7 @@
     "rename": "Renomear",
     "delete": "Eliminar",
     "deleteList": "Eliminar Lista",
-    "deleteConfirmation": "Estás seguro de que queres eliminar \"{listTitle}\"?",
+    "deleteConfirmation": "Est\u00e1s seguro de que queres eliminar \"{listTitle}\"?",
     "@deleteConfirmation": {
         "placeholders": {
             "listTitle": {}
@@ -21,7 +21,7 @@
             "count": {}
         }
     },
-    "settings": "Configuración",
+    "settings": "Configuraci\u00f3n",
     "theme": "Tema",
     "system": "Sistema",
     "light": "Claro",
@@ -41,6 +41,18 @@
     "nameCannotBeEmpty": "Name cannot be empty",
     "pin": "Pin",
     "unpin": "Unpin",
-    "analytics": "Analytics",
-    "enableAnalytics": "Enable Analytics"
+    "searchItems": "Search items...",
+    "@searchItems": {},
+    "completedItemLabel": "Completed: {title}",
+    "@completedItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    },
+    "incompleteItemLabel": "Incomplete: {title}",
+    "@incompleteItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    }
 }

@@ -7,7 +7,6 @@ import 'package:pandoo/dialog/list_name_dialog.dart';
 import 'package:pandoo/l10n/l10n.dart';
 import 'package:pandoo/models/list_model.dart';
 import 'package:pandoo/services/storage_service.dart';
-import 'package:pandoo/services/umami_service.dart';
 
 class ListCard extends StatelessWidget {
   const ListCard({
@@ -17,7 +16,6 @@ class ListCard extends StatelessWidget {
     required this.onRename,
     required this.index,
     required this.pinned,
-    required this.umamiService,
     super.key,
   });
 
@@ -27,7 +25,6 @@ class ListCard extends StatelessWidget {
   final void Function(String) onRename;
   final int index;
   final bool pinned;
-  final UmamiService umamiService;
 
   Future<bool> _confirmDelete(BuildContext context) async {
     return await showDialog<bool>(
@@ -59,10 +56,28 @@ class ListCard extends StatelessWidget {
 
     return Dismissible(
       key: ValueKey(title),
-      direction: DismissDirection.endToStart,
-      confirmDismiss: (_) => _confirmDelete(context),
+
+      confirmDismiss: (direction) async {
+        if (direction == DismissDirection.endToStart) {
+          return _confirmDelete(context);
+        }
+        unawaited(StorageService().togglePin(title));
+        return false;
+      },
       onDismissed: (_) => onDelete(),
       background: Container(
+        alignment: Alignment.centerLeft,
+        padding: const EdgeInsets.only(left: 24),
+        decoration: BoxDecoration(
+          color: theme.colorScheme.primary.withAlpha(26),
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Icon(
+          pinned ? Icons.push_pin_outlined : Icons.push_pin,
+          color: theme.colorScheme.primary,
+        ),
+      ),
+      secondaryBackground: Container(
         alignment: Alignment.centerRight,
         padding: const EdgeInsets.only(right: 24),
         decoration: BoxDecoration(
@@ -92,7 +107,7 @@ class ListCard extends StatelessWidget {
                       index: index,
                       child: Icon(
                         Icons.drag_indicator,
-                        color: theme.iconTheme.color?.withAlpha(128),
+                        color: theme.colorScheme.onSurface.withAlpha(128),
                       ),
                     ),
                   ),
@@ -101,10 +116,10 @@ class ListCard extends StatelessWidget {
                     label: 'Pinned list',
                     child: Icon(
                       Icons.push_pin,
-                      color: theme.iconTheme.color?.withAlpha(128),
+                      color: theme.colorScheme.primary,
                     ),
                   ),
-                const SizedBox(width: 16),
+                const SizedBox(width: 12),
                 Expanded(
                   child: Semantics(
                     button: true,
@@ -167,7 +182,7 @@ class ListCard extends StatelessWidget {
                   child: PopupMenuButton<String>(
                     icon: Icon(
                       Icons.more_vert,
-                      color: theme.iconTheme.color?.withAlpha(128),
+                      color: theme.colorScheme.onSurface.withAlpha(128),
                     ),
                     tooltip: 'More options',
                     shape: RoundedRectangleBorder(
@@ -195,12 +210,6 @@ class ListCard extends StatelessWidget {
                         }
                       } else if (value == 'pin') {
                         await StorageService().togglePin(title);
-                        umamiService.trackEvent(
-                          eventName: pinned
-                              ? AnalyticsEvent.listUnpin
-                              : AnalyticsEvent.listPin,
-                          data: {'list': title},
-                        );
                       }
                     },
                   ),

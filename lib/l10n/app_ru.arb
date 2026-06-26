@@ -1,46 +1,58 @@
 {
-    "appTitle": "Пандо",
-    "renameList": "Переименовать Список",
-    "listName": "Название Списка",
-    "cancel": "Отмена",
-    "rename": "Переименовать",
-    "delete": "Удалить",
-    "deleteList": "Удалить Список",
-    "deleteConfirmation": "Вы уверены, что хотите удалить \"{listTitle}\"?",
+    "appTitle": "\u041f\u0430\u043d\u0434\u043e",
+    "renameList": "\u041f\u0435\u0440\u0435\u0438\u043c\u0435\u043d\u043e\u0432\u0430\u0442\u044c \u0421\u043f\u0438\u0441\u043e\u043a",
+    "listName": "\u041d\u0430\u0437\u0432\u0430\u043d\u0438\u0435 \u0421\u043f\u0438\u0441\u043a\u0430",
+    "cancel": "\u041e\u0442\u043c\u0435\u043d\u0430",
+    "rename": "\u041f\u0435\u0440\u0435\u0438\u043c\u0435\u043d\u043e\u0432\u0430\u0442\u044c",
+    "delete": "\u0423\u0434\u0430\u043b\u0438\u0442\u044c",
+    "deleteList": "\u0423\u0434\u0430\u043b\u0438\u0442\u044c \u0421\u043f\u0438\u0441\u043e\u043a",
+    "deleteConfirmation": "\u0412\u044b \u0443\u0432\u0435\u0440\u0435\u043d\u044b, \u0447\u0442\u043e \u0445\u043e\u0442\u0438\u0442\u0435 \u0443\u0434\u0430\u043b\u0438\u0442\u044c \"{listTitle}\"?",
     "@deleteConfirmation": {
         "placeholders": {
             "listTitle": {}
         }
     },
-    "cleanCompleted": "Очистить Завершенные Элементы",
-    "cleanConfirmation": "Удалить все завершенные элементы из этого списка?",
-    "clean": "Очистить",
-    "itemsCount": "{count} элементов",
+    "cleanCompleted": "\u041e\u0447\u0438\u0441\u0442\u0438\u0442\u044c \u0417\u0430\u0432\u0435\u0440\u0448\u0435\u043d\u043d\u044b\u0435 \u042d\u043b\u0435\u043c\u0435\u043d\u0442\u044b",
+    "cleanConfirmation": "\u0423\u0434\u0430\u043b\u0438\u0442\u044c \u0432\u0441\u0435 \u0437\u0430\u0432\u0435\u0440\u0448\u0435\u043d\u043d\u044b\u0435 \u044d\u043b\u0435\u043c\u0435\u043d\u0442\u044b \u0438\u0437 \u044d\u0442\u043e\u0433\u043e \u0441\u043f\u0438\u0441\u043a\u0430?",
+    "clean": "\u041e\u0447\u0438\u0441\u0442\u0438\u0442\u044c",
+    "itemsCount": "{count} \u044d\u043b\u0435\u043c\u0435\u043d\u0442\u043e\u0432",
     "@itemsCount": {
         "placeholders": {
             "count": {}
         }
     },
-    "settings": "Настройки",
-    "theme": "Тема",
-    "system": "Система",
-    "light": "Светлая",
-    "dark": "Темная",
-    "close": "Закрыть",
-    "listExists": "Список Уже Существует",
-    "listExistsMessage": "'{name}' уже существует",
+    "settings": "\u041d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0438",
+    "theme": "\u0422\u0435\u043c\u0430",
+    "system": "\u0421\u0438\u0441\u0442\u0435\u043c\u0430",
+    "light": "\u0421\u0432\u0435\u0442\u043b\u0430\u044f",
+    "dark": "\u0422\u0435\u043c\u043d\u0430\u044f",
+    "close": "\u0417\u0430\u043a\u0440\u044b\u0442\u044c",
+    "listExists": "\u0421\u043f\u0438\u0441\u043e\u043a \u0423\u0436\u0435 \u0421\u0443\u0449\u0435\u0441\u0442\u0432\u0443\u0435\u0442",
+    "listExistsMessage": "'{name}' \u0443\u0436\u0435 \u0441\u0443\u0449\u0435\u0441\u0442\u0432\u0443\u0435\u0442",
     "@listExistsMessage": {
         "placeholders": {
             "name": {}
         }
     },
-    "addNewList": "Добавить новый список...",
-    "addNewItem": "Добавить новый элемент...",
-    "language": "Язык",
+    "addNewList": "\u0414\u043e\u0431\u0430\u0432\u0438\u0442\u044c \u043d\u043e\u0432\u044b\u0439 \u0441\u043f\u0438\u0441\u043e\u043a...",
+    "addNewItem": "\u0414\u043e\u0431\u0430\u0432\u0438\u0442\u044c \u043d\u043e\u0432\u044b\u0439 \u044d\u043b\u0435\u043c\u0435\u043d\u0442...",
+    "language": "\u042f\u0437\u044b\u043a",
     "animateAddButton": "Animation",
     "nameCannotBeEmpty": "Name cannot be empty",
     "pin": "Pin",
     "unpin": "Unpin",
-    "analytics": "Analytics",
-    "enableAnalytics": "Enable Analytics"
+    "searchItems": "Search items...",
+    "@searchItems": {},
+    "completedItemLabel": "Completed: {title}",
+    "@completedItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    },
+    "incompleteItemLabel": "Incomplete: {title}",
+    "@incompleteItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    }
 }

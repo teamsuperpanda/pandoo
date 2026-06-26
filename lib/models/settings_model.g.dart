@@ -19,7 +19,6 @@ class SettingsAdapter extends TypeAdapter<Settings> {
     return Settings(
       locale: fields[0] as Locale?,
       theme: fields[1] as ThemeMode,
-      analyticsEnabled: fields[2] as bool? ?? true,
       fabAnimation: fields[3] as bool? ?? true,
     );
   }
@@ -27,14 +26,12 @@ class SettingsAdapter extends TypeAdapter<Settings> {
   @override
   void write(BinaryWriter writer, Settings obj) {
     writer
-      ..writeByte(4)
+      ..writeByte(3)
       ..writeByte(0)
       ..write(obj.locale)
       ..writeByte(1)
       ..write(obj.theme)
       ..writeByte(2)
-      ..write(obj.analyticsEnabled)
-      ..writeByte(3)
       ..write(obj.fabAnimation);
   }
 

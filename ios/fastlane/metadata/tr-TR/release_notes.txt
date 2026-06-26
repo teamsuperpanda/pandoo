@@ -1,6 +1,5 @@
-Sürüm 2.4.0'daki yenilikler:
-• Hata düzeltmeleri ve performans iyileştirmeleri.
-• Analitik artık isteğe bağlı (varsayılan olarak devre dışı).
-• 55'ten fazla dil için geliştirilmiş çeviriler.
-• Öğe eklerken klavye kapanması düzeltildi.
-• Daha iyi hata yönetimi ve veri güvenliği.
+Sürüm 2.5.0'daki yenilikler:
+• En çok kullandığınız listeleri sabitleyin ve dilediğiniz gibi yeniden sıralayın.
+• Herhangi bir listede öğe arayarak ihtiyacınız olanı hızlıca bulun.
+• Kaydırarak tek tek yapılacak öğeleri silin.
+• Tamamlanan ve tamamlanmayan öğeler için geliştirilmiş erişilebilirlik etiketleri.

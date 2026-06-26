@@ -7,7 +7,6 @@ import 'package:pandoo/dialog/settings.dart';
 import 'package:pandoo/l10n/l10n.dart';
 import 'package:pandoo/services/settings_service.dart';
 import 'package:pandoo/services/storage_service.dart';
-import 'package:pandoo/services/umami_service.dart';
 import 'package:pandoo/widgets/lists/show_lists.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -16,8 +15,6 @@ class HomeScreen extends StatefulWidget {
     required this.currentThemeMode,
     required this.onLanguageChanged,
     required this.currentLocale,
-    required this.umamiService,
-    this.onAnalyticsChanged,
     super.key,
   });
 
@@ -25,8 +22,6 @@ class HomeScreen extends StatefulWidget {
   final ThemeMode currentThemeMode;
   final void Function(Locale?) onLanguageChanged;
   final Locale? currentLocale;
-  final UmamiService umamiService;
-  final void Function(bool)? onAnalyticsChanged;
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -55,7 +50,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       CurvedAnimation(parent: _fabController, curve: Curves.easeInOut),
     );
     SettingsService().notifier.addListener(_onSettingsChanged);
-    widget.umamiService.trackPageView(url: '/', title: 'Home');
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (mounted && SettingsService().getFabAnimation()) {
         unawaited(_fabController.repeat(reverse: true));
@@ -86,28 +80,17 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   }
 
   void _openSettings(BuildContext context) {
-    widget.umamiService.trackEvent(eventName: AnalyticsEvent.settingsOpen);
     unawaited(showDialog<void>(
       context: context,
       builder: (context) => SettingsDialog(
         onThemeChanged: (mode) {
-          widget.umamiService.trackEvent(
-            eventName: AnalyticsEvent.themeToggle,
-            data: {'theme': mode.name},
-          );
           widget.onThemeChanged(mode);
         },
         currentThemeMode: widget.currentThemeMode,
         onLanguageChanged: (locale) {
-          widget.umamiService.trackEvent(
-            eventName: AnalyticsEvent.languageChange,
-            data: {'locale': locale?.toString() ?? 'system'},
-          );
           widget.onLanguageChanged(locale);
         },
         currentLocale: widget.currentLocale,
-        analyticsEnabled: widget.umamiService.enabled,
-        onAnalyticsChanged: widget.onAnalyticsChanged,
         fabAnimation: SettingsService().getFabAnimation(),
         onFabAnimationChanged: (value) {
           unawaited(SettingsService().setFabAnimation(value));
@@ -174,10 +157,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       ),
       body: Stack(
         children: [
-          SafeArea(
-            child: ShowLists(
-              umamiService: widget.umamiService,
-            ),
+          const SafeArea(
+            child: ShowLists(),
           ),
           Positioned(
             right: 16,
@@ -217,10 +198,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       ..showSnackBar(snackBar);
                     return;
                   }
-                  widget.umamiService.trackEvent(
-                    eventName: AnalyticsEvent.listCreate,
-                    data: {'list': name},
-                  );
                 },
                 child: const Icon(Icons.add),
               ),

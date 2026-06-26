@@ -2,19 +2,19 @@
     "appTitle": "Pandoo",
     "renameList": "Preimenuj Seznam",
     "listName": "Ime Seznama",
-    "cancel": "Prekliči",
+    "cancel": "Prekli\u010di",
     "rename": "Preimenuj",
-    "delete": "Izbriši",
-    "deleteList": "Izbriši Seznam",
-    "deleteConfirmation": "Ali ste prepričani, da želite izbrisati \"{listTitle}\"?",
+    "delete": "Izbri\u0161i",
+    "deleteList": "Izbri\u0161i Seznam",
+    "deleteConfirmation": "Ali ste prepri\u010dani, da \u017eelite izbrisati \"{listTitle}\"?",
     "@deleteConfirmation": {
         "placeholders": {
             "listTitle": {}
         }
     },
-    "cleanCompleted": "Počisti Končane Elemente",
-    "cleanConfirmation": "Odstrani vse končane elemente s tega seznama?",
-    "clean": "Počisti",
+    "cleanCompleted": "Po\u010disti Kon\u010dane Elemente",
+    "cleanConfirmation": "Odstrani vse kon\u010dane elemente s tega seznama?",
+    "clean": "Po\u010disti",
     "itemsCount": "{count} elementov",
     "@itemsCount": {
         "placeholders": {
@@ -27,8 +27,8 @@
     "light": "Svetla",
     "dark": "Temna",
     "close": "Zapri",
-    "listExists": "Seznam Že Obstaja",
-    "listExistsMessage": "'{name}' že obstaja",
+    "listExists": "Seznam \u017de Obstaja",
+    "listExistsMessage": "'{name}' \u017ee obstaja",
     "@listExistsMessage": {
         "placeholders": {
             "name": {}
@@ -41,6 +41,18 @@
     "nameCannotBeEmpty": "Name cannot be empty",
     "pin": "Pin",
     "unpin": "Unpin",
-    "analytics": "Analytics",
-    "enableAnalytics": "Enable Analytics"
+    "searchItems": "Search items...",
+    "@searchItems": {},
+    "completedItemLabel": "Completed: {title}",
+    "@completedItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    },
+    "incompleteItemLabel": "Incomplete: {title}",
+    "@incompleteItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    }
 }

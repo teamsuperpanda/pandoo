@@ -1,9 +1,9 @@
 {
     "appTitle": "Pandoo",
-    "renameList": "Nimeä Lista Uudelleen",
+    "renameList": "Nime\u00e4 Lista Uudelleen",
     "listName": "Listan Nimi",
     "cancel": "Peruuta",
-    "rename": "Nimeä Uudelleen",
+    "rename": "Nime\u00e4 Uudelleen",
     "delete": "Poista",
     "deleteList": "Poista Lista",
     "deleteConfirmation": "Haluatko varmasti poistaa \"{listTitle}\"?",
@@ -12,9 +12,9 @@
             "listTitle": {}
         }
     },
-    "cleanCompleted": "Tyhjennä Valmiit Kohteet",
-    "cleanConfirmation": "Poistetaanko kaikki valmiit kohteet tästä listasta?",
-    "clean": "Tyhjennä",
+    "cleanCompleted": "Tyhjenn\u00e4 Valmiit Kohteet",
+    "cleanConfirmation": "Poistetaanko kaikki valmiit kohteet t\u00e4st\u00e4 listasta?",
+    "clean": "Tyhjenn\u00e4",
     "itemsCount": "{count} kohdetta",
     "@itemsCount": {
         "placeholders": {
@@ -23,7 +23,7 @@
     },
     "settings": "Asetukset",
     "theme": "Teema",
-    "system": "Järjestelmä",
+    "system": "J\u00e4rjestelm\u00e4",
     "light": "Vaalea",
     "dark": "Tumma",
     "close": "Sulje",
@@ -34,13 +34,25 @@
             "name": {}
         }
     },
-    "addNewList": "Lisää uusi lista...",
-    "addNewItem": "Lisää uusi kohde...",
+    "addNewList": "Lis\u00e4\u00e4 uusi lista...",
+    "addNewItem": "Lis\u00e4\u00e4 uusi kohde...",
     "language": "Kieli",
     "animateAddButton": "Animation",
     "nameCannotBeEmpty": "Name cannot be empty",
     "pin": "Pin",
     "unpin": "Unpin",
-    "analytics": "Analytics",
-    "enableAnalytics": "Enable Analytics"
+    "searchItems": "Search items...",
+    "@searchItems": {},
+    "completedItemLabel": "Completed: {title}",
+    "@completedItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    },
+    "incompleteItemLabel": "Incomplete: {title}",
+    "@incompleteItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    }
 }

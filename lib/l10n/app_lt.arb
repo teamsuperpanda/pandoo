@@ -1,20 +1,20 @@
 {
     "appTitle": "Pandoo",
-    "renameList": "Pervadinti Sąrašą",
-    "listName": "Sąrašo Pavadinimas",
-    "cancel": "Atšaukti",
+    "renameList": "Pervadinti S\u0105ra\u0161\u0105",
+    "listName": "S\u0105ra\u0161o Pavadinimas",
+    "cancel": "At\u0161aukti",
     "rename": "Pervadinti",
-    "delete": "Ištrinti",
-    "deleteList": "Ištrinti Sąrašą",
-    "deleteConfirmation": "Ar tikrai norite ištrinti \"{listTitle}\"?",
+    "delete": "I\u0161trinti",
+    "deleteList": "I\u0161trinti S\u0105ra\u0161\u0105",
+    "deleteConfirmation": "Ar tikrai norite i\u0161trinti \"{listTitle}\"?",
     "@deleteConfirmation": {
         "placeholders": {
             "listTitle": {}
         }
     },
-    "cleanCompleted": "Išvalyti Baigtus Elementus",
-    "cleanConfirmation": "Pašalinti visus baigtus elementus iš šio sąrašo?",
-    "clean": "Išvalyti",
+    "cleanCompleted": "I\u0161valyti Baigtus Elementus",
+    "cleanConfirmation": "Pa\u0161alinti visus baigtus elementus i\u0161 \u0161io s\u0105ra\u0161o?",
+    "clean": "I\u0161valyti",
     "itemsCount": "{count} elementai",
     "@itemsCount": {
         "placeholders": {
@@ -24,23 +24,35 @@
     "settings": "Nustatymai",
     "theme": "Tema",
     "system": "Sistema",
-    "light": "Šviesus",
+    "light": "\u0160viesus",
     "dark": "Tamsus",
-    "close": "Uždaryti",
-    "listExists": "Sąrašas Jau Egzistuoja",
+    "close": "U\u017edaryti",
+    "listExists": "S\u0105ra\u0161as Jau Egzistuoja",
     "listExistsMessage": "'{name}' jau egzistuoja",
     "@listExistsMessage": {
         "placeholders": {
             "name": {}
         }
     },
-    "addNewList": "Pridėti naują sąrašą...",
-    "addNewItem": "Pridėti naują elementą...",
+    "addNewList": "Prid\u0117ti nauj\u0105 s\u0105ra\u0161\u0105...",
+    "addNewItem": "Prid\u0117ti nauj\u0105 element\u0105...",
     "language": "Kalba",
     "animateAddButton": "Animation",
     "nameCannotBeEmpty": "Name cannot be empty",
     "pin": "Pin",
     "unpin": "Unpin",
-    "analytics": "Analytics",
-    "enableAnalytics": "Enable Analytics"
+    "searchItems": "Search items...",
+    "@searchItems": {},
+    "completedItemLabel": "Completed: {title}",
+    "@completedItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    },
+    "incompleteItemLabel": "Incomplete: {title}",
+    "@incompleteItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    }
 }

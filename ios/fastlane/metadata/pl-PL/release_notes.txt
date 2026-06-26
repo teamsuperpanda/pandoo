@@ -1,6 +1,5 @@
-Co nowego w wersji 2.4.0:
-• Poprawki błędów i ulepszenia wydajności.
-• Analityka jest teraz opcjonalna (domyślnie wyłączona).
-• Ulepszone tłumaczenia dla ponad 55 języków.
-• Naprawiono zamykanie klawiatury podczas dodawania elementów.
-• Lepsza obsługa błędów i bezpieczeństwo danych.
+Co nowego w wersji 2.5.0:
+• Przypnij swoje najczęściej używane listy i zmieniaj ich kolejność według własnego uznania.
+• Szukaj elementów na dowolnej liście, aby szybko znaleźć to, czego potrzebujesz.
+• Przesuń palcem, aby usunąć pojedyncze zadania.
+• Ulepszone etykiety dostępności dla ukończonych i nieukończonych elementów.

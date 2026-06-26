@@ -2,11 +2,11 @@
     "appTitle": "Pandoo",
     "renameList": "Canviar Nom de la Llista",
     "listName": "Nom de la Llista",
-    "cancel": "Cancel·lar",
+    "cancel": "Cancel\u00b7lar",
     "rename": "Canviar Nom",
     "delete": "Eliminar",
     "deleteList": "Eliminar Llista",
-    "deleteConfirmation": "Estàs segur que vols eliminar \"{listTitle}\"?",
+    "deleteConfirmation": "Est\u00e0s segur que vols eliminar \"{listTitle}\"?",
     "@deleteConfirmation": {
         "placeholders": {
             "listTitle": {}
@@ -21,7 +21,7 @@
             "count": {}
         }
     },
-    "settings": "Configuració",
+    "settings": "Configuraci\u00f3",
     "theme": "Tema",
     "system": "Sistema",
     "light": "Clar",
@@ -41,6 +41,18 @@
     "nameCannotBeEmpty": "Name cannot be empty",
     "pin": "Pin",
     "unpin": "Unpin",
-    "analytics": "Analytics",
-    "enableAnalytics": "Enable Analytics"
+    "searchItems": "Search items...",
+    "@searchItems": {},
+    "completedItemLabel": "Completed: {title}",
+    "@completedItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    },
+    "incompleteItemLabel": "Incomplete: {title}",
+    "@incompleteItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    }
 }

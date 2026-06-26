@@ -1,46 +1,58 @@
 {
-    "appTitle": "แพนดู",
-    "renameList": "เปลี่ยนชื่อรายการ",
-    "listName": "ชื่อรายการ",
-    "cancel": "ยกเลิก",
-    "rename": "เปลี่ยนชื่อ",
-    "delete": "ลบ",
-    "deleteList": "ลบรายการ",
-    "deleteConfirmation": "คุณแน่ใจหรือไม่ว่าต้องการลบ \"{listTitle}\"?",
+    "appTitle": "\u0e41\u0e1e\u0e19\u0e14\u0e39",
+    "renameList": "\u0e40\u0e1b\u0e25\u0e35\u0e48\u0e22\u0e19\u0e0a\u0e37\u0e48\u0e2d\u0e23\u0e32\u0e22\u0e01\u0e32\u0e23",
+    "listName": "\u0e0a\u0e37\u0e48\u0e2d\u0e23\u0e32\u0e22\u0e01\u0e32\u0e23",
+    "cancel": "\u0e22\u0e01\u0e40\u0e25\u0e34\u0e01",
+    "rename": "\u0e40\u0e1b\u0e25\u0e35\u0e48\u0e22\u0e19\u0e0a\u0e37\u0e48\u0e2d",
+    "delete": "\u0e25\u0e1a",
+    "deleteList": "\u0e25\u0e1a\u0e23\u0e32\u0e22\u0e01\u0e32\u0e23",
+    "deleteConfirmation": "\u0e04\u0e38\u0e13\u0e41\u0e19\u0e48\u0e43\u0e08\u0e2b\u0e23\u0e37\u0e2d\u0e44\u0e21\u0e48\u0e27\u0e48\u0e32\u0e15\u0e49\u0e2d\u0e07\u0e01\u0e32\u0e23\u0e25\u0e1a \"{listTitle}\"?",
     "@deleteConfirmation": {
         "placeholders": {
             "listTitle": {}
         }
     },
-    "cleanCompleted": "ล้างรายการที่เสร็จสิ้น",
-    "cleanConfirmation": "ลบรายการที่เสร็จสิ้นทั้งหมดจากรายการนี้?",
-    "clean": "ล้าง",
-    "itemsCount": "{count} รายการ",
+    "cleanCompleted": "\u0e25\u0e49\u0e32\u0e07\u0e23\u0e32\u0e22\u0e01\u0e32\u0e23\u0e17\u0e35\u0e48\u0e40\u0e2a\u0e23\u0e47\u0e08\u0e2a\u0e34\u0e49\u0e19",
+    "cleanConfirmation": "\u0e25\u0e1a\u0e23\u0e32\u0e22\u0e01\u0e32\u0e23\u0e17\u0e35\u0e48\u0e40\u0e2a\u0e23\u0e47\u0e08\u0e2a\u0e34\u0e49\u0e19\u0e17\u0e31\u0e49\u0e07\u0e2b\u0e21\u0e14\u0e08\u0e32\u0e01\u0e23\u0e32\u0e22\u0e01\u0e32\u0e23\u0e19\u0e35\u0e49?",
+    "clean": "\u0e25\u0e49\u0e32\u0e07",
+    "itemsCount": "{count} \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23",
     "@itemsCount": {
         "placeholders": {
             "count": {}
         }
     },
-    "settings": "การตั้งค่า",
-    "theme": "ธีม",
-    "system": "ระบบ",
-    "light": "สว่าง",
-    "dark": "มืด",
-    "close": "ปิด",
-    "listExists": "มีรายการนี้อยู่แล้ว",
-    "listExistsMessage": "'{name}' มีอยู่แล้ว",
+    "settings": "\u0e01\u0e32\u0e23\u0e15\u0e31\u0e49\u0e07\u0e04\u0e48\u0e32",
+    "theme": "\u0e18\u0e35\u0e21",
+    "system": "\u0e23\u0e30\u0e1a\u0e1a",
+    "light": "\u0e2a\u0e27\u0e48\u0e32\u0e07",
+    "dark": "\u0e21\u0e37\u0e14",
+    "close": "\u0e1b\u0e34\u0e14",
+    "listExists": "\u0e21\u0e35\u0e23\u0e32\u0e22\u0e01\u0e32\u0e23\u0e19\u0e35\u0e49\u0e2d\u0e22\u0e39\u0e48\u0e41\u0e25\u0e49\u0e27",
+    "listExistsMessage": "'{name}' \u0e21\u0e35\u0e2d\u0e22\u0e39\u0e48\u0e41\u0e25\u0e49\u0e27",
     "@listExistsMessage": {
         "placeholders": {
             "name": {}
         }
     },
-    "addNewList": "เพิ่มรายการใหม่...",
-    "addNewItem": "เพิ่มรายการใหม่...",
-    "language": "ภาษา",
+    "addNewList": "\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e23\u0e32\u0e22\u0e01\u0e32\u0e23\u0e43\u0e2b\u0e21\u0e48...",
+    "addNewItem": "\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e23\u0e32\u0e22\u0e01\u0e32\u0e23\u0e43\u0e2b\u0e21\u0e48...",
+    "language": "\u0e20\u0e32\u0e29\u0e32",
     "animateAddButton": "Animation",
     "nameCannotBeEmpty": "Name cannot be empty",
     "pin": "Pin",
     "unpin": "Unpin",
-    "analytics": "Analytics",
-    "enableAnalytics": "Enable Analytics"
+    "searchItems": "Search items...",
+    "@searchItems": {},
+    "completedItemLabel": "Completed: {title}",
+    "@completedItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    },
+    "incompleteItemLabel": "Incomplete: {title}",
+    "@incompleteItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    }
 }

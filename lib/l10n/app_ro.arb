@@ -1,46 +1,58 @@
 {
     "appTitle": "Pandoo",
-    "renameList": "Redenumește Lista",
+    "renameList": "Redenume\u0219te Lista",
     "listName": "Numele Listei",
-    "cancel": "Anulează",
-    "rename": "Redenumește",
-    "delete": "Șterge",
-    "deleteList": "Șterge Lista",
-    "deleteConfirmation": "Sigur doriți să ștergeți \"{listTitle}\"?",
+    "cancel": "Anuleaz\u0103",
+    "rename": "Redenume\u0219te",
+    "delete": "\u0218terge",
+    "deleteList": "\u0218terge Lista",
+    "deleteConfirmation": "Sigur dori\u021bi s\u0103 \u0219terge\u021bi \"{listTitle}\"?",
     "@deleteConfirmation": {
         "placeholders": {
             "listTitle": {}
         }
     },
-    "cleanCompleted": "Curăță Elementele Completate",
-    "cleanConfirmation": "Eliminați toate elementele completate din această listă?",
-    "clean": "Curăță",
+    "cleanCompleted": "Cur\u0103\u021b\u0103 Elementele Completate",
+    "cleanConfirmation": "Elimina\u021bi toate elementele completate din aceast\u0103 list\u0103?",
+    "clean": "Cur\u0103\u021b\u0103",
     "itemsCount": "{count} elemente",
     "@itemsCount": {
         "placeholders": {
             "count": {}
         }
     },
-    "settings": "Setări",
-    "theme": "Temă",
+    "settings": "Set\u0103ri",
+    "theme": "Tem\u0103",
     "system": "Sistem",
     "light": "Luminos",
-    "dark": "Întunecat",
-    "close": "Închide",
-    "listExists": "Lista Există Deja",
-    "listExistsMessage": "'{name}' există deja",
+    "dark": "\u00centunecat",
+    "close": "\u00cenchide",
+    "listExists": "Lista Exist\u0103 Deja",
+    "listExistsMessage": "'{name}' exist\u0103 deja",
     "@listExistsMessage": {
         "placeholders": {
             "name": {}
         }
     },
-    "addNewList": "Adaugă listă nouă...",
-    "addNewItem": "Adaugă element nou...",
-    "language": "Limbă",
+    "addNewList": "Adaug\u0103 list\u0103 nou\u0103...",
+    "addNewItem": "Adaug\u0103 element nou...",
+    "language": "Limb\u0103",
     "animateAddButton": "Animation",
     "nameCannotBeEmpty": "Name cannot be empty",
     "pin": "Pin",
     "unpin": "Unpin",
-    "analytics": "Analytics",
-    "enableAnalytics": "Enable Analytics"
+    "searchItems": "Search items...",
+    "@searchItems": {},
+    "completedItemLabel": "Completed: {title}",
+    "@completedItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    },
+    "incompleteItemLabel": "Incomplete: {title}",
+    "@incompleteItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    }
 }

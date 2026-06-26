@@ -1,6 +1,5 @@
-Vad är nytt i version 2.4.0:
-• Buggfixar och prestandaförbättringar.
-• Analys är nu valfritt (inaktiverat som standard).
-• Förbättrade översättningar för över 55 språk.
-• Åtgärdat tangentbordsstängning vid tillägg av objekt.
-• Bättre felhantering och datasäkerhet.
+Vad är nytt i version 2.5.0:
+• Fäst dina mest använda listor och ordna om dem som du vill.
+• Sök efter objekt i valfri lista för att snabbt hitta vad du behöver.
+• Svep för att ta bort enskilda att-göra-objekt.
+• Förbättrade tillgänglighetsetiketter för slutförda och ofullständiga objekt.

@@ -1,34 +1,34 @@
 {
     "appTitle": "Pandoo",
-    "renameList": "Pārdēvēt Sarakstu",
+    "renameList": "P\u0101rd\u0113v\u0113t Sarakstu",
     "listName": "Saraksta Nosaukums",
     "cancel": "Atcelt",
-    "rename": "Pārdēvēt",
-    "delete": "Dzēst",
-    "deleteList": "Dzēst Sarakstu",
-    "deleteConfirmation": "Vai tiešām vēlaties dzēst \"{listTitle}\"?",
+    "rename": "P\u0101rd\u0113v\u0113t",
+    "delete": "Dz\u0113st",
+    "deleteList": "Dz\u0113st Sarakstu",
+    "deleteConfirmation": "Vai tie\u0161\u0101m v\u0113laties dz\u0113st \"{listTitle}\"?",
     "@deleteConfirmation": {
         "placeholders": {
             "listTitle": {}
         }
     },
-    "cleanCompleted": "Notīrīt Pabeigtos Vienumus",
-    "cleanConfirmation": "Noņemt visus pabeigtos vienumus no šī saraksta?",
-    "clean": "Notīrīt",
+    "cleanCompleted": "Not\u012br\u012bt Pabeigtos Vienumus",
+    "cleanConfirmation": "No\u0146emt visus pabeigtos vienumus no \u0161\u012b saraksta?",
+    "clean": "Not\u012br\u012bt",
     "itemsCount": "{count} vienumi",
     "@itemsCount": {
         "placeholders": {
             "count": {}
         }
     },
-    "settings": "Iestatījumi",
-    "theme": "Tēma",
-    "system": "Sistēma",
-    "light": "Gaišs",
-    "dark": "Tumšs",
-    "close": "Aizvērt",
-    "listExists": "Saraksts Jau Pastāv",
-    "listExistsMessage": "'{name}' jau pastāv",
+    "settings": "Iestat\u012bjumi",
+    "theme": "T\u0113ma",
+    "system": "Sist\u0113ma",
+    "light": "Gai\u0161s",
+    "dark": "Tum\u0161s",
+    "close": "Aizv\u0113rt",
+    "listExists": "Saraksts Jau Past\u0101v",
+    "listExistsMessage": "'{name}' jau past\u0101v",
     "@listExistsMessage": {
         "placeholders": {
             "name": {}
@@ -41,6 +41,18 @@
     "nameCannotBeEmpty": "Name cannot be empty",
     "pin": "Pin",
     "unpin": "Unpin",
-    "analytics": "Analytics",
-    "enableAnalytics": "Enable Analytics"
+    "searchItems": "Search items...",
+    "@searchItems": {},
+    "completedItemLabel": "Completed: {title}",
+    "@completedItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    },
+    "incompleteItemLabel": "Incomplete: {title}",
+    "@incompleteItemLabel": {
+        "placeholders": {
+            "title": {}
+        }
+    }
 }
