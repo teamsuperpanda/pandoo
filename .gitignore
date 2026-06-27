@@ -46,6 +46,9 @@ ios/Runner/GeneratedPluginRegistrant.*
 **/ios/.generated/
 **/ios/Pods/
 
+# Web (local dev only)
+web/
+
 # macOS
 macos/Flutter/ephemeral/
 
