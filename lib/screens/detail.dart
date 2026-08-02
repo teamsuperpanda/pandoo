@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:pandoo/dialog/clean_dialog.dart';
@@ -8,7 +7,8 @@ import 'package:pandoo/dialog/list_name_dialog.dart';
 import 'package:pandoo/l10n/l10n.dart';
 import 'package:pandoo/models/list_model.dart';
 import 'package:pandoo/services/storage_service.dart';
-import 'package:pandoo/widgets/detail/add_item.dart';
+import 'package:pandoo/widgets/shared/add_input_bar.dart';
+import 'package:pandoo/widgets/shared/app_snackbar.dart';
 
 class DetailScreen extends StatefulWidget {
   const DetailScreen({
@@ -146,10 +146,10 @@ class _DetailScreenState extends State<DetailScreen> {
             ),
             ColoredBox(
               color: Theme.of(context).scaffoldBackgroundColor,
-                child: AddItem(
-                onItemAdded: (String text) async {
-                  await _storage.addItemToList(_currentListTitle, text);
-                },
+              child: AddInputBar(
+                hintText: context.l10n.addNewItem,
+                onSubmit: (text) =>
+                    _storage.addItemToList(_currentListTitle, text),
               ),
             ),
           ],
@@ -164,11 +164,10 @@ class _DetailScreenState extends State<DetailScreen> {
   ) async {
     final confirmed = await showDialog<bool>(
       context: context,
-      builder: (context) => Semantics(
-        child: const CleanDialog(),
-      ),
+      builder: (context) => const CleanDialog(),
     );
 
+    if (!mounted) return;
     if (confirmed ?? false) {
       await storage.removeCompletedItems(_currentListTitle);
     }
@@ -177,32 +176,22 @@ class _DetailScreenState extends State<DetailScreen> {
   Future<void> _showRenameDialog(BuildContext context) async {
     final newName = await showDialog<String>(
       context: context,
-      builder: (ctx) => Semantics(
-        child: ListNameDialog(
-          title: ctx.l10n.renameList,
-          buttonLabel: ctx.l10n.rename,
-          initialValue: _currentListTitle,
-        ),
+      builder: (ctx) => ListNameDialog(
+        title: ctx.l10n.renameList,
+        buttonLabel: ctx.l10n.rename,
+        initialValue: _currentListTitle,
       ),
     );
 
     if (newName != null && newName != _currentListTitle && context.mounted) {
       final success = await _storage.renameList(_currentListTitle, newName);
+      if (!context.mounted) return;
       if (!success) {
-        if (context.mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              elevation: 0,
-              behavior: SnackBarBehavior.floating,
-              backgroundColor: Colors.transparent,
-              content: AwesomeSnackbarContent(
-                title: context.l10n.listExists,
-                message: context.l10n.listExistsMessage(newName),
-                contentType: ContentType.failure,
-              ),
-            ),
-          );
-        }
+        showErrorSnackBar(
+          context,
+          title: context.l10n.listExists,
+          message: context.l10n.listExistsMessage(newName),
+        );
       } else {
         setState(() {
           _currentListTitle = newName;
@@ -231,11 +220,10 @@ class _TodoListView extends StatelessWidget {
         final list = box.get(listTitle);
         if (list == null) return const SizedBox();
 
-        var sortedItems = [...list.items]
-          ..sort((a, b) {
-            if (a.isCompleted == b.isCompleted) return 0;
-            return a.isCompleted ? 1 : -1;
-          });
+        var sortedItems = [
+          ...list.items.where((item) => !item.isCompleted),
+          ...list.items.where((item) => item.isCompleted),
+        ];
 
         if (searchQuery.isNotEmpty) {
           final query = searchQuery.trim().toLowerCase();

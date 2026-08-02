@@ -60,6 +60,7 @@ windows/flutter/ephemeral/
 
 # Test artifacts
 test/**/*.hive
+test/**/*.lock
 test/hive_testing_path/
 test/failures/
 test/settings_db_golden.lock

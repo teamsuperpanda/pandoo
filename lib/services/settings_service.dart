@@ -14,6 +14,7 @@ class SettingsService {
 
   late Box<Settings> _box;
   Settings? _cached;
+  Future<void> _mutationQueue = Future<void>.value();
   final ValueNotifier<Settings> notifier = ValueNotifier<Settings>(Settings());
 
   Future<void> init() async {
@@ -47,15 +48,10 @@ class SettingsService {
   }
 
   Future<void> setThemeMode(ThemeMode mode) async {
-    try {
-      final newSettings = _settings.copyWith(theme: mode);
-      await _box.put(_settingsKey, newSettings);
-      _cached = newSettings;
-      notifier.value = newSettings;
-    } on Object catch (e) {
-      debugPrint('SettingsService setThemeMode error: $e');
-      rethrow;
-    }
+    await _mutateSettings(
+      'setThemeMode',
+      (settings) => settings.copyWith(theme: mode),
+    );
   }
 
   Locale? getLocale() {
@@ -63,18 +59,13 @@ class SettingsService {
   }
 
   Future<void> setLocale(Locale? locale) async {
-    try {
-      final newSettings = _settings.copyWith(
+    await _mutateSettings(
+      'setLocale',
+      (settings) => settings.copyWith(
         locale: locale,
         clearLocale: locale == null,
-      );
-      await _box.put(_settingsKey, newSettings);
-      _cached = newSettings;
-      notifier.value = newSettings;
-    } on Object catch (e) {
-      debugPrint('SettingsService setLocale error: $e');
-      rethrow;
-    }
+      ),
+    );
   }
 
   bool getFabAnimation() {
@@ -82,15 +73,33 @@ class SettingsService {
   }
 
   Future<void> setFabAnimation(bool value) async {
-    try {
-      final newSettings = _settings.copyWith(fabAnimation: value);
-      await _box.put(_settingsKey, newSettings);
-      _cached = newSettings;
-      notifier.value = newSettings;
-    } on Object catch (e) {
-      debugPrint('SettingsService setFabAnimation error: $e');
-      rethrow;
-    }
+    await _mutateSettings(
+      'setFabAnimation',
+      (settings) => settings.copyWith(fabAnimation: value),
+    );
+  }
+
+  Future<void> _mutateSettings(
+    String operationName,
+    Settings Function(Settings settings) update,
+  ) {
+    final operation = _mutationQueue.then((_) async {
+      try {
+        final newSettings = update(_settings);
+        await _box.put(_settingsKey, newSettings);
+        _cached = newSettings;
+        notifier.value = newSettings;
+      } on Object catch (error) {
+        debugPrint('SettingsService $operationName error: $error');
+        rethrow;
+      }
+    });
+
+    _mutationQueue = operation.then<void>(
+      (_) {},
+      onError: (Object _, StackTrace _) {},
+    );
+    return operation;
   }
 
   @visibleForTesting

@@ -43,9 +43,6 @@ jobs:
       - name: Generate localization
         run: flutter gen-l10n
 
-      - name: Format generated files
-        run: dart format lib/ test/
-
       - name: Verify formatting
         run: dart format --set-exit-if-changed lib/ test/
 

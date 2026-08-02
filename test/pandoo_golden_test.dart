@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:hive/hive.dart';
 import 'package:pandoo/core/theme/app_theme.dart';
 import 'package:pandoo/l10n/app_localizations.dart';
@@ -248,7 +247,6 @@ void main() {
       late MockBox mockBox;
 
       setUp(() async {
-        GoogleFonts.config.allowRuntimeFetching = false;
         mockBox = MockBox();
         StorageService.setTestInstance(mockBox);
         await _initSettingsService();

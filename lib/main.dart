@@ -1,11 +1,9 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:pandoo/core/theme/app_theme.dart';
 import 'package:pandoo/l10n/app_localizations.dart';
+import 'package:pandoo/models/settings_model.dart';
 import 'package:pandoo/screens/home_screen.dart';
 import 'package:pandoo/services/settings_service.dart';
 import 'package:pandoo/services/storage_service.dart';
@@ -17,7 +15,6 @@ void main() async {
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
   try {
-    await Hive.initFlutter();
     await StorageService().init();
     await SettingsService().init();
   } finally {
@@ -27,89 +24,26 @@ void main() async {
   runApp(const MyApp());
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  ThemeMode _themeMode = ThemeMode.system;
-  Locale? _locale;
-  final _settings = SettingsService();
-  bool _isInitialized = false;
-  late final ThemeData _lightTheme = AppTheme.light();
-  late final ThemeData _darkTheme = AppTheme.dark();
-
-  @override
-  void initState() {
-    super.initState();
-    unawaited(_initializeApp());
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
-
-  Future<void> _initializeApp() async {
-    try {
-      _themeMode = _settings.getThemeMode();
-      _locale = _settings.getLocale();
-
-      setState(() {
-        _isInitialized = true;
-      });
-    } finally {
-      FlutterNativeSplash.remove();
-    }
-  }
-
-  Future<void> _handleThemeChange(ThemeMode themeMode) async {
-    await _settings.setThemeMode(themeMode);
-    setState(() {
-      _themeMode = themeMode;
-    });
-  }
-
-  Future<void> _handleLanguageChange(Locale? locale) async {
-    await _settings.setLocale(locale);
-    setState(() {
-      _locale = locale;
-    });
-  }
+  static final ThemeData _lightTheme = AppTheme.light();
+  static final ThemeData _darkTheme = AppTheme.dark();
 
   @override
   Widget build(BuildContext context) {
-    if (!_isInitialized) {
-      return MaterialApp(
+    return ValueListenableBuilder<Settings>(
+      valueListenable: SettingsService().notifier,
+      builder: (context, settings, _) => MaterialApp(
         debugShowCheckedModeBanner: false,
+        title: 'Pandoo',
         theme: _lightTheme,
         darkTheme: _darkTheme,
-        themeMode: _themeMode,
-        home: const Scaffold(
-          body: Center(
-            child: CircularProgressIndicator(),
-          ),
-        ),
-      );
-    }
-
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Pandoo',
-      theme: _lightTheme,
-      darkTheme: _darkTheme,
-      themeMode: _themeMode,
-      locale: _locale,
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      home: HomeScreen(
-        onThemeChanged: _handleThemeChange,
-        currentThemeMode: _themeMode,
-        onLanguageChanged: _handleLanguageChange,
-        currentLocale: _locale,
+        themeMode: settings.theme,
+        locale: settings.locale,
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: const HomeScreen(),
       ),
     );
   }

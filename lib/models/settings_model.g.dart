@@ -19,7 +19,7 @@ class SettingsAdapter extends TypeAdapter<Settings> {
     return Settings(
       locale: fields[0] as Locale?,
       theme: fields[1] as ThemeMode,
-      fabAnimation: fields[3] as bool? ?? true,
+      fabAnimation: fields[2] as bool? ?? true,
     );
   }
 

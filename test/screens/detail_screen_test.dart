@@ -78,6 +78,46 @@ void main() {
       expect(find.text('Bread'), findsOneWidget);
     });
 
+    testWidgets('groups items stably by completion', (tester) async {
+      await mockBox.put(
+        'Shopping',
+        MockBox.createMockList(
+          'Shopping',
+          0,
+          items: [
+            TodoItem(text: 'Completed first', isCompleted: true),
+            TodoItem(text: 'Incomplete first'),
+            TodoItem(text: 'Completed second', isCompleted: true),
+            TodoItem(text: 'Incomplete second'),
+          ],
+        ),
+      );
+
+      await tester.pumpWidget(
+        wrapWithMaterialApp(
+          const DetailScreen(listTitle: 'Shopping'),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      final titles = tester
+          .widgetList<Text>(
+            find.descendant(
+              of: find.byType(ListTile),
+              matching: find.byType(Text),
+            ),
+          )
+          .map((text) => text.data)
+          .toList();
+
+      expect(titles, [
+        'Incomplete first',
+        'Incomplete second',
+        'Completed first',
+        'Completed second',
+      ]);
+    });
+
     testWidgets('renders add item widget', (tester) async {
       await mockBox.put(
         'Shopping',

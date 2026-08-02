@@ -116,10 +116,11 @@ class StorageService {
           unpinned.insert(adjustedNew, item);
         }
 
-        for (var i = 0; i < unpinned.length; i++) {
-          final list = unpinned[i];
-          await _listsBox.put(list.name, list.copyWith(order: i));
-        }
+        final updates = <dynamic, ListModel>{
+          for (var i = 0; i < unpinned.length; i++)
+            unpinned[i].name: unpinned[i].copyWith(order: i),
+        };
+        await _listsBox.putAll(updates);
       } catch (e) {
         debugPrint('StorageService.reorderLists error: $e');
         rethrow;
@@ -131,13 +132,11 @@ class StorageService {
     return _lock.synchronized(() async {
       try {
         await _listsBox.delete(name);
-        final lists = getAllLists();
-        for (var i = 0; i < lists.length; i++) {
-          final list = lists[i];
-          if (list.order != i) {
-            await _listsBox.put(list.name, list.copyWith(order: i));
-          }
-        }
+        await _putAllIfNotEmpty(
+          _normalizedUnpinnedUpdates(
+            getAllLists().where((list) => !list.pinned),
+          ),
+        );
       } catch (e) {
         debugPrint('StorageService.deleteList error: $e');
         rethrow;
@@ -155,8 +154,17 @@ class StorageService {
         }
         final list = _listsBox.get(oldName);
         if (list != null) {
-          await _listsBox.delete(oldName);
           await _listsBox.put(trimmed, list.copyWith(name: trimmed));
+          try {
+            await _listsBox.delete(oldName);
+          } on Object catch (_) {
+            try {
+              await _listsBox.delete(trimmed);
+            } on Object catch (_) {
+              // Keep the original entry even if rolling back the copy fails.
+            }
+            rethrow;
+          }
           return true;
         }
         return false;
@@ -172,7 +180,24 @@ class StorageService {
       try {
         final list = _listsBox.get(listName);
         if (list != null) {
-          await _listsBox.put(listName, list.copyWith(pinned: !list.pinned));
+          final unpinnedLists = getAllLists()
+              .where((candidate) => !candidate.pinned)
+              .toList();
+          if (list.pinned) {
+            final unpinned = list.copyWith(
+              pinned: false,
+              order: unpinnedLists.length,
+            );
+            final updates = _normalizedUnpinnedUpdates(unpinnedLists);
+            updates[listName] = unpinned;
+            await _listsBox.putAll(updates);
+          } else {
+            final updates = _normalizedUnpinnedUpdates(
+              unpinnedLists.where((candidate) => candidate.name != listName),
+            );
+            updates[listName] = list.copyWith(pinned: true);
+            await _listsBox.putAll(updates);
+          }
         }
       } catch (e) {
         debugPrint('StorageService.togglePin error: $e');
@@ -182,21 +207,7 @@ class StorageService {
   }
 
   ValueListenable<Box<ListModel>> getBoxNotifier() {
-    if (_listsBox.isOpen) {
-      return _listsBox.listenable();
-    }
-    try {
-      if (!Hive.isBoxOpen(listsBoxName)) {
-        throw StateError('Storage not initialized');
-      }
-      return _listsBox.listenable();
-    } catch (e) {
-      if (Hive.isBoxOpen(listsBoxName)) {
-        _listsBox = Hive.box<ListModel>(listsBoxName);
-        return _listsBox.listenable();
-      }
-      rethrow;
-    }
+    return _listsBox.listenable();
   }
 
   ListModel? getList(String name) {
@@ -233,7 +244,9 @@ class StorageService {
       try {
         final list = _listsBox.get(listName);
         if (list == null) return;
-        final updatedItems = list.items.where((item) => item.id != itemId).toList();
+        final updatedItems = list.items
+            .where((item) => item.id != itemId)
+            .toList();
         await _listsBox.put(listName, list.copyWith(items: updatedItems));
       } catch (e) {
         debugPrint('StorageService.deleteItemFromList error: $e');
@@ -263,6 +276,26 @@ class StorageService {
   Future<void> close() async {
     if (_listsBox.isOpen) {
       await _listsBox.close();
+    }
+  }
+
+  Map<dynamic, ListModel> _normalizedUnpinnedUpdates(
+    Iterable<ListModel> unpinnedLists,
+  ) {
+    final updates = <dynamic, ListModel>{};
+    var order = 0;
+    for (final list in unpinnedLists) {
+      if (list.pinned || list.order != order) {
+        updates[list.name] = list.copyWith(pinned: false, order: order);
+      }
+      order++;
+    }
+    return updates;
+  }
+
+  Future<void> _putAllIfNotEmpty(Map<dynamic, ListModel> updates) async {
+    if (updates.isNotEmpty) {
+      await _listsBox.putAll(updates);
     }
   }
 

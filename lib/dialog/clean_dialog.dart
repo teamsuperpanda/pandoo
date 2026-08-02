@@ -11,11 +11,9 @@ class CleanDialog extends StatelessWidget {
         header: true,
         child: Text(context.l10n.cleanCompleted),
       ),
-      content: Semantics(
-        child: Text(
-          context.l10n.cleanConfirmation,
-          style: Theme.of(context).textTheme.bodyLarge,
-        ),
+      content: Text(
+        context.l10n.cleanConfirmation,
+        style: Theme.of(context).textTheme.bodyLarge,
       ),
       actions: [
         Semantics(

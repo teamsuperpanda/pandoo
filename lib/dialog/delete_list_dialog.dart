@@ -16,11 +16,9 @@ class DeleteListDialog extends StatelessWidget {
         header: true,
         child: Text(context.l10n.deleteList),
       ),
-      content: Semantics(
-        child: Text(
-          context.l10n.deleteConfirmation(listTitle),
-          style: Theme.of(context).textTheme.bodyLarge,
-        ),
+      content: Text(
+        context.l10n.deleteConfirmation(listTitle),
+        style: Theme.of(context).textTheme.bodyLarge,
       ),
       actions: [
         Semantics(

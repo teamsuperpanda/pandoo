@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:pandoo/l10n/l10n.dart';
@@ -8,6 +7,7 @@ import 'package:pandoo/models/list_model.dart';
 import 'package:pandoo/screens/detail.dart';
 import 'package:pandoo/services/storage_service.dart';
 import 'package:pandoo/widgets/lists/list_card.dart';
+import 'package:pandoo/widgets/shared/app_snackbar.dart';
 
 class ShowLists extends StatefulWidget {
   const ShowLists({super.key});
@@ -39,38 +39,33 @@ class ShowListsState extends State<ShowLists> {
             return ListCard(
               key: ValueKey(list.name),
               title: list.name,
+              itemCount: list.items.length,
               index: index,
               pinned: list.pinned,
               onTap: () {
-                unawaited(Navigator.push(
-                  context,
-                  MaterialPageRoute<DetailScreen>(
-                    builder: (context) => DetailScreen(
-                      listTitle: list.name,
+                unawaited(
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute<DetailScreen>(
+                      builder: (context) => DetailScreen(
+                        listTitle: list.name,
+                      ),
+                      settings: RouteSettings(name: '/detail/${list.name}'),
                     ),
-                    settings: RouteSettings(name: '/detail/${list.name}'),
                   ),
-                ));
+                );
               },
               onDelete: () async {
                 await _storage.deleteList(list.name);
               },
               onRename: (newName) async {
-                final messenger = ScaffoldMessenger.of(context);
                 final l10n = context.l10n;
                 final success = await _storage.renameList(list.name, newName);
                 if (!success && mounted) {
-                  messenger.showSnackBar(
-                    SnackBar(
-                      elevation: 0,
-                      behavior: SnackBarBehavior.floating,
-                      backgroundColor: Colors.transparent,
-                      content: AwesomeSnackbarContent(
-                        title: l10n.listExists,
-                        message: l10n.listExistsMessage(newName),
-                        contentType: ContentType.failure,
-                      ),
-                    ),
+                  showErrorSnackBar(
+                    this.context,
+                    title: l10n.listExists,
+                    message: l10n.listExistsMessage(newName),
                   );
                 }
               },

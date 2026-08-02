@@ -1,16 +1,15 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:pandoo/dialog/delete_list_dialog.dart';
 import 'package:pandoo/dialog/list_name_dialog.dart';
 import 'package:pandoo/l10n/l10n.dart';
-import 'package:pandoo/models/list_model.dart';
 import 'package:pandoo/services/storage_service.dart';
 
 class ListCard extends StatelessWidget {
   const ListCard({
     required this.title,
+    required this.itemCount,
     required this.onTap,
     required this.onDelete,
     required this.onRename,
@@ -20,6 +19,7 @@ class ListCard extends StatelessWidget {
   });
 
   final String title;
+  final int itemCount;
   final VoidCallback onTap;
   final VoidCallback onDelete;
   final void Function(String) onRename;
@@ -29,9 +29,7 @@ class ListCard extends StatelessWidget {
   Future<bool> _confirmDelete(BuildContext context) async {
     return await showDialog<bool>(
           context: context,
-          builder: (context) => Semantics(
-            child: DeleteListDialog(listTitle: title),
-          ),
+          builder: (context) => DeleteListDialog(listTitle: title),
         ) ??
         false;
   }
@@ -39,12 +37,10 @@ class ListCard extends StatelessWidget {
   Future<String?> _showRenameDialog(BuildContext context) async {
     final result = await showDialog<String>(
       context: context,
-      builder: (context) => Semantics(
-        child: ListNameDialog(
-          title: context.l10n.renameList,
-          buttonLabel: context.l10n.rename,
-          initialValue: title,
-        ),
+      builder: (context) => ListNameDialog(
+        title: context.l10n.renameList,
+        buttonLabel: context.l10n.rename,
+        initialValue: title,
       ),
     );
     return result;
@@ -129,13 +125,15 @@ class ListCard extends StatelessWidget {
                       children: [
                         Semantics(
                           header: true,
-                          child:                           GestureDetector(
+                          child: GestureDetector(
                             onTap: () {
-                              unawaited(_showRenameDialog(context).then((newName) {
-                                if (newName != null && newName != title) {
-                                  onRename(newName);
-                                }
-                              }));
+                              unawaited(
+                                _showRenameDialog(context).then((newName) {
+                                  if (newName != null && newName != title) {
+                                    onRename(newName);
+                                  }
+                                }),
+                              );
                             },
                             child: Text(
                               title,
@@ -147,30 +145,23 @@ class ListCard extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: 4),
-                        ValueListenableBuilder<Box<ListModel>>(
-                          valueListenable: StorageService().getBoxNotifier(),
-                          builder: (context, box, _) {
-                            final list = box.get(title);
-                            final itemCount = list?.items.length ?? 0;
-                            return Container(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 8,
-                                vertical: 4,
-                              ),
-                              decoration: BoxDecoration(
-                                color: theme.colorScheme.primary,
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              child: Text(
-                                context.l10n.itemsCount(itemCount.toString()),
-                                style: TextStyle(
-                                  color: theme.colorScheme.onPrimary,
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                            );
-                          },
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 8,
+                            vertical: 4,
+                          ),
+                          decoration: BoxDecoration(
+                            color: theme.colorScheme.primary,
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: Text(
+                            context.l10n.itemsCount(itemCount.toString()),
+                            style: TextStyle(
+                              color: theme.colorScheme.onPrimary,
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
                         ),
                       ],
                     ),

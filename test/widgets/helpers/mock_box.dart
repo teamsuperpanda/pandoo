@@ -12,6 +12,10 @@ class MockBox extends Fake implements Box<ListModel> {
   final Map<dynamic, ListModel> _store = {};
   bool _isOpen = true;
   late final _MockValueListenable _listenable;
+  Error? putError;
+  Error? deleteError;
+  dynamic putErrorKey;
+  dynamic deleteErrorKey;
 
   @override
   ListModel? get(dynamic key, {ListModel? defaultValue}) =>
@@ -19,8 +23,22 @@ class MockBox extends Fake implements Box<ListModel> {
 
   @override
   Future<void> put(dynamic key, ListModel value) async {
+    _throwIfPutFails(key);
     _store[key] = value;
     _listenable.notifyListeners();
+  }
+
+  @override
+  Future<void> putAll(Map<dynamic, ListModel> entries) async {
+    entries.keys.forEach(_throwIfPutFails);
+    _store.addAll(entries);
+    _listenable.notifyListeners();
+  }
+
+  void _throwIfPutFails(dynamic key) {
+    if (putError != null && (putErrorKey == null || putErrorKey == key)) {
+      throw putError!;
+    }
   }
 
   @override
@@ -39,6 +57,10 @@ class MockBox extends Fake implements Box<ListModel> {
 
   @override
   Future<void> delete(dynamic key) async {
+    if (deleteError != null &&
+        (deleteErrorKey == null || deleteErrorKey == key)) {
+      throw deleteError!;
+    }
     _store.remove(key);
     _listenable.notifyListeners();
   }

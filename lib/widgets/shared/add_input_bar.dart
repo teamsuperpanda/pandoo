@@ -28,8 +28,9 @@ class _AddInputBarState extends State<AddInputBar> {
     final text = _controller.text.trim();
     if (text.isEmpty) return;
     await widget.onSubmit(text);
+    if (!mounted) return;
     _controller.clear();
-    if (clearFocus && mounted) {
+    if (clearFocus) {
       FocusScope.of(context).unfocus();
     }
   }

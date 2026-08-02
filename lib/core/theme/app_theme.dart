@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:pandoo/core/theme/app_spacing.dart';
 
 class AppTheme {
@@ -28,7 +27,8 @@ class AppTheme {
       scrim: Colors.black54,
     );
 
-    final textTheme = GoogleFonts.interTextTheme().apply(
+    final textTheme = const TextTheme().apply(
+      fontFamily: 'Inter',
       bodyColor: colorScheme.onSurface,
       displayColor: colorScheme.onSurface,
     );
@@ -192,7 +192,8 @@ class AppTheme {
       scrim: Colors.black87,
     );
 
-    final textTheme = GoogleFonts.interTextTheme().apply(
+    final textTheme = const TextTheme().apply(
+      fontFamily: 'Inter',
       bodyColor: colorScheme.onSurface,
       displayColor: colorScheme.onSurface,
     );

@@ -7,7 +7,10 @@ class ThemeModeAdapter extends TypeAdapter<ThemeMode> {
 
   @override
   ThemeMode read(BinaryReader reader) {
-    return ThemeMode.values[reader.readByte()];
+    final index = reader.readByte();
+    return index >= 0 && index < ThemeMode.values.length
+        ? ThemeMode.values[index]
+        : ThemeMode.system;
   }
 
   @override

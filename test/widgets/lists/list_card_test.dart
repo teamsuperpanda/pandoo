@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pandoo/models/list_model.dart';
 import 'package:pandoo/services/storage_service.dart';
 import 'package:pandoo/widgets/lists/list_card.dart';
 
@@ -17,22 +16,12 @@ void main() {
     });
 
     testWidgets('renders list title and item count', (tester) async {
-      await mockBox.put(
-        'Shopping',
-        MockBox.createMockList(
-          'Shopping',
-          0,
-          items: [
-            TodoItem(text: 'Milk'),
-          ],
-        ),
-      );
-
       await tester.pumpWidget(
         wrapWithMaterialApp(
           Material(
             child: ListCard(
               title: 'Shopping',
+              itemCount: 1,
               onTap: () {},
               onDelete: () {},
               onRename: (String newName) {},
@@ -54,6 +43,7 @@ void main() {
           Material(
             child: ListCard(
               title: 'Pinned List',
+              itemCount: 0,
               onTap: () {},
               onDelete: () {},
               onRename: (String newName) {},
@@ -74,6 +64,7 @@ void main() {
           Material(
             child: ListCard(
               title: 'Unpinned List',
+              itemCount: 0,
               onTap: () {},
               onDelete: () {},
               onRename: (String newName) {},
@@ -94,6 +85,7 @@ void main() {
           Material(
             child: ListCard(
               title: 'Pinned List',
+              itemCount: 0,
               onTap: () {},
               onDelete: () {},
               onRename: (String newName) {},
@@ -114,6 +106,7 @@ void main() {
           Material(
             child: ListCard(
               title: 'Test List',
+              itemCount: 0,
               onTap: () {},
               onDelete: () {},
               onRename: (String newName) {},
@@ -132,24 +125,15 @@ void main() {
       expect(find.text('Delete'), findsOneWidget);
     });
 
-    testWidgets('renders title and item count for pinned lists', (tester) async {
-      await mockBox.put(
-        'Pinned',
-        MockBox.createMockList(
-          'Pinned',
-          0,
-          pinned: true,
-          items: [
-            TodoItem(text: 'Item 1'),
-          ],
-        ),
-      );
-
+    testWidgets('renders title and item count for pinned lists', (
+      tester,
+    ) async {
       await tester.pumpWidget(
         wrapWithMaterialApp(
           Material(
             child: ListCard(
               title: 'Pinned',
+              itemCount: 1,
               onTap: () {},
               onDelete: () {},
               onRename: (String newName) {},

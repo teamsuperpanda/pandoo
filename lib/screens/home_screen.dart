@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:pandoo/dialog/list_name_dialog.dart';
 import 'package:pandoo/dialog/settings.dart';
@@ -8,20 +7,10 @@ import 'package:pandoo/l10n/l10n.dart';
 import 'package:pandoo/services/settings_service.dart';
 import 'package:pandoo/services/storage_service.dart';
 import 'package:pandoo/widgets/lists/show_lists.dart';
+import 'package:pandoo/widgets/shared/app_snackbar.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({
-    required this.onThemeChanged,
-    required this.currentThemeMode,
-    required this.onLanguageChanged,
-    required this.currentLocale,
-    super.key,
-  });
-
-  final void Function(ThemeMode) onThemeChanged;
-  final ThemeMode currentThemeMode;
-  final void Function(Locale?) onLanguageChanged;
-  final Locale? currentLocale;
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -80,23 +69,12 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   }
 
   void _openSettings(BuildContext context) {
-    unawaited(showDialog<void>(
-      context: context,
-      builder: (context) => SettingsDialog(
-        onThemeChanged: (mode) {
-          widget.onThemeChanged(mode);
-        },
-        currentThemeMode: widget.currentThemeMode,
-        onLanguageChanged: (locale) {
-          widget.onLanguageChanged(locale);
-        },
-        currentLocale: widget.currentLocale,
-        fabAnimation: SettingsService().getFabAnimation(),
-        onFabAnimationChanged: (value) {
-          unawaited(SettingsService().setFabAnimation(value));
-        },
+    unawaited(
+      showDialog<void>(
+        context: context,
+        builder: (context) => const SettingsDialog(),
       ),
-    ));
+    );
   }
 
   @override
@@ -116,9 +94,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             style: theme.appBarTheme.titleTextStyle,
           ),
         ),
-        leading: Semantics(
-          button: true,
-          label: '',
+        leading: ExcludeSemantics(
           child: RotationTransition(
             turns: _animation,
             child: IconButton(
@@ -155,55 +131,37 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           ),
         ],
       ),
-      body: Stack(
-        children: [
-          const SafeArea(
-            child: ShowLists(),
-          ),
-          Positioned(
-            right: 16,
-            bottom: 16,
-            child: AnimatedBuilder(
-              animation: _fabAnimation,
-              builder: (context, child) => Transform.rotate(
-                angle: _fabAnimation.value,
-                child: child,
+      body: const SafeArea(child: ShowLists()),
+      floatingActionButton: AnimatedBuilder(
+        animation: _fabAnimation,
+        builder: (context, child) => Transform.rotate(
+          angle: _fabAnimation.value,
+          child: child,
+        ),
+        child: FloatingActionButton(
+          onPressed: () async {
+            final l10n = context.l10n;
+            final name = await showDialog<String>(
+              context: context,
+              builder: (ctx) => ListNameDialog(
+                title: ctx.l10n.addNewList,
+                buttonLabel: ctx.l10n.addNewList,
               ),
-              child: FloatingActionButton(
-                onPressed: () async {
-                  final l10n = context.l10n;
-                  final messenger = ScaffoldMessenger.of(context);
-                  final name = await showDialog<String>(
-                    context: context,
-                    builder: (ctx) => ListNameDialog(
-                      title: ctx.l10n.addNewList,
-                      buttonLabel: ctx.l10n.addNewList,
-                    ),
-                  );
-                  if (name == null || !mounted) return;
-                  final success = await StorageService().addList(name);
-                  if (!success) {
-                    final snackBar = SnackBar(
-                      elevation: 0,
-                      behavior: SnackBarBehavior.floating,
-                      backgroundColor: Colors.transparent,
-                      content: AwesomeSnackbarContent(
-                        title: l10n.listExists,
-                        message: l10n.listExistsMessage(name),
-                        contentType: ContentType.failure,
-                      ),
-                    );
-                    messenger
-                      ..hideCurrentSnackBar()
-                      ..showSnackBar(snackBar);
-                    return;
-                  }
-                },
-                child: const Icon(Icons.add),
-              ),
-            ),
-          ),
-        ],
+            );
+            if (name == null || !mounted) return;
+            final success = await StorageService().addList(name);
+            if (!context.mounted) return;
+            if (!success) {
+              showErrorSnackBar(
+                context,
+                title: l10n.listExists,
+                message: l10n.listExistsMessage(name),
+              );
+              return;
+            }
+          },
+          child: const Icon(Icons.add),
+        ),
       ),
     );
   }

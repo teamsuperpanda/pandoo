@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pandoo/services/storage_service.dart';
+
 import '../widgets/helpers/mock_box.dart';
 
 void main() {
@@ -65,6 +66,80 @@ void main() {
     expect(lists[1].pinned, isFalse);
   });
 
+  test('Pinning a list normalizes order before adding another list', () async {
+    await storage.addList('First');
+    await storage.addList('Second');
+
+    await storage.togglePin('First');
+    await storage.addList('Third');
+
+    final unpinned = storage.getAllLists().where((list) => !list.pinned);
+    expect(unpinned.map((list) => list.name), ['Second', 'Third']);
+    expect(unpinned.map((list) => list.order), [0, 1]);
+  });
+
+  test('Unpinning appends the list before adding another list', () async {
+    await storage.addList('First');
+    await storage.addList('Second');
+    await storage.togglePin('First');
+
+    await storage.togglePin('First');
+    await storage.addList('Third');
+
+    final unpinned = storage.getAllLists().where((list) => !list.pinned);
+    expect(unpinned.map((list) => list.name), ['Second', 'First', 'Third']);
+    expect(unpinned.map((list) => list.order), [0, 1, 2]);
+  });
+
+  test('Deleting with pinned lists normalizes only unpinned order', () async {
+    await storage.addList('Delete');
+    await storage.addList('Keep');
+    await storage.addList('Pinned');
+    await storage.togglePin('Pinned');
+
+    await storage.deleteList('Delete');
+    await storage.addList('Added');
+
+    final lists = storage.getAllLists();
+    expect(lists.first.name, 'Pinned');
+    expect(lists.first.pinned, isTrue);
+    expect(lists.first.order, 2);
+    final unpinned = lists.where((list) => !list.pinned);
+    expect(unpinned.map((list) => list.name), ['Keep', 'Added']);
+    expect(unpinned.map((list) => list.order), [0, 1]);
+  });
+
+  test('Repeated pin changes keep unpinned ordering deterministic', () async {
+    await storage.addList('First');
+    await storage.addList('Second');
+    await storage.addList('Third');
+
+    await storage.togglePin('Second');
+    await storage.togglePin('Second');
+    await storage.togglePin('First');
+    await storage.togglePin('First');
+
+    final unpinned = storage.getAllLists().where((list) => !list.pinned);
+    expect(unpinned.map((list) => list.name), ['Third', 'Second', 'First']);
+    expect(unpinned.map((list) => list.order), [0, 1, 2]);
+  });
+
+  test('Pin batch failure leaves pinned state and orders unchanged', () async {
+    await storage.addList('First');
+    await storage.addList('Second');
+    await storage.addList('Third');
+    mockBox
+      ..putError = StateError('batch failed')
+      ..putErrorKey = 'Second';
+
+    await expectLater(storage.togglePin('First'), throwsStateError);
+
+    final lists = storage.getAllLists();
+    expect(lists.map((list) => list.name), ['First', 'Second', 'Third']);
+    expect(lists.map((list) => list.pinned), [isFalse, isFalse, isFalse]);
+    expect(lists.map((list) => list.order), [0, 1, 2]);
+  });
+
   test('Delete item from list removes only that item', () async {
     await storage.addList('Test');
     await storage.addItemToList('Test', 'Item 1');
@@ -120,4 +195,27 @@ void main() {
     expect(storage.getList('Old'), isNull);
   });
 
+  test('Rename put failure retains the source list', () async {
+    await storage.addList('Old');
+    mockBox
+      ..putError = StateError('put failed')
+      ..putErrorKey = 'New';
+
+    await expectLater(storage.renameList('Old', 'New'), throwsStateError);
+
+    expect(storage.getList('Old'), isNotNull);
+    expect(storage.getList('New'), isNull);
+  });
+
+  test('Rename delete failure rolls back copy and retains source', () async {
+    await storage.addList('Old');
+    mockBox
+      ..deleteError = StateError('delete failed')
+      ..deleteErrorKey = 'Old';
+
+    await expectLater(storage.renameList('Old', 'New'), throwsStateError);
+
+    expect(storage.getList('Old'), isNotNull);
+    expect(storage.getList('New'), isNull);
+  });
 }

@@ -1,23 +1,11 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:pandoo/l10n/l10n.dart';
+import 'package:pandoo/services/settings_service.dart';
 
 class SettingsDialog extends StatefulWidget {
-  const SettingsDialog({
-    required this.onThemeChanged,
-    required this.currentThemeMode,
-    required this.onLanguageChanged,
-    required this.currentLocale,
-    this.fabAnimation,
-    this.onFabAnimationChanged,
-    super.key,
-  });
-
-  final void Function(ThemeMode) onThemeChanged;
-  final ThemeMode currentThemeMode;
-  final void Function(Locale?) onLanguageChanged;
-  final Locale? currentLocale;
-  final bool? fabAnimation;
-  final void Function(bool)? onFabAnimationChanged;
+  const SettingsDialog({super.key});
 
   @override
   State<SettingsDialog> createState() => _SettingsDialogState();
@@ -29,7 +17,31 @@ class _SettingsDialogState extends State<SettingsDialog> {
   @override
   void initState() {
     super.initState();
-    _fabAnimation = widget.fabAnimation ?? true;
+    _fabAnimation = SettingsService().getFabAnimation();
+  }
+
+  Future<void> _persistTheme(ThemeMode themeMode) async {
+    try {
+      await SettingsService().setThemeMode(themeMode);
+    } on Object catch (error) {
+      debugPrint('Failed to persist theme setting: $error');
+    }
+  }
+
+  Future<void> _persistLanguage(Locale? locale) async {
+    try {
+      await SettingsService().setLocale(locale);
+    } on Object catch (error) {
+      debugPrint('Failed to persist language setting: $error');
+    }
+  }
+
+  Future<void> _persistFabAnimation(bool value) async {
+    try {
+      await SettingsService().setFabAnimation(value);
+    } on Object catch (error) {
+      debugPrint('Failed to persist add button animation setting: $error');
+    }
   }
 
   final Map<String, String> _supportedLanguages = {
@@ -98,8 +110,9 @@ class _SettingsDialogState extends State<SettingsDialog> {
   };
 
   String _getCurrentLanguageCode() {
-    if (widget.currentLocale == null) return 'system';
-    return widget.currentLocale!.languageCode;
+    final locale = SettingsService().getLocale();
+    if (locale == null) return 'system';
+    return locale.languageCode;
   }
 
   @override
@@ -130,7 +143,7 @@ class _SettingsDialogState extends State<SettingsDialog> {
             const SizedBox(height: 8),
             Semantics(
               child: DropdownButtonFormField<ThemeMode>(
-                initialValue: widget.currentThemeMode,
+                initialValue: SettingsService().getThemeMode(),
                 isExpanded: true,
                 decoration: const InputDecoration(
                   contentPadding: EdgeInsets.symmetric(
@@ -154,7 +167,7 @@ class _SettingsDialogState extends State<SettingsDialog> {
                 ],
                 onChanged: (ThemeMode? value) {
                   if (value != null) {
-                    widget.onThemeChanged(value);
+                    unawaited(_persistTheme(value));
                   }
                 },
               ),
@@ -193,7 +206,7 @@ class _SettingsDialogState extends State<SettingsDialog> {
                     final locale = languageCode == 'system'
                         ? null
                         : Locale(languageCode);
-                    widget.onLanguageChanged(locale);
+                    unawaited(_persistLanguage(locale));
                   }
                 },
               ),
@@ -219,7 +232,7 @@ class _SettingsDialogState extends State<SettingsDialog> {
                 value: _fabAnimation,
                 onChanged: (value) {
                   setState(() => _fabAnimation = value);
-                  widget.onFabAnimationChanged?.call(value);
+                  unawaited(_persistFabAnimation(value));
                 },
               ),
             ),
