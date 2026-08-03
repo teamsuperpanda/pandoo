@@ -34,10 +34,14 @@ Widget _buildMockHomeScreen({
   required ThemeMode themeMode,
   required MockBox mockBox,
 }) {
-  final theme = themeMode == ThemeMode.dark ? AppTheme.dark() : AppTheme.light();
+  final theme = themeMode == ThemeMode.dark
+      ? AppTheme.dark()
+      : AppTheme.light();
   final lists = mockBox.values.toList();
-  final pinned = lists.where((l) => l.pinned).toList()..sort((a, b) => a.order.compareTo(b.order));
-  final unpinned = lists.where((l) => !l.pinned).toList()..sort((a, b) => a.order.compareTo(b.order));
+  final pinned = lists.where((l) => l.pinned).toList()
+    ..sort((a, b) => a.order.compareTo(b.order));
+  final unpinned = lists.where((l) => !l.pinned).toList()
+    ..sort((a, b) => a.order.compareTo(b.order));
   final sorted = [...pinned, ...unpinned];
 
   return MaterialApp(
@@ -68,7 +72,10 @@ Widget _buildMockHomeScreen({
           Padding(
             padding: const EdgeInsets.only(right: 8),
             child: IconButton(
-              icon: Icon(Icons.settings, color: theme.appBarTheme.foregroundColor),
+              icon: Icon(
+                Icons.settings,
+                color: theme.appBarTheme.foregroundColor,
+              ),
               onPressed: () {},
             ),
           ),
@@ -79,11 +86,12 @@ Widget _buildMockHomeScreen({
           SafeArea(
             child: ListView(
               children: [
-                for (final list in sorted) _MockListCard(
-                  title: list.name,
-                  pinned: list.pinned,
-                  itemCount: list.items.length,
-                ),
+                for (final list in sorted)
+                  _MockListCard(
+                    title: list.name,
+                    pinned: list.pinned,
+                    itemCount: list.items.length,
+                  ),
               ],
             ),
           ),
@@ -102,10 +110,26 @@ Widget _buildMockHomeScreen({
   );
 }
 
-const _homeScreenGradient = [Color(0xFF1B5E20), Color(0xFF43A047), Color(0xFF66BB6A)];
-const _homeScreenDarkGradient = [Color(0xFF0D3310), Color(0xFF1B5E20), Color(0xFF388E3C)];
-const _detailGradient = [Color(0xFF004D40), Color(0xFF00897B), Color(0xFF26A69A)];
-const _detailDarkGradient = [Color(0xFF002020), Color(0xFF004D40), Color(0xFF00695C)];
+const _homeScreenGradient = [
+  Color(0xFF1B5E20),
+  Color(0xFF43A047),
+  Color(0xFF66BB6A),
+];
+const _homeScreenDarkGradient = [
+  Color(0xFF0D3310),
+  Color(0xFF1B5E20),
+  Color(0xFF388E3C),
+];
+const _detailGradient = [
+  Color(0xFF004D40),
+  Color(0xFF00897B),
+  Color(0xFF26A69A),
+];
+const _detailDarkGradient = [
+  Color(0xFF002020),
+  Color(0xFF004D40),
+  Color(0xFF00695C),
+];
 
 const _storeTagline = 'Your lists, organized.';
 
@@ -141,10 +165,19 @@ class _MockListCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(title, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
+                    Text(
+                      title,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
                     const SizedBox(height: 4),
                     Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 8,
+                        vertical: 4,
+                      ),
                       decoration: BoxDecoration(
                         color: theme.colorScheme.primary,
                         borderRadius: BorderRadius.circular(12),
@@ -161,7 +194,10 @@ class _MockListCard extends StatelessWidget {
                   ],
                 ),
               ),
-              Icon(Icons.more_vert, color: theme.colorScheme.onSurface.withAlpha(128)),
+              Icon(
+                Icons.more_vert,
+                color: theme.colorScheme.onSurface.withAlpha(128),
+              ),
             ],
           ),
         ),
@@ -173,48 +209,70 @@ class _MockListCard extends StatelessWidget {
 Future<void> _populateMockData(MockBox mockBox) async {
   await mockBox.put(
     'Coding',
-    MockBox.createMockList('Coding', 0, pinned: true, items: [
-      TodoItem(text: 'Refactor auth'),
-      TodoItem(text: 'Add unit tests'),
-      TodoItem(text: 'Update API docs'),
-    ]),
+    MockBox.createMockList(
+      'Coding',
+      0,
+      pinned: true,
+      items: [
+        TodoItem(text: 'Refactor auth'),
+        TodoItem(text: 'Add unit tests'),
+        TodoItem(text: 'Update API docs'),
+      ],
+    ),
   );
 
   await mockBox.put(
     'Groceries',
-    MockBox.createMockList('Groceries', 1, pinned: true, items: [
-      TodoItem(text: 'Milk'),
-      TodoItem(text: 'Eggs'),
-      TodoItem(text: 'Bread'),
-      TodoItem(text: 'Bananas'),
-      TodoItem(text: 'Coffee'),
-    ]),
+    MockBox.createMockList(
+      'Groceries',
+      1,
+      pinned: true,
+      items: [
+        TodoItem(text: 'Milk'),
+        TodoItem(text: 'Eggs'),
+        TodoItem(text: 'Bread'),
+        TodoItem(text: 'Bananas'),
+        TodoItem(text: 'Coffee'),
+      ],
+    ),
   );
 
   await mockBox.put(
     'Presents',
-    MockBox.createMockList('Presents', 2, items: [
-      TodoItem(text: 'Birthday gift for Mom'),
-      TodoItem(text: 'Anniversary gift'),
-    ]),
+    MockBox.createMockList(
+      'Presents',
+      2,
+      items: [
+        TodoItem(text: 'Birthday gift for Mom'),
+        TodoItem(text: 'Anniversary gift'),
+      ],
+    ),
   );
 
   await mockBox.put(
     'Reading',
-    MockBox.createMockList('Reading', 3, items: [
-      TodoItem(text: 'Clean Code'),
-      TodoItem(text: 'The Pragmatic Programmer'),
-    ]),
+    MockBox.createMockList(
+      'Reading',
+      3,
+      items: [
+        TodoItem(text: 'Clean Code'),
+        TodoItem(text: 'The Pragmatic Programmer'),
+      ],
+    ),
   );
 
   await mockBox.put(
     'Workout',
-    MockBox.createMockList('Workout', 4, items: [
-      TodoItem(text: 'Chest day'),
-      TodoItem(text: 'Back day'),
-      TodoItem(text: 'Leg day'),
-      TodoItem(text: 'Shoulder day'),
-    ]),
+    MockBox.createMockList(
+      'Workout',
+      4,
+      items: [
+        TodoItem(text: 'Chest day'),
+        TodoItem(text: 'Back day'),
+        TodoItem(text: 'Leg day'),
+        TodoItem(text: 'Shoulder day'),
+      ],
+    ),
   );
 }
 
@@ -349,12 +407,14 @@ void main() {
         String bottomTagline = '',
       }) async {
         await setViewport(tester);
-        await tester.pumpWidget(StoreFrame(
-          gradientColors: gradientColors,
-          tagline: _storeTagline,
-          bottomTagline: bottomTagline,
-          child: child,
-        ));
+        await tester.pumpWidget(
+          StoreFrame(
+            gradientColors: gradientColors,
+            tagline: _storeTagline,
+            bottomTagline: bottomTagline,
+            child: child,
+          ),
+        );
         await tester.pump();
         await tester.pump(const Duration(milliseconds: 500));
 
@@ -371,7 +431,10 @@ void main() {
           label: 'home_screen',
           gradientColors: _homeScreenGradient,
           bottomTagline: 'Organize Your Life',
-          child: _buildMockHomeScreen(themeMode: ThemeMode.light, mockBox: mockBox),
+          child: _buildMockHomeScreen(
+            themeMode: ThemeMode.light,
+            mockBox: mockBox,
+          ),
         );
       });
 
@@ -382,7 +445,10 @@ void main() {
           label: 'home_screen_dark',
           gradientColors: _homeScreenDarkGradient,
           bottomTagline: 'Stay on Track',
-          child: _buildMockHomeScreen(themeMode: ThemeMode.dark, mockBox: mockBox),
+          child: _buildMockHomeScreen(
+            themeMode: ThemeMode.dark,
+            mockBox: mockBox,
+          ),
         );
       });
 
