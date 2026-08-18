@@ -41,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     SettingsService().notifier.addListener(_onSettingsChanged);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (mounted && SettingsService().getFabAnimation()) {
-        unawaited(_fabController.repeat(reverse: true));
+        _fabController.repeat(reverse: true);
       }
     });
   }
@@ -58,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     if (!mounted) return;
     if (SettingsService().getFabAnimation()) {
       if (!_fabController.isAnimating) {
-        unawaited(_fabController.repeat(reverse: true));
+        _fabController.repeat(reverse: true);
       }
     } else {
       if (_fabController.isAnimating) {
@@ -104,9 +104,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               ),
               onPressed: () {
                 if (_isRotatingForward) {
-                  unawaited(_animationController.forward(from: 0));
+                  _animationController.forward(from: 0);
                 } else {
-                  unawaited(_animationController.reverse(from: 1));
+                  _animationController.reverse(from: 1);
                 }
                 _isRotatingForward = !_isRotatingForward;
               },
