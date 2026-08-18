@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:pandoo/l10n/l10n.dart';
@@ -43,15 +41,13 @@ class ShowListsState extends State<ShowLists> {
               index: index,
               pinned: list.pinned,
               onTap: () {
-                unawaited(
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute<DetailScreen>(
-                      builder: (context) => DetailScreen(
-                        listTitle: list.name,
-                      ),
-                      settings: RouteSettings(name: '/detail/${list.name}'),
+                Navigator.push(
+                  context,
+                  MaterialPageRoute<DetailScreen>(
+                    builder: (context) => DetailScreen(
+                      listTitle: list.name,
                     ),
+                    settings: RouteSettings(name: '/detail/${list.name}'),
                   ),
                 );
               },
