@@ -11,10 +11,7 @@ import 'package:pandoo/widgets/shared/add_input_bar.dart';
 import 'package:pandoo/widgets/shared/app_snackbar.dart';
 
 class DetailScreen extends StatefulWidget {
-  const DetailScreen({
-    required this.listTitle,
-    super.key,
-  });
+  const DetailScreen({required this.listTitle, super.key});
 
   final String listTitle;
 
@@ -281,13 +278,8 @@ class _TodoItemTile extends StatelessWidget {
       background: Container(
         alignment: Alignment.centerRight,
         padding: const EdgeInsets.only(right: 24),
-        decoration: BoxDecoration(
-          color: theme.colorScheme.error.withAlpha(26),
-        ),
-        child: Icon(
-          Icons.delete,
-          color: theme.colorScheme.error,
-        ),
+        decoration: BoxDecoration(color: theme.colorScheme.error.withAlpha(26)),
+        child: Icon(Icons.delete, color: theme.colorScheme.error),
       ),
       onDismissed: (_) {
         unawaited(storage.deleteItemFromList(listTitle, itemId));
@@ -298,10 +290,7 @@ class _TodoItemTile extends StatelessWidget {
             ? context.l10n.completedItemLabel(title)
             : context.l10n.incompleteItemLabel(title),
         child: ListTile(
-          leading: Checkbox(
-            value: isCompleted,
-            onChanged: onToggle,
-          ),
+          leading: Checkbox(value: isCompleted, onChanged: onToggle),
           title: Text(
             title,
             style: TextStyle(

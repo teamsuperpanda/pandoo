@@ -42,11 +42,8 @@ class ListModel {
 
 @HiveType(typeId: 1)
 class TodoItem {
-  TodoItem({
-    required this.text,
-    this.isCompleted = false,
-    String? id,
-  }) : id = id ?? 'item_${DateTime.now().microsecondsSinceEpoch}';
+  TodoItem({required this.text, this.isCompleted = false, String? id})
+    : id = id ?? 'item_${DateTime.now().microsecondsSinceEpoch}';
 
   @HiveField(0)
   final String text;
@@ -57,11 +54,7 @@ class TodoItem {
   @HiveField(2)
   final String id;
 
-  TodoItem copyWith({
-    String? text,
-    bool? isCompleted,
-    String? id,
-  }) {
+  TodoItem copyWith({String? text, bool? isCompleted, String? id}) {
     return TodoItem(
       text: text ?? this.text,
       isCompleted: isCompleted ?? this.isCompleted,

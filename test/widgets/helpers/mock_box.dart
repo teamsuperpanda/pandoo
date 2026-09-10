@@ -92,12 +92,7 @@ class MockBox extends Fake implements Box<ListModel> {
     List<TodoItem>? items,
     bool pinned = false,
   }) {
-    return ListModel(
-      name: name,
-      order: order,
-      items: items,
-      pinned: pinned,
-    );
+    return ListModel(name: name, order: order, items: items, pinned: pinned);
   }
 }
 

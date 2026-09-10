@@ -50,10 +50,7 @@ class AppTheme {
           fontWeight: FontWeight.w600,
         ),
       ),
-      iconTheme: const IconThemeData(
-        color: _pandaWhite,
-        size: 24,
-      ),
+      iconTheme: const IconThemeData(color: _pandaWhite, size: 24),
       cardTheme: CardThemeData(
         color: colorScheme.surfaceContainerHighest,
         elevation: 0,
@@ -99,9 +96,7 @@ class AppTheme {
           return colorScheme.outlineVariant;
         }),
         checkColor: WidgetStatePropertyAll(colorScheme.onPrimary),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(4),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
       ),
       switchTheme: SwitchThemeData(
         thumbColor: WidgetStateProperty.resolveWith<Color>((states) {
@@ -159,9 +154,7 @@ class AppTheme {
           color: colorScheme.onSurface,
         ),
       ),
-      popupMenuTheme: PopupMenuThemeData(
-        color: colorScheme.surface,
-      ),
+      popupMenuTheme: PopupMenuThemeData(color: colorScheme.surface),
       filledButtonTheme: FilledButtonThemeData(
         style: FilledButton.styleFrom(
           backgroundColor: colorScheme.primary,
@@ -169,9 +162,7 @@ class AppTheme {
         ),
       ),
       textButtonTheme: TextButtonThemeData(
-        style: TextButton.styleFrom(
-          foregroundColor: colorScheme.onSurface,
-        ),
+        style: TextButton.styleFrom(foregroundColor: colorScheme.onSurface),
       ),
     );
   }
@@ -215,10 +206,7 @@ class AppTheme {
           fontWeight: FontWeight.w600,
         ),
       ),
-      iconTheme: IconThemeData(
-        color: colorScheme.onSurface,
-        size: 24,
-      ),
+      iconTheme: IconThemeData(color: colorScheme.onSurface, size: 24),
       cardTheme: CardThemeData(
         color: colorScheme.surfaceContainerHighest,
         elevation: 0,
@@ -264,9 +252,7 @@ class AppTheme {
           return colorScheme.outlineVariant;
         }),
         checkColor: WidgetStatePropertyAll(colorScheme.onPrimary),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(4),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
       ),
       switchTheme: SwitchThemeData(
         thumbColor: WidgetStateProperty.resolveWith<Color>((states) {
@@ -324,9 +310,7 @@ class AppTheme {
           color: colorScheme.onSurface,
         ),
       ),
-      popupMenuTheme: PopupMenuThemeData(
-        color: colorScheme.surface,
-      ),
+      popupMenuTheme: PopupMenuThemeData(color: colorScheme.surface),
       filledButtonTheme: FilledButtonThemeData(
         style: FilledButton.styleFrom(
           backgroundColor: colorScheme.primary,
@@ -334,9 +318,7 @@ class AppTheme {
         ),
       ),
       textButtonTheme: TextButtonThemeData(
-        style: TextButton.styleFrom(
-          foregroundColor: colorScheme.onSurface,
-        ),
+        style: TextButton.styleFrom(foregroundColor: colorScheme.onSurface),
       ),
     );
   }

@@ -61,10 +61,8 @@ class SettingsService {
   Future<void> setLocale(Locale? locale) async {
     await _mutateSettings(
       'setLocale',
-      (settings) => settings.copyWith(
-        locale: locale,
-        clearLocale: locale == null,
-      ),
+      (settings) =>
+          settings.copyWith(locale: locale, clearLocale: locale == null),
     );
   }
 

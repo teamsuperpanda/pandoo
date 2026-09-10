@@ -120,10 +120,7 @@ class _SettingsDialogState extends State<SettingsDialog> {
     final theme = Theme.of(context);
 
     return AlertDialog(
-      title: Semantics(
-        header: true,
-        child: Text(context.l10n.settings),
-      ),
+      title: Semantics(header: true, child: Text(context.l10n.settings)),
       contentPadding: const EdgeInsets.fromLTRB(24, 20, 24, 0),
       content: SingleChildScrollView(
         child: Column(

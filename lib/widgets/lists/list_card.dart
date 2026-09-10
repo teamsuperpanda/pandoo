@@ -80,10 +80,7 @@ class ListCard extends StatelessWidget {
           color: theme.colorScheme.error.withAlpha(26),
           borderRadius: BorderRadius.circular(16),
         ),
-        child: Icon(
-          Icons.delete,
-          color: theme.colorScheme.error,
-        ),
+        child: Icon(Icons.delete, color: theme.colorScheme.error),
       ),
       child: Card(
         margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),

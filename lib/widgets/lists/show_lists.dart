@@ -44,9 +44,7 @@ class ShowListsState extends State<ShowLists> {
                 Navigator.push(
                   context,
                   MaterialPageRoute<DetailScreen>(
-                    builder: (context) => DetailScreen(
-                      listTitle: list.name,
-                    ),
+                    builder: (context) => DetailScreen(listTitle: list.name),
                     settings: RouteSettings(name: '/detail/${list.name}'),
                   ),
                 );

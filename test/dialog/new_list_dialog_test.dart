@@ -9,9 +9,7 @@ void main() {
   group('ListNameDialog', () {
     testWidgets('renders text field and action buttons', (tester) async {
       await tester.pumpWidget(
-        wrapWithMaterialApp(
-          const Material(child: _DialogOpener()),
-        ),
+        wrapWithMaterialApp(const Material(child: _DialogOpener())),
       );
       await tester.pumpAndSettle();
 
@@ -92,9 +90,7 @@ void main() {
 
     testWidgets('shows validation error for empty name', (tester) async {
       await tester.pumpWidget(
-        wrapWithMaterialApp(
-          const Material(child: _DialogOpener()),
-        ),
+        wrapWithMaterialApp(const Material(child: _DialogOpener())),
       );
       await tester.pumpAndSettle();
 

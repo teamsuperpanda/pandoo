@@ -43,10 +43,7 @@ class _ListNameDialogState extends State<ListNameDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Semantics(
-        header: true,
-        child: Text(widget.title),
-      ),
+      title: Semantics(header: true, child: Text(widget.title)),
       content: Form(
         key: _formKey,
         child: TextFormField(

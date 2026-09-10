@@ -7,11 +7,7 @@ import '../helpers/widget_wrapper.dart';
 void main() {
   group('CleanDialog', () {
     testWidgets('renders dialog', (tester) async {
-      await tester.pumpWidget(
-        wrapWithMaterialApp(
-          const CleanDialog(),
-        ),
-      );
+      await tester.pumpWidget(wrapWithMaterialApp(const CleanDialog()));
       await tester.pumpAndSettle();
 
       expect(find.text('Clean Completed Items'), findsOneWidget);

@@ -4,10 +4,7 @@ import 'package:pandoo/models/list_model.dart';
 void main() {
   group('ListModel', () {
     test('creates list model with required parameters', () {
-      final list = ListModel(
-        name: 'Test List',
-        order: 0,
-      );
+      final list = ListModel(name: 'Test List', order: 0);
 
       expect(list.name, equals('Test List'));
       expect(list.order, equals(0));

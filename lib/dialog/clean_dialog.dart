@@ -7,10 +7,7 @@ class CleanDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Semantics(
-        header: true,
-        child: Text(context.l10n.cleanCompleted),
-      ),
+      title: Semantics(header: true, child: Text(context.l10n.cleanCompleted)),
       content: Text(
         context.l10n.cleanConfirmation,
         style: Theme.of(context).textTheme.bodyLarge,

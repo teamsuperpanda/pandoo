@@ -58,16 +58,10 @@ Widget _buildMockHomeScreen({
         foregroundColor: theme.appBarTheme.foregroundColor,
         centerTitle: true,
         leading: IconButton(
-          icon: Image.asset(
-            'assets/images/icon/icon.png',
-            height: 36,
-          ),
+          icon: Image.asset('assets/images/icon/icon.png', height: 36),
           onPressed: () {},
         ),
-        title: Text(
-          'Pandoo',
-          style: theme.appBarTheme.titleTextStyle,
-        ),
+        title: Text('Pandoo', style: theme.appBarTheme.titleTextStyle),
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 8),
@@ -289,10 +283,7 @@ Future<void> _initSettingsService() async {
 
   Hive.init('test');
   final settingsBox = await Hive.openBox<Settings>('settings_db_golden');
-  await settingsBox.put(
-    'app_settings',
-    Settings(fabAnimation: false),
-  );
+  await settingsBox.put('app_settings', Settings(fabAnimation: false));
   SettingsService.setTestInstance(settingsBox);
 }
 
@@ -345,9 +336,7 @@ void main() {
 
         await expectLater(
           find.byType(Scaffold),
-          matchesGoldenFile(
-            '$_goldenDir/$deviceName/raw/home_screen_dark.png',
-          ),
+          matchesGoldenFile('$_goldenDir/$deviceName/raw/home_screen_dark.png'),
         );
       });
 
@@ -361,9 +350,7 @@ void main() {
             theme: AppTheme.light(),
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
-            home: const DetailScreen(
-              listTitle: 'Groceries',
-            ),
+            home: const DetailScreen(listTitle: 'Groceries'),
           ),
         );
         await tester.pumpAndSettle();
@@ -386,9 +373,7 @@ void main() {
             themeMode: ThemeMode.dark,
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
-            home: const DetailScreen(
-              listTitle: 'Groceries',
-            ),
+            home: const DetailScreen(listTitle: 'Groceries'),
           ),
         );
         await tester.pumpAndSettle();
@@ -464,9 +449,7 @@ void main() {
             theme: AppTheme.light(),
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
-            home: const DetailScreen(
-              listTitle: 'Groceries',
-            ),
+            home: const DetailScreen(listTitle: 'Groceries'),
           ),
         );
       });
@@ -485,9 +468,7 @@ void main() {
             themeMode: ThemeMode.dark,
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
-            home: const DetailScreen(
-              listTitle: 'Groceries',
-            ),
+            home: const DetailScreen(listTitle: 'Groceries'),
           ),
         );
       });

@@ -56,9 +56,7 @@ class _AddInputBarState extends State<AddInputBar> {
           Expanded(
             child: TextField(
               controller: _controller,
-              decoration: InputDecoration(
-                hintText: widget.hintText,
-              ),
+              decoration: InputDecoration(hintText: widget.hintText),
               onSubmitted: (_) => _handleSubmit(clearFocus: true),
             ),
           ),

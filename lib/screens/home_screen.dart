@@ -35,9 +35,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       vsync: this,
       duration: const Duration(milliseconds: 1200),
     );
-    _fabAnimation = Tween<double>(begin: -0.05, end: 0.05).animate(
-      CurvedAnimation(parent: _fabController, curve: Curves.easeInOut),
-    );
+    _fabAnimation = Tween<double>(
+      begin: -0.05,
+      end: 0.05,
+    ).animate(CurvedAnimation(parent: _fabController, curve: Curves.easeInOut));
     SettingsService().notifier.addListener(_onSettingsChanged);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (mounted && SettingsService().getFabAnimation()) {
@@ -98,10 +99,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           child: RotationTransition(
             turns: _animation,
             child: IconButton(
-              icon: Image.asset(
-                'assets/images/icon/icon.png',
-                height: 36,
-              ),
+              icon: Image.asset('assets/images/icon/icon.png', height: 36),
               onPressed: () {
                 if (_isRotatingForward) {
                   _animationController.forward(from: 0);
@@ -134,10 +132,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       body: const SafeArea(child: ShowLists()),
       floatingActionButton: AnimatedBuilder(
         animation: _fabAnimation,
-        builder: (context, child) => Transform.rotate(
-          angle: _fabAnimation.value,
-          child: child,
-        ),
+        builder: (context, child) =>
+            Transform.rotate(angle: _fabAnimation.value, child: child),
         child: FloatingActionButton(
           onPressed: () async {
             final l10n = context.l10n;

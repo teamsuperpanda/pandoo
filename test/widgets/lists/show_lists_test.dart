@@ -17,31 +17,17 @@ void main() {
     });
 
     testWidgets('renders empty list when no lists exist', (tester) async {
-      await tester.pumpWidget(
-        wrapWithMaterialApp(
-          const ShowLists(),
-        ),
-      );
+      await tester.pumpWidget(wrapWithMaterialApp(const ShowLists()));
       await tester.pumpAndSettle();
 
       expect(find.byType(ReorderableListView), findsOneWidget);
     });
 
     testWidgets('renders list cards when lists exist', (tester) async {
-      await mockBox.put(
-        'Shopping',
-        MockBox.createMockList('Shopping', 0),
-      );
-      await mockBox.put(
-        'Work',
-        MockBox.createMockList('Work', 1),
-      );
+      await mockBox.put('Shopping', MockBox.createMockList('Shopping', 0));
+      await mockBox.put('Work', MockBox.createMockList('Work', 1));
 
-      await tester.pumpWidget(
-        wrapWithMaterialApp(
-          const ShowLists(),
-        ),
-      );
+      await tester.pumpWidget(wrapWithMaterialApp(const ShowLists()));
       await tester.pumpAndSettle();
 
       expect(find.text('Shopping'), findsOneWidget);
@@ -61,11 +47,7 @@ void main() {
         ),
       );
 
-      await tester.pumpWidget(
-        wrapWithMaterialApp(
-          const ShowLists(),
-        ),
-      );
+      await tester.pumpWidget(wrapWithMaterialApp(const ShowLists()));
       await tester.pumpAndSettle();
 
       expect(find.text('2 items'), findsOneWidget);

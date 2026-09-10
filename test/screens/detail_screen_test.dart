@@ -17,17 +17,10 @@ void main() {
     });
 
     testWidgets('renders list title in app bar', (tester) async {
-      await mockBox.put(
-        'Shopping',
-        MockBox.createMockList('Shopping', 0),
-      );
+      await mockBox.put('Shopping', MockBox.createMockList('Shopping', 0));
 
       await tester.pumpWidget(
-        wrapWithMaterialApp(
-          const DetailScreen(
-            listTitle: 'Shopping',
-          ),
-        ),
+        wrapWithMaterialApp(const DetailScreen(listTitle: 'Shopping')),
       );
       await tester.pumpAndSettle();
 
@@ -35,17 +28,10 @@ void main() {
     });
 
     testWidgets('shows back button', (tester) async {
-      await mockBox.put(
-        'Shopping',
-        MockBox.createMockList('Shopping', 0),
-      );
+      await mockBox.put('Shopping', MockBox.createMockList('Shopping', 0));
 
       await tester.pumpWidget(
-        wrapWithMaterialApp(
-          const DetailScreen(
-            listTitle: 'Shopping',
-          ),
-        ),
+        wrapWithMaterialApp(const DetailScreen(listTitle: 'Shopping')),
       );
       await tester.pumpAndSettle();
 
@@ -66,11 +52,7 @@ void main() {
       );
 
       await tester.pumpWidget(
-        wrapWithMaterialApp(
-          const DetailScreen(
-            listTitle: 'Shopping',
-          ),
-        ),
+        wrapWithMaterialApp(const DetailScreen(listTitle: 'Shopping')),
       );
       await tester.pumpAndSettle();
 
@@ -94,9 +76,7 @@ void main() {
       );
 
       await tester.pumpWidget(
-        wrapWithMaterialApp(
-          const DetailScreen(listTitle: 'Shopping'),
-        ),
+        wrapWithMaterialApp(const DetailScreen(listTitle: 'Shopping')),
       );
       await tester.pumpAndSettle();
 
@@ -119,17 +99,10 @@ void main() {
     });
 
     testWidgets('renders add item widget', (tester) async {
-      await mockBox.put(
-        'Shopping',
-        MockBox.createMockList('Shopping', 0),
-      );
+      await mockBox.put('Shopping', MockBox.createMockList('Shopping', 0));
 
       await tester.pumpWidget(
-        wrapWithMaterialApp(
-          const DetailScreen(
-            listTitle: 'Shopping',
-          ),
-        ),
+        wrapWithMaterialApp(const DetailScreen(listTitle: 'Shopping')),
       );
       await tester.pumpAndSettle();
 
@@ -152,32 +125,18 @@ void main() {
       );
 
       await tester.pumpWidget(
-        wrapWithMaterialApp(
-          const DetailScreen(
-            listTitle: 'Shopping',
-          ),
-        ),
+        wrapWithMaterialApp(const DetailScreen(listTitle: 'Shopping')),
       );
       await tester.pumpAndSettle();
 
-      expect(
-        find.byIcon(Icons.cleaning_services_rounded),
-        findsOneWidget,
-      );
+      expect(find.byIcon(Icons.cleaning_services_rounded), findsOneWidget);
     });
 
     testWidgets('renders search field', (tester) async {
-      await mockBox.put(
-        'Shopping',
-        MockBox.createMockList('Shopping', 0),
-      );
+      await mockBox.put('Shopping', MockBox.createMockList('Shopping', 0));
 
       await tester.pumpWidget(
-        wrapWithMaterialApp(
-          const DetailScreen(
-            listTitle: 'Shopping',
-          ),
-        ),
+        wrapWithMaterialApp(const DetailScreen(listTitle: 'Shopping')),
       );
       await tester.pumpAndSettle();
 
@@ -199,11 +158,7 @@ void main() {
       );
 
       await tester.pumpWidget(
-        wrapWithMaterialApp(
-          const DetailScreen(
-            listTitle: 'Shopping',
-          ),
-        ),
+        wrapWithMaterialApp(const DetailScreen(listTitle: 'Shopping')),
       );
       await tester.pumpAndSettle();
 
@@ -230,11 +185,7 @@ void main() {
       );
 
       await tester.pumpWidget(
-        wrapWithMaterialApp(
-          const DetailScreen(
-            listTitle: 'Shopping',
-          ),
-        ),
+        wrapWithMaterialApp(const DetailScreen(listTitle: 'Shopping')),
       );
       await tester.pumpAndSettle();
 
@@ -259,11 +210,7 @@ void main() {
       );
 
       await tester.pumpWidget(
-        wrapWithMaterialApp(
-          const DetailScreen(
-            listTitle: 'Shopping',
-          ),
-        ),
+        wrapWithMaterialApp(const DetailScreen(listTitle: 'Shopping')),
       );
       await tester.pumpAndSettle();
 

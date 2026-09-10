@@ -3,10 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pandoo/core/theme/app_theme.dart';
 
 void main() {
-  for (final entry in [
-    ('light', AppTheme.light),
-    ('dark', AppTheme.dark),
-  ]) {
+  for (final entry in [('light', AppTheme.light), ('dark', AppTheme.dark)]) {
     final themeName = entry.$1;
     final themeFactory = entry.$2;
 

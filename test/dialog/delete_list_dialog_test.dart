@@ -8,9 +8,7 @@ void main() {
   group('DeleteListDialog', () {
     testWidgets('renders dialog with list title', (tester) async {
       await tester.pumpWidget(
-        wrapWithMaterialApp(
-          const DeleteListDialog(listTitle: 'Test List'),
-        ),
+        wrapWithMaterialApp(const DeleteListDialog(listTitle: 'Test List')),
       );
       await tester.pumpAndSettle();
 
