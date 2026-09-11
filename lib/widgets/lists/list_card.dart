@@ -55,7 +55,7 @@ class ListCard extends StatelessWidget {
 
       confirmDismiss: (direction) async {
         if (direction == DismissDirection.endToStart) {
-          return _confirmDelete(context);
+          return await _confirmDelete(context);
         }
         unawaited(StorageService().togglePin(title));
         return false;

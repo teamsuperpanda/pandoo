@@ -50,7 +50,7 @@ class StorageService {
     }
   }
 
-  Future<bool> addList(String name) async {
+  Future<bool> addList(String name) {
     final trimmed = name.trim();
     return _lock.synchronized(() async {
       try {
@@ -80,7 +80,7 @@ class StorageService {
     return [...pinnedLists, ...unpinnedLists];
   }
 
-  Future<void> addItemToList(String listName, String item) async {
+  Future<void> addItemToList(String listName, String item) {
     return _lock.synchronized(() async {
       try {
         final list = _listsBox.get(listName);
@@ -95,7 +95,7 @@ class StorageService {
     });
   }
 
-  Future<void> reorderLists(int oldIndex, int newIndex) async {
+  Future<void> reorderLists(int oldIndex, int newIndex) {
     return _lock.synchronized(() async {
       try {
         final lists = getAllLists();
@@ -128,7 +128,7 @@ class StorageService {
     });
   }
 
-  Future<void> deleteList(String name) async {
+  Future<void> deleteList(String name) {
     return _lock.synchronized(() async {
       try {
         await _listsBox.delete(name);
@@ -144,7 +144,7 @@ class StorageService {
     });
   }
 
-  Future<bool> renameList(String oldName, String newName) async {
+  Future<bool> renameList(String oldName, String newName) {
     return _lock.synchronized(() async {
       try {
         final trimmed = newName.trim();
@@ -175,7 +175,7 @@ class StorageService {
     });
   }
 
-  Future<void> togglePin(String listName) async {
+  Future<void> togglePin(String listName) {
     return _lock.synchronized(() async {
       try {
         final list = _listsBox.get(listName);
@@ -214,7 +214,7 @@ class StorageService {
     return _listsBox.get(name);
   }
 
-  Future<void> toggleItemCompletion(String listName, String itemId) async {
+  Future<void> toggleItemCompletion(String listName, String itemId) {
     return _lock.synchronized(() async {
       try {
         final list = _listsBox.get(listName);
@@ -239,7 +239,7 @@ class StorageService {
     });
   }
 
-  Future<void> deleteItemFromList(String listName, String itemId) async {
+  Future<void> deleteItemFromList(String listName, String itemId) {
     return _lock.synchronized(() async {
       try {
         final list = _listsBox.get(listName);
@@ -255,7 +255,7 @@ class StorageService {
     });
   }
 
-  Future<void> removeCompletedItems(String listName) async {
+  Future<void> removeCompletedItems(String listName) {
     return _lock.synchronized(() async {
       try {
         final list = _listsBox.get(listName);
