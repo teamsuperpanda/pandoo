@@ -195,7 +195,9 @@ class _SettingsDialogState extends State<SettingsDialog> {
                 items: _supportedLanguages.entries.map((entry) {
                   return DropdownMenuItem<String>(
                     value: entry.key,
-                    child: Text(entry.value),
+                    child: Text(
+                      entry.key == 'system' ? context.l10n.system : entry.value,
+                    ),
                   );
                 }).toList(),
                 onChanged: (String? languageCode) {

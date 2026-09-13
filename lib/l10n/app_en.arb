@@ -55,5 +55,8 @@
         "placeholders": {
             "title": {}
         }
-    }
+    },
+    "reorderList": "Reorder list",
+    "pinnedList": "Pinned list",
+    "moreOptions": "More options"
 }

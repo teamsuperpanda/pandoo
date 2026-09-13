@@ -409,6 +409,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Incomplete: {title}'**
   String incompleteItemLabel(Object title);
+
+  /// No description provided for @reorderList.
+  ///
+  /// In en, this message translates to:
+  /// **'Reorder list'**
+  String get reorderList;
+
+  /// No description provided for @pinnedList.
+  ///
+  /// In en, this message translates to:
+  /// **'Pinned list'**
+  String get pinnedList;
+
+  /// No description provided for @moreOptions.
+  ///
+  /// In en, this message translates to:
+  /// **'More options'**
+  String get moreOptions;
 }
 
 class _AppLocalizationsDelegate

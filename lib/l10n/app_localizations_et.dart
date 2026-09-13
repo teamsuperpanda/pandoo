@@ -108,4 +108,13 @@ class AppLocalizationsEt extends AppLocalizations {
   String incompleteItemLabel(Object title) {
     return 'Incomplete: $title';
   }
+
+  @override
+  String get reorderList => 'Reorder list';
+
+  @override
+  String get pinnedList => 'Pinned list';
+
+  @override
+  String get moreOptions => 'More options';
 }

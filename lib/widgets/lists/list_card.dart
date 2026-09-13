@@ -94,7 +94,7 @@ class ListCard extends StatelessWidget {
                 if (!pinned)
                   Semantics(
                     button: true,
-                    label: 'Reorder list',
+                    label: context.l10n.reorderList,
                     child: ReorderableDragStartListener(
                       index: index,
                       child: Icon(
@@ -105,7 +105,7 @@ class ListCard extends StatelessWidget {
                   ),
                 if (pinned)
                   Semantics(
-                    label: 'Pinned list',
+                    label: context.l10n.pinnedList,
                     child: Icon(
                       Icons.push_pin,
                       color: theme.colorScheme.primary,
@@ -165,13 +165,13 @@ class ListCard extends StatelessWidget {
                 ),
                 Semantics(
                   button: true,
-                  label: 'More options',
+                  label: context.l10n.moreOptions,
                   child: PopupMenuButton<String>(
                     icon: Icon(
                       Icons.more_vert,
                       color: theme.colorScheme.onSurface.withAlpha(128),
                     ),
-                    tooltip: 'More options',
+                    tooltip: context.l10n.moreOptions,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
