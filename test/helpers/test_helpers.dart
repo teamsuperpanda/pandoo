@@ -15,7 +15,12 @@ Future<Directory> initializeHiveForTesting() async {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   final hiveDir = Directory.systemTemp.createTempSync('pandoo_hive_test_');
-  await StorageService().init(testPath: hiveDir.path);
+  try {
+    await StorageService().init(testPath: hiveDir.path);
+  } on Object {
+    hiveDir.deleteSync(recursive: true);
+    rethrow;
+  }
 
   if (!Hive.isAdapterRegistered(0)) {
     Hive.registerAdapter(ListModelAdapter());

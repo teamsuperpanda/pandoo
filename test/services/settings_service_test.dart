@@ -12,7 +12,7 @@ import '../helpers/test_helpers.dart';
 void main() {
   group('SettingsService', () {
     late SettingsService settingsService;
-    late Directory hiveDir;
+    Directory? hiveDir;
 
     setUpAll(() async {
       hiveDir = await initializeHiveForTesting();
@@ -32,7 +32,7 @@ void main() {
 
     tearDownAll(() async {
       await Hive.close();
-      hiveDir.deleteSync(recursive: true);
+      hiveDir?.deleteSync(recursive: true);
     });
 
     test('initializes with default settings', () {

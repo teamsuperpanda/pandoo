@@ -14,7 +14,7 @@ import '../helpers/widget_wrapper.dart';
 
 void main() {
   group('SettingsDialog', () {
-    late Directory hiveDir;
+    Directory? hiveDir;
 
     setUpAll(() async {
       hiveDir = await initializeHiveForTesting();
@@ -40,7 +40,7 @@ void main() {
 
     tearDownAll(() async {
       await Hive.close();
-      hiveDir.deleteSync(recursive: true);
+      hiveDir?.deleteSync(recursive: true);
     });
 
     testWidgets('renders theme and language sections', (tester) async {
