@@ -1,13 +1,21 @@
+import 'dart:io';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:pandoo/models/list_model.dart';
 import 'package:pandoo/services/storage_service.dart';
 
-Future<void> initializeHiveForTesting() async {
+/// Initializes Hive in a unique temporary directory for the calling test file.
+///
+/// `flutter test` runs test files concurrently in separate isolates, so a
+/// shared path makes box lock files collide. Each isolate gets its own
+/// directory instead. The returned directory should be deleted in
+/// `tearDownAll` after `Hive.close()`.
+Future<Directory> initializeHiveForTesting() async {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  // Initialize storage service with test path
-  await StorageService().init(testPath: 'test');
+  final hiveDir = Directory.systemTemp.createTempSync('pandoo_hive_test_');
+  await StorageService().init(testPath: hiveDir.path);
 
   if (!Hive.isAdapterRegistered(0)) {
     Hive.registerAdapter(ListModelAdapter());
@@ -15,4 +23,6 @@ Future<void> initializeHiveForTesting() async {
   if (!Hive.isAdapterRegistered(1)) {
     Hive.registerAdapter(TodoItemAdapter());
   }
+
+  return hiveDir;
 }

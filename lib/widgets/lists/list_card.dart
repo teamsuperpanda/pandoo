@@ -34,8 +34,8 @@ class ListCard extends StatelessWidget {
         false;
   }
 
-  Future<String?> _showRenameDialog(BuildContext context) async {
-    final result = await showDialog<String>(
+  Future<String?> _showRenameDialog(BuildContext context) {
+    return showDialog<String>(
       context: context,
       builder: (context) => ListNameDialog(
         title: context.l10n.renameList,
@@ -43,7 +43,6 @@ class ListCard extends StatelessWidget {
         initialValue: title,
       ),
     );
-    return result;
   }
 
   @override

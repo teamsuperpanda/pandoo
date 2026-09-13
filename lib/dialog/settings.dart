@@ -44,7 +44,7 @@ class _SettingsDialogState extends State<SettingsDialog> {
     }
   }
 
-  final Map<String, String> _supportedLanguages = {
+  static const Map<String, String> _supportedLanguages = {
     'system': 'System',
     'af': 'Afrikaans',
     'am': 'አማርኛ',

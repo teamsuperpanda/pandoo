@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -12,8 +14,10 @@ import '../helpers/widget_wrapper.dart';
 
 void main() {
   group('SettingsDialog', () {
+    late Directory hiveDir;
+
     setUpAll(() async {
-      await initializeHiveForTesting();
+      hiveDir = await initializeHiveForTesting();
       if (!Hive.isAdapterRegistered(2)) {
         Hive.registerAdapter(SettingsAdapter());
       }
@@ -36,6 +40,7 @@ void main() {
 
     tearDownAll(() async {
       await Hive.close();
+      hiveDir.deleteSync(recursive: true);
     });
 
     testWidgets('renders theme and language sections', (tester) async {

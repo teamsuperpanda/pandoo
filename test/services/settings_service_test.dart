@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -10,9 +12,10 @@ import '../helpers/test_helpers.dart';
 void main() {
   group('SettingsService', () {
     late SettingsService settingsService;
+    late Directory hiveDir;
 
     setUpAll(() async {
-      await initializeHiveForTesting();
+      hiveDir = await initializeHiveForTesting();
       if (!Hive.isAdapterRegistered(2)) {
         Hive.registerAdapter(SettingsAdapter());
       }
@@ -29,6 +32,7 @@ void main() {
 
     tearDownAll(() async {
       await Hive.close();
+      hiveDir.deleteSync(recursive: true);
     });
 
     test('initializes with default settings', () {

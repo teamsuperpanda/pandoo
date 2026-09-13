@@ -14,10 +14,10 @@ class Settings {
   final Locale? locale;
 
   @HiveField(1)
-  ThemeMode theme;
+  final ThemeMode theme;
 
   @HiveField(2)
-  bool fabAnimation;
+  final bool fabAnimation;
 
   Settings copyWith({
     Locale? locale,
