@@ -1,0 +1,5 @@
+Neuigkeiten:
+• Halte deine wichtigsten Listen fest und ordne sie nach Belieben neu.
+• Durchsuche Elemente in jeder Liste, um schnell zu finden, was du brauchst.
+• Wische, um einzelne Aufgaben zu löschen.
+• Verbesserte Barrierefreiheitskennzeichnungen für erledigte und unerledigte Elemente.

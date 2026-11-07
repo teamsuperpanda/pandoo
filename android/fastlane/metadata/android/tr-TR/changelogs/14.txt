@@ -1,0 +1,5 @@
+Yenilikler:
+• En çok kullandığınız listeleri sabitleyin ve dilediğiniz gibi yeniden sıralayın.
+• Herhangi bir listede öğe arayarak ihtiyacınız olanı hızlıca bulun.
+• Kaydırarak tek tek yapılacak öğeleri silin.
+• Tamamlanan ve tamamlanmayan öğeler için geliştirilmiş erişilebilirlik etiketleri.

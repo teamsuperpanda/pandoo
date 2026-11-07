@@ -1,4 +1,4 @@
-What's new in version 2.5.0:
+What's new:
 • Pin your most-used lists and reorder them however you like.
 • Search items in any list to find what you need fast.
 • Swipe to delete individual todo items.

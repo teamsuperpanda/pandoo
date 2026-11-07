@@ -1,0 +1,5 @@
+Novidades:
+• Fixe as suas listas mais usadas e reordene-as como quiser.
+• Pesquise itens em qualquer lista para encontrar o que precisa rapidamente.
+• Deslize para eliminar tarefas individuais.
+• Rótulos de acessibilidade melhorados para itens concluídos e incompletos.

@@ -1,4 +1,4 @@
-Yang baru di versi 2.5.0:
+Yang baru:
 • Sematkan daftar yang paling sering Anda gunakan dan urutkan ulang sesuai keinginan Anda.
 • Cari item di daftar mana pun untuk menemukan yang Anda butuhkan dengan cepat.
 • Geser untuk menghapus item tugas satu per satu.

@@ -1,4 +1,4 @@
-Neu in Version 2.5.0:
+Neuigkeiten:
 • Halte deine wichtigsten Listen fest und ordne sie nach Belieben neu.
 • Durchsuche Elemente in jeder Liste, um schnell zu finden, was du brauchst.
 • Wische, um einzelne Aufgaben zu löschen.

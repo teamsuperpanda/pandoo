@@ -1,0 +1,5 @@
+Nouveautés :
+• Épinglez vos listes les plus utilisées et réorganisez-les comme vous le souhaitez.
+• Recherchez des éléments dans n'importe quelle liste pour trouver rapidement ce dont vous avez besoin.
+• Balayez pour supprimer des tâches individuelles.
+• Étiquettes d'accessibilité améliorées pour les éléments terminés et incomplets.
