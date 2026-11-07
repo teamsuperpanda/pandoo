@@ -24,3 +24,8 @@ Contributions are welcome! Please follow these guidelines.
 3. Ensure `flutter analyze` and `flutter test` pass
 4. Update tests if adding functionality
 5. Submit a PR with a clear description of changes
+
+## Branding
+
+Contributions are MIT licensed and artwork is CC BY 4.0. The Pandoo name, panda
+mark and store records are not licensed for reuse; see [TRADEMARKS.md](TRADEMARKS.md).
