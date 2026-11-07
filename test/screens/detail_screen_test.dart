@@ -224,5 +224,32 @@ void main() {
       expect(find.text('Milk'), findsOneWidget);
       expect(find.text('Bread'), findsOneWidget);
     });
+
+    testWidgets('swipe left deletes an item', (tester) async {
+      await mockBox.put(
+        'Shopping',
+        MockBox.createMockList(
+          'Shopping',
+          0,
+          items: [
+            TodoItem(text: 'Milk'),
+            TodoItem(text: 'Bread'),
+          ],
+        ),
+      );
+
+      await tester.pumpWidget(
+        wrapWithMaterialApp(const DetailScreen(listTitle: 'Shopping')),
+      );
+      await tester.pumpAndSettle();
+
+      await tester.drag(find.text('Milk'), const Offset(-500, 0));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Milk'), findsNothing);
+      expect(StorageService().getList('Shopping')!.items.map((i) => i.text), [
+        'Bread',
+      ]);
+    });
   });
 }
