@@ -52,5 +52,51 @@ void main() {
 
       expect(find.text('2 items'), findsOneWidget);
     });
+
+    testWidgets('rejects a drag across the pinned boundary with feedback', (
+      tester,
+    ) async {
+      await mockBox.put(
+        'Pinned',
+        MockBox.createMockList('Pinned', 0, pinned: true),
+      );
+      await mockBox.put('One', MockBox.createMockList('One', 0));
+      await mockBox.put('Two', MockBox.createMockList('Two', 1));
+
+      await tester.pumpWidget(
+        wrapWithMaterialApp(const Scaffold(body: ShowLists())),
+      );
+      await tester.pumpAndSettle();
+
+      final list = tester.widget<ReorderableListView>(
+        find.byType(ReorderableListView),
+      );
+
+      // Unpinned dropped into the pinned section.
+      list.onReorderItem!(2, 0);
+      await tester.pumpAndSettle();
+      expect(
+        find.text(
+          'Pinned lists stay at the top. Use the menu to pin or unpin.',
+        ),
+        findsOneWidget,
+      );
+
+      // Pinned dragged down into the unpinned section.
+      list.onReorderItem!(0, 2);
+      await tester.pumpAndSettle();
+      expect(
+        find.text(
+          'Pinned lists stay at the top. Use the menu to pin or unpin.',
+        ),
+        findsOneWidget,
+      );
+
+      expect(StorageService().getAllLists().map((l) => l.name), [
+        'Pinned',
+        'One',
+        'Two',
+      ]);
+    });
   });
 }

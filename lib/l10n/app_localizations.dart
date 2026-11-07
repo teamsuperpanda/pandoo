@@ -427,6 +427,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'More options'**
   String get moreOptions;
+
+  /// No description provided for @pinnedBoundaryMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Pinned lists stay at the top. Use the menu to pin or unpin.'**
+  String get pinnedBoundaryMessage;
 }
 
 class _AppLocalizationsDelegate

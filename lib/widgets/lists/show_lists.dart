@@ -17,6 +17,14 @@ class ShowLists extends StatefulWidget {
 class ShowListsState extends State<ShowLists> {
   final StorageService _storage = StorageService();
 
+  void _showPinnedBoundaryMessage() {
+    ScaffoldMessenger.of(context)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(
+        SnackBar(content: Text(context.l10n.pinnedBoundaryMessage)),
+      );
+  }
+
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<Box<ListModel>>(
@@ -29,7 +37,10 @@ class ShowListsState extends State<ShowLists> {
           buildDefaultDragHandles: false,
           itemCount: lists.length,
           onReorderItem: (oldIndex, newIndex) async {
-            if (oldIndex < pinnedCount || newIndex < pinnedCount) return;
+            if (oldIndex < pinnedCount || newIndex < pinnedCount) {
+              _showPinnedBoundaryMessage();
+              return;
+            }
             await _storage.reorderLists(oldIndex, newIndex);
           },
           itemBuilder: (context, index) {

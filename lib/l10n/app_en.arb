@@ -58,5 +58,6 @@
     },
     "reorderList": "Reorder list",
     "pinnedList": "Pinned list",
-    "moreOptions": "More options"
+    "moreOptions": "More options",
+    "pinnedBoundaryMessage": "Pinned lists stay at the top. Use the menu to pin or unpin."
 }
