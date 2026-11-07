@@ -24,3 +24,9 @@ Contributions are welcome! Please follow these guidelines.
 3. Ensure `flutter analyze` and `flutter test` pass
 4. Update tests if adding functionality
 5. Submit a PR with a clear description of changes
+
+## Dependencies
+
+Follow [DEPENDENCIES.md](DEPENDENCIES.md) before adding or upgrading a
+package. A new runtime dependency needs a justification in the PR and must not
+add network access, telemetry or an account.
