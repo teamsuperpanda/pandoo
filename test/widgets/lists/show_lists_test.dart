@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pandoo/models/list_model.dart';
 import 'package:pandoo/services/storage_service.dart';
+import 'package:pandoo/widgets/lists/list_card.dart';
 import 'package:pandoo/widgets/lists/show_lists.dart';
 
 import '../../helpers/widget_wrapper.dart';
@@ -51,6 +52,17 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.text('2 items'), findsOneWidget);
+    });
+
+    testWidgets('first launch with an empty box renders no cards', (
+      tester,
+    ) async {
+      await tester.pumpWidget(wrapWithMaterialApp(const ShowLists()));
+      await tester.pumpAndSettle();
+
+      expect(find.byType(ListCard), findsNothing);
+      expect(find.byType(ReorderableListView), findsOneWidget);
+      expect(tester.takeException(), isNull);
     });
   });
 }

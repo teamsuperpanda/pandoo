@@ -121,6 +121,20 @@ void main() {
       expect(settingsService.getThemeMode(), ThemeMode.light);
       expect(settingsService.getLocale(), const Locale('fr', 'FR'));
     });
+
+    test('theme, locale and FAB animation all survive a restart', () async {
+      await settingsService.setThemeMode(ThemeMode.dark);
+      await settingsService.setLocale(const Locale('pt', 'BR'));
+      await settingsService.setFabAnimation(false);
+      await Hive.box<Settings>('settings_db').close();
+
+      final restarted = SettingsService();
+      await restarted.init();
+
+      expect(restarted.getThemeMode(), ThemeMode.dark);
+      expect(restarted.getLocale(), const Locale('pt', 'BR'));
+      expect(restarted.getFabAnimation(), isFalse);
+    });
   });
 }
 
