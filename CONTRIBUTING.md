@@ -24,3 +24,19 @@ Contributions are welcome! Please follow these guidelines.
 3. Ensure `flutter analyze` and `flutter test` pass
 4. Update tests if adding functionality
 5. Submit a PR with a clear description of changes
+
+## Release signing
+
+Release builds need a keystore. Create `android/key.properties` (gitignored) or
+set environment variables, then the Gradle build signs with the upload key:
+
+```
+storeFile=/absolute/path/to/upload-keystore.jks
+storePassword=...
+keyAlias=upload
+keyPassword=...
+```
+
+Environment fallbacks: `KEYSTORE_PATH`, `KEYSTORE_PASSWORD`, `KEY_ALIAS`,
+`KEY_PASSWORD`. The release build fails with a clear message rather than fall
+back to the debug key. Never commit a keystore or its passwords.

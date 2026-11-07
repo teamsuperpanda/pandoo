@@ -22,6 +22,14 @@ fun prop(key: String): String? {
     return null
 }
 
+val releaseStoreFile = prop("storeFile") ?: prop("KEYSTORE_PATH")
+val hasReleaseSigning =
+    releaseStoreFile != null &&
+        file(releaseStoreFile).exists() &&
+        !prop("storePassword").isNullOrBlank() &&
+        !prop("keyAlias").isNullOrBlank() &&
+        !prop("keyPassword").isNullOrBlank()
+
 android {
     namespace = "com.teamsuperpanda.pandoo"
     compileSdk = flutter.compileSdkVersion
@@ -61,12 +69,13 @@ android {
 
     buildTypes {
         release {
-            val envKeystore = System.getenv("KEYSTORE_PATH")
-            val propsFileExists = possibleProps.map { rootProject.file(it) }.any { it.exists() }
-            signingConfig = if (envKeystore != null || propsFileExists) {
+            // Never fall back to the debug key: a debug-signed AAB is rejected
+            // by Play with a confusing error. Unsigned output is only produced
+            // when no release build is requested.
+            signingConfig = if (hasReleaseSigning) {
                 signingConfigs.getByName("release")
             } else {
-                signingConfigs.getByName("debug")
+                null
             }
             isMinifyEnabled = true
             isShrinkResources = true
@@ -87,4 +96,19 @@ flutter {
 dependencies {
     implementation("androidx.core:core-ktx:1.16.0")
     implementation("androidx.activity:activity-ktx:1.9.2")
+}
+
+
+// A release build without a keystore must fail with a clear message instead of
+// producing an artifact signed with the debug key.
+gradle.taskGraph.whenReady {
+    val releaseRequested = allTasks.any { it.name.contains("Release", ignoreCase = true) }
+    if (releaseRequested && !hasReleaseSigning) {
+        throw GradleException(
+            "Release builds require a signing keystore. " +
+                "Create android/key.properties (gitignored) or set " +
+                "KEYSTORE_PATH, STOREPASSWORD, KEYALIAS and KEYPASSWORD. " +
+                "See CONTRIBUTING.md.",
+        )
+    }
 }
