@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:pandoo/models/list_model.dart';
+import 'package:pandoo/services/schema_migration.dart';
 
 class _AsyncLock {
   Future<void>? _last;
@@ -26,7 +27,9 @@ class StorageService {
   static StorageService _instance = StorageService._internal();
 
   static const String listsBoxName = 'lists';
+  static const String metaBoxName = 'meta';
   late Box<ListModel> _listsBox;
+  late Box<dynamic> _metaBox;
   final _lock = _AsyncLock();
 
   Future<void> init({String? testPath}) async {
@@ -44,11 +47,28 @@ class StorageService {
         Hive.registerAdapter(TodoItemAdapter());
       }
       _listsBox = await Hive.openBox<ListModel>(listsBoxName);
+      _metaBox = await Hive.openBox<dynamic>(metaBoxName);
+      await _runMigrations();
     } catch (e) {
       debugPrint('StorageService.init error: $e');
       rethrow;
     }
   }
+
+  Future<void> _runMigrations() async {
+    final stored = _metaBox.get('schema_version') as int? ?? 0;
+    final reached = await runSchemaMigrations(
+      fromVersion: stored,
+      targetVersion: currentSchemaVersion,
+      migrations: schemaMigrations,
+      persistVersion: (version) => _metaBox.put('schema_version', version),
+    );
+    debugPrint('Schema version: $reached');
+  }
+
+  /// Reads the schema version written at first launch. Test-only.
+  @visibleForTesting
+  int? get schemaVersion => _metaBox.get('schema_version') as int?;
 
   Future<bool> addList(String name) {
     final trimmed = name.trim();
