@@ -29,7 +29,10 @@ class StorageService {
   late Box<ListModel> _listsBox;
   final _lock = _AsyncLock();
 
-  Future<void> init({String? testPath}) async {
+  Future<void> init({
+    String? testPath,
+    @visibleForTesting Future<void> Function()? failOpen,
+  }) async {
     try {
       if (testPath != null) {
         Hive.init(testPath);
@@ -42,6 +45,9 @@ class StorageService {
       }
       if (!Hive.isAdapterRegistered(1)) {
         Hive.registerAdapter(TodoItemAdapter());
+      }
+      if (failOpen != null) {
+        await failOpen();
       }
       _listsBox = await Hive.openBox<ListModel>(listsBoxName);
     } catch (e) {

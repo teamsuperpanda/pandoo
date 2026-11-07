@@ -58,5 +58,13 @@
     },
     "reorderList": "Reorder list",
     "pinnedList": "Pinned list",
-    "moreOptions": "More options"
+    "moreOptions": "More options",
+    "startupErrorTitle": "Local storage could not be opened",
+    "startupErrorMessage": "Your data is still on this device. Retry first. If retrying keeps failing, copy the diagnostics or reset local data as a last resort.",
+    "retry": "Retry",
+    "copyDiagnostics": "Copy diagnostics",
+    "diagnosticsCopied": "Diagnostics copied",
+    "resetLocalData": "Reset local data",
+    "resetConfirmTitle": "Reset local data?",
+    "resetConfirmMessage": "This deletes every list and setting on this device and cannot be undone. Copy the diagnostics first if you want help recovering the data."
 }

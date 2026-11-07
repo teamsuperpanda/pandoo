@@ -7,7 +7,7 @@ import 'package:pandoo/models/theme_mode_adapter.dart';
 class SettingsService {
   factory SettingsService() => _instance;
   SettingsService._internal();
-  static const String _boxName = 'settings_db';
+  static const String boxName = 'settings_db';
   static const String _settingsKey = 'app_settings';
 
   static SettingsService _instance = SettingsService._internal();
@@ -28,7 +28,7 @@ class SettingsService {
       if (!Hive.isAdapterRegistered(101)) {
         Hive.registerAdapter(LocaleAdapter());
       }
-      _box = await Hive.openBox<Settings>(_boxName);
+      _box = await Hive.openBox<Settings>(boxName);
 
       if (_box.isEmpty) {
         await _box.put(_settingsKey, Settings());

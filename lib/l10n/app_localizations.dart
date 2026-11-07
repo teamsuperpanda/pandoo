@@ -427,6 +427,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'More options'**
   String get moreOptions;
+
+  /// No description provided for @startupErrorTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Local storage could not be opened'**
+  String get startupErrorTitle;
+
+  /// No description provided for @startupErrorMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Your data is still on this device. Retry first. If retrying keeps failing, copy the diagnostics or reset local data as a last resort.'**
+  String get startupErrorMessage;
+
+  /// No description provided for @retry.
+  ///
+  /// In en, this message translates to:
+  /// **'Retry'**
+  String get retry;
+
+  /// No description provided for @copyDiagnostics.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy diagnostics'**
+  String get copyDiagnostics;
+
+  /// No description provided for @diagnosticsCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'Diagnostics copied'**
+  String get diagnosticsCopied;
+
+  /// No description provided for @resetLocalData.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset local data'**
+  String get resetLocalData;
+
+  /// No description provided for @resetConfirmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset local data?'**
+  String get resetConfirmTitle;
+
+  /// No description provided for @resetConfirmMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'This deletes every list and setting on this device and cannot be undone. Copy the diagnostics first if you want help recovering the data.'**
+  String get resetConfirmMessage;
 }
 
 class _AppLocalizationsDelegate

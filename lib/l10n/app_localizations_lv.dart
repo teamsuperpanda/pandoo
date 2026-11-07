@@ -117,4 +117,30 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get moreOptions => 'More options';
+
+  @override
+  String get startupErrorTitle => 'Local storage could not be opened';
+
+  @override
+  String get startupErrorMessage =>
+      'Your data is still on this device. Retry first. If retrying keeps failing, copy the diagnostics or reset local data as a last resort.';
+
+  @override
+  String get retry => 'Retry';
+
+  @override
+  String get copyDiagnostics => 'Copy diagnostics';
+
+  @override
+  String get diagnosticsCopied => 'Diagnostics copied';
+
+  @override
+  String get resetLocalData => 'Reset local data';
+
+  @override
+  String get resetConfirmTitle => 'Reset local data?';
+
+  @override
+  String get resetConfirmMessage =>
+      'This deletes every list and setting on this device and cannot be undone. Copy the diagnostics first if you want help recovering the data.';
 }
