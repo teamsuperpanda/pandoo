@@ -170,6 +170,8 @@ None. This is a fully offline, local-first application with no network dependenc
 
 - **Data at rest:** Stored locally in Hive boxes via path_provider. No encryption.
 - **Network:** No network requests. No telemetry. No analytics.
+- **OS backups:** excluded. Android uses `allowBackup="false"`; iOS excludes the
+  Documents directory from backup in `AppDelegate.swift`.
 - **Accessibility:** Semantics widgets throughout, localized screen reader labels.
 
 ## 9. Development & Testing
