@@ -44,7 +44,7 @@ class AppLocalizationsHr extends AppLocalizations {
   String get clean => 'Očisti';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count stavki';
   }
 

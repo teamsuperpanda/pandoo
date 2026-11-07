@@ -45,7 +45,7 @@ class AppLocalizationsSk extends AppLocalizations {
   String get clean => 'Vyčistiť';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count položiek';
   }
 

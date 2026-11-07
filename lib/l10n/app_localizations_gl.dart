@@ -45,7 +45,7 @@ class AppLocalizationsGl extends AppLocalizations {
   String get clean => 'Limpar';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count elementos';
   }
 

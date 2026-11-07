@@ -45,7 +45,7 @@ class AppLocalizationsTa extends AppLocalizations {
   String get clean => 'அழி';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count உருப்படிகள்';
   }
 

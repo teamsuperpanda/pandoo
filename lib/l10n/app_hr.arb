@@ -4,21 +4,23 @@
     "listName": "Naziv Liste",
     "cancel": "Odustani",
     "rename": "Preimenuj",
-    "delete": "Izbri\u0161i",
-    "deleteList": "Izbri\u0161i Listu",
-    "deleteConfirmation": "Jeste li sigurni da \u017eelite izbrisati \"{listTitle}\"?",
+    "delete": "Izbriši",
+    "deleteList": "Izbriši Listu",
+    "deleteConfirmation": "Jeste li sigurni da želite izbrisati \"{listTitle}\"?",
     "@deleteConfirmation": {
         "placeholders": {
             "listTitle": {}
         }
     },
-    "cleanCompleted": "O\u010disti Zavr\u0161ene Stavke",
-    "cleanConfirmation": "Ukloniti sve zavr\u0161ene stavke s ove liste?",
-    "clean": "O\u010disti",
+    "cleanCompleted": "Očisti Završene Stavke",
+    "cleanConfirmation": "Ukloniti sve završene stavke s ove liste?",
+    "clean": "Očisti",
     "itemsCount": "{count} stavki",
     "@itemsCount": {
         "placeholders": {
-            "count": {}
+            "count": {
+                "type": "int"
+            }
         }
     },
     "settings": "Postavke",
@@ -27,8 +29,8 @@
     "light": "Svijetla",
     "dark": "Tamna",
     "close": "Zatvori",
-    "listExists": "Lista Ve\u0107 Postoji",
-    "listExistsMessage": "'{name}' ve\u0107 postoji",
+    "listExists": "Lista Već Postoji",
+    "listExistsMessage": "'{name}' već postoji",
     "@listExistsMessage": {
         "placeholders": {
             "name": {}

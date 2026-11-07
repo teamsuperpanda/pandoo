@@ -45,7 +45,7 @@ class AppLocalizationsGu extends AppLocalizations {
   String get clean => 'સાફ કરો';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count વસ્તુઓ';
   }
 

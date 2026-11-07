@@ -44,7 +44,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get clean => 'Temizle';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count öğe';
   }
 

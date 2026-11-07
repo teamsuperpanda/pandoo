@@ -45,7 +45,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get clean => 'Limpar';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count itens';
   }
 
@@ -160,7 +160,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get clean => 'Limpar';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count itens';
   }
 
@@ -266,7 +266,7 @@ class AppLocalizationsPtPt extends AppLocalizationsPt {
   String get clean => 'Limpar';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count itens';
   }
 

@@ -45,7 +45,7 @@ class AppLocalizationsHy extends AppLocalizations {
   String get clean => 'Մաքրել';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count տարր';
   }
 

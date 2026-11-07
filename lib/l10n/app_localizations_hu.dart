@@ -45,7 +45,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get clean => 'Törlés';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count elem';
   }
 

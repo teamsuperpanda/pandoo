@@ -45,7 +45,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get clean => 'Opschonen';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count items';
   }
 

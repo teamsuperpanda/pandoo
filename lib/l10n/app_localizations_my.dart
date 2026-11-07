@@ -45,7 +45,7 @@ class AppLocalizationsMy extends AppLocalizations {
   String get clean => 'ရှင်းလင်းရန်';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return 'အရာ $count ခု';
   }
 

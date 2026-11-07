@@ -44,7 +44,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get clean => 'تنظيف';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count عنصر';
   }
 

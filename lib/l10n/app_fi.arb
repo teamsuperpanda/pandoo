@@ -1,9 +1,9 @@
 {
     "appTitle": "Pandoo",
-    "renameList": "Nime\u00e4 Lista Uudelleen",
+    "renameList": "Nimeä Lista Uudelleen",
     "listName": "Listan Nimi",
     "cancel": "Peruuta",
-    "rename": "Nime\u00e4 Uudelleen",
+    "rename": "Nimeä Uudelleen",
     "delete": "Poista",
     "deleteList": "Poista Lista",
     "deleteConfirmation": "Haluatko varmasti poistaa \"{listTitle}\"?",
@@ -12,18 +12,20 @@
             "listTitle": {}
         }
     },
-    "cleanCompleted": "Tyhjenn\u00e4 Valmiit Kohteet",
-    "cleanConfirmation": "Poistetaanko kaikki valmiit kohteet t\u00e4st\u00e4 listasta?",
-    "clean": "Tyhjenn\u00e4",
+    "cleanCompleted": "Tyhjennä Valmiit Kohteet",
+    "cleanConfirmation": "Poistetaanko kaikki valmiit kohteet tästä listasta?",
+    "clean": "Tyhjennä",
     "itemsCount": "{count} kohdetta",
     "@itemsCount": {
         "placeholders": {
-            "count": {}
+            "count": {
+                "type": "int"
+            }
         }
     },
     "settings": "Asetukset",
     "theme": "Teema",
-    "system": "J\u00e4rjestelm\u00e4",
+    "system": "Järjestelmä",
     "light": "Vaalea",
     "dark": "Tumma",
     "close": "Sulje",
@@ -34,8 +36,8 @@
             "name": {}
         }
     },
-    "addNewList": "Lis\u00e4\u00e4 uusi lista...",
-    "addNewItem": "Lis\u00e4\u00e4 uusi kohde...",
+    "addNewList": "Lisää uusi lista...",
+    "addNewItem": "Lisää uusi kohde...",
     "language": "Kieli",
     "animateAddButton": "Animation",
     "nameCannotBeEmpty": "Name cannot be empty",

@@ -45,7 +45,7 @@ class AppLocalizationsAf extends AppLocalizations {
   String get clean => 'Verwyder';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count items';
   }
 

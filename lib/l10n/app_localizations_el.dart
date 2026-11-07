@@ -45,7 +45,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get clean => 'Εκκαθάριση';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count στοιχεία';
   }
 

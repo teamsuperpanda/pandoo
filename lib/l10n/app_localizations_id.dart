@@ -45,7 +45,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get clean => 'Bersihkan';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count item';
   }
 

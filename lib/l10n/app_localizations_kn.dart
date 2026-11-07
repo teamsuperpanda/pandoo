@@ -45,7 +45,7 @@ class AppLocalizationsKn extends AppLocalizations {
   String get clean => 'ತೆರವುಗೊಳಿಸಿ';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count ಐಟಂಗಳು';
   }
 

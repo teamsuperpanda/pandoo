@@ -44,8 +44,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get clean => 'Clean';
 
   @override
-  String itemsCount(Object count) {
-    return '$count items';
+  String itemsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count items',
+      one: '1 item',
+      zero: 'No items',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -158,7 +165,7 @@ class AppLocalizationsEnAu extends AppLocalizationsEn {
   String get clean => 'Clean';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count items';
   }
 
@@ -263,7 +270,7 @@ class AppLocalizationsEnCa extends AppLocalizationsEn {
   String get clean => 'Clean';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count items';
   }
 
@@ -368,7 +375,7 @@ class AppLocalizationsEnGb extends AppLocalizationsEn {
   String get clean => 'Clean';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count items';
   }
 
@@ -473,7 +480,7 @@ class AppLocalizationsEnIn extends AppLocalizationsEn {
   String get clean => 'Clean';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count items';
   }
 
@@ -578,7 +585,7 @@ class AppLocalizationsEnSg extends AppLocalizationsEn {
   String get clean => 'Clean';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count items';
   }
 
@@ -683,7 +690,7 @@ class AppLocalizationsEnZa extends AppLocalizationsEn {
   String get clean => 'Clean';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count items';
   }
 

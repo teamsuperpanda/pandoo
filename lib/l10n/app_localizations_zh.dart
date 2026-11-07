@@ -44,7 +44,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get clean => '清除';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count 个项目';
   }
 
@@ -158,7 +158,7 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get clean => '清除';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count个项目';
   }
 
@@ -263,7 +263,7 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
   String get clean => '清除';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count 個項目';
   }
 
@@ -368,7 +368,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get clean => '清除';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count個項目';
   }
 

@@ -45,7 +45,7 @@ class AppLocalizationsEu extends AppLocalizations {
   String get clean => 'Garbitu';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count elementu';
   }
 

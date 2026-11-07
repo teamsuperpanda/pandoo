@@ -12,30 +12,32 @@
             "listTitle": {}
         }
     },
-    "cleanCompleted": "Nettoyer les \u00e9l\u00e9ments termin\u00e9s",
-    "cleanConfirmation": "Supprimer tous les \u00e9l\u00e9ments termin\u00e9s de cette liste ?",
+    "cleanCompleted": "Nettoyer les éléments terminés",
+    "cleanConfirmation": "Supprimer tous les éléments terminés de cette liste ?",
     "clean": "Nettoyer",
-    "itemsCount": "{count} \u00e9l\u00e9ments",
+    "itemsCount": "{count} éléments",
     "@itemsCount": {
         "placeholders": {
-            "count": {}
+            "count": {
+                "type": "int"
+            }
         }
     },
-    "settings": "Param\u00e8tres",
-    "theme": "Th\u00e8me",
-    "system": "Syst\u00e8me",
+    "settings": "Paramètres",
+    "theme": "Thème",
+    "system": "Système",
     "light": "Clair",
     "dark": "Sombre",
     "close": "Fermer",
-    "listExists": "La liste existe d\u00e9j\u00e0",
-    "listExistsMessage": "\"{name}\" existe d\u00e9j\u00e0",
+    "listExists": "La liste existe déjà",
+    "listExistsMessage": "\"{name}\" existe déjà",
     "@listExistsMessage": {
         "placeholders": {
             "name": {}
         }
     },
     "addNewList": "Ajouter une nouvelle liste...",
-    "addNewItem": "Ajouter un nouvel \u00e9l\u00e9ment...",
+    "addNewItem": "Ajouter un nouvel élément...",
     "language": "Langue",
     "animateAddButton": "Animation",
     "nameCannotBeEmpty": "Name cannot be empty",

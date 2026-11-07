@@ -45,7 +45,7 @@ class AppLocalizationsCa extends AppLocalizations {
   String get clean => 'Netejar';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count elements';
   }
 

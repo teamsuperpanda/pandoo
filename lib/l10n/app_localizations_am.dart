@@ -44,7 +44,7 @@ class AppLocalizationsAm extends AppLocalizations {
   String get clean => 'አጽዳ';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count ንጥሎች';
   }
 

@@ -18,7 +18,9 @@
     "itemsCount": "{count} elementi",
     "@itemsCount": {
         "placeholders": {
-            "count": {}
+            "count": {
+                "type": "int"
+            }
         }
     },
     "settings": "Impostazioni",
@@ -27,8 +29,8 @@
     "light": "Chiaro",
     "dark": "Scuro",
     "close": "Chiudi",
-    "listExists": "La Lista Esiste Gi\u00e0",
-    "listExistsMessage": "'{name}' esiste gi\u00e0",
+    "listExists": "La Lista Esiste Già",
+    "listExistsMessage": "'{name}' esiste già",
     "@listExistsMessage": {
         "placeholders": {
             "name": {}

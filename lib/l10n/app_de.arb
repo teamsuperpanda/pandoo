@@ -4,21 +4,23 @@
     "listName": "Listenname",
     "cancel": "Abbrechen",
     "rename": "Umbenennen",
-    "delete": "L\u00f6schen",
-    "deleteList": "Liste L\u00f6schen",
-    "deleteConfirmation": "Sind Sie sicher, dass Sie \"{listTitle}\" l\u00f6schen m\u00f6chten?",
+    "delete": "Löschen",
+    "deleteList": "Liste Löschen",
+    "deleteConfirmation": "Sind Sie sicher, dass Sie \"{listTitle}\" löschen möchten?",
     "@deleteConfirmation": {
         "placeholders": {
             "listTitle": {}
         }
     },
-    "cleanCompleted": "Erledigte Eintr\u00e4ge Entfernen",
-    "cleanConfirmation": "Alle erledigten Eintr\u00e4ge aus dieser Liste entfernen?",
+    "cleanCompleted": "Erledigte Einträge Entfernen",
+    "cleanConfirmation": "Alle erledigten Einträge aus dieser Liste entfernen?",
     "clean": "Entfernen",
-    "itemsCount": "{count} Eintr\u00e4ge",
+    "itemsCount": "{count} Einträge",
     "@itemsCount": {
         "placeholders": {
-            "count": {}
+            "count": {
+                "type": "int"
+            }
         }
     },
     "settings": "Einstellungen",
@@ -26,7 +28,7 @@
     "system": "System",
     "light": "Hell",
     "dark": "Dunkel",
-    "close": "Schlie\u00dfen",
+    "close": "Schließen",
     "listExists": "Liste Existiert Bereits",
     "listExistsMessage": "'{name}' existiert bereits",
     "@listExistsMessage": {
@@ -34,8 +36,8 @@
             "name": {}
         }
     },
-    "addNewList": "Neue Liste hinzuf\u00fcgen...",
-    "addNewItem": "Neuen Eintrag hinzuf\u00fcgen...",
+    "addNewList": "Neue Liste hinzufügen...",
+    "addNewItem": "Neuen Eintrag hinzufügen...",
     "language": "Sprache",
     "animateAddButton": "Animation",
     "nameCannotBeEmpty": "Name cannot be empty",

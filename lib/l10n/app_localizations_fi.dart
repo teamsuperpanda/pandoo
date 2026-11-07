@@ -45,7 +45,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get clean => 'Tyhjennä';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count kohdetta';
   }
 

@@ -44,7 +44,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get clean => '정리';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '항목 $count개';
   }
 

@@ -45,7 +45,7 @@ class AppLocalizationsMn extends AppLocalizations {
   String get clean => 'Цэвэрлэх';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count зүйл';
   }
 

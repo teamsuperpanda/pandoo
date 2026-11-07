@@ -45,7 +45,7 @@ class AppLocalizationsFil extends AppLocalizations {
   String get clean => 'Linisin';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count na item';
   }
 
