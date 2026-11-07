@@ -117,4 +117,10 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get moreOptions => 'More options';
+
+  @override
+  String get settingsErrorTitle => 'Could not save setting';
+
+  @override
+  String get settingsErrorMessage => 'The change was reverted. Try again.';
 }
