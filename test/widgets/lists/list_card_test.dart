@@ -148,5 +148,35 @@ void main() {
       expect(find.text('Pinned'), findsOneWidget);
       expect(find.text('1 items'), findsOneWidget);
     });
+
+    testWidgets('surfaces a pin failure from the swipe action', (tester) async {
+      await mockBox.put('Shopping', MockBox.createMockList('Shopping', 0));
+      mockBox.putError = StateError('write failed');
+      await tester.pumpWidget(
+        wrapWithMaterialApp(
+          Scaffold(
+            body: ListCard(
+              title: 'Shopping',
+              itemCount: 1,
+              index: 0,
+              pinned: false,
+              onTap: () {},
+              onDelete: () {},
+              onRename: (_) {},
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      final dismissible = tester.widget<Dismissible>(find.byType(Dismissible));
+      final dismissed = await dismissible.confirmDismiss!(
+        DismissDirection.startToEnd,
+      );
+      await tester.pumpAndSettle();
+
+      expect(dismissed, isFalse);
+      expect(find.text('Could not save'), findsOneWidget);
+    });
   });
 }

@@ -116,6 +116,12 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get moreOptions => 'More options';
+
+  @override
+  String get storageErrorTitle => 'Could not save';
+
+  @override
+  String get storageErrorMessage => 'The change could not be saved. Try again.';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).

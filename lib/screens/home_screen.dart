@@ -145,7 +145,19 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               ),
             );
             if (name == null || !mounted) return;
-            final success = await StorageService().addList(name);
+            bool success;
+            try {
+              success = await StorageService().addList(name);
+            } on Object {
+              if (context.mounted) {
+                showErrorSnackBar(
+                  context,
+                  title: context.l10n.storageErrorTitle,
+                  message: context.l10n.storageErrorMessage,
+                );
+              }
+              return;
+            }
             if (!context.mounted) return;
             if (!success) {
               showErrorSnackBar(

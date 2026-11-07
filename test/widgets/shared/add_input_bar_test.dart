@@ -125,5 +125,22 @@ void main() {
 
       expect(tester.takeException(), isNull);
     });
+
+    testWidgets('keeps the text when the submit fails', (tester) async {
+      await tester.pumpWidget(
+        wrapWithMaterialApp(
+          AddInputBar(
+            hintText: 'Add new item',
+            onSubmit: (_) async => throw StateError('write failed'),
+          ),
+        ),
+      );
+
+      await tester.enterText(find.byType(TextField), 'retry me');
+      await tester.tap(find.byType(IconButton));
+      await tester.pump();
+
+      expect(find.text('retry me'), findsOneWidget);
+    });
   });
 }

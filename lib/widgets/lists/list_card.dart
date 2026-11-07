@@ -5,6 +5,7 @@ import 'package:pandoo/dialog/delete_list_dialog.dart';
 import 'package:pandoo/dialog/list_name_dialog.dart';
 import 'package:pandoo/l10n/l10n.dart';
 import 'package:pandoo/services/storage_service.dart';
+import 'package:pandoo/widgets/shared/app_snackbar.dart';
 
 class ListCard extends StatelessWidget {
   const ListCard({
@@ -56,7 +57,17 @@ class ListCard extends StatelessWidget {
         if (direction == DismissDirection.endToStart) {
           return await _confirmDelete(context);
         }
-        unawaited(StorageService().togglePin(title));
+        try {
+          await StorageService().togglePin(title);
+        } on Object {
+          if (context.mounted) {
+            showErrorSnackBar(
+              context,
+              title: context.l10n.storageErrorTitle,
+              message: context.l10n.storageErrorMessage,
+            );
+          }
+        }
         return false;
       },
       onDismissed: (_) => onDelete(),
