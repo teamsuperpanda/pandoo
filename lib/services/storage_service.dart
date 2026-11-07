@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:pandoo/core/list_order.dart';
 import 'package:pandoo/models/list_model.dart';
 
 class _AsyncLock {
@@ -70,14 +71,7 @@ class StorageService {
 
   List<ListModel> getAllLists() {
     if (!_listsBox.isOpen) return [];
-    final allLists = _listsBox.values.toList();
-    final pinnedLists = allLists.where((list) => list.pinned).toList();
-    final unpinnedLists = allLists.where((list) => !list.pinned).toList();
-
-    pinnedLists.sort((a, b) => a.name.compareTo(b.name));
-    unpinnedLists.sort((a, b) => a.order.compareTo(b.order));
-
-    return [...pinnedLists, ...unpinnedLists];
+    return orderedLists(_listsBox.values);
   }
 
   Future<void> addItemToList(String listName, String item) {
@@ -99,28 +93,15 @@ class StorageService {
     return _lock.synchronized(() async {
       try {
         final lists = getAllLists();
-        final pinned = lists.where((l) => l.pinned).toList();
-        final unpinned = lists.where((l) => !l.pinned).toList();
-
-        final adjustedOld = oldIndex - pinned.length;
-        final adjustedNew = newIndex - pinned.length;
-
-        if (adjustedOld < 0 || adjustedOld >= unpinned.length) return;
-
-        if (adjustedOld < adjustedNew) {
-          final adjustedNew2 = adjustedNew - 1;
-          final item = unpinned.removeAt(adjustedOld);
-          unpinned.insert(adjustedNew2, item);
-        } else {
-          final item = unpinned.removeAt(adjustedOld);
-          unpinned.insert(adjustedNew, item);
-        }
+        final pinnedCount = lists.where((list) => list.pinned).length;
+        final adjustedOld = oldIndex - pinnedCount;
+        final adjustedNew = newIndex - pinnedCount;
+        final moved = moveUnpinned(lists, adjustedOld, adjustedNew);
 
         final updates = <dynamic, ListModel>{
-          for (var i = 0; i < unpinned.length; i++)
-            unpinned[i].name: unpinned[i].copyWith(order: i),
+          for (final list in normalizedUnpinned(moved)) list.name: list,
         };
-        await _listsBox.putAll(updates);
+        await _putAllIfNotEmpty(updates);
       } catch (e) {
         debugPrint('StorageService.reorderLists error: $e');
         rethrow;
@@ -282,15 +263,9 @@ class StorageService {
   Map<dynamic, ListModel> _normalizedUnpinnedUpdates(
     Iterable<ListModel> unpinnedLists,
   ) {
-    final updates = <dynamic, ListModel>{};
-    var order = 0;
-    for (final list in unpinnedLists) {
-      if (list.pinned || list.order != order) {
-        updates[list.name] = list.copyWith(pinned: false, order: order);
-      }
-      order++;
-    }
-    return updates;
+    return {
+      for (final list in normalizedUnpinned(unpinnedLists)) list.name: list,
+    };
   }
 
   Future<void> _putAllIfNotEmpty(Map<dynamic, ListModel> updates) async {
