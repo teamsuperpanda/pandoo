@@ -427,6 +427,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'More options'**
   String get moreOptions;
+
+  /// No description provided for @about.
+  ///
+  /// In en, this message translates to:
+  /// **'About'**
+  String get about;
+
+  /// No description provided for @versionLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Version {version}'**
+  String versionLabel(Object version);
+
+  /// No description provided for @builtBy.
+  ///
+  /// In en, this message translates to:
+  /// **'Built by Team Super Panda'**
+  String get builtBy;
+
+  /// No description provided for @privacy.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy'**
+  String get privacy;
+
+  /// No description provided for @privacyStatement.
+  ///
+  /// In en, this message translates to:
+  /// **'Pandoo stores everything on your device. There are no accounts, no network requests and no telemetry. Your data never leaves the device.'**
+  String get privacyStatement;
+
+  /// No description provided for @thirdPartyLicenses.
+  ///
+  /// In en, this message translates to:
+  /// **'Third-party licenses'**
+  String get thirdPartyLicenses;
+
+  /// No description provided for @sourceCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Source code'**
+  String get sourceCode;
+
+  /// No description provided for @license.
+  ///
+  /// In en, this message translates to:
+  /// **'License'**
+  String get license;
+
+  /// No description provided for @mitLicense.
+  ///
+  /// In en, this message translates to:
+  /// **'MIT License'**
+  String get mitLicense;
 }
 
 class _AppLocalizationsDelegate

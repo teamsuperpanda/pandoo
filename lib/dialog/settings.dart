@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:pandoo/l10n/l10n.dart';
+import 'package:pandoo/screens/about_screen.dart';
 import 'package:pandoo/services/settings_service.dart';
 
 class SettingsDialog extends StatefulWidget {
@@ -209,6 +210,21 @@ class _SettingsDialogState extends State<SettingsDialog> {
                   }
                 },
               ),
+            ),
+            const SizedBox(height: 24),
+            ListTile(
+              contentPadding: EdgeInsets.zero,
+              leading: const Icon(Icons.info_outline),
+              title: Text(context.l10n.about),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute<AboutScreen>(
+                    builder: (context) => const AboutScreen(),
+                    settings: const RouteSettings(name: '/about'),
+                  ),
+                );
+              },
             ),
             const SizedBox(height: 24),
 

@@ -58,5 +58,19 @@
     },
     "reorderList": "Reorder list",
     "pinnedList": "Pinned list",
-    "moreOptions": "More options"
+    "moreOptions": "More options",
+    "about": "About",
+    "versionLabel": "Version {version}",
+    "@versionLabel": {
+        "placeholders": {
+            "version": {}
+        }
+    },
+    "builtBy": "Built by Team Super Panda",
+    "privacy": "Privacy",
+    "privacyStatement": "Pandoo stores everything on your device. There are no accounts, no network requests and no telemetry. Your data never leaves the device.",
+    "thirdPartyLicenses": "Third-party licenses",
+    "sourceCode": "Source code",
+    "license": "License",
+    "mitLicense": "MIT License"
 }
