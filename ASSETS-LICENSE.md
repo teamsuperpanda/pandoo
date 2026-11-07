@@ -1,44 +1,37 @@
 # Assets License
 
-## Restrictions on Application Assets
+## Bundled artwork and branding
 
-All application assets, including but not limited to:
+The following files are licensed under the
+[Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/):
 
-- Icons in `assets/images/icon/`
-- Launch screen images in `assets/images/launchscreen/`
-- Logos and branding materials
-- Any other visual or multimedia content provided with this project
+- `assets/images/icon/`
+- `assets/images/launchscreen/`
+- `assets/images/github/`
 
-are copyright © 2025 teamsuperpanda and are **NOT** licensed under the PolyForm Noncommercial License.
+Copyright 2021-2026 Team Super Panda.
 
-## Permitted Use
+You may share and adapt these assets for any purpose, including commercially,
+provided you give appropriate credit, link to the license, and indicate if
+changes were made. A reasonable credit is:
 
-These assets may be used **only** as part of the Pandoo application and are provided for that purpose alone.
+> Pandoo artwork by Team Super Panda, licensed under CC BY 4.0.
 
-## Prohibited Use
+## Fonts
 
-You may **NOT**:
+The Inter font family in `assets/fonts/` is **not** covered by CC BY 4.0.
+It is licensed under the SIL Open Font License, Version 1.1 (OFL-1.1).
 
-- Reuse, redistribute, or modify these assets outside of this project
-- Include these assets in derivative works or forks without explicit written permission
-- Use these assets for commercial purposes or in competing products
-- Alter, remix, or create derivative works from these assets
-- Claim ownership of or relicense these assets
+- Copyright (c) 2016 The Inter Project Authors (https://github.com/rsms/inter)
+- License text: `LICENSES/OFL-1.1.txt`
+- The fonts are bundled unmodified and are redistributed under the OFL.
 
-## How to Create a Derivative Work
+## Trademarks
 
-If you wish to create a fork or derivative of Pandoo with your own branding:
+The Pandoo name, the panda mark and the store listing artwork are covered by a
+separate trademark and brand policy. CC BY 4.0 grants copyright permission
+only; it does not grant trademark rights. Forks must rename and re-icon the app.
 
-1. **Replace all assets** in `assets/images/` with your own original or properly licensed material
-2. **Update branding references** in `pubspec.yaml` and Flutter configuration files
-3. **Clearly distinguish** your fork from the original Pandoo project
-4. **Request written permission** if you wish to use any original Pandoo assets
+## Source code
 
-## Questions or Exceptions
-
-For questions about asset licensing or to request exceptions, please contact teamsuperpanda directly.
-
----
-
-**The application source code** is licensed under the [PolyForm Noncommercial 1.0.0](LICENSE) and may be used, modified, and distributed according to those terms.
-This restriction applies **only** to the visual and multimedia assets, not to the code.
+The application source code is licensed under the [MIT License](LICENSE).

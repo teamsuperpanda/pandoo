@@ -66,4 +66,4 @@ flutter test --coverage
 ## License
 
 The code is [PolyForm Noncommercial 1.0.0](LICENSE). Free for personal use, not for resale.
-Assets are copyright 2026 Team Super Panda (see [ASSETS-LICENSE.md](ASSETS-LICENSE.md)).
+Assets are copyright 2026 Team Super Panda, licensed under CC BY 4.0 (see [ASSETS-LICENSE.md](ASSETS-LICENSE.md)). Third-party components and their licenses are listed in [THIRD_PARTY.md](THIRD_PARTY.md).
