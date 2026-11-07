@@ -45,7 +45,7 @@ class AppLocalizationsSq extends AppLocalizations {
   String get clean => 'Pastro';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count artikuj';
   }
 

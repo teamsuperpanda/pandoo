@@ -44,7 +44,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get clean => 'ล้าง';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count รายการ';
   }
 

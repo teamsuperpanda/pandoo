@@ -45,7 +45,7 @@ class AppLocalizationsKa extends AppLocalizations {
   String get clean => 'გასუფთავება';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count ელემენტი';
   }
 

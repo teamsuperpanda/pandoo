@@ -1,42 +1,44 @@
 {
     "appTitle": "Pandoo",
-    "renameList": "Redenume\u0219te Lista",
+    "renameList": "Redenumește Lista",
     "listName": "Numele Listei",
-    "cancel": "Anuleaz\u0103",
-    "rename": "Redenume\u0219te",
-    "delete": "\u0218terge",
-    "deleteList": "\u0218terge Lista",
-    "deleteConfirmation": "Sigur dori\u021bi s\u0103 \u0219terge\u021bi \"{listTitle}\"?",
+    "cancel": "Anulează",
+    "rename": "Redenumește",
+    "delete": "Șterge",
+    "deleteList": "Șterge Lista",
+    "deleteConfirmation": "Sigur doriți să ștergeți \"{listTitle}\"?",
     "@deleteConfirmation": {
         "placeholders": {
             "listTitle": {}
         }
     },
-    "cleanCompleted": "Cur\u0103\u021b\u0103 Elementele Completate",
-    "cleanConfirmation": "Elimina\u021bi toate elementele completate din aceast\u0103 list\u0103?",
-    "clean": "Cur\u0103\u021b\u0103",
+    "cleanCompleted": "Curăță Elementele Completate",
+    "cleanConfirmation": "Eliminați toate elementele completate din această listă?",
+    "clean": "Curăță",
     "itemsCount": "{count} elemente",
     "@itemsCount": {
         "placeholders": {
-            "count": {}
+            "count": {
+                "type": "int"
+            }
         }
     },
-    "settings": "Set\u0103ri",
-    "theme": "Tem\u0103",
+    "settings": "Setări",
+    "theme": "Temă",
     "system": "Sistem",
     "light": "Luminos",
-    "dark": "\u00centunecat",
-    "close": "\u00cenchide",
-    "listExists": "Lista Exist\u0103 Deja",
-    "listExistsMessage": "'{name}' exist\u0103 deja",
+    "dark": "Întunecat",
+    "close": "Închide",
+    "listExists": "Lista Există Deja",
+    "listExistsMessage": "'{name}' există deja",
     "@listExistsMessage": {
         "placeholders": {
             "name": {}
         }
     },
-    "addNewList": "Adaug\u0103 list\u0103 nou\u0103...",
-    "addNewItem": "Adaug\u0103 element nou...",
-    "language": "Limb\u0103",
+    "addNewList": "Adaugă listă nouă...",
+    "addNewItem": "Adaugă element nou...",
+    "language": "Limbă",
     "animateAddButton": "Animation",
     "nameCannotBeEmpty": "Name cannot be empty",
     "pin": "Pin",

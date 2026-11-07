@@ -45,7 +45,7 @@ class AppLocalizationsMr extends AppLocalizations {
   String get clean => 'साफ करा';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count आयटम्स';
   }
 

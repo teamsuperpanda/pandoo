@@ -45,7 +45,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get clean => 'Notīrīt';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count vienumi';
   }
 

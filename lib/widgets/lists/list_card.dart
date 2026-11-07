@@ -151,7 +151,7 @@ class ListCard extends StatelessWidget {
                             borderRadius: BorderRadius.circular(12),
                           ),
                           child: Text(
-                            context.l10n.itemsCount(itemCount.toString()),
+                            context.l10n.itemsCount(itemCount),
                             style: TextStyle(
                               color: theme.colorScheme.onPrimary,
                               fontSize: 12,

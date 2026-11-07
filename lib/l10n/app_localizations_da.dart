@@ -45,7 +45,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get clean => 'Ryd';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count elementer';
   }
 

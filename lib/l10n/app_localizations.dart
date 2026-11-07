@@ -299,8 +299,8 @@ abstract class AppLocalizations {
   /// No description provided for @itemsCount.
   ///
   /// In en, this message translates to:
-  /// **'{count} items'**
-  String itemsCount(Object count);
+  /// **'{count, plural, =0{No items} =1{1 item} other{{count} items}}'**
+  String itemsCount(int count);
 
   /// No description provided for @settings.
   ///

@@ -45,7 +45,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get clean => 'Rensa';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count objekt';
   }
 

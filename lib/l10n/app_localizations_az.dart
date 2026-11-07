@@ -45,7 +45,7 @@ class AppLocalizationsAz extends AppLocalizations {
   String get clean => 'Təmizlə';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count element';
   }
 

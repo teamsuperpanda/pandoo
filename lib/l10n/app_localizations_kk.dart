@@ -45,7 +45,7 @@ class AppLocalizationsKk extends AppLocalizations {
   String get clean => 'Тазалау';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count элемент';
   }
 

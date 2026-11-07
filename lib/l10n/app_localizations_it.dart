@@ -45,7 +45,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get clean => 'Pulisci';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count elementi';
   }
 

@@ -44,7 +44,7 @@ class AppLocalizationsUr extends AppLocalizations {
   String get clean => 'صاف کریں';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count آئٹمز';
   }
 

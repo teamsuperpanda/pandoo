@@ -44,7 +44,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get clean => '削除';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count個のアイテム';
   }
 

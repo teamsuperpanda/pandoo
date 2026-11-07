@@ -45,7 +45,7 @@ class AppLocalizationsLt extends AppLocalizations {
   String get clean => 'Išvalyti';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count elementai';
   }
 

@@ -45,7 +45,7 @@ class AppLocalizationsTe extends AppLocalizations {
   String get clean => 'శుభ్రం చేయి';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count అంశాలు';
   }
 

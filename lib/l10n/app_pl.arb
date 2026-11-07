@@ -1,24 +1,26 @@
 {
     "appTitle": "Pandoo",
-    "renameList": "Zmie\u0144 Nazw\u0119 Listy",
+    "renameList": "Zmień Nazwę Listy",
     "listName": "Nazwa Listy",
     "cancel": "Anuluj",
-    "rename": "Zmie\u0144 Nazw\u0119",
-    "delete": "Usu\u0144",
-    "deleteList": "Usu\u0144 List\u0119",
-    "deleteConfirmation": "Czy na pewno chcesz usun\u0105\u0107 \"{listTitle}\"?",
+    "rename": "Zmień Nazwę",
+    "delete": "Usuń",
+    "deleteList": "Usuń Listę",
+    "deleteConfirmation": "Czy na pewno chcesz usunąć \"{listTitle}\"?",
     "@deleteConfirmation": {
         "placeholders": {
             "listTitle": {}
         }
     },
-    "cleanCompleted": "Wyczy\u015b\u0107 Uko\u0144czone Elementy",
-    "cleanConfirmation": "Usun\u0105\u0107 wszystkie uko\u0144czone elementy z tej listy?",
-    "clean": "Wyczy\u015b\u0107",
-    "itemsCount": "{count} element\u00f3w",
+    "cleanCompleted": "Wyczyść Ukończone Elementy",
+    "cleanConfirmation": "Usunąć wszystkie ukończone elementy z tej listy?",
+    "clean": "Wyczyść",
+    "itemsCount": "{count} elementów",
     "@itemsCount": {
         "placeholders": {
-            "count": {}
+            "count": {
+                "type": "int"
+            }
         }
     },
     "settings": "Ustawienia",
@@ -27,16 +29,16 @@
     "light": "Jasny",
     "dark": "Ciemny",
     "close": "Zamknij",
-    "listExists": "Lista Ju\u017c Istnieje",
-    "listExistsMessage": "'{name}' ju\u017c istnieje",
+    "listExists": "Lista Już Istnieje",
+    "listExistsMessage": "'{name}' już istnieje",
     "@listExistsMessage": {
         "placeholders": {
             "name": {}
         }
     },
-    "addNewList": "Dodaj now\u0105 list\u0119...",
+    "addNewList": "Dodaj nową listę...",
     "addNewItem": "Dodaj nowy element...",
-    "language": "J\u0119zyk",
+    "language": "Język",
     "animateAddButton": "Animation",
     "nameCannotBeEmpty": "Name cannot be empty",
     "pin": "Pin",

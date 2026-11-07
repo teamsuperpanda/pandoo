@@ -1,41 +1,43 @@
 {
     "appTitle": "Pandoo",
-    "renameList": "Pervadinti S\u0105ra\u0161\u0105",
-    "listName": "S\u0105ra\u0161o Pavadinimas",
-    "cancel": "At\u0161aukti",
+    "renameList": "Pervadinti Sąrašą",
+    "listName": "Sąrašo Pavadinimas",
+    "cancel": "Atšaukti",
     "rename": "Pervadinti",
-    "delete": "I\u0161trinti",
-    "deleteList": "I\u0161trinti S\u0105ra\u0161\u0105",
-    "deleteConfirmation": "Ar tikrai norite i\u0161trinti \"{listTitle}\"?",
+    "delete": "Ištrinti",
+    "deleteList": "Ištrinti Sąrašą",
+    "deleteConfirmation": "Ar tikrai norite ištrinti \"{listTitle}\"?",
     "@deleteConfirmation": {
         "placeholders": {
             "listTitle": {}
         }
     },
-    "cleanCompleted": "I\u0161valyti Baigtus Elementus",
-    "cleanConfirmation": "Pa\u0161alinti visus baigtus elementus i\u0161 \u0161io s\u0105ra\u0161o?",
-    "clean": "I\u0161valyti",
+    "cleanCompleted": "Išvalyti Baigtus Elementus",
+    "cleanConfirmation": "Pašalinti visus baigtus elementus iš šio sąrašo?",
+    "clean": "Išvalyti",
     "itemsCount": "{count} elementai",
     "@itemsCount": {
         "placeholders": {
-            "count": {}
+            "count": {
+                "type": "int"
+            }
         }
     },
     "settings": "Nustatymai",
     "theme": "Tema",
     "system": "Sistema",
-    "light": "\u0160viesus",
+    "light": "Šviesus",
     "dark": "Tamsus",
-    "close": "U\u017edaryti",
-    "listExists": "S\u0105ra\u0161as Jau Egzistuoja",
+    "close": "Uždaryti",
+    "listExists": "Sąrašas Jau Egzistuoja",
     "listExistsMessage": "'{name}' jau egzistuoja",
     "@listExistsMessage": {
         "placeholders": {
             "name": {}
         }
     },
-    "addNewList": "Prid\u0117ti nauj\u0105 s\u0105ra\u0161\u0105...",
-    "addNewItem": "Prid\u0117ti nauj\u0105 element\u0105...",
+    "addNewList": "Pridėti naują sąrašą...",
+    "addNewItem": "Pridėti naują elementą...",
     "language": "Kalba",
     "animateAddButton": "Animation",
     "nameCannotBeEmpty": "Name cannot be empty",

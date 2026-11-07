@@ -12,23 +12,25 @@
             "listTitle": {}
         }
     },
-    "cleanCompleted": "Limpar Itens Conclu\u00eddos",
-    "cleanConfirmation": "Remover todos os itens conclu\u00eddos desta lista?",
+    "cleanCompleted": "Limpar Itens Concluídos",
+    "cleanConfirmation": "Remover todos os itens concluídos desta lista?",
     "clean": "Limpar",
     "itemsCount": "{count} itens",
     "@itemsCount": {
         "placeholders": {
-            "count": {}
+            "count": {
+                "type": "int"
+            }
         }
     },
-    "settings": "Defini\u00e7\u00f5es",
+    "settings": "Definições",
     "theme": "Tema",
     "system": "Sistema",
     "light": "Claro",
     "dark": "Escuro",
     "close": "Fechar",
-    "listExists": "Lista J\u00e1 Existe",
-    "listExistsMessage": "'{name}' j\u00e1 existe",
+    "listExists": "Lista Já Existe",
+    "listExistsMessage": "'{name}' já existe",
     "@listExistsMessage": {
         "placeholders": {
             "name": {}

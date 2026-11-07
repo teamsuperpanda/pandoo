@@ -45,7 +45,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get clean => 'Limpiar';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count elementos';
   }
 
@@ -160,7 +160,7 @@ class AppLocalizationsEs419 extends AppLocalizationsEs {
   String get clean => 'Limpiar';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count elementos';
   }
 

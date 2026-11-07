@@ -6,7 +6,7 @@
     "rename": "Renomear",
     "delete": "Eliminar",
     "deleteList": "Eliminar Lista",
-    "deleteConfirmation": "Est\u00e1s seguro de que queres eliminar \"{listTitle}\"?",
+    "deleteConfirmation": "Estás seguro de que queres eliminar \"{listTitle}\"?",
     "@deleteConfirmation": {
         "placeholders": {
             "listTitle": {}
@@ -18,10 +18,12 @@
     "itemsCount": "{count} elementos",
     "@itemsCount": {
         "placeholders": {
-            "count": {}
+            "count": {
+                "type": "int"
+            }
         }
     },
-    "settings": "Configuraci\u00f3n",
+    "settings": "Configuración",
     "theme": "Tema",
     "system": "Sistema",
     "light": "Claro",

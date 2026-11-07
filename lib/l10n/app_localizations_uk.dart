@@ -45,7 +45,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get clean => 'Очистити';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count елементів';
   }
 

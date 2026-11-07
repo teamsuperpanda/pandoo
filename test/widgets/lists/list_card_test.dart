@@ -34,7 +34,7 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.text('Shopping'), findsOneWidget);
-      expect(find.text('1 items'), findsOneWidget);
+      expect(find.text('1 item'), findsOneWidget);
     });
 
     testWidgets('shows pin icon when pinned', (tester) async {
@@ -146,7 +146,26 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.text('Pinned'), findsOneWidget);
-      expect(find.text('1 items'), findsOneWidget);
+      expect(find.text('1 item'), findsOneWidget);
+    });
+
+    testWidgets('renders a zero count without pluralising', (tester) async {
+      await tester.pumpWidget(
+        wrapWithMaterialApp(
+          ListCard(
+            title: 'Empty',
+            itemCount: 0,
+            index: 0,
+            pinned: false,
+            onTap: () {},
+            onDelete: () {},
+            onRename: (_) {},
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.text('No items'), findsOneWidget);
     });
   });
 }

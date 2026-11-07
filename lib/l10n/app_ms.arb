@@ -18,7 +18,9 @@
     "itemsCount": "{count} item",
     "@itemsCount": {
         "placeholders": {
-            "count": {}
+            "count": {
+                "type": "int"
+            }
         }
     },
     "settings": "Tetapan",

@@ -45,7 +45,7 @@ class AppLocalizationsMk extends AppLocalizations {
   String get clean => 'Исчисти';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count ставки';
   }
 

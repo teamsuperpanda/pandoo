@@ -18,7 +18,9 @@
     "itemsCount": "{count} na item",
     "@itemsCount": {
         "placeholders": {
-            "count": {}
+            "count": {
+                "type": "int"
+            }
         }
     },
     "settings": "Mga Setting",

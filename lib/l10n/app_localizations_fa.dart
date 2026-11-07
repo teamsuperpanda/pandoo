@@ -44,7 +44,7 @@ class AppLocalizationsFa extends AppLocalizations {
   String get clean => 'پاک کردن';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count مورد';
   }
 

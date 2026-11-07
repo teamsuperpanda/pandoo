@@ -15,10 +15,12 @@
     "cleanCompleted": "Clean Completed Items",
     "cleanConfirmation": "Remove all completed items from this list?",
     "clean": "Clean",
-    "itemsCount": "{count} items",
+    "itemsCount": "{count, plural, =0{No items} =1{1 item} other{{count} items}}",
     "@itemsCount": {
         "placeholders": {
-            "count": {}
+            "count": {
+                "type": "int"
+            }
         }
     },
     "settings": "Settings",

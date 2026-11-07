@@ -18,7 +18,9 @@
     "itemsCount": "{count} items",
     "@itemsCount": {
         "placeholders": {
-            "count": {}
+            "count": {
+                "type": "int"
+            }
         }
     },
     "settings": "Settings",

@@ -45,7 +45,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get clean => 'Xóa';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count mục';
   }
 

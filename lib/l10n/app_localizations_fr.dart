@@ -45,7 +45,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get clean => 'Nettoyer';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count éléments';
   }
 
@@ -160,7 +160,7 @@ class AppLocalizationsFrCa extends AppLocalizationsFr {
   String get clean => 'Nettoyer';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count éléments';
   }
 
@@ -266,7 +266,7 @@ class AppLocalizationsFrFr extends AppLocalizationsFr {
   String get clean => 'Nettoyer';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count éléments';
   }
 

@@ -45,7 +45,7 @@ class AppLocalizationsMl extends AppLocalizations {
   String get clean => 'മായ്ക്കുക';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count ഇനങ്ങൾ';
   }
 

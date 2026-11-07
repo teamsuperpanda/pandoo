@@ -45,7 +45,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get clean => 'Puhasta';
 
   @override
-  String itemsCount(Object count) {
+  String itemsCount(int count) {
     return '$count üksust';
   }
 
