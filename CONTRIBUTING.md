@@ -24,3 +24,16 @@ Contributions are welcome! Please follow these guidelines.
 3. Ensure `flutter analyze` and `flutter test` pass
 4. Update tests if adding functionality
 5. Submit a PR with a clear description of changes
+
+## License headers
+
+Every new file must declare its licence so `reuse lint` passes. Either add an
+SPDX header:
+
+```dart
+// SPDX-FileCopyrightText: 2026 Team Super Panda
+// SPDX-License-Identifier: MIT
+```
+
+or add the file to the matching `[[annotations]]` block in `REUSE.toml`.
+Code is MIT, bundled artwork is CC BY 4.0, and the Inter font is OFL-1.1.
