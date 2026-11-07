@@ -13,6 +13,9 @@ class ListModel {
     this.pinned = false,
   }) : items = items ?? [];
 
+  /// Maximum length of a list name after trimming.
+  static const int maxNameLength = 80;
+
   @HiveField(0)
   final String name;
 
@@ -44,6 +47,9 @@ class ListModel {
 class TodoItem {
   TodoItem({required this.text, this.isCompleted = false, String? id})
     : id = id ?? 'item_${DateTime.now().microsecondsSinceEpoch}';
+
+  /// Maximum length of todo item text after trimming.
+  static const int maxTextLength = 500;
 
   @HiveField(0)
   final String text;

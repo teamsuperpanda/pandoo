@@ -88,6 +88,24 @@ void main() {
       expect(result, isNull);
     });
 
+    testWidgets('rejects a name longer than the limit', (tester) async {
+      await tester.pumpWidget(
+        wrapWithMaterialApp(const Material(child: _DialogOpener())),
+      );
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.byType(FloatingActionButton));
+      await tester.pumpAndSettle();
+
+      await tester.enterText(find.byType(TextFormField), 'a' * 81);
+      await tester.pump();
+
+      final field = tester.widget<TextField>(find.byType(TextField));
+      expect(field.maxLength, 80);
+      expect(find.text('a' * 80), findsOneWidget);
+      expect(find.text('a' * 81), findsNothing);
+    });
+
     testWidgets('shows validation error for empty name', (tester) async {
       await tester.pumpWidget(
         wrapWithMaterialApp(const Material(child: _DialogOpener())),

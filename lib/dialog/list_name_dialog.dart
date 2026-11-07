@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pandoo/l10n/l10n.dart';
+import 'package:pandoo/models/list_model.dart';
 
 class ListNameDialog extends StatefulWidget {
   const ListNameDialog({
@@ -49,9 +50,14 @@ class _ListNameDialogState extends State<ListNameDialog> {
         child: TextFormField(
           controller: _controller,
           autofocus: true,
+          maxLength: ListModel.maxNameLength,
           validator: (value) {
-            if (value == null || value.trim().isEmpty) {
+            final trimmed = value?.trim() ?? '';
+            if (trimmed.isEmpty) {
               return context.l10n.nameCannotBeEmpty;
+            }
+            if (trimmed.length > ListModel.maxNameLength) {
+              return context.l10n.nameTooLong;
             }
             return null;
           },

@@ -54,7 +54,9 @@ class StorageService {
     final trimmed = name.trim();
     return _lock.synchronized(() async {
       try {
-        if (trimmed.isEmpty || _listsBox.containsKey(trimmed)) {
+        if (trimmed.isEmpty ||
+            trimmed.length > ListModel.maxNameLength ||
+            _listsBox.containsKey(trimmed)) {
           return false;
         }
         final unpinnedCount = getAllLists().where((l) => !l.pinned).length;
@@ -84,8 +86,10 @@ class StorageService {
     return _lock.synchronized(() async {
       try {
         final list = _listsBox.get(listName);
+        final trimmed = item.trim();
+        if (trimmed.isEmpty || trimmed.length > TodoItem.maxTextLength) return;
         if (list != null) {
-          final updatedItems = [...list.items, TodoItem(text: item)];
+          final updatedItems = [...list.items, TodoItem(text: trimmed)];
           await _listsBox.put(listName, list.copyWith(items: updatedItems));
         }
       } catch (e) {
@@ -148,7 +152,11 @@ class StorageService {
     return _lock.synchronized(() async {
       try {
         final trimmed = newName.trim();
-        if (trimmed.isEmpty || trimmed == oldName) return false;
+        if (trimmed.isEmpty ||
+            trimmed.length > ListModel.maxNameLength ||
+            trimmed == oldName) {
+          return false;
+        }
         if (_listsBox.containsKey(trimmed)) {
           return false;
         }

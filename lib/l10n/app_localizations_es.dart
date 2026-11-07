@@ -117,6 +117,9 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get moreOptions => 'More options';
+
+  @override
+  String get nameTooLong => 'Name must be 80 characters or fewer';
 }
 
 /// The translations for Spanish Castilian, as used in Latin America and the Caribbean (`es_419`).

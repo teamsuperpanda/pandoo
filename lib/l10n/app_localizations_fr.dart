@@ -117,6 +117,9 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get moreOptions => 'More options';
+
+  @override
+  String get nameTooLong => 'Name must be 80 characters or fewer';
 }
 
 /// The translations for French, as used in Canada (`fr_CA`).

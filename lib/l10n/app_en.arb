@@ -58,5 +58,6 @@
     },
     "reorderList": "Reorder list",
     "pinnedList": "Pinned list",
-    "moreOptions": "More options"
+    "moreOptions": "More options",
+    "nameTooLong": "Name must be 80 characters or fewer"
 }

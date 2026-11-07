@@ -126,4 +126,19 @@ void main() {
       expect(tester.takeException(), isNull);
     });
   });
+
+  testWidgets('limits input to the configured maximum', (tester) async {
+    await tester.pumpWidget(
+      wrapWithMaterialApp(
+        const AddInputBar(
+          hintText: 'Add new item',
+          onSubmit: _noop,
+          maxLength: 10,
+        ),
+      ),
+    );
+
+    final field = tester.widget<TextField>(find.byType(TextField));
+    expect(field.maxLength, 10);
+  });
 }
