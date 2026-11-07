@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pandoo/models/list_model.dart';
 import 'package:pandoo/services/storage_service.dart';
 
 import '../widgets/helpers/mock_box.dart';
@@ -217,5 +218,23 @@ void main() {
 
     expect(storage.getList('Old'), isNotNull);
     expect(storage.getList('New'), isNull);
+  });
+
+  test('toggle keeps every field except completion', () async {
+    await mockBox.put(
+      'Test',
+      ListModel(
+        name: 'Test',
+        order: 0,
+        items: [TodoItem(text: 'Milk', id: 'keep-me')],
+      ),
+    );
+
+    await storage.toggleItemCompletion('Test', 'keep-me');
+
+    final item = storage.getList('Test')!.items.single;
+    expect(item.id, 'keep-me');
+    expect(item.text, 'Milk');
+    expect(item.isCompleted, isTrue);
   });
 }

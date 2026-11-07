@@ -222,11 +222,7 @@ class StorageService {
 
         final updatedItems = list.items.map((item) {
           if (item.id == itemId) {
-            return TodoItem(
-              text: item.text,
-              isCompleted: !item.isCompleted,
-              id: item.id,
-            );
+            return item.copyWith(isCompleted: !item.isCompleted);
           }
           return item;
         }).toList();
