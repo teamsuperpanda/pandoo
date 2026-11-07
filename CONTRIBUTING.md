@@ -24,3 +24,16 @@ Contributions are welcome! Please follow these guidelines.
 3. Ensure `flutter analyze` and `flutter test` pass
 4. Update tests if adding functionality
 5. Submit a PR with a clear description of changes
+
+## Manual adapter workflow
+
+`build_runner` and `hive_generator` are not dependencies; the `*.g.dart`
+adapters are committed and edited by hand. When a Hive model changes:
+
+1. Add the field with a new `@HiveField` index; never reuse or reorder one.
+2. Update the matching `*.g.dart` adapter's field count, read map and write map.
+3. Run the schema migration rules in ARCHITECTURE.md (bump the version, add a
+   migration, add a fixture test).
+4. Use `copyWith` at mutation sites; never rebuild a model by hand and drop a
+   field that was just added.
+5. Run `flutter analyze` and the storage tests.
