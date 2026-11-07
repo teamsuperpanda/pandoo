@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pandoo/models/list_model.dart';
 import 'package:pandoo/services/storage_service.dart';
+import 'package:pandoo/widgets/lists/list_card.dart';
 import 'package:pandoo/widgets/lists/show_lists.dart';
 
 import '../../helpers/widget_wrapper.dart';
@@ -51,6 +52,43 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.text('2 items'), findsOneWidget);
+    });
+
+    testWidgets('deleting a list offers undo and restores it fully', (
+      tester,
+    ) async {
+      await mockBox.put(
+        'Shopping',
+        MockBox.createMockList(
+          'Shopping',
+          0,
+          pinned: true,
+          items: [
+            TodoItem(text: 'Milk'),
+            TodoItem(text: 'Bread'),
+          ],
+        ),
+      );
+
+      await tester.pumpWidget(
+        wrapWithMaterialApp(const Scaffold(body: ShowLists())),
+      );
+      await tester.pumpAndSettle();
+
+      final card = tester.widget<ListCard>(find.byType(ListCard));
+      card.onDelete();
+      await tester.pumpAndSettle();
+
+      expect(find.text('Shopping'), findsNothing);
+      expect(find.text('List deleted'), findsOneWidget);
+
+      tester.widget<SnackBar>(find.byType(SnackBar)).action!.onPressed();
+      await tester.pumpAndSettle();
+
+      final restored = StorageService().getList('Shopping')!;
+      expect(restored.pinned, isTrue);
+      expect(restored.items.map((item) => item.text), ['Milk', 'Bread']);
+      expect(find.text('Shopping'), findsOneWidget);
     });
   });
 }

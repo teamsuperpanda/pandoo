@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pandoo/models/list_model.dart';
 import 'package:pandoo/services/storage_service.dart';
 
 import '../widgets/helpers/mock_box.dart';
@@ -217,5 +218,51 @@ void main() {
 
     expect(storage.getList('Old'), isNotNull);
     expect(storage.getList('New'), isNull);
+  });
+
+  test('restoreList brings back a deleted list with its items', () async {
+    await storage.addList('Test');
+    await storage.addItemToList('Test', 'Milk');
+    final snapshot = storage.getList('Test')!;
+
+    await storage.deleteList('Test');
+    expect(storage.getList('Test'), isNull);
+
+    await storage.restoreList(snapshot);
+    expect(storage.getList('Test')!.items.single.text, 'Milk');
+  });
+
+  test('restoreItemsAt puts cleaned items back at their indices', () async {
+    await mockBox.put(
+      'Test',
+      ListModel(
+        name: 'Test',
+        order: 0,
+        items: [
+          TodoItem(text: 'Done one', isCompleted: true),
+          TodoItem(text: 'Keep'),
+          TodoItem(text: 'Done two', isCompleted: true),
+        ],
+      ),
+    );
+    final list = storage.getList('Test')!;
+    final entries = <(int, TodoItem)>[(0, list.items[0]), (2, list.items[2])];
+
+    await storage.removeCompletedItems('Test');
+    expect(storage.getList('Test')!.items.map((item) => item.text), ['Keep']);
+
+    await storage.restoreItemsAt('Test', entries);
+    expect(storage.getList('Test')!.items.map((item) => item.text), [
+      'Done one',
+      'Keep',
+      'Done two',
+    ]);
+  });
+
+  test('mock box notifies its listeners on put', () async {
+    var calls = 0;
+    mockBox.listenable().addListener(() => calls++);
+    await mockBox.put('X', ListModel(name: 'X', order: 0));
+    expect(calls, 1);
   });
 }

@@ -427,6 +427,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'More options'**
   String get moreOptions;
+
+  /// No description provided for @undo.
+  ///
+  /// In en, this message translates to:
+  /// **'Undo'**
+  String get undo;
+
+  /// No description provided for @itemDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Item deleted'**
+  String get itemDeleted;
+
+  /// No description provided for @completedItemsRemoved.
+  ///
+  /// In en, this message translates to:
+  /// **'Completed items removed'**
+  String get completedItemsRemoved;
+
+  /// No description provided for @listDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'List deleted'**
+  String get listDeleted;
+
+  /// No description provided for @storageErrorTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not save'**
+  String get storageErrorTitle;
+
+  /// No description provided for @storageErrorMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'The change could not be saved. Try again.'**
+  String get storageErrorMessage;
 }
 
 class _AppLocalizationsDelegate

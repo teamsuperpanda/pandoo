@@ -255,6 +255,43 @@ class StorageService {
     });
   }
 
+  /// Puts a deleted list back under its original key.
+  Future<void> restoreList(ListModel list) {
+    return _lock.synchronized(() async {
+      try {
+        await _listsBox.put(list.name, list);
+        await _putAllIfNotEmpty(
+          _normalizedUnpinnedUpdates(
+            getAllLists().where((candidate) => !candidate.pinned),
+          ),
+        );
+      } catch (e) {
+        debugPrint('StorageService.restoreList error: $e');
+        rethrow;
+      }
+    });
+  }
+
+  /// Restores items removed by clean-completed at their original indices.
+  Future<void> restoreItemsAt(String listName, List<(int, TodoItem)> entries) {
+    return _lock.synchronized(() async {
+      try {
+        final list = _listsBox.get(listName);
+        if (list == null || entries.isEmpty) return;
+        final items = [...list.items];
+        final ordered = [...entries]..sort((a, b) => a.$1.compareTo(b.$1));
+        for (final entry in ordered) {
+          items.removeWhere((candidate) => candidate.id == entry.$2.id);
+          items.insert(entry.$1.clamp(0, items.length), entry.$2);
+        }
+        await _listsBox.put(listName, list.copyWith(items: items));
+      } catch (e) {
+        debugPrint('StorageService.restoreItemsAt error: $e');
+        rethrow;
+      }
+    });
+  }
+
   Future<void> removeCompletedItems(String listName) {
     return _lock.synchronized(() async {
       try {

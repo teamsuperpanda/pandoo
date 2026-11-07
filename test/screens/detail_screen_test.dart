@@ -224,5 +224,52 @@ void main() {
       expect(find.text('Milk'), findsOneWidget);
       expect(find.text('Bread'), findsOneWidget);
     });
+
+    testWidgets('clean completed offers undo and restores the items', (
+      tester,
+    ) async {
+      await mockBox.put(
+        'Shopping',
+        MockBox.createMockList(
+          'Shopping',
+          0,
+          items: [
+            TodoItem(text: 'Done one', isCompleted: true),
+            TodoItem(text: 'Keep'),
+            TodoItem(text: 'Done two', isCompleted: true),
+          ],
+        ),
+      );
+
+      await tester.pumpWidget(
+        wrapWithMaterialApp(const DetailScreen(listTitle: 'Shopping')),
+      );
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.byIcon(Icons.cleaning_services_rounded));
+      await tester.pumpAndSettle();
+      expect(
+        find.text('Remove all completed items from this list?'),
+        findsOneWidget,
+      );
+      await tester.tap(find.widgetWithText(FilledButton, 'Clean'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Completed items removed'), findsOneWidget);
+      expect(StorageService().getList('Shopping')!.items.map((i) => i.text), [
+        'Keep',
+      ]);
+      expect(find.text('Done one'), findsNothing);
+
+      tester.widget<SnackBar>(find.byType(SnackBar)).action!.onPressed();
+      await tester.pumpAndSettle();
+
+      expect(StorageService().getList('Shopping')!.items.map((i) => i.text), [
+        'Done one',
+        'Keep',
+        'Done two',
+      ]);
+      expect(find.text('Done one'), findsOneWidget);
+    });
   });
 }
