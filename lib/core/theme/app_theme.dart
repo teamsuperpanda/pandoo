@@ -50,7 +50,7 @@ class AppTheme {
           fontWeight: FontWeight.w600,
         ),
       ),
-      iconTheme: const IconThemeData(color: _pandaWhite, size: 24),
+      iconTheme: IconThemeData(color: colorScheme.onSurface, size: 24),
       cardTheme: CardThemeData(
         color: colorScheme.surfaceContainerHighest,
         elevation: 0,
