@@ -42,7 +42,8 @@ Pandoo is a no-nonsense todo app that keeps your data on your device.
 | L10n | ARB + flutter gen-l10n |
 | Fonts | Inter (bundled, no network calls) |
 
-No backend. No sync. No app data leaves your device.
+No backend. No sync. No app data leaves your device, and Pandoo data is
+excluded from Android auto-backup and iCloud backups (see [SECURITY.md](SECURITY.md)).
 
 ---
 
