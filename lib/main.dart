@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:pandoo/core/theme/app_theme.dart';
 import 'package:pandoo/l10n/app_localizations.dart';
+import 'package:pandoo/l10n/locale_resolution.dart';
 import 'package:pandoo/models/settings_model.dart';
 import 'package:pandoo/screens/home_screen.dart';
 import 'package:pandoo/services/settings_service.dart';
@@ -41,6 +42,7 @@ class MyApp extends StatelessWidget {
         darkTheme: _darkTheme,
         themeMode: settings.theme,
         locale: settings.locale,
+        localeListResolutionCallback: resolveAppLocale,
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
         home: const HomeScreen(),
