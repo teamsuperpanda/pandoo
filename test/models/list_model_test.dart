@@ -175,4 +175,18 @@ void main() {
       expect(copy.pinned, equals(list.pinned));
     });
   });
+
+  test('generates unique ids for many rapid additions', () {
+    final ids = <String>{};
+    for (var i = 0; i < 5000; i++) {
+      ids.add(TodoItem(text: 'item $i').id);
+    }
+    expect(ids, hasLength(5000));
+  });
+
+  test('accepts and preserves an existing legacy id', () {
+    final item = TodoItem(text: 'legacy', id: 'item_1700000000000000');
+    expect(item.id, 'item_1700000000000000');
+    expect(item.copyWith(text: 'changed').id, 'item_1700000000000000');
+  });
 }
