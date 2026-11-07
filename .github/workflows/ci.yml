@@ -8,6 +8,17 @@ on:
     branches: ['main']
 
 jobs:
+  reuse:
+    name: REUSE compliance
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: REUSE lint
+        uses: fsfe/reuse-action@v5
+
   analyze_and_test:
     name: Analyze & Test
     runs-on: ubuntu-latest

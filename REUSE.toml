@@ -1,0 +1,33 @@
+version = 1
+
+SPDX-PackageName = "Pandoo"
+SPDX-PackageSupplier = "Team Super Panda"
+SPDX-PackageDownloadLocation = "https://github.com/teamsuperpanda/pandoo"
+
+# Default: the source code is MIT.
+[[annotations]]
+path = "**"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2021-2026 Team Super Panda"
+SPDX-License-Identifier = "MIT"
+
+# Bundled artwork is CC BY 4.0.
+[[annotations]]
+path = "assets/images/**"
+precedence = "override"
+SPDX-FileCopyrightText = "2021-2026 Team Super Panda"
+SPDX-License-Identifier = "CC-BY-4.0"
+
+# The bundled Inter font keeps its own copyright and OFL licence.
+[[annotations]]
+path = "assets/fonts/**"
+precedence = "override"
+SPDX-FileCopyrightText = "2016 The Inter Project Authors"
+SPDX-License-Identifier = "OFL-1.1"
+
+# Root license and policy documents.
+[[annotations]]
+path = ["LICENSE", "ASSETS-LICENSE.md", "THIRD_PARTY.md", "TRADEMARKS.md"]
+precedence = "override"
+SPDX-FileCopyrightText = "2021-2026 Team Super Panda"
+SPDX-License-Identifier = "MIT"
