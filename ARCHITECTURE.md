@@ -154,6 +154,25 @@ Both services expose `ValueListenable`/`ValueNotifier` for reactive UI updates v
 - `lists` — `ListModel` objects keyed by list name string
 - `settings_db` — Single `Settings` object under key `app_settings`
 
+### 5.2. Schema migrations
+
+The `meta` box stores an integer `schema_version`. `StorageService.init` opens
+`lists` and `meta`, then runs the ordered migrations in
+`lib/services/schema_migration.dart` before any read.
+
+Rules for changing a model:
+
+1. Add the new Hive field with a new `@HiveField` index. Never reuse or reorder
+   an existing index.
+2. Bump `currentSchemaVersion` and add an entry to `schemaMigrations` for the
+   new version.
+3. The migration must be idempotent and must not throw on data it already
+   converted.
+4. Add a test that starts from the previous version and walks forward, using a
+   real box fixture.
+5. A migration only advances the stored version after it completes, so a
+   failure is retryable and never leaves a half-version.
+
 ## 6. External Integrations / APIs
 
 None. This is a fully offline, local-first application with no network dependencies. Fonts are bundled as assets (no network font loading). No HTTP client dependencies exist in the project.
