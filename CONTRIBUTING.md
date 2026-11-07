@@ -24,3 +24,10 @@ Contributions are welcome! Please follow these guidelines.
 3. Ensure `flutter analyze` and `flutter test` pass
 4. Update tests if adding functionality
 5. Submit a PR with a clear description of changes
+
+## Localization fallback
+
+New strings go into `lib/l10n/app_en.arb` and `flutter gen-l10n` is run after.
+Locales that do not yet define a key fall back to the English template at
+runtime (documented in `lib/l10n/README.md` once #23 lands). #31 completes the
+translations and adds a CI gate for missing keys.

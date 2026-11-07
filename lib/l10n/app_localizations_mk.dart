@@ -117,4 +117,8 @@ class AppLocalizationsMk extends AppLocalizations {
 
   @override
   String get moreOptions => 'More options';
+
+  @override
+  String get pinnedBoundaryMessage =>
+      'Pinned lists stay at the top. Use the menu to pin or unpin.';
 }
