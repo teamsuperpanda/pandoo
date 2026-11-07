@@ -165,9 +165,55 @@ class _DetailScreenState extends State<DetailScreen> {
     );
 
     if (!mounted) return;
-    if (confirmed ?? false) {
+    if (!(confirmed ?? false)) return;
+
+    final list = storage.getList(_currentListTitle);
+    final removed = <(int, TodoItem)>[
+      if (list != null)
+        for (var i = 0; i < list.items.length; i++)
+          if (list.items[i].isCompleted) (i, list.items[i]),
+    ];
+
+    try {
       await storage.removeCompletedItems(_currentListTitle);
+    } on Object {
+      if (!context.mounted) return;
+      showErrorSnackBar(
+        context,
+        title: context.l10n.storageErrorTitle,
+        message: context.l10n.storageErrorMessage,
+      );
+      return;
     }
+    if (mounted) setState(() {});
+    if (!context.mounted || removed.isEmpty) return;
+
+    final l10n = context.l10n;
+    ScaffoldMessenger.of(context)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(
+        SnackBar(
+          duration: const Duration(seconds: 5),
+          content: Text(l10n.completedItemsRemoved),
+          action: SnackBarAction(
+            label: l10n.undo,
+            onPressed: () async {
+              try {
+                await storage.restoreItemsAt(_currentListTitle, removed);
+                if (mounted) setState(() {});
+              } on Object {
+                if (context.mounted) {
+                  showErrorSnackBar(
+                    context,
+                    title: context.l10n.storageErrorTitle,
+                    message: context.l10n.storageErrorMessage,
+                  );
+                }
+              }
+            },
+          ),
+        ),
+      );
   }
 
   Future<void> _showRenameDialog(BuildContext context) async {

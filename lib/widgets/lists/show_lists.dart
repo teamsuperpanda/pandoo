@@ -50,7 +50,45 @@ class ShowListsState extends State<ShowLists> {
                 );
               },
               onDelete: () async {
-                await _storage.deleteList(list.name);
+                final removed = _storage.getList(list.name);
+                try {
+                  await _storage.deleteList(list.name);
+                } on Object {
+                  if (!mounted) return;
+                  showErrorSnackBar(
+                    this.context,
+                    title: this.context.l10n.storageErrorTitle,
+                    message: this.context.l10n.storageErrorMessage,
+                  );
+                  return;
+                }
+                if (!mounted || removed == null) return;
+                setState(() {});
+                final l10n = this.context.l10n;
+                ScaffoldMessenger.of(this.context)
+                  ..hideCurrentSnackBar()
+                  ..showSnackBar(
+                    SnackBar(
+                      duration: const Duration(seconds: 5),
+                      content: Text(l10n.listDeleted),
+                      action: SnackBarAction(
+                        label: l10n.undo,
+                        onPressed: () async {
+                          try {
+                            await _storage.restoreList(removed);
+                            if (mounted) setState(() {});
+                          } on Object {
+                            if (!mounted) return;
+                            showErrorSnackBar(
+                              this.context,
+                              title: this.context.l10n.storageErrorTitle,
+                              message: this.context.l10n.storageErrorMessage,
+                            );
+                          }
+                        },
+                      ),
+                    ),
+                  );
               },
               onRename: (newName) async {
                 final l10n = context.l10n;

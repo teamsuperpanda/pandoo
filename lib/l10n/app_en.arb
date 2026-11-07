@@ -58,5 +58,11 @@
     },
     "reorderList": "Reorder list",
     "pinnedList": "Pinned list",
-    "moreOptions": "More options"
+    "moreOptions": "More options",
+    "undo": "Undo",
+    "itemDeleted": "Item deleted",
+    "completedItemsRemoved": "Completed items removed",
+    "listDeleted": "List deleted",
+    "storageErrorTitle": "Could not save",
+    "storageErrorMessage": "The change could not be saved. Try again."
 }
