@@ -117,4 +117,34 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get moreOptions => 'More options';
+
+  @override
+  String get about => 'About';
+
+  @override
+  String versionLabel(Object version) {
+    return 'Version $version';
+  }
+
+  @override
+  String get builtBy => 'Built by Team Super Panda';
+
+  @override
+  String get privacy => 'Privacy';
+
+  @override
+  String get privacyStatement =>
+      'Pandoo stores everything on your device. There are no accounts, no network requests and no telemetry. Your data never leaves the device.';
+
+  @override
+  String get thirdPartyLicenses => 'Third-party licenses';
+
+  @override
+  String get sourceCode => 'Source code';
+
+  @override
+  String get license => 'License';
+
+  @override
+  String get mitLicense => 'MIT License';
 }

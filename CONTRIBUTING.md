@@ -24,3 +24,10 @@ Contributions are welcome! Please follow these guidelines.
 3. Ensure `flutter analyze` and `flutter test` pass
 4. Update tests if adding functionality
 5. Submit a PR with a clear description of changes
+
+### English fallback
+
+Every key goes into `lib/l10n/app_en.arb` (the template). Locales that do not
+yet define a key fall back to English at runtime; this is documented in
+`lib/l10n/README.md`. Never hardcode a string in a widget. Issue #31 completes
+the translations and adds a CI gate for missing keys.

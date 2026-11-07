@@ -53,6 +53,7 @@ void main() {
       expect(find.text('System'), findsAtLeast(1));
       expect(find.text('Animation'), findsAtLeast(1));
       expect(find.text('Close'), findsOneWidget);
+      expect(find.text('About'), findsOneWidget);
     });
 
     testWidgets('close button pops dialog', (tester) async {
