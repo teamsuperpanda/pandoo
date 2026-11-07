@@ -43,6 +43,9 @@ jobs:
       - name: Generate localization
         run: flutter gen-l10n
 
+      - name: Check l10n completeness
+        run: dart run tool/check_l10n.dart
+
       - name: Verify formatting
         run: dart format --set-exit-if-changed lib/ test/
 
@@ -51,3 +54,6 @@ jobs:
 
       - name: Run tests
         run: flutter test --coverage
+
+      - name: Check coverage floor
+        run: dart run tool/check_coverage.dart
