@@ -22,6 +22,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   late AnimationController _fabController;
   late Animation<double> _fabAnimation;
   bool _isRotatingForward = true;
+  bool _reduceMotion = false;
+
+  bool get _shouldAnimateFab =>
+      !_reduceMotion && SettingsService().getFabAnimation();
 
   @override
   void initState() {
@@ -40,11 +44,20 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       end: 0.05,
     ).animate(CurvedAnimation(parent: _fabController, curve: Curves.easeInOut));
     SettingsService().notifier.addListener(_onSettingsChanged);
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (mounted && SettingsService().getFabAnimation()) {
-        _fabController.repeat(reverse: true);
-      }
-    });
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final reduceMotion = MediaQuery.disableAnimationsOf(context);
+    if (reduceMotion == _reduceMotion) return;
+    _reduceMotion = reduceMotion;
+    if (_reduceMotion) {
+      _fabController.stop();
+      _fabController.value = 0.5;
+    } else if (_shouldAnimateFab && !_fabController.isAnimating) {
+      _fabController.repeat(reverse: true);
+    }
   }
 
   @override
@@ -57,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
   void _onSettingsChanged() {
     if (!mounted) return;
-    if (SettingsService().getFabAnimation()) {
+    if (_shouldAnimateFab) {
       if (!_fabController.isAnimating) {
         _fabController.repeat(reverse: true);
       }
@@ -101,6 +114,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             child: IconButton(
               icon: Image.asset('assets/images/icon/icon.png', height: 36),
               onPressed: () {
+                if (_reduceMotion) return;
                 if (_isRotatingForward) {
                   _animationController.forward(from: 0);
                 } else {
