@@ -1,4 +1,4 @@
-Có gì mới trong phiên bản 2.5.0:
+Có gì mới:
 • Ghim các danh sách thường dùng nhất của bạn và sắp xếp lại theo ý thích.
 • Tìm kiếm mục trong bất kỳ danh sách nào để nhanh chóng tìm thấy thứ bạn cần.
 • Vuốt để xóa các mục việc cần làm riêng lẻ.

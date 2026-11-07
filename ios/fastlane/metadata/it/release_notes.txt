@@ -1,4 +1,4 @@
-Novità nella versione 2.5.0:
+Novità:
 • Fissa le tue liste più usate e riordinale come preferisci.
 • Cerca elementi in qualsiasi lista per trovare rapidamente ciò di cui hai bisogno.
 • Scorri per eliminare singole attività.

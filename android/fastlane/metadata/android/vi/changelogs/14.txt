@@ -1,0 +1,5 @@
+Có gì mới:
+• Ghim các danh sách thường dùng nhất của bạn và sắp xếp lại theo ý thích.
+• Tìm kiếm mục trong bất kỳ danh sách nào để nhanh chóng tìm thấy thứ bạn cần.
+• Vuốt để xóa các mục việc cần làm riêng lẻ.
+• Nhãn trợ năng được cải thiện cho các mục đã hoàn thành và chưa hoàn thành.

@@ -1,4 +1,4 @@
-Sürüm 2.5.0'daki yenilikler:
+Yenilikler:
 • En çok kullandığınız listeleri sabitleyin ve dilediğiniz gibi yeniden sıralayın.
 • Herhangi bir listede öğe arayarak ihtiyacınız olanı hızlıca bulun.
 • Kaydırarak tek tek yapılacak öğeleri silin.

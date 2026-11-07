@@ -1,0 +1,5 @@
+Nyheter:
+• Fäst dina mest använda listor och ordna om dem som du vill.
+• Sök efter objekt i valfri lista för att snabbt hitta vad du behöver.
+• Svep för att ta bort enskilda att-göra-objekt.
+• Förbättrade tillgänglighetsetiketter för slutförda och ofullständiga objekt.

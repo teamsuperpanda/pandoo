@@ -1,4 +1,4 @@
-Novedades en la versión 2.5.0:
+Novedades:
 • Fija tus listas más usadas y reordénalas como quieras.
 • Busca elementos en cualquier lista para encontrar lo que necesites rápido.
 • Desliza para eliminar tareas individuales.

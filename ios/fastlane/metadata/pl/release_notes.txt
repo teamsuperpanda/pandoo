@@ -1,4 +1,4 @@
-Co nowego w wersji 2.5.0:
+Co nowego:
 • Przypnij swoje najczęściej używane listy i zmieniaj ich kolejność według własnego uznania.
 • Szukaj elementów na dowolnej liście, aby szybko znaleźć to, czego potrzebujesz.
 • Przesuń palcem, aby usunąć pojedyncze zadania.

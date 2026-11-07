@@ -1,0 +1,5 @@
+Co nowego:
+• Przypnij swoje najczęściej używane listy i zmieniaj ich kolejność według własnego uznania.
+• Szukaj elementów na dowolnej liście, aby szybko znaleźć to, czego potrzebujesz.
+• Przesuń palcem, aby usunąć pojedyncze zadania.
+• Ulepszone etykiety dostępności dla ukończonych i nieukończonych elementów.
