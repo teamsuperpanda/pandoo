@@ -24,3 +24,8 @@ Contributions are welcome! Please follow these guidelines.
 3. Ensure `flutter analyze` and `flutter test` pass
 4. Update tests if adding functionality
 5. Submit a PR with a clear description of changes
+
+## Roadmap and labels
+
+Milestones and the label taxonomy are described in [ROADMAP.md](ROADMAP.md).
+New work targets the current milestone; unlabelled issues are treated as p2.
