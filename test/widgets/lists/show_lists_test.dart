@@ -52,5 +52,29 @@ void main() {
 
       expect(find.text('2 items'), findsOneWidget);
     });
+
+    testWidgets('reorders unpinned lists from a drag callback', (tester) async {
+      await mockBox.put('One', MockBox.createMockList('One', 0));
+      await mockBox.put('Two', MockBox.createMockList('Two', 1));
+      await mockBox.put('Three', MockBox.createMockList('Three', 2));
+
+      await tester.pumpWidget(
+        wrapWithMaterialApp(const Scaffold(body: ShowLists())),
+      );
+      await tester.pumpAndSettle();
+
+      final list = tester.widget<ReorderableListView>(
+        find.byType(ReorderableListView),
+      );
+      list.onReorderItem!(0, 2);
+      await tester.pumpAndSettle();
+
+      expect(StorageService().getAllLists().map((l) => l.name), [
+        'Two',
+        'One',
+        'Three',
+      ]);
+      expect(StorageService().getAllLists().map((l) => l.order), [0, 1, 2]);
+    });
   });
 }

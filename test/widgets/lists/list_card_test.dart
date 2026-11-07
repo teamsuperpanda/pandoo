@@ -148,5 +148,68 @@ void main() {
       expect(find.text('Pinned'), findsOneWidget);
       expect(find.text('1 items'), findsOneWidget);
     });
+
+    testWidgets('swipe right pins the list', (tester) async {
+      await mockBox.put('Shopping', MockBox.createMockList('Shopping', 0));
+      await tester.pumpWidget(
+        wrapWithMaterialApp(
+          Scaffold(
+            body: ListCard(
+              title: 'Shopping',
+              itemCount: 0,
+              index: 0,
+              pinned: false,
+              onTap: () {},
+              onDelete: () {},
+              onRename: (_) {},
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      final dismissible = tester.widget<Dismissible>(find.byType(Dismissible));
+      final dismissed = await dismissible.confirmDismiss!(
+        DismissDirection.startToEnd,
+      );
+      await tester.pumpAndSettle();
+
+      expect(dismissed, isFalse);
+      expect(StorageService().getList('Shopping')!.pinned, isTrue);
+    });
+
+    testWidgets('swipe left asks for confirmation before deleting', (
+      tester,
+    ) async {
+      await mockBox.put('Shopping', MockBox.createMockList('Shopping', 0));
+      var deleted = false;
+      await tester.pumpWidget(
+        wrapWithMaterialApp(
+          Scaffold(
+            body: ListCard(
+              title: 'Shopping',
+              itemCount: 0,
+              index: 0,
+              pinned: false,
+              onTap: () {},
+              onDelete: () => deleted = true,
+              onRename: (_) {},
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      await tester.drag(find.text('Shopping'), const Offset(-500, 0));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Delete List'), findsOneWidget);
+      expect(deleted, isFalse);
+
+      await tester.tap(find.widgetWithText(FilledButton, 'Delete'));
+      await tester.pumpAndSettle();
+
+      expect(deleted, isTrue);
+    });
   });
 }
