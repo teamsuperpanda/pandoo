@@ -27,143 +27,12 @@ class AppTheme {
       scrim: Colors.black54,
     );
 
-    final textTheme = const TextTheme().apply(
-      fontFamily: 'Inter',
-      bodyColor: colorScheme.onSurface,
-      displayColor: colorScheme.onSurface,
-    );
-
-    return ThemeData(
-      useMaterial3: true,
+    return _build(
       colorScheme: colorScheme,
-      scaffoldBackgroundColor: _pandaWhite,
-      textTheme: textTheme,
-      appBarTheme: AppBarTheme(
-        elevation: 0,
-        scrolledUnderElevation: 1,
-        backgroundColor: _pandaBlack,
-        foregroundColor: _pandaWhite,
-        surfaceTintColor: Colors.transparent,
-        centerTitle: true,
-        titleTextStyle: textTheme.titleMedium?.copyWith(
-          color: _pandaWhite,
-          fontWeight: FontWeight.w600,
-        ),
-      ),
-      iconTheme: const IconThemeData(color: _pandaWhite, size: 24),
-      cardTheme: CardThemeData(
-        color: colorScheme.surfaceContainerHighest,
-        elevation: 0,
-        shadowColor: Colors.transparent,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(AppSpacing.radiusMd),
-        ),
-        margin: const EdgeInsets.symmetric(
-          horizontal: AppSpacing.gapMd,
-          vertical: AppSpacing.gapXs,
-        ),
-      ),
-      floatingActionButtonTheme: FloatingActionButtonThemeData(
-        backgroundColor: colorScheme.primary,
-        foregroundColor: colorScheme.onPrimary,
-        elevation: 4,
-        shape: const CircleBorder(),
-      ),
-      inputDecorationTheme: InputDecorationTheme(
-        filled: true,
-        fillColor: colorScheme.surfaceContainerHighest,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(AppSpacing.radiusMd),
-          borderSide: BorderSide.none,
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(AppSpacing.radiusMd),
-          borderSide: BorderSide(color: colorScheme.primary, width: 2),
-        ),
-        contentPadding: const EdgeInsets.symmetric(
-          horizontal: AppSpacing.gapMd,
-          vertical: AppSpacing.gapSm,
-        ),
-        hintStyle: textTheme.labelMedium?.copyWith(
-          color: colorScheme.onSurface.withAlpha(100),
-        ),
-      ),
-      checkboxTheme: CheckboxThemeData(
-        fillColor: WidgetStateProperty.resolveWith<Color>((states) {
-          if (states.contains(WidgetState.selected)) {
-            return colorScheme.primary;
-          }
-          return colorScheme.outlineVariant;
-        }),
-        checkColor: WidgetStatePropertyAll(colorScheme.onPrimary),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
-      ),
-      switchTheme: SwitchThemeData(
-        thumbColor: WidgetStateProperty.resolveWith<Color>((states) {
-          if (states.contains(WidgetState.selected)) {
-            return colorScheme.primary;
-          }
-          return colorScheme.outline;
-        }),
-        trackColor: WidgetStateProperty.resolveWith<Color>((states) {
-          if (states.contains(WidgetState.selected)) {
-            return colorScheme.primary.withAlpha(80);
-          }
-          return colorScheme.outlineVariant;
-        }),
-      ),
-      snackBarTheme: SnackBarThemeData(
-        behavior: SnackBarBehavior.floating,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(AppSpacing.radiusMd),
-        ),
-        contentTextStyle: textTheme.bodyMedium?.copyWith(
-          color: colorScheme.onSurface,
-        ),
-      ),
-      bottomSheetTheme: BottomSheetThemeData(
-        backgroundColor: colorScheme.surface,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            top: Radius.circular(AppSpacing.radiusLg),
-          ),
-        ),
-      ),
-      dropdownMenuTheme: DropdownMenuThemeData(
-        menuStyle: MenuStyle(
-          backgroundColor: WidgetStatePropertyAll(colorScheme.surface),
-        ),
-      ),
-      dividerTheme: DividerThemeData(
-        color: colorScheme.outlineVariant,
-        thickness: 1,
-        space: 0,
-      ),
-      tooltipTheme: TooltipThemeData(
-        decoration: BoxDecoration(
-          color: colorScheme.inverseSurface,
-          borderRadius: BorderRadius.circular(AppSpacing.radiusSm),
-        ),
-        textStyle: textTheme.labelSmall?.copyWith(
-          color: colorScheme.onInverseSurface,
-        ),
-      ),
-      dialogTheme: DialogThemeData(
-        backgroundColor: colorScheme.surface,
-        titleTextStyle: textTheme.headlineMedium?.copyWith(
-          color: colorScheme.onSurface,
-        ),
-      ),
-      popupMenuTheme: PopupMenuThemeData(color: colorScheme.surface),
-      filledButtonTheme: FilledButtonThemeData(
-        style: FilledButton.styleFrom(
-          backgroundColor: colorScheme.primary,
-          foregroundColor: colorScheme.onPrimary,
-        ),
-      ),
-      textButtonTheme: TextButtonThemeData(
-        style: TextButton.styleFrom(foregroundColor: colorScheme.onSurface),
-      ),
+      scaffoldBackground: _pandaWhite,
+      appBarBackground: _pandaBlack,
+      appBarForeground: _pandaWhite,
+      iconColor: _pandaWhite,
     );
   }
 
@@ -183,6 +52,24 @@ class AppTheme {
       scrim: Colors.black87,
     );
 
+    return _build(
+      colorScheme: colorScheme,
+      scaffoldBackground: _pandaDarkGrey,
+      appBarBackground: _pandaDarkGrey,
+      appBarForeground: colorScheme.onSurface,
+      iconColor: colorScheme.onSurface,
+    );
+  }
+
+  /// One builder for both themes. Only the [ColorScheme] and the scaffold/app
+  /// bar colors differ between light and dark; every component rule is shared.
+  static ThemeData _build({
+    required ColorScheme colorScheme,
+    required Color scaffoldBackground,
+    required Color appBarBackground,
+    required Color appBarForeground,
+    required Color iconColor,
+  }) {
     final textTheme = const TextTheme().apply(
       fontFamily: 'Inter',
       bodyColor: colorScheme.onSurface,
@@ -192,21 +79,21 @@ class AppTheme {
     return ThemeData(
       useMaterial3: true,
       colorScheme: colorScheme,
-      scaffoldBackgroundColor: _pandaDarkGrey,
+      scaffoldBackgroundColor: scaffoldBackground,
       textTheme: textTheme,
       appBarTheme: AppBarTheme(
         elevation: 0,
         scrolledUnderElevation: 1,
-        backgroundColor: _pandaDarkGrey,
-        foregroundColor: colorScheme.onSurface,
+        backgroundColor: appBarBackground,
+        foregroundColor: appBarForeground,
         surfaceTintColor: Colors.transparent,
         centerTitle: true,
         titleTextStyle: textTheme.titleMedium?.copyWith(
-          color: colorScheme.onSurface,
+          color: appBarForeground,
           fontWeight: FontWeight.w600,
         ),
       ),
-      iconTheme: IconThemeData(color: colorScheme.onSurface, size: 24),
+      iconTheme: IconThemeData(color: iconColor, size: 24),
       cardTheme: CardThemeData(
         color: colorScheme.surfaceContainerHighest,
         elevation: 0,
