@@ -117,4 +117,7 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get moreOptions => 'More options';
+
+  @override
+  String get nameTooLong => 'Name must be 80 characters or fewer';
 }

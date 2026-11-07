@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pandoo/models/list_model.dart';
 import 'package:pandoo/services/storage_service.dart';
 
 import '../widgets/helpers/mock_box.dart';
@@ -217,5 +218,30 @@ void main() {
 
     expect(storage.getList('Old'), isNotNull);
     expect(storage.getList('New'), isNull);
+  });
+
+  test('List names longer than the limit are rejected', () async {
+    expect(await storage.addList('a' * ListModel.maxNameLength), isTrue);
+    expect(await storage.addList('b' * (ListModel.maxNameLength + 1)), isFalse);
+  });
+
+  test('Rename to an over-long name is rejected', () async {
+    await storage.addList('Test');
+    final result = await storage.renameList(
+      'Test',
+      'b' * (ListModel.maxNameLength + 1),
+    );
+    expect(result, isFalse);
+    expect(storage.getList('Test'), isNotNull);
+  });
+
+  test('Item text is trimmed and over-long items are ignored', () async {
+    await storage.addList('Test');
+    await storage.addItemToList('Test', '  padded  ');
+    await storage.addItemToList('Test', 'x' * (TodoItem.maxTextLength + 1));
+
+    final items = storage.getList('Test')!.items;
+    expect(items, hasLength(1));
+    expect(items.single.text, 'padded');
   });
 }

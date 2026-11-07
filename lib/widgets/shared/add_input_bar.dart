@@ -5,11 +5,13 @@ class AddInputBar extends StatefulWidget {
   const AddInputBar({
     required this.hintText,
     required this.onSubmit,
+    this.maxLength = 500,
     super.key,
   });
 
   final String hintText;
   final Future<void> Function(String text) onSubmit;
+  final int maxLength;
 
   @override
   State<AddInputBar> createState() => _AddInputBarState();
@@ -56,6 +58,14 @@ class _AddInputBarState extends State<AddInputBar> {
           Expanded(
             child: TextField(
               controller: _controller,
+              maxLength: widget.maxLength,
+              buildCounter:
+                  (
+                    context, {
+                    required currentLength,
+                    required isFocused,
+                    required maxLength,
+                  }) => null,
               decoration: InputDecoration(hintText: widget.hintText),
               onSubmitted: (_) => _handleSubmit(clearFocus: true),
             ),

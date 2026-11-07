@@ -117,6 +117,9 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get moreOptions => 'More options';
+
+  @override
+  String get nameTooLong => 'Name must be 80 characters or fewer';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
