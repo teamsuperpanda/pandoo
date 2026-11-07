@@ -117,6 +117,12 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get moreOptions => 'More options';
+
+  @override
+  String get settingsErrorTitle => 'Could not save setting';
+
+  @override
+  String get settingsErrorMessage => 'The change was reverted. Try again.';
 }
 
 /// The translations for French, as used in Canada (`fr_CA`).

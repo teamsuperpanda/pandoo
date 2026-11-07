@@ -58,5 +58,7 @@
     },
     "reorderList": "Reorder list",
     "pinnedList": "Pinned list",
-    "moreOptions": "More options"
+    "moreOptions": "More options",
+    "settingsErrorTitle": "Could not save setting",
+    "settingsErrorMessage": "The change was reverted. Try again."
 }

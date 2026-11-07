@@ -427,6 +427,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'More options'**
   String get moreOptions;
+
+  /// No description provided for @settingsErrorTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not save setting'**
+  String get settingsErrorTitle;
+
+  /// No description provided for @settingsErrorMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'The change was reverted. Try again.'**
+  String get settingsErrorMessage;
 }
 
 class _AppLocalizationsDelegate

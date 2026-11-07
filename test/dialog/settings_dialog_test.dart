@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:mockito/mockito.dart';
 import 'package:pandoo/dialog/settings.dart';
 import 'package:pandoo/models/locale_adapter.dart';
 import 'package:pandoo/models/settings_model.dart';
@@ -85,5 +86,45 @@ void main() {
     // Note: widget tests for dropdown/switch persistence are not feasible in
     // testWidgets because Hive's I/O is incompatible with the fakeAsync zone.
     // Those persistence paths are covered in test/services/settings_service_test.dart.
+    testWidgets('reverts a theme change when the write fails', (tester) async {
+      final box = _FailOnceSettingsBox(Settings());
+      SettingsService.setTestInstance(box);
+
+      await tester.pumpWidget(
+        wrapWithMaterialApp(const Scaffold(body: SettingsDialog())),
+      );
+      await tester.pumpAndSettle();
+
+      final theme = tester
+          .widgetList<DropdownButtonFormField<ThemeMode>>(
+            find.byType(DropdownButtonFormField<ThemeMode>),
+          )
+          .first;
+      theme.onChanged!(ThemeMode.dark);
+      await tester.pump();
+      await tester.pump();
+
+      expect(find.text('Could not save setting'), findsOneWidget);
+      expect(SettingsService().getThemeMode(), ThemeMode.system);
+    });
   });
+}
+
+class _FailOnceSettingsBox extends Mock implements Box<Settings> {
+  _FailOnceSettingsBox(this.stored);
+
+  Settings stored;
+  bool _failNextPut = true;
+
+  @override
+  Settings? get(dynamic key, {Settings? defaultValue}) => stored;
+
+  @override
+  Future<void> put(dynamic key, Settings value) async {
+    if (_failNextPut) {
+      _failNextPut = false;
+      throw StateError('Simulated settings write failure');
+    }
+    stored = value;
+  }
 }
