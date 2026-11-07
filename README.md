@@ -4,7 +4,7 @@
 </picture>
 
 <p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-PolyForm%20Noncommercial-blue" alt="License"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="License"></a>
   <img src="https://img.shields.io/badge/Dart-3.9+-blue?logo=dart" alt="Dart">
   <img src="https://img.shields.io/badge/Flutter-3.9+-blue?logo=flutter" alt="Flutter">
   <img src="https://img.shields.io/github/last-commit/teamsuperpanda/pandoo" alt="Last commit">
@@ -65,5 +65,5 @@ flutter test --coverage
 
 ## License
 
-The code is [PolyForm Noncommercial 1.0.0](LICENSE). Free for personal use, not for resale.
+The code is [MIT licensed](LICENSE). Free to use, modify and distribute, including commercially.
 Assets are copyright 2026 Team Super Panda (see [ASSETS-LICENSE.md](ASSETS-LICENSE.md)).

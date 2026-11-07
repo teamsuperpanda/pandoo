@@ -4,7 +4,7 @@ description: "A simple todo list app"
 
 publish_to: 'none'
 version: 2.5.0+14
-license: PolyForm-Noncommercial-1.0.0
+license: MIT
 repository: https://github.com/teamsuperpanda/pandoo
 issue_tracker: https://github.com/teamsuperpanda/pandoo/issues
 
