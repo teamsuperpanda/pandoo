@@ -427,6 +427,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'More options'**
   String get moreOptions;
+
+  /// No description provided for @storageErrorTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not save'**
+  String get storageErrorTitle;
+
+  /// No description provided for @storageErrorMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'The change could not be saved. Try again.'**
+  String get storageErrorMessage;
 }
 
 class _AppLocalizationsDelegate

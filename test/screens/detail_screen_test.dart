@@ -224,5 +224,63 @@ void main() {
       expect(find.text('Milk'), findsOneWidget);
       expect(find.text('Bread'), findsOneWidget);
     });
+
+    testWidgets('surfaces an add failure and keeps the typed text', (
+      tester,
+    ) async {
+      await mockBox.put('Shopping', MockBox.createMockList('Shopping', 0));
+      mockBox.putError = StateError('write failed');
+
+      await tester.pumpWidget(
+        wrapWithMaterialApp(const DetailScreen(listTitle: 'Shopping')),
+      );
+      await tester.pumpAndSettle();
+
+      await tester.enterText(find.byType(TextField).last, 'New item');
+      await tester.tap(find.byIcon(Icons.add));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Could not save'), findsOneWidget);
+      expect(find.text('New item'), findsOneWidget);
+    });
+
+    testWidgets('surfaces a toggle failure', (tester) async {
+      await mockBox.put(
+        'Shopping',
+        MockBox.createMockList('Shopping', 0, items: [TodoItem(text: 'Milk')]),
+      );
+      mockBox.putError = StateError('write failed');
+
+      await tester.pumpWidget(
+        wrapWithMaterialApp(const DetailScreen(listTitle: 'Shopping')),
+      );
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.byType(Checkbox));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Could not save'), findsOneWidget);
+    });
+
+    testWidgets('surfaces a swipe delete failure and keeps the row', (
+      tester,
+    ) async {
+      await mockBox.put(
+        'Shopping',
+        MockBox.createMockList('Shopping', 0, items: [TodoItem(text: 'Milk')]),
+      );
+      mockBox.putError = StateError('write failed');
+
+      await tester.pumpWidget(
+        wrapWithMaterialApp(const DetailScreen(listTitle: 'Shopping')),
+      );
+      await tester.pumpAndSettle();
+
+      await tester.drag(find.text('Milk'), const Offset(-500, 0));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Could not save'), findsOneWidget);
+      expect(find.text('Milk'), findsOneWidget);
+    });
   });
 }

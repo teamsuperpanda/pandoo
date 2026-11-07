@@ -27,7 +27,12 @@ class _AddInputBarState extends State<AddInputBar> {
   Future<void> _handleSubmit({bool clearFocus = false}) async {
     final text = _controller.text.trim();
     if (text.isEmpty) return;
-    await widget.onSubmit(text);
+    try {
+      await widget.onSubmit(text);
+    } on Object {
+      // The caller surfaces the failure. Keep the text so the user can retry.
+      return;
+    }
     if (!mounted) return;
     _controller.clear();
     if (clearFocus) {

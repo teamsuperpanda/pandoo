@@ -50,11 +50,32 @@ class ShowListsState extends State<ShowLists> {
                 );
               },
               onDelete: () async {
-                await _storage.deleteList(list.name);
+                try {
+                  await _storage.deleteList(list.name);
+                } on Object {
+                  if (!mounted) return;
+                  showErrorSnackBar(
+                    this.context,
+                    title: this.context.l10n.storageErrorTitle,
+                    message: this.context.l10n.storageErrorMessage,
+                  );
+                }
               },
               onRename: (newName) async {
                 final l10n = context.l10n;
-                final success = await _storage.renameList(list.name, newName);
+                bool success;
+                try {
+                  success = await _storage.renameList(list.name, newName);
+                } on Object {
+                  if (mounted) {
+                    showErrorSnackBar(
+                      this.context,
+                      title: l10n.storageErrorTitle,
+                      message: l10n.storageErrorMessage,
+                    );
+                  }
+                  return;
+                }
                 if (!success && mounted) {
                   showErrorSnackBar(
                     this.context,

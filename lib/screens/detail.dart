@@ -145,13 +145,37 @@ class _DetailScreenState extends State<DetailScreen> {
               color: Theme.of(context).scaffoldBackgroundColor,
               child: AddInputBar(
                 hintText: context.l10n.addNewItem,
-                onSubmit: (text) =>
-                    _storage.addItemToList(_currentListTitle, text),
+                onSubmit: _addItem,
               ),
             ),
           ],
         ),
       ),
+    );
+  }
+
+  Future<void> _addItem(String text) async {
+    try {
+      await _storage.addItemToList(_currentListTitle, text);
+    } on Object {
+      if (!mounted) return;
+      _showStorageError();
+      rethrow;
+    }
+    if (!mounted) return;
+    if (_searchQuery.isNotEmpty) {
+      _searchController.clear();
+      setState(() {
+        _searchQuery = '';
+      });
+    }
+  }
+
+  void _showStorageError() {
+    showErrorSnackBar(
+      context,
+      title: context.l10n.storageErrorTitle,
+      message: context.l10n.storageErrorMessage,
     );
   }
 
@@ -181,7 +205,19 @@ class _DetailScreenState extends State<DetailScreen> {
     );
 
     if (newName != null && newName != _currentListTitle && context.mounted) {
-      final success = await _storage.renameList(_currentListTitle, newName);
+      bool success;
+      try {
+        success = await _storage.renameList(_currentListTitle, newName);
+      } on Object {
+        if (context.mounted) {
+          showErrorSnackBar(
+            context,
+            title: context.l10n.storageErrorTitle,
+            message: context.l10n.storageErrorMessage,
+          );
+        }
+        return;
+      }
       if (!context.mounted) return;
       if (!success) {
         showErrorSnackBar(
@@ -240,8 +276,16 @@ class _TodoListView extends StatelessWidget {
               listTitle: listTitle,
               storage: storage,
               onToggle: (bool? value) async {
-                if (value != null) {
+                if (value == null) return;
+                try {
                   await storage.toggleItemCompletion(listTitle, item.id);
+                } on Object {
+                  if (!context.mounted) return;
+                  showErrorSnackBar(
+                    context,
+                    title: context.l10n.storageErrorTitle,
+                    message: context.l10n.storageErrorMessage,
+                  );
                 }
               },
             );
@@ -281,8 +325,20 @@ class _TodoItemTile extends StatelessWidget {
         decoration: BoxDecoration(color: theme.colorScheme.error.withAlpha(26)),
         child: Icon(Icons.delete, color: theme.colorScheme.error),
       ),
-      onDismissed: (_) {
-        unawaited(storage.deleteItemFromList(listTitle, itemId));
+      confirmDismiss: (_) async {
+        try {
+          await storage.deleteItemFromList(listTitle, itemId);
+          return true;
+        } on Object {
+          if (context.mounted) {
+            showErrorSnackBar(
+              context,
+              title: context.l10n.storageErrorTitle,
+              message: context.l10n.storageErrorMessage,
+            );
+          }
+          return false;
+        }
       },
       child: Semantics(
         button: true,
