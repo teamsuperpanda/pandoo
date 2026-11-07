@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:pandoo/l10n/l10n.dart';
+import 'package:pandoo/l10n/language_options.dart';
 import 'package:pandoo/services/settings_service.dart';
 
 class SettingsDialog extends StatefulWidget {
@@ -44,75 +45,9 @@ class _SettingsDialogState extends State<SettingsDialog> {
     }
   }
 
-  static const Map<String, String> _supportedLanguages = {
-    'system': 'System',
-    'af': 'Afrikaans',
-    'am': 'አማርኛ',
-    'ar': 'العربية',
-    'az': 'Azərbaycan',
-    'be': 'Беларуская',
-    'bg': 'Български',
-    'bn': 'বাংলা',
-    'ca': 'Català',
-    'cs': 'Čeština',
-    'da': 'Dansk',
-    'de': 'Deutsch',
-    'el': 'Ελληνικά',
-    'en': 'English',
-    'es': 'Español',
-    'et': 'Eesti',
-    'eu': 'Euskara',
-    'fa': 'فارسی',
-    'fi': 'Suomi',
-    'fil': 'Filipino',
-    'fr': 'Français',
-    'gl': 'Galego',
-    'gu': 'ગુજરાતી',
-    'he': 'עברית',
-    'hi': 'हिन्दी',
-    'hr': 'Hrvatski',
-    'hu': 'Magyar',
-    'hy': 'Հայերեն',
-    'id': 'Indonesia',
-    'it': 'Italiano',
-    'ja': '日本語',
-    'ka': 'ქართული',
-    'kk': 'Қазақ',
-    'kn': 'ಕನ್ನಡ',
-    'ko': '한국어',
-    'lt': 'Lietuvių',
-    'lv': 'Latviešu',
-    'mk': 'Македонски',
-    'ml': 'മലയാളം',
-    'mn': 'Монгол',
-    'mr': 'मराठी',
-    'ms': 'Bahasa Melayu',
-    'my': 'မြန်မာဘာသာ',
-    'nb': 'Norsk Bokmål',
-    'nl': 'Nederlands',
-    'pl': 'Polski',
-    'pt': 'Português',
-    'ro': 'Română',
-    'ru': 'Русский',
-    'sk': 'Slovenčina',
-    'sl': 'Slovenščina',
-    'sq': 'Shqip',
-    'sr': 'Српски',
-    'sv': 'Svenska',
-    'ta': 'தமிழ்',
-    'te': 'తెలుగు',
-    'th': 'ไทย',
-    'tr': 'Türkçe',
-    'uk': 'Українська',
-    'ur': 'اردو',
-    'vi': 'Tiếng Việt',
-    'zh': '中文',
-  };
-
   String _getCurrentLanguageCode() {
     final locale = SettingsService().getLocale();
-    if (locale == null) return 'system';
-    return locale.languageCode;
+    return locale == null ? 'system' : tagFromLocale(locale);
   }
 
   @override
@@ -192,7 +127,7 @@ class _SettingsDialogState extends State<SettingsDialog> {
                     vertical: 12,
                   ),
                 ),
-                items: _supportedLanguages.entries.map((entry) {
+                items: languageOptions.entries.map((entry) {
                   return DropdownMenuItem<String>(
                     value: entry.key,
                     child: Text(
@@ -204,7 +139,7 @@ class _SettingsDialogState extends State<SettingsDialog> {
                   if (languageCode != null) {
                     final locale = languageCode == 'system'
                         ? null
-                        : Locale(languageCode);
+                        : localeFromTag(languageCode);
                     unawaited(_persistLanguage(locale));
                   }
                 },
