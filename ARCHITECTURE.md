@@ -1,67 +1,70 @@
 # Architecture Overview
 
-[architecture.md](https://architecture.md/) template for rapid codebase comprehension. Update as the codebase evolves.
+This document describes the codebase as it exists on the `v3` branch. Update it
+when the tree changes.
 
 ## 1. Project Structure
 
 ```
 pandoo/
-├── lib/                    # Main application source code
-│   ├── main.dart           # App entry point, service init, splash screen
-│   ├── core/               # Cross-cutting infrastructure
-│   │   └── theme/          # Theme engine
-│   │       ├── app_theme.dart     # Light/dark ThemeData (Material 3, bamboo green)
-│   │       └── app_spacing.dart   # Spacing/gap/radius token constants
+├── lib/                    # Application source
+│   ├── main.dart           # Entry point, service init, splash screen, MaterialApp
+│   ├── core/
+│   │   └── theme/
+│   │       ├── app_theme.dart     # Light and dark ThemeData (Material 3, bamboo green)
+│   │       └── app_spacing.dart   # Spacing, gap and radius tokens
 │   ├── dialog/             # Modal dialogs
 │   │   ├── clean_dialog.dart        # "Clean completed items" confirmation
 │   │   ├── delete_list_dialog.dart  # "Delete list" confirmation
-│   │   ├── list_name_dialog.dart    # New list / rename list with validation
-│   │   └── settings.dart            # Settings bottom sheet (theme, language, FAB anim)
-│   ├── l10n/               # Localization (75 ARB files, generated code)
-│   ├── models/             # Data models
-│   │   ├── list_model.dart           # ListModel + TodoItem Hive objects
-│   │   ├── settings_model.dart       # Settings Hive object
-│   │   ├── locale_adapter.dart       # Hive TypeAdapter<Locale>
-│   │   └── theme_mode_adapter.dart   # Hive TypeAdapter<ThemeMode>
-│   ├── screens/            # Full-screen pages
-│   │   ├── home_screen.dart  # Main list view, settings, FAB animation
-│   │   └── detail.dart       # Todo item list, search, add item
-│   ├── services/            # Singleton service layer
-│   │   ├── storage_service.dart   # CRUD for Hive lists box (async-locked mutations)
+│   │   ├── list_name_dialog.dart    # New / rename list with validation
+│   │   └── settings.dart            # Settings dialog (theme, language, FAB animation)
+│   ├── l10n/               # 75 ARB files and the committed generated code
+│   ├── models/
+│   │   ├── list_model.dart          # ListModel + TodoItem Hive objects
+│   │   ├── list_model.g.dart        # Committed Hive adapter (typeIds 0 and 1)
+│   │   ├── settings_model.dart      # Settings Hive object
+│   │   ├── settings_model.g.dart    # Committed Hive adapter (typeId 2)
+│   │   ├── locale_adapter.dart      # TypeAdapter<Locale> (typeId 101)
+│   │   └── theme_mode_adapter.dart  # TypeAdapter<ThemeMode> (typeId 100)
+│   ├── screens/
+│   │   ├── home_screen.dart  # List overview, settings entry, FAB
+│   │   └── detail.dart       # Todo items for one list, search, add item
+│   ├── services/
+│   │   ├── storage_service.dart   # CRUD for the Hive lists box (async-locked mutations)
 │   │   └── settings_service.dart  # Settings box CRUD (queued mutations)
-│   └── widgets/             # Reusable UI components
-│       ├── detail/
-│       │   └── add_item.dart       # AddItem wrapper over AddInputBar
+│   └── widgets/
 │       ├── lists/
 │       │   ├── show_lists.dart     # ReorderableListView of ListCards
-│       │   └── list_card.dart      # Single list card with pin/delete/popup menu
+│       │   └── list_card.dart      # List card: drag handle, pin, menu, swipe actions
 │       └── shared/
-│           └── add_input_bar.dart  # Generic text input + submit button row
-├── test/                   # Unit and widget tests (~21 test files)
-│   ├── helpers/
-│   │   ├── test_helpers.dart     # Hive init for testing
-│   │   └── widget_wrapper.dart   # MaterialApp wrapper for l10n in widget tests
+│           ├── add_input_bar.dart  # Text field plus submit button
+│           └── app_snackbar.dart   # Error snackbar helper
+├── test/                   # Unit, widget and golden tests (21 Dart files)
+│   ├── helpers/            # Hive init and MaterialApp l10n wrapper
 │   ├── dialog/             # Per-dialog tests
-│   ├── models/             # Model + adapter tests
+│   ├── models/             # Model and adapter tests
 │   ├── screens/            # Screen-level widget tests
 │   ├── services/           # Service CRUD tests
-│   ├── widgets/            # Per-widget tests + mock Box
-│   ├── pandoo_golden_test.dart # Store screenshot goldens (5 devices x light/dark)
-│   └── store_frame.dart    # Store listing screenshot frame widget
-├── assets/                 # Static assets
-│   ├── fonts/              # Inter font family (9 weights, bundled)
-│   └── images/             # Icons, launch screen branding, GitHub banner
-├── android/                # Android platform files (AGP 8.11.1, Kotlin 2.2.20)
-├── ios/                    # iOS platform files (iOS 13.0+, Scene-based)
-├── web/                    # Web platform PWA artifacts
-├── pubspec.yaml            # Project manifest
-├── analysis_options.yaml   # Linting rules (very_good_analysis)
-├── l10n.yaml               # Localization config
-├── README.md               # Project overview
-├── CONTRIBUTING.md         # Contribution guidelines
-├── ASSETS-LICENSE.md       # Asset copyright notice
-└── ARCHITECTURE.md         # This document
+│   ├── widgets/            # Widget tests and the mock box
+│   ├── pandoo_golden_test.dart  # Store screenshots, 5 devices x light/dark
+│   └── store_frame.dart         # Store screenshot frame
+├── assets/
+│   ├── fonts/              # Inter Regular, Medium, SemiBold, Bold (bundled)
+│   └── images/             # Icons, launch screen art, GitHub banner
+├── android/                # Android platform files
+├── ios/                    # iOS platform files
+├── pubspec.yaml
+├── analysis_options.yaml
+├── l10n.yaml
+├── README.md
+├── CONTRIBUTING.md
+├── ASSETS-LICENSE.md
+├── THIRD_PARTY.md
+├── TRADEMARKS.md
+└── ARCHITECTURE.md
 ```
+
+There is no `web/` directory. The app ships for Android and iOS only.
 
 ## 2. High-Level System Diagram
 
@@ -72,142 +75,131 @@ pandoo/
                   All data stays on device.
 ```
 
-Hive (key-value NoSQL) is the sole authoritative store. The app is fully offline-first with no sync, no accounts, and no cloud dependency.
+Hive (key-value NoSQL) is the only data store. The app is fully offline: there
+is no HTTP client dependency, no analytics SDK and no account system.
 
 ## 3. Core Components
 
 ### 3.1. Flutter App
 
-**Name:** Pandoo
+**Description:** A local-first, offline todo list. Multiple lists with pinning,
+drag reordering and swipe actions; per-list search; add, complete and delete
+items; light and dark themes; 75 locales; an optional FAB animation.
 
-**Description:** A local-first, offline todo list app. Features list management with pinning, reordering, search, dark mode, FAB animation, and 80+ languages. Minimal, fast, and privacy-respecting.
-
-**Technologies:** Flutter, Dart 3.9+, Hive, Material 3, Google Fonts (Inter)
-
-**Deployment:** Google Play, Apple App Store, Web (PWA)
+**Technologies:** Flutter, Dart 3.9+, Hive, Material 3, the bundled Inter font.
 
 ### 3.2. Data Layer
 
-**Name:** Hive Storage + Singleton Services
+Two Hive boxes accessed through singleton services:
 
-**Description:** Two Hive boxes managed through singleton service classes:
-- `StorageService` — `lists` box storing `ListModel` objects (keyed by list name). Mutations are serialized via an internal `_AsyncLock`.
-- `SettingsService` — `settings_db` box storing a single `Settings` object under key `app_settings`. Mutations are serialized via a chained `_mutationQueue`.
+- `StorageService` - the `lists` box of `ListModel` objects, currently keyed by
+  list name. Mutations are serialized through an internal `_AsyncLock`.
+- `SettingsService` - the `settings_db` box holding one `Settings` object under
+  `app_settings`. Mutations are serialized through a chained promise.
 
-Both services expose `ValueListenable`/`ValueNotifier` for reactive UI updates via `ValueListenableBuilder`.
+Both expose a `ValueListenable` so widgets rebuild when data changes:
+`StorageService().getBoxNotifier()` and `SettingsService().notifier`.
 
-**Technologies:** Hive ^2.0.0, Hive Flutter, custom TypeAdapters
+**Adapters:** `ListModel` (0), `TodoItem` (1), `Settings` (2),
+`ThemeModeAdapter` (100), `LocaleAdapter` (101). The generated `*.g.dart`
+adapters are committed, so `build_runner` is not part of the build.
 
-**Custom adapters:** `LocaleAdapter` (typeId: 101), `ThemeModeAdapter` (typeId: 100)
-
-**Data schemas:**
-- `ListModel` (HiveTypeId: 0) — `name`, `items` (List\<TodoItem\>), `order`, `pinned`
-- `TodoItem` (HiveTypeId: 1) — `text`, `isCompleted`, `id` (auto-generated from timestamp)
-- `Settings` (HiveTypeId: 2) — `locale`, `theme`, `fabAnimation`
+**Schemas:**
+- `ListModel` - `name`, `items` (`List<TodoItem>`), `order`, `pinned`
+- `TodoItem` - `text`, `isCompleted`, `id`
+- `Settings` - `locale`, `theme`, `fabAnimation`
 
 ### 3.3. Theme Engine
 
-**Name:** AppTheme
-
-**Description:** Material 3 theme system with bamboo-green primary color palette. Fully customized light and dark themes covering all Material components (AppBar, Card, FAB, InputDecoration, Checkbox, Switch, SnackBar, BottomSheet, DropdownMenu, Dialog, PopupMenu, Buttons, Tooltip, Divider). Uses bundled Inter font via Google Fonts package (`allowRuntimeFetching = false` in tests).
-
-**Technologies:** Material 3, `ThemeData`, `GoogleFonts.interTextTheme()`
+`AppTheme` builds Material 3 light and dark `ThemeData` from a bamboo-green
+palette and sets `fontFamily: 'Inter'`. Inter is bundled under `assets/fonts/`
+and registered in `pubspec.yaml`; the app never fetches fonts at runtime.
 
 ### 3.4. UI / Navigation
 
-**Name:** Navigator.push + Bottom Sheets
-
-**Description:** No named routing library. Navigation via `Navigator.push` with `MaterialPageRoute` for detail screen. Settings opened as a bottom sheet. Simple and sufficient for the app's two-screen structure.
-
-**Technologies:** Flutter Navigator, `showModalBottomSheet`
+No routing package. Navigation is `Navigator.push` with `MaterialPageRoute`
+from the home list to the detail screen. Settings open as an `AlertDialog` via
+`showDialog`, not a bottom sheet.
 
 ### 3.5. State Management
 
-**Name:** ValueListenableBuilder (no state management library)
-
-**Description:** Widgets subscribe directly to Hive box changes via `StorageService().getBoxNotifier()` and `SettingsService().notifier` using `ValueListenableBuilder`. No Riverpod, no Bloc, no Provider needed for the app's simple data flows.
-
-**Technologies:** Flutter `ValueListenableBuilder`, `ValueNotifier`
+No state management package. Widgets subscribe to Hive through
+`ValueListenableBuilder` and to settings through `SettingsService().notifier`.
 
 ## 4. Module Boundary Convention
 
-- **`screens/`** — Full-screen pages composing widgets and managing screen-level state. May access services directly.
-- **`widgets/`** — Reusable UI components organized by context (`detail/`, `lists/`, `shared/`). No direct service access — receive data via constructor parameters.
-- **`dialog/`** — Modal dialogs and bottom sheets. May access services for settings reads/writes.
-- **`services/`** — Singleton service layer encapsulating Hive operations. Expose `ValueListenable` for reactive UI.
-- **`models/`** — Pure data models with Hive annotations and custom TypeAdapters.
-- **`core/`** — Cross-cutting infrastructure (theme, spacing tokens).
-
-**Dependency rule:** `widgets/` never imports from `screens/`. `screens/` may import from `widgets/` and `services/`. `services/` may import from `models/`. `models/` has no app-layer dependencies.
+- `screens/` - full screens, compose widgets and may use services.
+- `widgets/` - reusable components; no direct service access except the shared
+  list actions that the screen wires in. Never import a screen.
+- `dialog/` - modal dialogs; may read and write settings.
+- `services/` - singleton Hive access, exposing `ValueListenable`.
+- `models/` - Hive models and adapters, no app-layer dependencies.
+- `core/` - cross-cutting theme and spacing tokens.
 
 ## 5. Data Stores
 
-### 5.1. Primary Database
+### 5.1. Hive
 
-**Name:** Hive
+- `lists` - one `ListModel` per list, currently keyed by list name.
+- `settings_db` - one `Settings` under `app_settings`.
 
-**Type:** Key-value NoSQL (embedded)
+Both live in the app documents directory via `path_provider` (through
+`hive_flutter`). Data at rest is unencrypted.
 
-**Purpose:** Authoritative data store for all app data. Offline-first — never bypassed.
+## 6. External Integrations
 
-**Boxes:**
-- `lists` — `ListModel` objects keyed by list name string
-- `settings_db` — Single `Settings` object under key `app_settings`
-
-## 6. External Integrations / APIs
-
-None. This is a fully offline, local-first application with no network dependencies. Fonts are bundled as assets (no network font loading). No HTTP client dependencies exist in the project.
+None. No HTTP client, no accounts, no telemetry, no crash reporting. The only
+platform integrations are `path_provider` (storage location) and
+`flutter_native_splash` (launch screen configuration).
 
 ## 7. Deployment & Infrastructure
 
-- **CI/CD:** GitHub Actions (`ci.yml`) — analyze, format check, gen-l10n, test with coverage
-- **Platforms:** Android, iOS, Web
-- **Code Generation:** Hive `.g.dart` adapters are committed in the repository
-- **Distribution:** Google Play, Apple App Store
-- **Dependabot:** Weekly pub and GitHub Actions updates
+- **CI/CD:** `.github/workflows/ci.yml` runs `flutter pub get`, `gen-l10n`, a
+  format check, `flutter analyze` and `flutter test --coverage`.
+- **Platforms:** Android and iOS.
+- **Code generation:** Hive adapters are committed and edited in place.
+- **Distribution:** Google Play and the Apple App Store.
 
 ## 8. Security Considerations
 
-- **Data at rest:** Stored locally in Hive boxes via path_provider. No encryption.
-- **Network:** No network requests. No telemetry. No analytics.
-- **Accessibility:** Semantics widgets throughout, localized screen reader labels.
+- **Data at rest:** Hive files in the app documents directory, not encrypted.
+- **Network:** no network calls, no telemetry, no analytics, no accounts.
+- **Accessibility:** semantic labels for lists, items and actions; localized
+  screen-reader strings.
 
 ## 9. Development & Testing
 
-- **Testing:** `flutter_test` for unit and widget tests (~21 test files). Golden screenshot tests across 5 device configurations for store listings.
-- **Linting:** `very_good_analysis`
-- **Localization:** ARB-based (`l10n.yaml`, 75 ARB files)
-- **Test injection:** `StorageService.setTestInstance()` and `SettingsService.setTestInstance()` for swapping Hive boxes during tests
-- **Mock box:** `test/widgets/helpers/mock_box.dart` — Full `Box<ListModel>` mock supporting error injection
+- **Tests:** 21 Dart test files covering models, adapters, services, dialogs,
+  widgets and screens, plus golden screenshots for five devices in light and
+  dark.
+- **Linting:** `very_good_analysis`.
+- **Localization:** `l10n.yaml` at the repo root, 75 ARB files in `lib/l10n`.
+- **Injection for tests:** `StorageService.setTestInstance()` and
+  `SettingsService.setTestInstance()` swap in test boxes.
+- **Mock box:** `test/widgets/helpers/mock_box.dart`.
 
 ## 10. Future Considerations
 
-- **State management library:** Consider Provider or Riverpod if the widget tree grows beyond simple ValueListenableBuilder patterns
-- **Named routing:** Consider `go_router` or declarative routing as pages grow
-- **Data export/backup:** Add JSON export or cloud backup
-- **List sharing:** Allow sharing lists via text or link
-- **Recurring/repeating items:** Template-based recurring todo items
+See `ROADMAP.md`. Named routes, a migration framework, stable list IDs and
+backup/export are tracked as v3 work rather than implemented here.
 
 ## 11. Project Identification
 
-**Project Name:** Pandoo
-
-**Repository URL:** https://github.com/teamsuperpanda/pandoo
-
-**License:** PolyForm Noncommercial 1.0.0
-
-**Date of Last Update:** 2026-07-24
+- **Project:** Pandoo
+- **Repository:** https://github.com/teamsuperpanda/pandoo
+- **License:** MIT
+- **Last updated:** 2026-11-07
 
 ## 12. Glossary
 
-**Hive:** Lightweight, fast key-value database for Flutter/Dart
+**Hive:** embedded key-value database for Dart.
 
-**ValueListenableBuilder:** Flutter widget that rebuilds automatically when a `ValueListenable` changes
+**ValueListenableBuilder:** Flutter widget that rebuilds when a listenable
+changes.
 
-**Singleton service:** A class with a single instance throughout the app lifecycle, accessed via a factory constructor
+**Singleton service:** a class exposing one shared instance through a factory
+constructor.
 
-**TypeAdapter:** Hive's serialization mechanism for custom types
+**TypeAdapter:** Hive's serialization mechanism for custom types.
 
-**Material 3:** The latest Material Design specification with dynamic color and updated components
-
-**Async lock:** Sequential async execution pattern ensuring only one mutation runs at a time
+**Material 3:** Flutter's Material Design 3 implementation.
