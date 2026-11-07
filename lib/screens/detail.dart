@@ -145,14 +145,24 @@ class _DetailScreenState extends State<DetailScreen> {
               color: Theme.of(context).scaffoldBackgroundColor,
               child: AddInputBar(
                 hintText: context.l10n.addNewItem,
-                onSubmit: (text) =>
-                    _storage.addItemToList(_currentListTitle, text),
+                onSubmit: _addItem,
               ),
             ),
           ],
         ),
       ),
     );
+  }
+
+  Future<void> _addItem(String text) async {
+    // A new item that does not match the filter would otherwise be invisible.
+    if (_searchQuery.isNotEmpty) {
+      _searchController.clear();
+      setState(() {
+        _searchQuery = '';
+      });
+    }
+    await _storage.addItemToList(_currentListTitle, text);
   }
 
   Future<void> _showCleanDialog(

@@ -109,6 +109,32 @@ void main() {
       expect(find.byIcon(Icons.add), findsOneWidget);
     });
 
+    testWidgets('adding an item clears an active search so it is visible', (
+      tester,
+    ) async {
+      await mockBox.put(
+        'Shopping',
+        MockBox.createMockList('Shopping', 0, items: [TodoItem(text: 'Milk')]),
+      );
+
+      await tester.pumpWidget(
+        wrapWithMaterialApp(const DetailScreen(listTitle: 'Shopping')),
+      );
+      await tester.pumpAndSettle();
+
+      await tester.enterText(find.byKey(const Key('searchField')), 'zzz');
+      await tester.pumpAndSettle();
+      expect(find.text('Milk'), findsNothing);
+
+      final addField = find.byType(TextField).last;
+      await tester.enterText(addField, 'Bread');
+      await tester.tap(find.byIcon(Icons.add));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Bread'), findsOneWidget);
+      expect(find.text('Milk'), findsOneWidget);
+    });
+
     testWidgets('shows cleanup button when completed items exist', (
       tester,
     ) async {
