@@ -198,7 +198,7 @@ class _DetailScreenState extends State<DetailScreen> {
   }
 }
 
-class _TodoListView extends StatelessWidget {
+class _TodoListView extends StatefulWidget {
   const _TodoListView({
     required this.listTitle,
     required this.storage,
@@ -210,11 +210,20 @@ class _TodoListView extends StatelessWidget {
   final String searchQuery;
 
   @override
+  State<_TodoListView> createState() => _TodoListViewState();
+}
+
+class _TodoListViewState extends State<_TodoListView> {
+  /// Bumped after an undo so the restored row is rebuilt from scratch instead
+  /// of reusing a Dismissible that has already collapsed.
+  int _revision = 0;
+
+  @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<Box<ListModel>>(
-      valueListenable: storage.getBoxNotifier(),
+      valueListenable: widget.storage.getBoxNotifier(),
       builder: (context, box, _) {
-        final list = box.get(listTitle);
+        final list = box.get(widget.listTitle);
         if (list == null) return const SizedBox();
 
         var sortedItems = [
@@ -222,26 +231,34 @@ class _TodoListView extends StatelessWidget {
           ...list.items.where((item) => item.isCompleted),
         ];
 
-        if (searchQuery.isNotEmpty) {
-          final query = searchQuery.trim().toLowerCase();
+        if (widget.searchQuery.isNotEmpty) {
+          final query = widget.searchQuery.trim().toLowerCase();
           sortedItems = sortedItems
               .where((item) => item.text.toLowerCase().contains(query))
               .toList();
         }
 
         return ListView.builder(
+          key: ValueKey(_revision),
           itemCount: sortedItems.length,
           itemBuilder: (context, index) {
             final item = sortedItems[index];
+            final originalIndex = list.items.indexWhere(
+              (candidate) => candidate.id == item.id,
+            );
             return _TodoItemTile(
               title: item.text,
               isCompleted: item.isCompleted,
               itemId: item.id,
-              listTitle: listTitle,
-              storage: storage,
+              listTitle: widget.listTitle,
+              storage: widget.storage,
+              onDelete: () => _deleteItem(context, list, item, originalIndex),
               onToggle: (bool? value) async {
                 if (value != null) {
-                  await storage.toggleItemCompletion(listTitle, item.id);
+                  await widget.storage.toggleItemCompletion(
+                    widget.listTitle,
+                    item.id,
+                  );
                 }
               },
             );
@@ -249,6 +266,58 @@ class _TodoListView extends StatelessWidget {
         );
       },
     );
+  }
+
+  Future<void> _deleteItem(
+    BuildContext context,
+    ListModel list,
+    TodoItem item,
+    int originalIndex,
+  ) async {
+    try {
+      await widget.storage.deleteItemFromList(widget.listTitle, item.id);
+    } on Object {
+      if (context.mounted) {
+        showErrorSnackBar(
+          context,
+          title: context.l10n.storageErrorTitle,
+          message: context.l10n.storageErrorMessage,
+        );
+      }
+      return;
+    }
+    if (!context.mounted) return;
+    final l10n = context.l10n;
+    ScaffoldMessenger.of(context)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(
+        SnackBar(
+          duration: const Duration(seconds: 5),
+          content: Text(l10n.itemDeleted),
+          action: SnackBarAction(
+            label: l10n.undo,
+            onPressed: () async {
+              try {
+                await widget.storage.restoreItem(
+                  widget.listTitle,
+                  item,
+                  originalIndex < 0 ? list.items.length : originalIndex,
+                );
+              } on Object {
+                if (context.mounted) {
+                  showErrorSnackBar(
+                    context,
+                    title: context.l10n.storageErrorTitle,
+                    message: context.l10n.storageErrorMessage,
+                  );
+                }
+                return;
+              }
+              if (mounted) setState(() => _revision++);
+            },
+          ),
+        ),
+      );
   }
 }
 
@@ -260,6 +329,7 @@ class _TodoItemTile extends StatelessWidget {
     required this.listTitle,
     required this.storage,
     required this.onToggle,
+    required this.onDelete,
   });
 
   final String title;
@@ -268,6 +338,7 @@ class _TodoItemTile extends StatelessWidget {
   final String listTitle;
   final StorageService storage;
   final ValueChanged<bool?> onToggle;
+  final Future<void> Function() onDelete;
 
   @override
   Widget build(BuildContext context) {
@@ -282,7 +353,7 @@ class _TodoItemTile extends StatelessWidget {
         child: Icon(Icons.delete, color: theme.colorScheme.error),
       ),
       onDismissed: (_) {
-        unawaited(storage.deleteItemFromList(listTitle, itemId));
+        unawaited(onDelete());
       },
       child: Semantics(
         button: true,

@@ -116,6 +116,18 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get moreOptions => 'More options';
+
+  @override
+  String get itemDeleted => 'Item deleted';
+
+  @override
+  String get undo => 'Undo';
+
+  @override
+  String get storageErrorTitle => 'Could not save';
+
+  @override
+  String get storageErrorMessage => 'The change could not be saved. Try again.';
 }
 
 /// The translations for English, as used in Australia (`en_AU`).

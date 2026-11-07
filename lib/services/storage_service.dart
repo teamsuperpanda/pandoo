@@ -255,6 +255,25 @@ class StorageService {
     });
   }
 
+  /// Restores [item] into the underlying list at [index].
+  ///
+  /// Used by undo. The index is clamped so a concurrent change cannot throw.
+  Future<void> restoreItem(String listName, TodoItem item, int index) {
+    return _lock.synchronized(() async {
+      try {
+        final list = _listsBox.get(listName);
+        if (list == null) return;
+        final items = [...list.items]
+          ..removeWhere((candidate) => candidate.id == item.id);
+        items.insert(index.clamp(0, items.length), item);
+        await _listsBox.put(listName, list.copyWith(items: items));
+      } catch (e) {
+        debugPrint('StorageService.restoreItem error: $e');
+        rethrow;
+      }
+    });
+  }
+
   Future<void> removeCompletedItems(String listName) {
     return _lock.synchronized(() async {
       try {

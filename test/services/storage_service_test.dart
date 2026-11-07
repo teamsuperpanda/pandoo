@@ -218,4 +218,21 @@ void main() {
     expect(storage.getList('Old'), isNotNull);
     expect(storage.getList('New'), isNull);
   });
+
+  test('restoreItem puts the item back at its original position', () async {
+    await storage.addList('Test');
+    await storage.addItemToList('Test', 'A');
+    await storage.addItemToList('Test', 'B');
+    await storage.addItemToList('Test', 'C');
+
+    final removed = storage.getList('Test')!.items[1];
+    await storage.deleteItemFromList('Test', removed.id);
+    await storage.restoreItem('Test', removed, 1);
+
+    expect(storage.getList('Test')!.items.map((item) => item.text), [
+      'A',
+      'B',
+      'C',
+    ]);
+  });
 }

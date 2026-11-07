@@ -224,5 +224,82 @@ void main() {
       expect(find.text('Milk'), findsOneWidget);
       expect(find.text('Bread'), findsOneWidget);
     });
+
+    testWidgets('swipe delete offers undo and restores the item', (
+      tester,
+    ) async {
+      await mockBox.put(
+        'Shopping',
+        MockBox.createMockList(
+          'Shopping',
+          0,
+          items: [
+            TodoItem(text: 'Milk'),
+            TodoItem(text: 'Bread'),
+          ],
+        ),
+      );
+
+      await tester.pumpWidget(
+        wrapWithMaterialApp(const DetailScreen(listTitle: 'Shopping')),
+      );
+      await tester.pumpAndSettle();
+
+      await tester.drag(find.text('Milk'), const Offset(-500, 0));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Milk'), findsNothing);
+      expect(find.text('Item deleted'), findsOneWidget);
+
+      tester.widget<SnackBar>(find.byType(SnackBar)).action!.onPressed();
+      await tester.pumpAndSettle();
+
+      expect(StorageService().getList('Shopping')!.items.map((i) => i.text), [
+        'Milk',
+        'Bread',
+      ]);
+      expect(find.text('Milk'), findsOneWidget);
+      expect(
+        StorageService().getList('Shopping')!.items.map((item) => item.text),
+        ['Milk', 'Bread'],
+      );
+    });
+
+    testWidgets('undo works while a search filter is active', (tester) async {
+      await mockBox.put(
+        'Shopping',
+        MockBox.createMockList(
+          'Shopping',
+          0,
+          items: [
+            TodoItem(text: 'Milk'),
+            TodoItem(text: 'Bread'),
+          ],
+        ),
+      );
+
+      await tester.pumpWidget(
+        wrapWithMaterialApp(const DetailScreen(listTitle: 'Shopping')),
+      );
+      await tester.pumpAndSettle();
+
+      await tester.enterText(find.byKey(const Key('searchField')), 'Milk');
+      await tester.pumpAndSettle();
+      expect(find.text('Bread'), findsNothing);
+
+      final milkTile = find.descendant(
+        of: find.byType(ListTile),
+        matching: find.text('Milk'),
+      );
+      await tester.drag(milkTile, const Offset(-500, 0));
+      await tester.pumpAndSettle();
+      tester.widget<SnackBar>(find.byType(SnackBar)).action!.onPressed();
+      await tester.pumpAndSettle();
+
+      expect(
+        find.descendant(of: find.byType(ListTile), matching: find.text('Milk')),
+        findsOneWidget,
+      );
+    });
   });
 }
